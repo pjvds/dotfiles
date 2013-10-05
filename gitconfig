@@ -1,3 +1,5 @@
 [user]
 	email = pj@born2code.net
 	name = Pieter Joost van de Sande
+[color]
+	ui = auto
