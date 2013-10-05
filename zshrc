@@ -50,3 +50,7 @@ export PATH=$PATH:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/s
 # rbenv
 export PATH=$HOME/.rbenv/bin:$PATH
 eval "$(rbenv init -)"
+
+# Autojump
+. /usr/share/autojump/autojump.sh
+autoload -U compinit && compinit

@@ -6,34 +6,42 @@
 #  This software controls the fan in the MacBook
 ##
 if ! hash mbpfan 2>/dev/null ; then
-	echo "Installing MacBook Fan Control Daemon"
-	sudo apt-get install build-essential
-	git clone https://github.com/dgraziotin/Fan-Control-Daemon.git $HOME/.Fan-Control-Daemon
-	cd $HOME/.Fan-Control-Daemon
-	make
-	sudo make install
-	sudo cp mbpfan.upstart /etc/init/mbpfan.conf
-	sudo start mbpfan
+    echo "Installing MacBook Fan Control Daemon"
+    sudo apt-get install build-essential
+    git clone https://github.com/dgraziotin/Fan-Control-Daemon.git $HOME/.Fan-Control-Daemon
+    cd $HOME/.Fan-Control-Daemon
+    make
+    sudo make install
+    sudo cp mbpfan.upstart /etc/init/mbpfan.conf
+    sudo start mbpfan
 else
-	echo "Skipping MacBook Fan Control Deamon... mbpfan already exists"
+    echo "Skipping MacBook Fan Control Deamon... mbpfan already exists"
 fi
 
 ##
 #  rbenv and ruby-build
 ##
 if ! hash rbenv 2>/dev/null ; then
-	echo "Installing rbenv"
-	git clone https://github.com/sstephenson/rbenv.git $HOME/.rbenv
-	git clone https://github.com/sstephenson/ruby-build.git $HOME/.rbenv/plugins/ruby-build
+    echo "Installing rbenv"
+    git clone https://github.com/sstephenson/rbenv.git $HOME/.rbenv
+    git clone https://github.com/sstephenson/ruby-build.git $HOME/.rbenv/plugins/ruby-build
 else
-	echo "Skipping rbenv... rbenv already exists"
+    echo "Skipping rbenv... rbenv already exists"
 fi
 
 ##
 #  The Ultimate Vim Distribution
 ##
 if [ ! -d "$HOME/.spf13-vim-3" ] ; then
-	echo "Installing The Ultimate Vim Distribution"
-	sudo apt-get install vim
-	curl http://j.mp/spf13-vim3 -L -o - | sh
+    echo "Installing The Ultimate Vim Distribution"
+    sudo apt-get install vim
+    curl http://j.mp/spf13-vim3 -L -o - | sh
+fi
+
+##
+#  Autojump
+##
+if ! hash autojump 2>/dev/null ; then
+    echo "Installing autojump"
+    sudo apt-get install autojump -y -qq
 fi
