@@ -25,6 +25,9 @@ if ! hash rbenv 2>/dev/null ; then
     echo "Installing rbenv"
     git clone https://github.com/sstephenson/rbenv.git $HOME/.rbenv
     git clone https://github.com/sstephenson/ruby-build.git $HOME/.rbenv/plugins/ruby-build
+
+    # Packages required by ruby
+    sudo apt-get install libssl-dev build-essential -y -qq
 else
     echo "Skipping rbenv... rbenv already exists"
 fi
