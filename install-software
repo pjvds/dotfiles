@@ -62,6 +62,9 @@ if ! hash go 2>/dev/null ; then
     mkdir -p "$HOME/go/"{src,pkg,bin}
 fi
 
+##
+#  HipChat
+##
 if ! hash hipchat 2>/dev/null ; then
     echo "Installing hipchat"
     echo "deb http://downloads.hipchat.com/linux/apt stable main" | \
