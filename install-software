@@ -61,3 +61,14 @@ if ! hash go 2>/dev/null ; then
     # Create workspace directories
     mkdir -p "$HOME/go/"{src,pkg,bin}
 fi
+
+if ! hash hipchat 2>/dev/null ; then
+    echo "Installing hipchat"
+    echo "deb http://downloads.hipchat.com/linux/apt stable main" | \
+        sudo tee "/etc/apt/sources.list.d/atlassian-hipchat.list"
+
+    wget -O - https://www.hipchat.com/keys/hipchat-linux.key | \
+        sudo apt-key add -
+    sudo apt-get update
+    sudo apt-get install hipchat 
+fi
