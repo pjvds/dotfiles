@@ -89,3 +89,16 @@ if ! hash docker 2>/dev/null ; then
     sudo apt-get update -y -qq
     sudo apt-get install lxc-docker -y -qq
 fi
+
+##
+#  SimpleScreenRecorder
+#  http://www.maartenbaert.be/simplescreenrecorder/#download
+##
+if ! hash simplescreenrecorder 2>/dev/null ; then
+    echo "Install SimpleScreenRecorder"
+    sudo add-apt-repository ppa:maarten-baert/simplescreenrecorder
+    sudo apt-get update -q
+    sudo apt-get install simplescreenrecorder -y -q
+fi
+
+
