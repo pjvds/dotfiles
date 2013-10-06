@@ -75,3 +75,17 @@ if ! hash hipchat 2>/dev/null ; then
     sudo apt-get update -y -qq
     sudo apt-get install hipchat -y -qq
 fi
+
+##
+#  Docker
+##
+if ! hash docker 2>/dev/null ; then
+    echo "Install docker"
+
+    # Enable AUFS filesystem support
+    sudo apt-get install linux-image-extra-`uname -r` -y -qq
+    sudo sh -c "curl https://get.docker.io/gpg | apt-key add -"
+    sudo sh -c "echo deb http://get.docker.io/ubuntu docker main > /etc/apt/sources.list.d/docker.list"
+    sudo apt-get update -y -qq
+    sudo apt-get install lxc-docker -y -qq
+fi
