@@ -109,3 +109,4 @@ fi
 if ! hash hg 2>/dev/null ; then
     echo "Installing mercurial"
     sudo apt-get install mercurial -y
+fi
