@@ -101,4 +101,11 @@ if ! hash simplescreenrecorder 2>/dev/null ; then
     sudo apt-get install simplescreenrecorder -y -q
 fi
 
+if ! hash bzr 2>/dev/null ; then
+    echo "Installing bzr"
+    sudo apt-get install bzr -y
+fi
 
+if ! hash hg 2>/dev/null ; then
+    echo "Installing mercurial"
+    sudo apt-get install mercurial -y
