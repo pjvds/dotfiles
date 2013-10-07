@@ -3,3 +3,5 @@
 	name = Pieter Joost van de Sande
 [color]
 	ui = auto
+[push]
+	default = simple
