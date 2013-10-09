@@ -125,3 +125,24 @@ if ! hash tig 2>/dev/null ; then
     echo "Installing tig"
     sudo apt-get install tig -y
 fi
+
+##
+#  Sublime Text 3
+##
+if ! hash subl 2>/dev/null ; then
+    echo "Installing Sublime Text"
+    sudo add-apt-repository ppa:webupd8team/sublime-text-3
+    sudo apt-get update
+    sudo apt-get install sublime-text-installer
+fi
+
+##
+#  Google's DART
+##
+if ! hash dart 2>/dev/null ; then
+    echo "Installing Dart"
+    wget -O - "https://storage.googleapis.com/dart-editor-archive-integration/latest/dartsdk-linux-64.tar.gz" | \
+        tar zvxf -
+    mv dart-sdk $HOME/
+    rm dartsdk-linux-64.tar.gz
+fi

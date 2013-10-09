@@ -56,3 +56,7 @@ eval "$(rbenv init -)"
 # Autojump
 . /usr/share/autojump/autojump.sh
 autoload -U compinit && compinit
+
+# Dart lang
+export DART_SDK=$HOME/dart-sdk
+export PATH=$PATH:$DART_SDK/bin
