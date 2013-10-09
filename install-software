@@ -146,3 +146,13 @@ if ! hash dart 2>/dev/null ; then
     mv dart-sdk $HOME/
     rm dartsdk-linux-64.tar.gz
 fi
+
+
+##
+#  Python tools
+##
+if ! hash pip 2>/dev/null ; then
+    echo "Installing python tools"
+    sudo apt-get install python-setuptools -y
+    sudo easy_install pip
+fi
