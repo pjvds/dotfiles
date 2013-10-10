@@ -1,0 +1,30 @@
+#!/bin/bash
+
+# This file links all the configuration files and directories to the known places. If a destination already exists, a backup is created.
+
+# Symbolic links must be linked to absolute paths.
+# All dotfiles should be linked from the current working directory.
+# We still need to add some validation that we current are in the dotfiles directory.
+dotfiles="$(pwd)"
+
+# Installs the file or directory with a symbolic link.
+# Two arguments are required:
+# $1: Name of the file to link, eq. gitconfig
+# $1: Destination path, eq. $HOME/.gitconfig
+function install() {
+    echo "Installing $1 to $2"
+
+    if [ -f "$2" ] ; then
+        echo "Destination $2 already exists, a backup will be created."
+        mv -f "$2" "${2}.old"
+    fi
+
+    # symbolic: make symbolic links instead of hard links
+    # force: remove existing destination files
+    ln --symbolic --force "$dotfiles/$1" "$2"
+}
+
+install "gitconfig" "$HOME/.gitconfig"
+install "fonts" "$HOME/.fonts"
+install "profile" "$HOME/.profile"
+install "zshrc" "$HOME/.zshrc"
