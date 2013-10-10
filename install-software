@@ -156,3 +156,12 @@ if ! hash pip 2>/dev/null ; then
     sudo apt-get install python-setuptools -y
     sudo easy_install pip
 fi
+
+##
+#  Wercker CLI
+##
+if ! hash wercker 2>/dev/null ; then
+    echo "Installing wercker cli"
+    sudo apt-get install python-dev -y
+    sudo pip install wercker
+fi
