@@ -1,6 +1,13 @@
 #!/bin/bash
 
 ##
+#  Regular packages
+##
+sudo apt-get update
+sudo apt-get install libssl-dev build-essential \
+                     libxslt-dev libxml2-dev -y
+
+##
 #  MacBook Fan Control Daemon
 #
 #  This software controls the fan in the MacBook
@@ -8,7 +15,7 @@
 if ! hash mbpfan 2>/dev/null ; then
     echo "Installing MacBook Fan Control Daemon"
     sudo apt-get install build-essential -y -qq
-    git clone https://github.com/dgraziotin/Fan-Control-Daemon.git $HOME/.Fan-Control-Daemon
+    git clone git@github.com:pjvds/Fan-Control-Daemon.git $HOME/.Fan-Control-Daemon
     cd $HOME/.Fan-Control-Daemon
     make
     sudo make install
@@ -25,9 +32,6 @@ if ! hash rbenv 2>/dev/null ; then
     echo "Installing rbenv"
     git clone https://github.com/sstephenson/rbenv.git $HOME/.rbenv
     git clone https://github.com/sstephenson/ruby-build.git $HOME/.rbenv/plugins/ruby-build
-
-    # Packages required by ruby
-    sudo apt-get install libssl-dev build-essential -y -qq
 else
     echo "Skipping rbenv... rbenv already exists"
 fi
