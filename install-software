@@ -169,3 +169,13 @@ if ! hash wercker 2>/dev/null ; then
     sudo apt-get install python-dev -y
     sudo pip install wercker
 fi
+
+##
+#  Polly - a multi column twitter client
+##
+if ! hash polly 2>/dev/null ; then
+    echo "Installing Polly"
+    sudo add-apt-repository ppa:conscioususer/polly-unstable
+    sudo apt-get update
+    sudo apt-get install polly
+fi
