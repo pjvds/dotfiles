@@ -106,6 +106,15 @@ if ! hash simplescreenrecorder 2>/dev/null ; then
 fi
 
 ##
+#  git
+##
+if ! hash git 2>/dev/null ; then
+    echo "Installing git"
+    sudo apt-get install git -y
+fi
+
+
+##
 #  Bazaar
 ##
 if ! hash bzr 2>/dev/null ; then
@@ -178,4 +187,12 @@ if ! hash polly 2>/dev/null ; then
     sudo add-apt-repository ppa:conscioususer/polly-unstable
     sudo apt-get update
     sudo apt-get install polly
+fi
+
+##
+# IRSSI irc client
+##
+if ! hash irssi 2>/dev/null ; then
+    ech "Installing IRSSI"
+    sudo apt-get install irssi
 fi
