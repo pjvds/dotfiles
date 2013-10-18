@@ -3,7 +3,11 @@
 ##
 #  Regular packages
 ##
-sudo apt-get update
+
+echo "Updating apt-get list..."
+sudo apt-get update -y 1>/dev/null
+echo "Done"
+
 sudo apt-get install libssl-dev build-essential \
                      libxslt-dev libxml2-dev -y
 
@@ -193,6 +197,28 @@ fi
 # IRSSI irc client
 ##
 if ! hash irssi 2>/dev/null ; then
-    ech "Installing IRSSI"
+    echo "Installing IRSSI"
     sudo apt-get install irssi
 fi
+
+##
+# Virtual Box
+##
+if ! hash virtualbox 2>/dev/null ; then
+    echo "Installing VirtualBox"
+    sudo apt-get install virtualbox -y
+fi
+
+##
+# Vagrant
+##
+if ! hash vagrant 2>/dev/null ; then
+    echo "Installing vagrant"
+    wget "http://files.vagrantup.com/packages/a40522f5fabccb9ddabad03d836e120ff5d14093/vagrant_1.3.5_x86_64.deb"
+    sudo dpkg -i vagrant_1.3.5_x86_64.deb
+    rm vagrant_1.3.5_x86_64.deb
+
+    echo "vagrant version: $(vagrant --version)"
+    echo "Done"
+fi
+
