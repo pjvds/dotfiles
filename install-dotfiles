@@ -14,7 +14,7 @@ dotfiles="$(pwd)"
 function install() {
     echo "Installing $1 to $2"
 
-    if [ -f "$2" || -d "$2" ] ; then
+    if [ -f "$2" ] || [ -d "$2" ] ; then
         echo "Destination $2 already exists, a backup will be created."
         mv -f "$2" "${2}.old"
     fi
@@ -29,3 +29,4 @@ install "fonts" "$HOME/.fonts"
 install "profile" "$HOME/.profile"
 install "zshrc" "$HOME/.zshrc"
 install "Sublime-User" "$HOME/.config/sublime-text-3/Packages/User"
+install "wercker" "$HOME/.ssh/wercker"

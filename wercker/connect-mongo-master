@@ -1,0 +1,8 @@
+#!/bin/sh
+keyfile="$HOME/.ssh/buildclient.pem"
+if [ ! -f $keyfile ] ; then
+    echo "Missing $keyfile key file in .ssh folder"
+    exit 1
+fi
+
+ssh -i "$keyfile" mongodb-01-app.wercker.com -l ubuntu

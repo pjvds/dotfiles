@@ -1,0 +1,7 @@
+#!/bin/sh
+if [ ! -f ~/.ssh/wercker-us-west1.pem ] ; then
+    echo "Missing wercker-us-west1.pem key file in .ssh folder"
+    exit 1
+fi
+
+ssh -i ~/.ssh/wercker-us-west1.pem -L 27017:localhost:27017 mongodb-03-app.wercker.com -l ubuntu
