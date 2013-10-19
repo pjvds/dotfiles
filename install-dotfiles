@@ -20,8 +20,7 @@ function install() {
     fi
 
     # symbolic: make symbolic links instead of hard links
-    # force: remove existing destination files
-    ln --symbolic --force "$dotfiles/$1" "$2"
+    ln --symbolic "$dotfiles/$1" "$2"
 }
 
 install "gitconfig" "$HOME/.gitconfig"
