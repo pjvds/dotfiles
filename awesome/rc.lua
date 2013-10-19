@@ -516,8 +516,12 @@ awful.rules.rules = {
     { rule = { class = "gimp" },
       properties = { floating = true } },
     -- Set Firefox to always map on tags number 2 of screen 1.
-    -- { rule = { class = "Firefox" },
-    --   properties = { tag = tags[1][2] } },
+    { rule = { class = "Firefox" },
+       properties = { tag = tags[1][2] } },
+    { rule = { class = "Spofity" },
+       properties = { tag = tags[1][4] } },
+    { rule = { class = "HipChat" },
+       properties = { tag = tags[1][3] } },
 }
 -- }}}
 
@@ -601,13 +605,6 @@ function run_once(cmd)
         end
         awful.util.spawn_with_shell("pgrep -u $USER -x " .. findme .. " > /dev/null || (" .. cmd .. ")")
 end
-
--- {{ I need redshift to save my eyes }} -
-run_once("redshift -l 49.26:-123.23")
-awful.util.spawn_with_shell("xmodmap ~/.speedswapper")
-
--- {{ Turns off the terminal bell }} --
-awful.util.spawn_with_shell("/usr/bin/xset b off")
 
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
