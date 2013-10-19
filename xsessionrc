@@ -1,7 +1,8 @@
-gnome-settings-daemon &      # handles themes, starts gnome-screensaver. You may have to use gconf to disable it setting the background.
-nm-applet &                  # assuming you're using Network Manager
-#synapse -s &                 # for launching application
-eval `ssh-agent -s`          # SSH/GPG agent
+gnome-settings-daemon &                             # handles themes, starts gnome-screensaver. You may have to use gconf to disable it setting the background.
+nm-applet &                                         # assuming you're using Network Manager
+#synapse -s &                                       # for launching application
+eval `ssh-agent -s`                                 # SSH/GPG agent
+redshift -l 52.53:05.72 -l manual &                 # redshift to save my eyes
 
 # Find primary display
 export X_PRIMARY_DISPLAY=$(xrandr -q | grep '\bconnected' | grep 'eDP' | awk '{print $1}')
