@@ -252,7 +252,12 @@ globalkeys = awful.util.table.join(
                   mypromptbox[mouse.screen].widget,
                   awful.util.eval, nil,
                   awful.util.getdir("cache") .. "/history_eval")
-              end)
+              end),
+
+    -- Multimedia keys
+    awful.key({ }, "XF86AudioMute",           function () awful.util.spawn("amixer set Master 0") end),
+    awful.key({ }, "XF86AudioRaiseVolume",    function () awful.util.spawn("amixer set Master 2+") end),
+    awful.key({ }, "XF86AudioLowerVolume",    function () awful.util.spawn("amixer set Master 2-") end) 
 )
 
 clientkeys = awful.util.table.join(
