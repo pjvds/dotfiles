@@ -1,12 +1,12 @@
 {
-	"color_scheme": "Packages/Color Scheme - Default/LAZY.tmTheme",
-	"font_face": "Monaco",
-	"font_size": 11,
-	"hot_exit": false,
-	"ignored_packages":
-	[
-		"Vintage"
-	],
-	"remember_open_files": false,
-	"theme": "Soda Light 3.sublime-theme"
+        "color_scheme": "Packages/Color Scheme - Default/LAZY.tmTheme",
+        "font_face": "Monaco",
+        "font_size": 11,
+        "hot_exit": false,
+        "ignored_packages":
+        [
+                "Vintage"
+        ],
+        "remember_open_files": false,
+        "theme": "Soda Light 3.sublime-theme"
 }
