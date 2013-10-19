@@ -1,7 +1,7 @@
 gnome-settings-daemon &      # handles themes, starts gnome-screensaver. You may have to use gconf to disable it setting the background.
 nm-applet &                  # assuming you're using Network Manager
-synapse -s &                 # for launching application
-eval `gnome-keyring-daemon`  # SSH/GPG agent
+#synapse -s &                 # for launching application
+eval `ssh-agent -s`          # SSH/GPG agent
 
 # Find primary display
 export X_PRIMARY_DISPLAY=$(xrandr -q | grep '\bconnected' | grep 'eDP' | awk '{print $1}')
