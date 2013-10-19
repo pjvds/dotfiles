@@ -396,7 +396,7 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, }, "Return", function () awful.util.spawn(terminal) end),
     awful.key({ modkey, "Control" }, "r", awesome.restart),
     awful.key({ modkey, "Shift" }, "q", awesome.quit),
-    awful.key({ modkey,          }, "e",  function() client.focus = awful.client.getmaster(); client.focus:raise() end),
+    awful.key({ modkey, }, "e",  function() client.focus = awful.client.getmaster(); client.focus:raise() end),
     awful.key({ modkey, }, "l", function () awful.tag.incmwfact( 0.05) end),
     awful.key({ modkey, }, "h", function () awful.tag.incmwfact(-0.05) end),
     awful.key({ modkey, "Shift" }, "h", function () awful.tag.incnmaster( 1) end),
@@ -433,6 +433,11 @@ clientkeys = awful.util.table.join(
     awful.key({ modkey, }, "o", awful.client.movetoscreen ),
     awful.key({ modkey, "Shift" }, "r", function (c) c:redraw() end),
     awful.key({ modkey, }, "t", function (c) c.ontop = not c.ontop end),
+    awful.key({ modkey, "Shift" }, "e",  
+        function(c)
+          master = awful.client.getmaster()
+          master:swap(c)
+        end),
     awful.key({ modkey, }, "n",
         function (c)
             -- The client currently has the input focus, so it cannot be
