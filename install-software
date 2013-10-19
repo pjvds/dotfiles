@@ -222,3 +222,10 @@ if ! hash vagrant 2>/dev/null ; then
     echo "Done"
 fi
 
+##
+# FileZilla
+##
+if ! hash filezilla 2>/dev/null ; then
+    echo "Installing filezilla"
+    sudo apt-get install filezilla
+fi
