@@ -255,7 +255,7 @@ globalkeys = awful.util.table.join(
               end),
 
     -- Multimedia keys
-    awful.key({ }, "XF86AudioMute",           function () awful.util.spawn("amixer set Master 0") end),
+    awful.key({ }, "XF86AudioMute",           function () awful.util.spawn("amixer sset Master toggle") end),
     awful.key({ }, "XF86AudioRaiseVolume",    function () awful.util.spawn("amixer set Master 2+") end),
     awful.key({ }, "XF86AudioLowerVolume",    function () awful.util.spawn("amixer set Master 2-") end) 
 )
@@ -344,6 +344,8 @@ awful.rules.rules = {
       properties = { floating = true } },
     { rule = { class = "gimp" },
       properties = { floating = true } },
+    { rule = { instance = "plugin-container" },
+      properties = { floating = true, fullscreen = true } },
     -- Set Firefox to always map on tags number 2 of screen 1.
     -- { rule = { class = "Firefox" },
     --   properties = { tag = tags[1][2] } },
