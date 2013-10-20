@@ -229,3 +229,12 @@ if ! hash filezilla 2>/dev/null ; then
     echo "Installing filezilla"
     sudo apt-get install filezilla
 fi
+
+##
+# Unclutter
+# Hides the mouse when typing and idling
+##
+if ! hash unclutter 2>/dev/null ; then
+    echo "Installing unclutter"
+    sudo apt-get install unclutter -y
+fi
