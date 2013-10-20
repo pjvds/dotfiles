@@ -522,6 +522,9 @@ awful.rules.rules = {
        properties = { tag = tags[1][4] } },
     { rule = { class = "HipChat" },
        properties = { tag = tags[1][3] } },
+    -- Allow fullscreen flash video's.
+    { rule = { instance = "plugin-container" },
+       properties = { floating = true, focus = yes } },
 }
 -- }}}
 
