@@ -1,0 +1,8 @@
+" Set GUI options
+set gui=none
+
+" Use the alphabets at the hint mode
+set hintchars=ifjklasdweuocvbnm
+
+" Finish
+echo ".vimperatorrc sourced"
