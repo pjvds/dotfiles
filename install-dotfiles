@@ -16,6 +16,7 @@ function install() {
 
     if [ -f "$2" ] || [ -d "$2" ] ; then
         echo "Destination $2 already exists, a backup will be created."
+        echo "$2 -> ${2}.old"
         mv -f "$2" "${2}.old"
     fi
 
@@ -31,3 +32,4 @@ install "Sublime-User" "$HOME/.config/sublime-text-3/Packages/User"
 install "wercker" "$HOME/.ssh/wercker"
 install "xsessionrc" "$HOME/.xsessionrc"
 install "awesome" "$HOME/.config/awesome"
+install "irssi" "$HOME/.irssi"
