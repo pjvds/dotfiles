@@ -161,7 +161,6 @@ if ! hash dart 2>/dev/null ; then
     wget -O - "https://storage.googleapis.com/dart-editor-archive-integration/latest/dartsdk-linux-64.tar.gz" | \
         tar zvxf -
     mv dart-sdk $HOME/
-    rm dartsdk-linux-64.tar.gz
 fi
 
 
@@ -237,4 +236,23 @@ fi
 if ! hash unclutter 2>/dev/null ; then
     echo "Installing unclutter"
     sudo apt-get install unclutter -y
+fi
+
+##
+# Awesome!
+##
+if ! hash awesome 2>/dev/null ; then
+    echo "Installing awesomewm"
+    sudo add-apt-repository ppa:klaus-vormweg/awesome
+    sudo apt-get update
+
+    sudo apt-get install awesome awesome-extra
+fi
+
+##
+# zsh
+##
+if ! hash zsh 2>/dev/null ; then
+    echo "Installing zsh"
+    sudo apt-get install zsh
 fi
