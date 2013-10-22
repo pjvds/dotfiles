@@ -250,6 +250,14 @@ if ! hash awesome 2>/dev/null ; then
 fi
 
 ##
+# Terminator, the terminal I prefer
+##
+if ! hash terminator 2>/dev/null ; then
+    echo "Installing terminator"
+    sudo apt-get install terminator
+fi
+
+##
 # zsh
 ##
 if ! hash zsh 2>/dev/null ; then
