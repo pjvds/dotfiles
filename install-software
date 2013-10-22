@@ -294,12 +294,12 @@ if ! hash packer 2>/dev/null ; then
     sudo unzip 0.3.10_linux_amd64.zip -d /usr/local/packer
 fi
 
-if ! dpkg --get-selections | grep nvidia-319 ; then
+if ! dpkg --get-selections | grep nvidia-319 1>/dev/null ; then
     echo "Installing nvidia-319 drivers"
     sudo apt-get install nvidia-319
 fi
 
-if ! dpkg --get-selections | grep nvidia-settings-319 ; then
+if ! dpkg --get-selections | grep nvidia-settings-319 1>/dev/null ; then
     echo "Installing nvidia-settings-319"
     sudo apt-get install nvidia-settings-319
 fi
