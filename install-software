@@ -273,3 +273,12 @@ if [ ! -d "$HOME/.oh-my-zsh" ] ; then
     echo "Install oh-my-zsh"
     git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
 fi
+
+##
+#  Synapse
+#  quick launch tool
+##
+if ! hash synapse 2>/dev/null ; then
+    echo "Installing synapse"
+    sudo apt-get install synapse
+fi
