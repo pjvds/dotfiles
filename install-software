@@ -3,6 +3,7 @@
 ##
 #  Regular packages
 ##
+set -e
 
 echo "Updating apt-get list..."
 sudo apt-get update -y 1>/dev/null

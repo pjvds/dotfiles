@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 # This file links all the configuration files and directories to the known places. If a destination already exists, a backup is created.
 
