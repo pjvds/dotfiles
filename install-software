@@ -263,4 +263,13 @@ fi
 if ! hash zsh 2>/dev/null ; then
     echo "Installing zsh"
     sudo apt-get install zsh
+    sudo chsh -s /usr/bin/zsh
+fi
+
+##
+# oh-my-zsh
+##
+if [ ! -d "$HOME/.oh-my-zsh" ] ; then
+    echo "Install oh-my-zsh"
+    git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
 fi
