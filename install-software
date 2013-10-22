@@ -282,3 +282,24 @@ if ! hash synapse 2>/dev/null ; then
     echo "Installing synapse"
     sudo apt-get install synapse
 fi
+
+##
+# Packer
+# Tool to automate provisioning
+##
+if ! hash packer 2>/dev/null ; then
+    echo "Installing packer"
+    wget https://dl.bintray.com/mitchellh/packer/0.3.10_linux_amd64.zip
+    sudo mkdir /usr/local/packer
+    sudo unzip 0.3.10_linux_amd64.zip -d /usr/local/packer
+fi
+
+if ! dpkg --get-selections | grep nvidia-319 ; then
+    echo "Installing nvidia-319 drivers"
+    sudo apt-get install nvidia-319
+fi
+
+if ! dpkg --get-selections | grep nvidia-settings-319 ; then
+    echo "Installing nvidia-settings-319"
+    sudo apt-get install nvidia-settings-319
+fi
