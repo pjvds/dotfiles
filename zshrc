@@ -13,6 +13,13 @@ ZSH_THEME="robbyrussell"
 
 alias gs="git status"
 
+# Run a docker container and store it in CONTAINER_ID
+dr() {
+    export CONTAINER_ID=$(sudo docker run -i -t $1 /bin/bash)
+    echo $CONTAINER_ID
+}
+
+
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
 
