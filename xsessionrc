@@ -1,3 +1,4 @@
+nvidia-settings -l
 gnome-settings-daemon &                             # handles themes, starts gnome-screensaver. You may have to use gconf to disable it setting the background.
 nm-applet &                                         # assuming you're using Network Manager
 #synapse -s &                                       # for launching application
@@ -6,15 +7,15 @@ redshift -l 52.53:05.72 -l manual &                 # redshift to save my eyes
 unclutter &                                         # unclutter hides the mouse when idle
 
 # Find primary display
-export X_PRIMARY_DISPLAY=$(xrandr -q | grep '\bconnected' | grep 'eDP' | awk '{print $1}')
-if [ $X_PRIMARY_DISPLAY ] ; then
-    xrandr --output $X_PRIMARY_DISPLAY --mode 1920x1200
-fi
+#export X_PRIMARY_DISPLAY=$(xrandr -q | grep '\bconnected' | grep 'eDP' | awk '{print $1}')
+#if [ $X_PRIMARY_DISPLAY ] ; then
+#    xrandr --output $X_PRIMARY_DISPLAY --mode 1920x1200
+#fi
 
 # Find secondary display
-export X_SECONDARY_DISPLAY=$(xrandr -q | grep '\bconnected' | grep '\bDP' | awk '{print $1}')
-if [ $X_SECONDARY_DISPLAY ] ; then
-     xrandr --output $X_SECONDARY_DISPLAY --mode 2560x1440 --left-of $X_PRIMARY_DISPLAY
-fi
+#export X_SECONDARY_DISPLAY=$(xrandr -q | grep '\bconnected' | grep '\bDP' | awk '{print $1}')
+#if [ $X_SECONDARY_DISPLAY ] ; then
+#     xrandr --output $X_SECONDARY_DISPLAY --mode 2560x1440 --left-of $X_PRIMARY_DISPLAY
+#fi
 
 #exec awesome                 # awesome receives xinit's process id; when it terminates, X will be terminated
