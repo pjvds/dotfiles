@@ -522,6 +522,8 @@ awful.rules.rules = {
        properties = { tag = tags[1][4] } },
     { rule = { class = "HipChat" },
        properties = { tag = tags[1][3] } },
+    { rule = { class = "Nvidia-settings" },
+       properties = { floating = true, focus = yes } },
     -- Allow fullscreen flash video's.
     { rule = { instance = "plugin-container" },
        properties = { floating = true, focus = yes } },
