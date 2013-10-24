@@ -313,3 +313,10 @@ if ! hash redshift 2>/dev/null ; then
     echo "Installing redshift"
     sudo apt-get install redshift
 fi
+
+if ! hash disper 2>/dev/null ; then
+    echo "Installing disper"
+    wget http://ppa.launchpad.net/disper-dev/ppa/ubuntu/pool/main/d/disper/disper_0.3.1.tar.gz
+    tar -xzf disper_0.3.1.tar.gz
+    rm disper_0.3.1.tar.gz
+fi
