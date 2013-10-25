@@ -509,24 +509,22 @@ awful.rules.rules = {
                      focus = awful.client.focus.filter,
                      keys = clientkeys,
                      buttons = clientbuttons } },
-    { rule = { class = "MPlayer" },
-      properties = { floating = true } },
-    { rule = { class = "pinentry" },
-      properties = { floating = true } },
     { rule = { class = "gimp" },
       properties = { floating = true } },
     -- Set Firefox to always map on tags number 2 of screen 1.
-    { rule = { class = "Firefox" },
-       properties = { tag = tags[1][2] } },
+    -- { rule = { class = "Firefox" },
+    --    properties = { tag = tags[1][2] } },
     { rule = { class = "Spofity" },
        properties = { tag = tags[1][4] } },
     { rule = { class = "HipChat" },
        properties = { tag = tags[1][3] } },
-    { rule = { class = "Nvidia-settings" },
-       properties = { floating = true, focus = yes } },
+    --{ rule = { class = "Nvidia-settings" },
+    --   properties = { floating = true, focus = yes } },
     -- Allow fullscreen flash video's.
     { rule = { instance = "plugin-container" },
        properties = { floating = true, focus = yes } },
+    { rule = { instance = "Confirm ModeSwitch" },
+       properties = { floating = true, forus = yes } },
 }
 -- }}}
 
@@ -614,3 +612,9 @@ end
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
+
+run_once("gnome-settings-daemon")
+run_once("nvidia-settings -l")
+run_once("nm-applet")
+run_once("unclutter")
+run_once("redshift -l 52.53:05.72 -l manual")
