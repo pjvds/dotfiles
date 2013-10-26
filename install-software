@@ -295,16 +295,6 @@ if ! hash packer 2>/dev/null ; then
     sudo unzip 0.3.10_linux_amd64.zip -d /usr/local/packer
 fi
 
-if ! dpkg --get-selections | grep nvidia-319 1>/dev/null ; then
-    echo "Installing nvidia-319 drivers"
-    sudo apt-get install nvidia-319
-fi
-
-if ! dpkg --get-selections | grep nvidia-settings-319 1>/dev/null ; then
-    echo "Installing nvidia-settings-319"
-    sudo apt-get install nvidia-settings-319
-fi
-
 ##
 # redshift
 # Tool to save my eyes
@@ -327,4 +317,14 @@ if ! hash spotify 2>/dev/null ; then
     sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 94558F59
     sudo apt-get update
     sudo apt-get install spotify-client
+fi
+
+if ! hash dropbox 2>/dev/null ; then
+    echo "Installing dropbox"
+    wget -O dropbox_1.6.0_amd64.deb https://www.dropbox.com/download?dl=packages/ubuntu/dropbox_1.6.0_amd64.deb
+    sudo dpkg -i dropbox_1.6.0_amd64.deb
+    rm dropbox_1.6.0_amd64.deb
+    mkdir $HOME/Dropbox
+
+    dropbox start -i
 fi
