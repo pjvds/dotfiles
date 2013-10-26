@@ -12,6 +12,7 @@ local naughty = require("naughty")
 local menubar = require("menubar")
 local vicious = require("vicious")
 
+
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
@@ -600,24 +601,40 @@ end)
 -- {{ Function to ensure that certain programs only have one
 -- instance of themselves when i restart awesome
 
-function run_once(cmd)
-        findme = cmd
-        firstspace = cmd:find(" ")
-        if firstspace then
-                findme = cmd:sub(0, firstspace-1)
-        end
-        awful.util.spawn_with_shell("pgrep -u $USER -x " .. findme .. " > /dev/null || (" .. cmd .. ")")
+-- This function will be used to autostart applications
+-- It will only run applications not already running
+-- it should also be able to discern between users' apps
+function run_once(prg,arg_string,pname,screen)
+    if not prg then
+        do return nil end
+    end
+
+    if not pname then
+        pname = prg
+    end
+
+    awful.util.spawn_with_shell("echo '" .. prg .. "pid if already running:'")
+
+    if not arg_string then
+-- awful.util.spawn_with_shell("pgrep -f -u $USER -x '" .. pname .. "' || (" .. prg .. ")",screen)
+        awful.util.spawn_with_shell("pgrep -u $USER -x '" .. pname .. "' || (" .. prg .. ")",screen)
+    else
+-- awful.util.spawn_with_shell("pgrep -f -u $USER -x '" .. pname .. "' || (" .. prg .. " " .. arg_string .. ")",screen)
+        awful.util.spawn_with_shell("pgrep -u $USER -x '" .. pname .. "' || (" .. prg .. " " .. arg_string .. ")",screen)
+    end
 end
+run_once("gnome-settings-daemon")
+run_once("nvidia-settingsi", "-l")
+run_once("nm-applet", nil,nil,1)
+run_once("unclutter")
+run_once("dropbox", "start")
+run_once("redshift")
 
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
 
-run_once("redshift -l 52.53:05.72 -l manual")
-run_once("gnome-settings-daemon")
-run_once("nvidia-settings -l")
-run_once("nm-applet")
-run_once("unclutter")
-run_once("dropbox start")
-
-awesome.connect_signal("exit", function() awful.util.spawn_with_shell("if pgrep redshift ; then kill pgrep redshift ; fi") end)
+awesome.connect_signal("exit", function() 
+    awful.util.spawn_with_shell("dropbox stop")
+    awful.util.spawn_with_shell("if pgrep redshift ; then kill $(pgrep redshift); fi")
+end)
