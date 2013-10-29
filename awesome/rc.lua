@@ -525,7 +525,9 @@ awful.rules.rules = {
     { rule = { instance = "plugin-container" },
        properties = { floating = true, focus = yes } },
     { rule = { instance = "Confirm ModeSwitch" },
-       properties = { floating = true, forus = yes } },
+       properties = { floating = true, focus = yes } },
+    { rule = { class = "Skype"} ,
+       properties = { floating = true, focus = yes } },
 }
 -- }}}
 
@@ -623,13 +625,6 @@ function run_once(prg,arg_string,pname,screen)
         awful.util.spawn_with_shell("pgrep -u $USER -x '" .. pname .. "' || (" .. prg .. " " .. arg_string .. ")",screen)
     end
 end
-run_once("gnome-settings-daemon")
-run_once("nvidia-settingsi", "-l")
-run_once("nm-applet", nil,nil,1)
-run_once("unclutter")
-run_once("dropbox", "start")
-run_once("redshift")
-
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
@@ -638,3 +633,10 @@ awesome.connect_signal("exit", function()
     awful.util.spawn_with_shell("dropbox stop")
     awful.util.spawn_with_shell("if pgrep redshift ; then kill $(pgrep redshift); fi")
 end)
+
+run_once("nice", "-n19 redhshift -c /home/pjvds/.config/redshift.conf", "redshift")
+run_once("gnome-settings-daemon")
+--run_once("nvidia-settingsi", "-l")
+run_once("nm-applet", nil,nil,1)
+run_once("unclutter")
+run_once("dropbox", "start")
