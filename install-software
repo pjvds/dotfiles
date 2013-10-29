@@ -328,3 +328,10 @@ if ! hash dropbox 2>/dev/null ; then
 
     dropbox start -i
 fi
+
+if ! hash google-chrome 2>/dev/null ; then
+    echo "Installing chrome"
+    wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+    sudo dpkg -i google-chrome-stable_current_amd64.deb
+    rm google-chrome-stable_current_amd64.deb
+fi
