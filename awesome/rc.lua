@@ -528,6 +528,8 @@ awful.rules.rules = {
        properties = { floating = true, focus = yes } },
     { rule = { class = "Skype"} ,
        properties = { floating = true, focus = yes } },
+    { rule = { class = "Shutter" },
+       properties = { floating = true, focus = yes } },
 }
 -- }}}
 
@@ -634,7 +636,7 @@ awesome.connect_signal("exit", function()
     awful.util.spawn_with_shell("if pgrep redshift ; then kill $(pgrep redshift); fi")
 end)
 
-run_once("nice", "-n19 redhshift -c /home/pjvds/.config/redshift.conf", "redshift")
+run_once("redshift", "-c '/home/pjvds/.config/redshift.conf' &")
 run_once("gnome-settings-daemon")
 --run_once("nvidia-settingsi", "-l")
 run_once("nm-applet", nil,nil,1)
