@@ -1,0 +1,2 @@
+" Syntax highlighting
+Bundle 'honza/dockerfile.vim'
