@@ -335,3 +335,12 @@ if ! hash google-chrome 2>/dev/null ; then
     sudo dpkg -i google-chrome-stable_current_amd64.deb
     rm google-chrome-stable_current_amd64.deb
 fi
+
+if ! hash ctags 2>/dev/null ; then
+    sudo apt-get install ctags-exuberant -y
+fi
+
+if ! hash gotags 2>/dev/null ; then
+    go get -u github.com/jstemmer/gotags
+    go install github.com/jstemmer/gotags
+fi
