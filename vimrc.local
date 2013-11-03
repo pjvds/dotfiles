@@ -1,0 +1,55 @@
+set expandtab "Use :retab to replace tabs with spaces
+set clipboard=unnamed " Default to copy to system clipboard
+
+let g:indent_guides_enable_on_vim_startup = 0 " Disable indent color blocks
+
+" Set colors
+set background=light
+colors wombat256
+
+" Go
+au FileType go au BufWritePre <buffer> Fmt
+if !exists('g:neocomplcache_omni_patterns')
+    let g:neocomplcache_omni_patterns = {}
+endif
+if !exists('g:neocomplcache_force_omni_patterns')
+    let g:neocomplcache_force_omni_patterns = {}
+endif
+
+autocmd FileType go setlocal omnifunc=gocomplete#Complete
+let g:neocomplcache_omni_patterns.go = '[^. \t].\w|\h\w*::'
+let g:neocomplcache_force_omni_patterns.go = '[^. \t].\w|\h\w*::'
+
+" Go tags
+let g:tagbar_type_go = {
+    \ 'ctagstype' : 'go',
+    \ 'kinds'     : [
+        \ 'p:package',
+        \ 'i:imports:1',
+        \ 'c:constants',
+        \ 'v:variables',
+        \ 't:types',
+        \ 'n:interfaces',
+        \ 'w:fields',
+        \ 'e:embedded',
+        \ 'm:methods',
+        \ 'r:constructor',
+        \ 'f:functions'
+    \ ],
+    \ 'sro' : '.',
+    \ 'kind2scope' : {
+        \ 't' : 'ctype',
+        \ 'n' : 'ntype'
+    \ },
+    \ 'scope2kind' : {
+        \ 'ctype' : 't',
+        \ 'ntype' : 'n'
+    \ },
+    \ 'ctagsbin'  : 'gotags',
+    \ 'ctagsargs' : '-sort -silent'
+\ }
+
+" Update ctags when saving Go source file
+au BufWritePost *.go silent! !ctags -R &
+
+
