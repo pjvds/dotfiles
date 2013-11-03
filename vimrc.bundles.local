@@ -1,2 +1,5 @@
+" Specify only the groups we want to enable
+let g:spf13_bundle_groups=['general', 'neocomplcache', 'programming', 'go', 'javascript', 'misc']
+
 " Syntax highlighting
 Bundle 'honza/dockerfile.vim'
