@@ -5,7 +5,9 @@ ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="robbyrussell"
+#ZSH_THEME="robbyrussell"
+ZSH_THEME="awesomepanda"
+export TERM="xterm-256color"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -15,9 +17,12 @@ alias gs="git status"
 
 # Run a docker container and store it in CONTAINER_ID
 dr() {
-    sudo docker run -i -t $1 /bin/bash
+    sudo docker run -i -t -cidfile="$HOME/.container-id" -entrypoint="/bin/bash" $1
+    cat $HOME/.container-id
+    sudo rm $HOME/.container-id
 }
 
+export EDITOR=vim   
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -48,7 +53,7 @@ DISABLE_CORRECTION="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git)
+plugins=(git github svn)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -69,3 +74,8 @@ autoload -U compinit && compinit
 # Dart lang
 export DART_SDK=$HOME/dart-sdk
 export PATH=$PATH:$DART_SDK/bin
+
+# Go
+export GOPATH="$HOME/go"
+export GOROOT="/usr/local/go"
+export PATH="$GOROOT/bin:$GOPATH/bin:$PATH"

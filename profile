@@ -20,11 +20,3 @@ fi
 if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
-
-export EDITOR=vim	
-
-# Go
-export GOPATH="$HOME/go"
-export GOROOT="/usr/local/go"
-export PATH="$GOROOT/bin:$GOPATH/bin:$PATH"
-
