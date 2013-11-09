@@ -107,8 +107,8 @@ end
  -- {{{ Tags
  -- Define a tag table which will hold all screen tags.
  tags = {
-   names  = { "dev", "www", "im", "music", "office"  },
-   layout = { layouts[2], layouts[1], layouts[2], layouts[2], layouts[2]
+   names  = { "dev1", "dev2", "www", "im", "music", "office"  },
+   layout = { layouts[2], layouts[2], layouts[1], layouts[2], layouts[2], layouts[2]
  }}
  for s = 1, screen.count() do
      -- Each screen has its own tag table.
@@ -516,9 +516,9 @@ awful.rules.rules = {
     -- { rule = { class = "Firefox" },
     --    properties = { tag = tags[1][2] } },
     { rule = { class = "Spofity" },
-       properties = { tag = tags[1][4] } },
+       properties = { tag = tags[1]["music"] } },
     { rule = { class = "HipChat" },
-       properties = { tag = tags[1][3] } },
+       properties = { tag = tags[1]["im"] } },
     --{ rule = { class = "Nvidia-settings" },
     --   properties = { floating = true, focus = yes } },
     -- Allow fullscreen flash video's.
@@ -641,5 +641,5 @@ run_once("nvidia-settingsi", "-l")
 run_once("nm-applet", nil,nil,1)
 run_once("unclutter")
 run_once("dropbox", "start")
-run_once("xrandr --output DP2 --scale 0.6666x0.6666")
 run_once("redshift", "-c '/home/pjvds/.config/redshift.conf' &")
+awful.util.spawn_with_shell("xrandr --output DP2 --scale '0.6666x0.6666'")
