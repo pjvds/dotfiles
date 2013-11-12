@@ -1,5 +1,6 @@
 set expandtab "Use :retab to replace tabs with spaces
 set clipboard=unnamed " Default to copy to system clipboard
+set nospell " Disable spell checking by default
 
 let g:indent_guides_enable_on_vim_startup = 0 " Disable indent color blocks
 
