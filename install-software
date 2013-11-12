@@ -344,3 +344,7 @@ if ! hash gotags 2>/dev/null ; then
     go get -u github.com/jstemmer/gotags
     go install github.com/jstemmer/gotags
 fi
+
+if ! hash vlc 2>/dev/null ; then
+    sudo apt-get install -y vlc
+fi
