@@ -2,6 +2,12 @@ set expandtab "Use :retab to replace tabs with spaces
 set clipboard=unnamed " Default to copy to system clipboard
 set nospell " Disable spell checking by default
 
+" Set word wrap
+" See: http://vim.wikia.com/wiki/Word_wrap_without_line_breaks
+set wrap
+set linebreak
+set nolist  " list disables linebreak"
+
 let g:indent_guides_enable_on_vim_startup = 0 " Disable indent color blocks
 
 " Set colors
