@@ -185,7 +185,7 @@ vicious.register( batwidget, vicious.widgets.bat, '<span background="#92B0A0" fo
 fswidget = wibox.widget.textbox()
 
 vicious.register(fswidget, vicious.widgets.fs,
-'<span background="#D0785D" font="Inconsolata 11"> <span font="Inconsolata 11" color="#EEEEEE">${/ used_gb} / ${/ avail_gb} GB </span></span>', 800)
+'<span background="#D0785D" font="Inconsolata 11"> <span font="Inconsolata 11" color="#EEEEEE">${/ avail_gb} / ${/ used_gb} GB </span></span>', 800)
 
 fsicon = wibox.widget.imagebox()
 fsicon:set_image(beautiful.fsicon)
