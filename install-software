@@ -353,11 +353,4 @@ if ! hash lynx 2>/dev/null ; then
     sudo apt-get install lynx -y
 fi
 
-if ! hash rdio 2>/dev/null ; then
-    sudo add-apt-repository ppa:sgringwe/rdio -y
-    sudo apt-get update
-
-    sudo apt-get install rdio
-fi
-
 sudo apt-get autoremove -y -qq
