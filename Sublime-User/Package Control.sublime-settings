@@ -1,6 +1,8 @@
 {
 	"installed_packages":
 	[
+		"Better CoffeeScript",
+		"Dockerfile Syntax Highlighting",
 		"GitGutter",
 		"GoSublime",
 		"Solarized Color Scheme",
