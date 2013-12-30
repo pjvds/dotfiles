@@ -79,3 +79,5 @@ export PATH=$PATH:$DART_SDK/bin
 export GOPATH="$HOME/go"
 export GOROOT="/usr/local/go"
 export PATH="$GOROOT/bin:$GOPATH/bin:$PATH"
+
+[ -s $HOME/.nvm/nvm.sh ] && . $HOME/.nvm/nvm.sh # This loads NVM
