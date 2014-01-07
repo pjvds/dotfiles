@@ -526,8 +526,8 @@ awful.rules.rules = {
        properties = { floating = true, focus = yes } },
     { rule = { instance = "Confirm ModeSwitch" },
        properties = { floating = true, focus = yes } },
-    { rule = { class = "Skype"} ,
-       properties = { floating = true, focus = yes } },
+    -- { rule = { class = "Skype"} ,
+    --    properties = { floating = true, focus = yes } },
     { rule = { class = "Shutter" },
        properties = { floating = true, focus = yes } },
 }
