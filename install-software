@@ -1,34 +1,53 @@
 #!/bin/bash
+set -e
+
+function finish {
+    echo "Last command ${!!} finished with $?"
+    echo "Bye!"
+    exit $?
+}
+trap finish EXIT
 
 ##
 #  Regular packages
 ##
-set -e
-
 echo "Updating apt-get list..."
 sudo apt-get update -y 1>/dev/null
 echo "Done"
 
+echo "Installing base packages"
 sudo apt-get install libssl-dev build-essential \
-                     libxslt-dev libxml2-dev -y
+                     libxslt-dev libxml2-dev \
+                     wget curl \
+                     -y -qq
+echo "Done"
+
 
 ##
-#  MacBook Fan Control Daemon
-#
-#  This software controls the fan in the MacBook
+#  ZSH
 ##
-if ! hash mbpfan 2>/dev/null ; then
-    echo "Installing MacBook Fan Control Daemon"
-    sudo apt-get install build-essential -y -qq
-    git clone git@github.com:pjvds/Fan-Control-Daemon.git $HOME/.Fan-Control-Daemon
-    cd $HOME/.Fan-Control-Daemon
-    make
-    sudo make install
-    sudo cp mbpfan.upstart /etc/init/mbpfan.conf
-    sudo start mbpfan
+if ! hash zsh 2>/dev/null ; then
+    echo "Installing zsh"
+    sudo apt-get install zsh
+    curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
 else
-    echo "Skipping MacBook Fan Control Deamon... mbpfan already exists"
+    echo "Skipping zsh... zsh already exists"
 fi
+
+##
+# Awesome!
+##
+if ! hash awesome 2>/dev/null ; then
+    echo "Installing awesomewm"
+    sudo add-apt-repository ppa:klaus-vormweg/awesome -y
+    sudo apt-get update -y -qq
+
+    sudo apt-get install awesome awesome-extra -y -qq
+    echo "Done"
+else
+    echo "Skipping awesome, already installed"
+fi
+
 
 ##
 #  rbenv and ruby-build
@@ -59,30 +78,18 @@ if ! hash autojump 2>/dev/null ; then
 fi
 
 ##
-#  Go 1.1.2
+#  Go 1.2
 ##
 if ! hash go 2>/dev/null ; then
-    echo "Installing Google's Go"
-    wget https://go.googlecode.com/files/go1.1.2.linux-amd64.tar.gz
-    sudo tar -C /usr/local -xzf go1.1.2.linux-amd64.tar.gz
-    rm go1.1.2.linux-amd64.tar.gz
+    version="1.2"
+    echo "Installing Google's Go ${version}"
+
+    wget "https://go.googlecode.com/files/go${version}.linux-amd64.tar.gz"
+    sudo tar -C /usr/local -xzf "go${version}.linux-amd64.tar.gz"
+    rm "go${version}.linux-amd64.tar.gz"
 
     # Create workspace directories
     mkdir -p "$HOME/go/"{src,pkg,bin}
-fi
-
-##
-#  HipChat
-##
-if ! hash hipchat 2>/dev/null ; then
-    echo "Installing hipchat"
-    echo "deb http://downloads.hipchat.com/linux/apt stable main" | \
-        sudo tee "/etc/apt/sources.list.d/atlassian-hipchat.list"
-
-    wget -O - https://www.hipchat.com/keys/hipchat-linux.key | \
-        sudo apt-key add -
-    sudo apt-get update -y -qq
-    sudo apt-get install hipchat -y -qq
 fi
 
 ##
@@ -97,17 +104,6 @@ if ! hash docker 2>/dev/null ; then
     sudo sh -c "echo deb http://get.docker.io/ubuntu docker main > /etc/apt/sources.list.d/docker.list"
     sudo apt-get update -y -qq
     sudo apt-get install lxc-docker -y -qq
-fi
-
-##
-#  SimpleScreenRecorder
-#  http://www.maartenbaert.be/simplescreenrecorder/#download
-##
-if ! hash simplescreenrecorder 2>/dev/null ; then
-    echo "Install SimpleScreenRecorder"
-    sudo add-apt-repository ppa:maarten-baert/simplescreenrecorder
-    sudo apt-get update -q
-    sudo apt-get install simplescreenrecorder -y -q
 fi
 
 ##
@@ -155,79 +151,12 @@ if ! hash subl 2>/dev/null ; then
 fi
 
 ##
-#  Google's DART
-##
-if ! hash dart 2>/dev/null ; then
-    echo "Installing Dart"
-    wget -O - "https://storage.googleapis.com/dart-editor-archive-integration/latest/dartsdk-linux-64.tar.gz" | \
-        tar zvxf -
-    mv dart-sdk $HOME/
-fi
-
-
-##
 #  Python tools
 ##
 if ! hash pip 2>/dev/null ; then
     echo "Installing python tools"
     sudo apt-get install python-setuptools -y
     sudo easy_install pip
-fi
-
-##
-#  Wercker CLI
-##
-if ! hash wercker 2>/dev/null ; then
-    echo "Installing wercker cli"
-    sudo apt-get install python-dev -y
-    sudo pip install wercker
-fi
-
-##
-#  Polly - a multi column twitter client
-##
-if ! hash polly 2>/dev/null ; then
-    echo "Installing Polly"
-    sudo add-apt-repository ppa:conscioususer/polly-unstable
-    sudo apt-get update
-    sudo apt-get install polly
-fi
-
-##
-# IRSSI irc client
-##
-if ! hash irssi 2>/dev/null ; then
-    echo "Installing IRSSI"
-    sudo apt-get install irssi
-fi
-
-##
-# Virtual Box
-##
-if ! hash virtualbox 2>/dev/null ; then
-    echo "Installing VirtualBox"
-    sudo apt-get install virtualbox -y
-fi
-
-##
-# Vagrant
-##
-if ! hash vagrant 2>/dev/null ; then
-    echo "Installing vagrant"
-    wget "http://files.vagrantup.com/packages/a40522f5fabccb9ddabad03d836e120ff5d14093/vagrant_1.3.5_x86_64.deb"
-    sudo dpkg -i vagrant_1.3.5_x86_64.deb
-    rm vagrant_1.3.5_x86_64.deb
-
-    echo "vagrant version: $(vagrant --version)"
-    echo "Done"
-fi
-
-##
-# FileZilla
-##
-if ! hash filezilla 2>/dev/null ; then
-    echo "Installing filezilla"
-    sudo apt-get install filezilla
 fi
 
 ##
@@ -239,23 +168,14 @@ if ! hash unclutter 2>/dev/null ; then
     sudo apt-get install unclutter -y
 fi
 
-##
-# Awesome!
-##
-if ! hash awesome 2>/dev/null ; then
-    echo "Installing awesomewm"
-    sudo add-apt-repository ppa:klaus-vormweg/awesome
-    sudo apt-get update
-
-    sudo apt-get install awesome awesome-extra
-fi
 
 ##
 # Terminator, the terminal I prefer
 ##
 if ! hash terminator 2>/dev/null ; then
     echo "Installing terminator"
-    sudo apt-get install terminator
+    sudo apt-get install terminator -y -qq
+    echo "Done"
 fi
 
 ##
@@ -281,52 +201,8 @@ fi
 ##
 if ! hash synapse 2>/dev/null ; then
     echo "Installing synapse"
-    sudo apt-get install synapse
-fi
-
-##
-# Packer
-# Tool to automate provisioning
-##
-if ! hash packer 2>/dev/null ; then
-    echo "Installing packer"
-    wget https://dl.bintray.com/mitchellh/packer/0.3.10_linux_amd64.zip
-    sudo mkdir /usr/local/packer
-    sudo unzip 0.3.10_linux_amd64.zip -d /usr/local/packer
-fi
-
-##
-# redshift
-# Tool to save my eyes
-##
-if ! hash redshift 2>/dev/null ; then
-    echo "Installing redshift"
-    sudo apt-get install redshift
-fi
-
-if ! hash disper 2>/dev/null ; then
-    echo "Installing disper"
-    wget http://ppa.launchpad.net/disper-dev/ppa/ubuntu/pool/main/d/disper/disper_0.3.1.tar.gz
-    tar -xzf disper_0.3.1.tar.gz
-    rm disper_0.3.1.tar.gz
-fi
-
-if ! hash spotify 2>/dev/null ; then
-    echo "Installing spotify"
-    echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
-    sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 94558F59
-    sudo apt-get update
-    sudo apt-get install spotify-client
-fi
-
-if ! hash dropbox 2>/dev/null ; then
-    echo "Installing dropbox"
-    wget -O dropbox_1.6.0_amd64.deb https://www.dropbox.com/download?dl=packages/ubuntu/dropbox_1.6.0_amd64.deb
-    sudo dpkg -i dropbox_1.6.0_amd64.deb
-    rm dropbox_1.6.0_amd64.deb
-    mkdir $HOME/Dropbox
-
-    dropbox start -i
+    sudo apt-get install synapse -y -qq
+    echo "Done"
 fi
 
 if ! hash google-chrome 2>/dev/null ; then
@@ -334,32 +210,6 @@ if ! hash google-chrome 2>/dev/null ; then
     wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
     sudo dpkg -i google-chrome-stable_current_amd64.deb
     rm google-chrome-stable_current_amd64.deb
-fi
-
-if ! hash ctags 2>/dev/null ; then
-    sudo apt-get install ctags-exuberant -y
-fi
-
-if ! hash gotags 2>/dev/null ; then
-    go get -u github.com/jstemmer/gotags
-    go install github.com/jstemmer/gotags
-fi
-
-if ! hash vlc 2>/dev/null ; then
-    sudo apt-get install -y vlc
-fi
-
-if ! hash lynx 2>/dev/null ; then
-    sudo apt-get install lynx -y
-fi
-
-if ! hash node 2>/dev/null ; then
-    echo "Installing nodejs"
-    sudo apt-get update
-    sudo apt-get install -y python-software-properties python g++ make
-    sudo add-apt-repository -y ppa:chris-lea/node.js
-    sudo apt-get update
-    sudo apt-get install nodejs
 fi
 
 sudo apt-get autoremove -y -qq
