@@ -7,7 +7,13 @@ ZSH=$HOME/.oh-my-zsh
 # time that oh-my-zsh is loaded.
 #ZSH_THEME="robbyrussell"
 ZSH_THEME="awesomepanda"
+#ZSH_THEME="clean"
 export TERM="xterm-256color"
+
+# Base16 Shell
+BASE16_SCHEME="eighties"
+BASE16_SHELL="$HOME/.config/base16-shell/base16-$BASE16_SCHEME.dark.sh"
+[[ -s $BASE16_SHELL ]] && . $BASE16_SHELL
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -58,10 +64,7 @@ plugins=(git github svn)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH=$PATH:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
-
-# packer
-export PATH=/usr/local/packer/:$PATH
+export PATH=$PATH:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
 # rbenv
 export PATH=$HOME/.rbenv/bin:$PATH
@@ -70,10 +73,6 @@ eval "$(rbenv init -)"
 # Autojump
 . /usr/share/autojump/autojump.sh
 autoload -U compinit && compinit
-
-# Dart lang
-export DART_SDK=$HOME/dart-sdk
-export PATH=$PATH:$DART_SDK/bin
 
 # Go
 export GOPATH="$HOME/go"
