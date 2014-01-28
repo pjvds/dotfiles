@@ -23,6 +23,16 @@ if awesome.startup_errors then
                      text = awesome.startup_errors })
 end
 
+-- Override awesome.quit when we're using GNOME
+_awesome_quit = awesome.quit
+awesome.quit = function()
+    if os.getenv("DESKTOP_SESSION") == "awesome-gnome" then
+       os.execute("/usr/bin/gnome-session-quit")
+    else
+       _awesome_quit()
+    end
+end
+
 -- Handle runtime errors after startup
 do
     local in_error = false
@@ -86,7 +96,7 @@ end
 tags = {}
 for s = 1, screen.count() do
     -- Each screen has its own tag table.
-    tags[s] = awful.tag({ 1, 2, 3, 4, 5, 6, 7, 8, 9 }, s, layouts[1])
+    tags[s] = awful.tag({ "term", "dev", "www", "chat", "temp", 6, 7, 8, 9 }, s, layouts[1])
 end
 -- }}}
 
