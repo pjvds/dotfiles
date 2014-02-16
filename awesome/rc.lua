@@ -631,4 +631,4 @@ client.connect_signal("focus", function(c) c.border_color = beautiful.border_foc
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
 
---awful.util.spawn_with_shell("xrandr --output DP2 --scale '0.6666x0.6666'")
+awful.util.spawn_with_shell("$HOME/.screenlayout/default.sh")
