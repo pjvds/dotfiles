@@ -373,7 +373,7 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, }, "j",
         function ()
             awful.client.focus.byidx( 1)
-            if client.focus then client.focus:raise() end
+            if client.focus thenk client.focus:raise() end
         end),
     awful.key({ modkey, }, "k",
         function ()
@@ -421,12 +421,7 @@ globalkeys = awful.util.table.join(
                   mypromptbox[mouse.screen].widget,
                   awful.util.eval, nil,
                   awful.util.getdir("cache") .. "/history_eval")
-              end),
-
-    -- Multimedia keys
-    awful.key({ }, "XF86AudioMute", function () awful.util.spawn("amixer sset Master toggle") end),
-    awful.key({ }, "XF86AudioRaiseVolume", function () awful.util.spawn("amixer set Master 2+") end),
-    awful.key({ }, "XF86AudioLowerVolume", function () awful.util.spawn("amixer set Master 2-") end)
+              end)
 )
 
 clientkeys = awful.util.table.join(
@@ -435,7 +430,6 @@ clientkeys = awful.util.table.join(
     awful.key({ modkey, "Control" }, "space", awful.client.floating.toggle ),
     --awful.key({ modkey, "Shift" }, "e", function (c) c:swap(awful.client.getmaster()) end),
     awful.key({ modkey, }, "o", awful.client.movetoscreen ),
-    awful.key({ modkey, "Shift" }, "r", function (c) c:redraw() end),
     awful.key({ modkey, }, "t", function (c) c.ontop = not c.ontop end),
     awful.key({ modkey, "Shift" }, "e",
         function(c)
