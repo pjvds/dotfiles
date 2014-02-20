@@ -1,8 +1,0 @@
-#!/bin/bash
-
-if [[ ! $1 ]] ; then
-    echo "missing servername argument"
-    exit 1
-fi
-
-ssh -i ~/.ssh/buildclient.pem "$1" -l ubuntu
