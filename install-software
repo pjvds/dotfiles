@@ -1,13 +1,6 @@
 #!/bin/bash
 set -e
 
-function finish {
-    echo "Last command ${!!} finished with $?"
-    echo "Bye!"
-    exit $?
-}
-trap finish EXIT
-
 ##
 #  Regular packages
 ##
@@ -24,17 +17,6 @@ echo "Done"
 
 
 ##
-#  ZSH
-##
-if ! hash zsh 2>/dev/null ; then
-    echo "Installing zsh"
-    sudo apt-get install zsh
-    curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
-else
-    echo "Skipping zsh... zsh already exists"
-fi
-
-##
 # Awesome!
 ##
 if ! hash awesome 2>/dev/null ; then
@@ -48,17 +30,6 @@ else
     echo "Skipping awesome, already installed"
 fi
 
-
-##
-#  rbenv and ruby-build
-##
-if ! hash rbenv 2>/dev/null ; then
-    echo "Installing rbenv"
-    git clone https://github.com/sstephenson/rbenv.git $HOME/.rbenv
-    git clone https://github.com/sstephenson/ruby-build.git $HOME/.rbenv/plugins/ruby-build
-else
-    echo "Skipping rbenv... rbenv already exists"
-fi
 
 ##
 #  The Ultimate Vim Distribution
@@ -98,12 +69,7 @@ fi
 if ! hash docker 2>/dev/null ; then
     echo "Install docker"
 
-    # Enable AUFS filesystem support
-    sudo apt-get install linux-image-extra-`uname -r` -y -qq
-    sudo sh -c "curl https://get.docker.io/gpg | apt-key add -"
-    sudo sh -c "echo deb http://get.docker.io/ubuntu docker main > /etc/apt/sources.list.d/docker.list"
-    sudo apt-get update -y -qq
-    sudo apt-get install lxc-docker -y -qq
+    curl -s https://get.docker.io/ubuntu/ | sudo sh
 fi
 
 ##
@@ -170,15 +136,6 @@ fi
 
 
 ##
-# Terminator, the terminal I prefer
-##
-if ! hash terminator 2>/dev/null ; then
-    echo "Installing terminator"
-    sudo apt-get install terminator -y -qq
-    echo "Done"
-fi
-
-##
 # zsh
 ##
 if ! hash zsh 2>/dev/null ; then
@@ -192,24 +149,15 @@ fi
 ##
 if [ ! -d "$HOME/.oh-my-zsh" ] ; then
     echo "Install oh-my-zsh"
-    git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+    wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
 fi
 
 ##
-#  Synapse
-#  quick launch tool
+#  Base16 shell
 ##
-if ! hash synapse 2>/dev/null ; then
-    echo "Installing synapse"
-    sudo apt-get install synapse -y -qq
-    echo "Done"
-fi
-
-if ! hash google-chrome 2>/dev/null ; then
-    echo "Installing chrome"
-    wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-    sudo dpkg -i google-chrome-stable_current_amd64.deb
-    rm google-chrome-stable_current_amd64.deb
+if [ ! -d "$HOME/.config/base16-shell" ] ; then
+    echo "Installing Base16 shell"
+    git clone git@github.com:chriskempson/base16-shell.git ~/.config/base16-shell
 fi
 
 sudo apt-get autoremove -y -qq
