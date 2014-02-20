@@ -4,6 +4,6 @@
 		"go build"
 	],
 	"ann": "a13.12.26-1",
-	"install_version": "r13.12.26-1",
-	"version": "r13.12.26-1"
+	"install_version": "r13.12.26-2",
+	"version": "r13.12.26-2"
 }

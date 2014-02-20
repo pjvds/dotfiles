@@ -1,15 +1,15 @@
 {
-	"color_scheme": "Packages/Color Scheme - Default/LAZY.tmTheme",
-	"font_face": "Monaco",
-	"font_size": 11,
+	"color_scheme": "Packages/Theme - Spacegray/base16-eighties.dark.tmTheme",
+	"font_face": "Source Code Pro",
+	"font_size": 13,
 	"hot_exit": false,
 	"ignored_packages":
 	[
-		"Vintage",
-		"Vintageous"
+		"Vintageous",
+		"Vintage"
 	],
 	"remember_open_files": false,
 	"tab_size": 4,
-	"theme": "Soda Light 3.sublime-theme",
+	"theme": "Spacegray.sublime-theme",
 	"translate_tabs_to_spaces": true
 }
