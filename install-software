@@ -64,6 +64,14 @@ if ! hash go 2>/dev/null ; then
 fi
 
 ##
+# CGDB - curses wrapper for GDB
+# Allows me to debug Go code
+##
+if ! hash cgdb 2>/dev/null ; then
+    sudo apt-get install cgdb -y -qq
+fi
+
+##
 #  Docker
 ##
 if ! hash docker 2>/dev/null ; then
@@ -140,7 +148,7 @@ fi
 ##
 if ! hash zsh 2>/dev/null ; then
     echo "Installing zsh"
-    sudo apt-get install zsh
+    sudo apt-get install zsh zsh-common
     sudo chsh -s /usr/bin/zsh
 fi
 
@@ -150,14 +158,6 @@ fi
 if [ ! -d "$HOME/.oh-my-zsh" ] ; then
     echo "Install oh-my-zsh"
     wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
-fi
-
-##
-#  Base16 shell
-##
-if [ ! -d "$HOME/.config/base16-shell" ] ; then
-    echo "Installing Base16 shell"
-    git clone git@github.com:chriskempson/base16-shell.git ~/.config/base16-shell
 fi
 
 sudo apt-get autoremove -y -qq
