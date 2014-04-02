@@ -1,7 +1,7 @@
 {
 	"color_scheme": "Packages/Theme - Spacegray/base16-ocean.dark.tmTheme",
 	"font_face": "Source Code Pro",
-	"font_size": 15,
+	"font_size": 14,
 	"highlight_line": true,
 	"hot_exit": false,
 	"ignored_packages":

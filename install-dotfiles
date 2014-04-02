@@ -27,6 +27,7 @@ function install() {
     ln --symbolic "$dotfiles/$1" "$2"
 }
 
+# Link user dotfiles
 install "gitconfig" "$HOME/.gitconfig"
 install "fonts" "$HOME/.fonts"
 install "profile" "$HOME/.profile"
@@ -39,6 +40,10 @@ install "vimrc.before.local" "$HOME/.vimrc.before.local"
 install "vimrc.bundles.local" "$HOME/.vimrc.bundles.local"
 install "xprofile" "$HOME/.xprofile"
 
+# Set timezone to Amsterdam
+sudo ln -sf /usr/share/zoneinfo/Europe/Amsterdam /etc/localtime
+
+# Add awesome desktop session information
 sudo cp -f "$dotfiles/awesome.session" "/usr/share/gnome-session/sessions/awesome.session"
 sudo cp -f "$dotfiles/awesome.desktop" "/usr/share/applications/awesome.desktop"
 sudo cp -f "$dotfiles/awesome-gnome.desktop" "/usr/share/xsessions/awesome-gnome.desktop"

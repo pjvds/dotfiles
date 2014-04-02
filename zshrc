@@ -26,7 +26,7 @@ plugins=(git github)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH=$PATH:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$HOME/tasks
+export PATH=$PATH:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$HOME/utils:$HOME/utils/cluster
 
 # Autojump
 . /usr/share/autojump/autojump.sh
@@ -37,6 +37,7 @@ export GOPATH="$HOME/go"
 export GOROOT="/usr/local/go"
 export PATH="$GOROOT/bin:$GOPATH/bin:$PATH"
 export GOMAXPROCS=6
+alias gb="go build ./..."
 
 bindkey '^[OA' history-beginning-search-backward
 bindkey '^[OB' history-beginning-search-forward

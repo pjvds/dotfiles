@@ -22,6 +22,10 @@ if awesome.startup_errors then
                      text = awesome.startup_errors })
 end
 
+awesome.quit = function()
+    os.execute("/usr/bin/gnome-session-quit")
+end
+
 -- Handle runtime errors after startup
 do
     local in_error = false
@@ -226,22 +230,6 @@ vicious.register(memwidget, vicious.widgets.mem, '<span background="#777E76" fon
 memicon = wibox.widget.imagebox()
 memicon:set_image(beautiful.mem)
 
---{{--| Mail widget |---------
-mailicon = wibox.widget.imagebox()
-
-vicious.register(mailicon, vicious.widgets.gmail, function(widget, args)
-    local newMail = tonumber(args["{count}"])
-    if newMail > 0 then
-        mailicon:set_image(beautiful.mail)
-    else
-        mailicon:set_image(beautiful.mailopen)
-    end
-end, 15)
-
--- to make GMail pop up when pressed:
-mailicon:buttons(awful.util.table.join(awful.button({ }, 1,
-function () awful.util.spawn_with_shell(browser .. " gmail.com") end)))
-
 
 -- Create a wibox for each screen and add it
 mywibox = {}
@@ -321,8 +309,6 @@ for s = 1, screen.count() do
     local right_layout = wibox.layout.fixed.horizontal()
     if s == 1 then right_layout:add(wibox.widget.systray()) end
     right_layout:add(arr9)
-    right_layout:add(mailicon)
-    right_layout:add(arr8)
     right_layout:add(memicon)
     right_layout:add(memwidget)
     right_layout:add(arr7)
@@ -373,7 +359,7 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, }, "j",
         function ()
             awful.client.focus.byidx( 1)
-            if client.focus thenk client.focus:raise() end
+            if client.focus then client.focus:raise() end
         end),
     awful.key({ modkey, }, "k",
         function ()
@@ -402,6 +388,8 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Shift" }, "q", awesome.quit),
     awful.key({ modkey, }, "e",  function() client.focus = awful.client.getmaster(); client.focus:raise() end),
     awful.key({ modkey, }, "l", function () awful.tag.incmwfact( 0.02) end),
+    awful.key({ modkey, "Control" }, "k", function () awful.client.incwfact(-0.02) end),
+    awful.key({ modkey, "Control" }, "j", function () awful.client.incwfact( 0.02) end),
     awful.key({ modkey, }, "h", function () awful.tag.incmwfact(-0.02) end),
     awful.key({ modkey, "Shift" }, "h", function () awful.tag.incnmaster( 1) end),
     awful.key({ modkey, "Shift" }, "l", function () awful.tag.incnmaster(-1) end),
@@ -421,8 +409,7 @@ globalkeys = awful.util.table.join(
                   mypromptbox[mouse.screen].widget,
                   awful.util.eval, nil,
                   awful.util.getdir("cache") .. "/history_eval")
-              end)
-)
+              end))
 
 clientkeys = awful.util.table.join(
     awful.key({ modkey, }, "f", function (c) c.fullscreen = not c.fullscreen end),
@@ -625,4 +612,5 @@ client.connect_signal("focus", function(c) c.border_color = beautiful.border_foc
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
 
+awful.util.spawn_with_shell("gnome-settings-daemon")
 awful.util.spawn_with_shell("$HOME/.screenlayout/default.sh")
