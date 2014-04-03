@@ -15,6 +15,13 @@ sudo apt-get install libssl-dev build-essential \
                      -y -qq
 echo "Done"
 
+##
+# Terminator
+##
+if ! hash terminator 2>/dev/null ; then
+    echo "Installing terminator"
+    sudo apt-get install terminator -y -qq
+fi
 
 ##
 # Awesome!
@@ -53,7 +60,7 @@ fi
 ##
 if ! hash go 2>/dev/null ; then
     version="1.2"
-    echo "Installing Google's Go ${version}"
+    echo "Installing Go ${version}"
 
     wget "https://go.googlecode.com/files/go${version}.linux-amd64.tar.gz"
     sudo tar -C /usr/local -xzf "go${version}.linux-amd64.tar.gz"
