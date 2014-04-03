@@ -27,6 +27,9 @@ function install() {
     ln --symbolic "$dotfiles/$1" "$2"
 }
 
+# Make sure the directories exist
+mkdir -p $HOME/.config/sublime-text-3/Packages/User
+
 # Link user dotfiles
 install "gitconfig" "$HOME/.gitconfig"
 install "fonts" "$HOME/.fonts"
