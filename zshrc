@@ -5,10 +5,12 @@ ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="robbyrussell"
-export TERM="xterm-256color"
+#ZSH_THEME="robbyrussell"
+export ZSH_THEME="philips"
+#export TERM="xterm-256color"
 
 alias gs="git status"
+alias fdb="fdbcli"
 
 export EDITOR=vim   
 
@@ -26,7 +28,7 @@ plugins=(git github)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH=$PATH:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$HOME/utils:$HOME/utils/cluster
+export PATH=$PATH:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$HOME/utils:$HOME/utils/cluster:/opt/mysql/server-5.7/bin/
 
 # Autojump
 . /usr/share/autojump/autojump.sh
