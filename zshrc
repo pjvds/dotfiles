@@ -40,6 +40,7 @@ export GOROOT="/usr/local/go"
 export PATH="$GOROOT/bin:$GOPATH/bin:$PATH"
 export GOMAXPROCS=6
 alias gb="go build ./..."
+alias gd="cgdb flags -gcflags "-N -l" -o main && cgdb main"
 
 bindkey '^[OA' history-beginning-search-backward
 bindkey '^[OB' history-beginning-search-forward
