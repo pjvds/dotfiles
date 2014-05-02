@@ -46,8 +46,3 @@ install "gdbinit" "$HOME/.gdbinit"
 
 # Set timezone to Amsterdam
 sudo ln -sf /usr/share/zoneinfo/Europe/Amsterdam /etc/localtime
-
-# Add awesome desktop session information
-sudo cp -f "$dotfiles/awesome.session" "/usr/share/gnome-session/sessions/awesome.session"
-sudo cp -f "$dotfiles/awesome.desktop" "/usr/share/applications/awesome.desktop"
-sudo cp -f "$dotfiles/awesome-gnome.desktop" "/usr/share/xsessions/awesome-gnome.desktop"
