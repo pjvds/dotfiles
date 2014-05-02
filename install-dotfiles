@@ -42,6 +42,7 @@ install "vimrc.local" "$HOME/.vimrc.local"
 install "vimrc.before.local" "$HOME/.vimrc.before.local"
 install "vimrc.bundles.local" "$HOME/.vimrc.bundles.local"
 install "xprofile" "$HOME/.xprofile"
+install "gdbinit" "$HOME/.gdbinit"
 
 # Set timezone to Amsterdam
 sudo ln -sf /usr/share/zoneinfo/Europe/Amsterdam /etc/localtime
