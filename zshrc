@@ -5,9 +5,13 @@ ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-#ZSH_THEME="robbyrussell"
-export ZSH_THEME="philips"
+ZSH_THEME="robbyrussell"
+#export ZSH_THEME="philips"
+#export ZSH_THEME="tomorrow"
 #export TERM="xterm-256color"
+
+# Path to custom folder
+ZSH_CUSTOM=$HOME/.zsh-custom
 
 alias gs="git status"
 alias fdb="fdbcli"
@@ -36,7 +40,7 @@ autoload -U compinit && compinit
 
 # Go
 export GOPATH="$HOME/go"
-export GOROOT="/usr/local/go"
+export GOROOT="/home/pjvds/dev/go/"
 export PATH="$GOROOT/bin:$GOPATH/bin:$PATH"
 export GOMAXPROCS=6
 alias gb="go build ./..."
