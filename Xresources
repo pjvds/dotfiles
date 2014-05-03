@@ -1,0 +1,14 @@
+#include ".colors/tomorrow"
+
+Xft.dpi: 140
+!Xft.lcdfilter                : lcddefault
+!Xft.hintstyle                : hintslight
+!Xft.hinting                  : 1
+!Xft.autohint                 : 1
+Xft.antialias                : 1
+!Xft.rgba                     : rgb
+Xft.hinting: true
+Xft.rgba: rgb
+Xft.autohint: false
+Xft.hintstyle: hintslight
+Xft.lcdfilter: lcddefault

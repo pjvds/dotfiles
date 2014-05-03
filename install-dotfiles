@@ -43,6 +43,10 @@ install "vimrc.before.local" "$HOME/.vimrc.before.local"
 install "vimrc.bundles.local" "$HOME/.vimrc.bundles.local"
 install "xprofile" "$HOME/.xprofile"
 install "gdbinit" "$HOME/.gdbinit"
+install "colors" "$HOME/.colors"
+install "Xresources" "$HOME/.Xresources"
+install "zsh-custom" "$HOME/.zsh-custom" 
+install "terminator" "$HOME/.config/terminator"
 
 # Set timezone to Amsterdam
 sudo ln -sf /usr/share/zoneinfo/Europe/Amsterdam /etc/localtime

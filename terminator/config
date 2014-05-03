@@ -1,0 +1,39 @@
+[global_config]
+  geometry_hinting = False
+  inactive_color_offset = 1.0
+  borderless = True
+[keybindings]
+[profiles]
+  [[default]]
+    use_system_font = False
+    font = Menlo 12
+    background_image = None
+    show_titlebar = False
+  [[tomorrow]]
+    palette = "#1d1f21:#282a2e:#373b41:#969896:#b4b7b4:#c5c8c6:#e0e0e0:#ffffff:#c82829:#f5871f:#eab700:#718c00:#3e999f:#4271ae:#8959a8:#a3685a"
+    background_image = None
+    use_system_font = False
+    cursor_color = "#373b41"
+    foreground_color = "#4d4d4c"
+    show_titlebar = False
+    font = Menlo 12
+    background_color = "#ffffff"
+    scrollback_infinite = True
+  [[tomorrow-night]]
+    background_image = None
+    use_system_font = False
+    palette = "#1d1f21:#282a2e:#373b41:#969896:#b4b7b4:#c5c8c6:#e0e0e0:#ffffff:#cc6666:#de935f:#f0c674:#b5bd68:#8abeb7:#81a2be:#b294bb:#a3685a"
+    cursor_color = "#373b41"
+    foreground_color = "#c5c8c6"
+    show_titlebar = False
+    font = Menlo 11
+[layouts]
+  [[default]]
+    [[[child1]]]
+      type = Terminal
+      parent = window0
+      profile = tomorrow
+    [[[window0]]]
+      type = Window
+      parent = ""
+[plugins]
