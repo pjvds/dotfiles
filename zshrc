@@ -42,9 +42,6 @@ export PATH=$PATH:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/s
 autoload -U compinit && compinit
 
 # Go
-export GOPATH="$HOME/go"
-export GOROOT="/usr/local/go"
-export PATH="$GOROOT/bin:$GOPATH/bin:$PATH"
 export GOMAXPROCS=6
 alias gb="go build ./..."
 alias gd="cgdb flags -gcflags "-N -l" -o main && cgdb main"
