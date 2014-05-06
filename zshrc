@@ -35,13 +35,16 @@ source $ZSH/oh-my-zsh.sh
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 
 # Customize to your needs...
-export PATH=$PATH:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$HOME/utils:$HOME/utils/cluster:/opt/mysql/server-5.7/bin/
+export PATH=$PATH:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$HOME/utils:$HOME/utils/cluster
 
 # Autojump
 . /usr/share/autojump/autojump.sh
 autoload -U compinit && compinit
 
 # Go
+export GOPATH="/home/pjvds/go"
+export GOROOT="/usr/local/go"
+export PATH=$PATH:$GOROOT/bin:$GOPATH:/bin
 export GOMAXPROCS=6
 alias gb="go build ./..."
 alias gd="cgdb flags -gcflags "-N -l" -o main && cgdb main"
