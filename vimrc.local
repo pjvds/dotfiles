@@ -4,9 +4,6 @@ if has('unnamedplus')
   set clipboard=unnamed,unnamedplus
 endif
 
-" Turn of highlighting for search matches
-nohl
-
 " convert tabs to spaces
 set expandtab
 
