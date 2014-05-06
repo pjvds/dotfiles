@@ -1,6 +1,7 @@
 {
 	"installed_packages":
 	[
+		"Base16 Color Schemes",
 		"Better CoffeeScript",
 		"Dockerfile Syntax Highlighting",
 		"GitGutter",
@@ -10,6 +11,7 @@
 		"Solarized Color Scheme",
 		"Theme - Soda",
 		"Theme - Spacegray",
+		"Tomorrow Color Schemes",
 		"Vintageous"
 	]
 }

@@ -1,18 +1,18 @@
 {
-	"color_scheme": "Packages/Theme - Spacegray/base16-ocean.dark.tmTheme",
-	"font_face": "Source Code Pro",
-	"font_size": 14,
+	"color_scheme": "Packages/Tomorrow Color Schemes/Tomorrow.tmTheme",
+	"dpi_scale": 1.5,
+	"font_size": 12,
 	"highlight_line": true,
 	"hot_exit": false,
 	"ignored_packages":
 	[
-		"Vintage",
-		"Vintageous"
+		"Vintageous",
+		"Vintage"
 	],
 	"line_padding_bottom": 2,
 	"line_padding_top": 2,
 	"remember_open_files": false,
 	"tab_size": 4,
-	"theme": "Spacegray.sublime-theme",
+	"theme": "Spacegray Light.sublime-theme",
 	"translate_tabs_to_spaces": true
 }
