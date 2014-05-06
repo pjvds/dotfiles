@@ -27,9 +27,12 @@ DISABLE_CORRECTION="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git github)
+plugins=(git github rvm)
 
 source $ZSH/oh-my-zsh.sh
+
+# Enable rvm
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 
 # Customize to your needs...
 export PATH=$PATH:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$HOME/utils:$HOME/utils/cluster:/opt/mysql/server-5.7/bin/
@@ -40,7 +43,7 @@ autoload -U compinit && compinit
 
 # Go
 export GOPATH="$HOME/go"
-export GOROOT="/home/pjvds/dev/go/"
+export GOROOT="/usr/local/go"
 export PATH="$GOROOT/bin:$GOPATH/bin:$PATH"
 export GOMAXPROCS=6
 alias gb="go build ./..."
@@ -48,3 +51,5 @@ alias gd="cgdb flags -gcflags "-N -l" -o main && cgdb main"
 
 bindkey '^[OA' history-beginning-search-backward
 bindkey '^[OB' history-beginning-search-forward
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
