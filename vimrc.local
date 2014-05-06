@@ -1,57 +1,29 @@
-set expandtab "Use :retab to replace tabs with spaces
-set clipboard=unnamed " Default to copy to system clipboard
-set nospell " Disable spell checking by default
+" Enable system clipboard support
+set clipboard=unnamed
+if has('unnamedplus')
+  set clipboard=unnamed,unnamedplus
+endif
 
-" Set word wrap
-" See: http://vim.wikia.com/wiki/Word_wrap_without_line_breaks
-set wrap
-set linebreak
-set nolist  " list disables linebreak"
+" Turn of highlighting for search matches
+nohl
 
-let g:indent_guides_enable_on_vim_startup = 0 " Disable indent color blocks
+" convert tabs to spaces
+set expandtab
+
+" don't show tab character
+set nolist
+
+" Explicitly set bash supported shell
+set shell=bash
 
 " Set colors
 set background=light
-colors wombat256
 
-" Go
-au FileType go au BufWritePre <buffer> Fmt
-if !exists('g:neocomplcache_omni_patterns')
-    let g:neocomplcache_omni_patterns = {}
-endif
-if !exists('g:neocomplcache_force_omni_patterns')
-    let g:neocomplcache_force_omni_patterns = {}
-endif
+" Disable indent color blocks
+let g:indent_guides_enable_on_vim_startup = 0 
 
-autocmd FileType go setlocal omnifunc=gocomplete#Complete
-let g:neocomplcache_omni_patterns.go = '[^. \t].\w|\h\w*::'
-let g:neocomplcache_force_omni_patterns.go = '[^. \t].\w|\h\w*::'
+" Disable tab hints
+let g:indent_guides_enable_on_vim_startup = 0
 
-" Go tags
-let g:tagbar_type_go = {
-    \ 'ctagstype' : 'go',
-    \ 'kinds'     : [
-        \ 'p:package',
-        \ 'i:imports:1',
-        \ 'c:constants',
-        \ 'v:variables',
-        \ 't:types',
-        \ 'n:interfaces',
-        \ 'w:fields',
-        \ 'e:embedded',
-        \ 'm:methods',
-        \ 'r:constructor',
-        \ 'f:functions'
-    \ ],
-    \ 'sro' : '.',
-    \ 'kind2scope' : {
-        \ 't' : 'ctype',
-        \ 'n' : 'ntype'
-    \ },
-    \ 'scope2kind' : {
-        \ 'ctype' : 't',
-        \ 'ntype' : 'n'
-    \ },
-    \ 'ctagsbin'  : 'gotags',
-    \ 'ctagsargs' : '-sort -silent'
-\ }
+" Set auto complete pattern for go
+let g:neocomplcache_omni_patterns.go = '\h\w*\.\?'
