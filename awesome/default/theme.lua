@@ -92,18 +92,18 @@ theme.titlebar_maximized_button_focus_active  = (theme.theme_dir .. "titlebar/ma
 theme.wallpaper_cmd = { "awsetbg /home/pjvds/.config/awesome/default/background.jpg" }
 
 -- You can use your own layout icons like this:
-theme.layout_fairh = (theme.theme_dir .. "layouts/fairhw.png")
-theme.layout_fairv = (theme.theme_dir .. "layouts/fairvw.png")
-theme.layout_floating  = (theme.theme_dir .. "layouts/floatingw.png")
-theme.layout_magnifier = (theme.theme_dir .. "layouts/magnifierw.png")
-theme.layout_max = (theme.theme_dir .. "layouts/maxw.png")
-theme.layout_fullscreen = (theme.theme_dir .. "layouts/fullscreenw.png")
-theme.layout_tilebottom = (theme.theme_dir .. "layouts/tilebottomw.png")
-theme.layout_tileleft   = (theme.theme_dir .. "layouts/tileleftw.png")
-theme.layout_tile = (theme.theme_dir .. "layouts/tilew.png")
-theme.layout_tiletop = (theme.theme_dir .. "layouts/tiletopw.png")
-theme.layout_spiral  = (theme.theme_dir .. "layouts/spiralw.png")
-theme.layout_dwindle = (theme.theme_dir .. "layouts/dwindlew.png")
+theme.layout_fairh = (theme.theme_dir .. "layouts/fairh.png")
+theme.layout_fairv = (theme.theme_dir .. "layouts/fairv.png")
+theme.layout_floating  = (theme.theme_dir .. "layouts/floating.png")
+theme.layout_magnifier = (theme.theme_dir .. "layouts/magnifier.png")
+theme.layout_max = (theme.theme_dir .. "layouts/max.png")
+theme.layout_fullscreen = (theme.theme_dir .. "layouts/fullscreen.png")
+theme.layout_tilebottom = (theme.theme_dir .. "layouts/tilebottom.png")
+theme.layout_tileleft   = (theme.theme_dir .. "layouts/tileleft.png")
+theme.layout_tile = (theme.theme_dir .. "layouts/tile.png")
+theme.layout_tiletop = (theme.theme_dir .. "layouts/tiletop.png")
+theme.layout_spiral  = (theme.theme_dir .. "layouts/spiral.png")
+theme.layout_dwindle = (theme.theme_dir .. "layouts/dwindle.png")
 
 theme.awesome_icon = "/usr/share/awesome/icons/awesome16.png"
 
