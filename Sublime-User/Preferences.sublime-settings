@@ -1,12 +1,15 @@
 {
+	"caret_extra_bottom": 0,
+	"caret_extra_top": 0,
+	"caret_extra_width": 3,
+	"caret_style": "solid",
 	"color_scheme": "Packages/Tomorrow Color Schemes/Tomorrow.tmTheme",
-	"dpi_scale": 1.5,
-	"font_size": 12,
+	"dpi_scale": 1.67,
+	"font_size": 11,
 	"highlight_line": true,
 	"hot_exit": false,
 	"ignored_packages":
 	[
-		"Vintageous",
 		"Vintage"
 	],
 	"line_padding_bottom": 2,
