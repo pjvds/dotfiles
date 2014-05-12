@@ -4,7 +4,7 @@ This is my Ubuntu configuration. It contains all my dotfiles and other configura
 
 ## Screenshot
 
-![screenshot](https://raw.github.com/pjvds/ubuntu-config/master/screenshot.png)
+![screenshot](https://raw.githubusercontent.com/pjvds/ubuntu-config/master/screenshot.png)
 
 ## Software
 
