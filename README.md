@@ -2,16 +2,18 @@
 
 This is my Ubuntu configuration. It contains all my dotfiles and other configurations, like Sublime packages and such.
 
-## zshrc
+## Screenshot
 
-Configuration file for zsh.
+![screenshot](https://raw.github.com/pjvds/ubuntu-config/master/screenshot.png)
 
-source: `zshrc`
-destination: `$HOME/.zshrc`.
+## Software
 
-## Sublime configuration
+It holds the configuration for the following software:
 
-Holds the user configuration of Sublime Text 3. It includes the packages that are installed. Run `Package Control: Update` to install missing packages.
+* [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
+* [Sublime Text 3](http://www.sublimetext.com/)
+* vimperator
 
-source: `Sublime-User`
-destination: `$HOME/.config/sublime-text-3/Packages/User`
+## Theme
+
+It configures the light version of [tomorrow](https://github.com/ChrisKempson/Tomorrow-Theme) for most applications.
