@@ -35,6 +35,9 @@ export PATH=$PATH:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/s
 source /usr/share/autojump/autojump.sh
 autoload -U compinit && compinit
 
+# Sublime
+alias sublp="if [ -e *.sublime-project ] ; then subl --project *.sublime-project ; else echo 'No *.sublime-project file found'; fi"
+
 # Go
 export GOPATH="/home/pjvds/go"
 export GOROOT="/usr/local/go"
