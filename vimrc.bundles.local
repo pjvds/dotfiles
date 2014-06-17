@@ -1,3 +1,4 @@
 " Syntax highlighting
 Bundle 'honza/dockerfile.vim'
 Bundle 'chriskempson/tomorrow-theme'
+Bundle 'myusuf3/numbers.vim'
