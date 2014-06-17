@@ -4,11 +4,17 @@ if has('unnamedplus')
   set clipboard=unnamed,unnamedplus
 endif
 
+" Rename word under cursor
+nnoremap <Leader>s :%s/\<<C-r><C-w>\>//g<Left><Left>
+
 " convert tabs to spaces
 set expandtab
 
 " disable bufferline echo
 let g:bufferline_echo = 0
+
+" bufferline filename, eq: web/handlers.go, instead of default handlers.go
+let g:bufferline_fname_mod = ':s'
 
 " don't show tab character
 set nolist
