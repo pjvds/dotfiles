@@ -5,7 +5,8 @@ export EDITOR=vim
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
-ZSH_THEME="robbyrussell"
+#default theme: ZSH_THEME="robbyrussell"
+ZSH_THEME="awesomepanda"
 
 
 
