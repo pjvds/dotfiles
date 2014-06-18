@@ -6,7 +6,7 @@
 [profiles]
   [[default]]
     use_system_font = False
-    font = Menlo 12
+    font = Bitstream Vera Sans Mono 12
     background_image = None
     show_titlebar = False
   [[tomorrow]]
