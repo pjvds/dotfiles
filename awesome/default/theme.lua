@@ -5,7 +5,7 @@
 theme = {}
 
 theme.theme_dir     = "/home/pjvds/.config/awesome/default/"
-theme.font          = "SourceCodePro-Black 14"
+theme.font          = "Bitstream Courier 14"
 theme.transparancy  = ""
 -- theme.bg_normal     = "#ffffff" .. theme.transparancy
 -- theme.bg_focus      = "#efefef" .. theme.transparancy
