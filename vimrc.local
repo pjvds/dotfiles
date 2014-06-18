@@ -4,7 +4,12 @@ if has('unnamedplus')
   set clipboard=unnamed,unnamedplus
 endif
 
+" Tomorrow theme for president
 colorscheme Tomorrow
+let g:airline_theme='tomorrow'
+
+" Turn of spell checking
+set nospell
 
 " Rename word under cursor
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>//g<Left><Left>
@@ -35,8 +40,6 @@ let g:indent_guides_enable_on_vim_startup = 0
 
 " Set auto complete pattern for go
 let g:neocomplcache_omni_patterns.go = '\h\w*\.\?'
-
-let g:go_auto_type_info = 1
 
 " Go tags
 " To install gotags:
