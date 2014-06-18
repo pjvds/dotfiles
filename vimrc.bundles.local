@@ -1,4 +1,8 @@
 " Syntax highlighting
+UnBundle 'altercation/vim-colors-solarized'
+UnBundle 'flazz/vim-colorschemes'
+UnBundle 'spf13/vim-colors'
+
 Bundle 'honza/dockerfile.vim'
-Bundle 'chriskempson/tomorrow-theme'
+Bundle 'pjvds/tomorrow-theme', {'rtp': 'vim/'}
 Bundle 'myusuf3/numbers.vim'

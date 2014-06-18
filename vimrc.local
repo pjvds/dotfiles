@@ -4,6 +4,8 @@ if has('unnamedplus')
   set clipboard=unnamed,unnamedplus
 endif
 
+colorscheme Tomorrow
+
 " Rename word under cursor
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>//g<Left><Left>
 
