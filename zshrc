@@ -24,6 +24,8 @@ source $ZSH/oh-my-zsh.sh
 alias gs="git status"
 alias gd='git diff -w | view -'
 alias fdb="fdbcli"
+alias gdoc="godoc $1 | less"
+mkcd () { mkdir "$@" && cd "${!#}"; }
 
 
 # Enable rvm
@@ -47,6 +49,11 @@ export GOMAXPROCS=6
 alias gb="go build ./..."
 alias gr="go run *.go"
 alias gdg="go build -gcflags '-N -l' -o main && cgdb main"
+
+# Scala
+export SCALA_HOME="/usr/local/share/scala/"
+export SBT_HOME="$HOME/bin/"
+export PATH=$PATH:$SCALA_HOME/bin:$SBT_HOME
 
 bindkey '^[OA' history-beginning-search-backward
 bindkey '^[OB' history-beginning-search-forward
