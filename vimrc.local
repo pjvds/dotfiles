@@ -8,11 +8,13 @@ endif
 colorscheme Tomorrow
 let g:airline_theme='tomorrow'
 
-" Turn of spell checking
+" Turn off spell checking
 set nospell
 
 " Rename word under cursor
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>//g<Left><Left>
+" Show type infor for word under cursor
+au FileType go nmap <Leader>i <Plug>(go-info))
 
 " convert tabs to spaces
 set expandtab
