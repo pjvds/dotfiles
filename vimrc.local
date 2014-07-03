@@ -11,6 +11,12 @@ let g:airline_theme='tomorrow'
 " Turn off spell checking
 set nospell
 
+" Linebreaks for markdown editing
+autocmd Filetype markdown setlocal wrap
+autocmd Filetype markdown setlocal linebreak
+autocmd Filetype markdown setlocal nolist
+autocmd Filetype markdown setlocal columns=80
+
 " Rename word under cursor
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>//g<Left><Left>
 " Show type infor for word under cursor
