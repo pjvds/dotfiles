@@ -7,8 +7,9 @@
   [[default]]
     use_system_font = False
     font = Bitstream Vera Sans Mono 12
-    background_image = None
+    scrollback_infinite = True
     show_titlebar = False
+    background_image = None
   [[tomorrow]]
     palette = "#1d1f21:#282a2e:#373b41:#969896:#b4b7b4:#c5c8c6:#e0e0e0:#ffffff:#c82829:#f5871f:#eab700:#718c00:#3e999f:#4271ae:#8959a8:#a3685a"
     background_image = None
@@ -16,7 +17,7 @@
     cursor_color = "#373b41"
     foreground_color = "#4d4d4c"
     show_titlebar = False
-    font = Menlo 12
+    font = Menlo 10
     background_color = "#ffffff"
     scrollback_infinite = True
   [[tomorrow-night]]
