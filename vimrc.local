@@ -8,6 +8,10 @@ endif
 colorscheme Tomorrow
 let g:airline_theme='tomorrow'
 
+" Config godef
+let g:godef_split=0
+let g:godef_same_file_in_same_window=1
+
 " Turn off spell checking
 set nospell
 
