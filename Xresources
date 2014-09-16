@@ -1,6 +1,6 @@
 #include ".colors/tomorrow"
 
-!Xft.dpi: 140 <-- retina
+!Xft.dpi: 160 <-- retina
 Xft.dpi: 110
 !Xft.lcdfilter                : lcddefault
 !Xft.hintstyle                : hintslight
