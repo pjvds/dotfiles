@@ -34,6 +34,9 @@ mkcd () { mkdir "$@" && cd "${!#}"; }
 # Customize to your needs...
 export PATH=$PATH:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$HOME/utils:$HOME/utils/cluster
 
+# Apps I like to have in my path
+export PATH=$PATH:$HOME/liteide/bin
+
 # Autojump
 source /usr/share/autojump/autojump.sh
 autoload -U compinit && compinit
@@ -55,7 +58,10 @@ export SCALA_HOME="/usr/local/share/scala/"
 export SBT_HOME="$HOME/bin/"
 export PATH=$PATH:$SCALA_HOME/bin:$SBT_HOME
 
+# nodejs
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+export NVM_DIR="/home/pjvds/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
 bindkey '^[OA' history-beginning-search-backward
 bindkey '^[OB' history-beginning-search-forward
-
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
