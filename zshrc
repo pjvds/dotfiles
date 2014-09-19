@@ -23,6 +23,7 @@ source $ZSH/oh-my-zsh.sh
 
 alias gs="git status"
 alias gd='git diff -w | view -'
+alias gu='git stash && git pull && git stash pop'
 alias fdb="fdbcli"
 alias gdoc="godoc $1 | less"
 mkcd () { mkdir "$@" && cd "${!#}"; }
