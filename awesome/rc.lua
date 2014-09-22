@@ -8,6 +8,7 @@ require("beautiful")
 require("naughty")
 -- lain library, https://github.com/copycat-killer/lain/wiki
 local lain = require("lain")
+local custom = require("custom")
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, and wallpapers
@@ -28,17 +29,25 @@ modkey = "Mod4"
 -- Table of layouts to cover with awful.layout.inc, order matters.
 layouts =
 {
-    --lain.layout.termfair,
-    --lain.layout.centerwork,
-    --lain.layout.uselessfair,
-    --lain.layout.uselesspiral,
-    --lain.layout.uselesstile,
+    lain.layout.termfair,
+    lain.layout.centerwork,
+    lain.layout.uselessfair,
+    lain.layout.uselesspiral,
+    lain.layout.uselesstile,
+    awful.layout.suit.floating,
     awful.layout.suit.tile,
     awful.layout.suit.tile.left,
     awful.layout.suit.tile.bottom,
     awful.layout.suit.tile.top,
     awful.layout.suit.fair,
-    awful.layout.suit.max,
+    awful.layout.suit.fair.horizontal,
+    awful.layout.suit.spiral,
+    awful.layout.suit.spiral.dwindle,
+    --awful.layout.suit.max,
+    --awful.layout.suit.max.fullscreen,
+    --awful.layout.suit.magnifier
+    --custom.layout.spiralccw
+    --custom.layout.spiralccw.dwindleccw
 }
 -- }}}
 
