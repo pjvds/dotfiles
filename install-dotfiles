@@ -46,6 +46,7 @@ install "gdbinit" "$HOME/.gdbinit"
 install "colors" "$HOME/.colors"
 install "Xresources" "$HOME/.Xresources"
 install "terminator" "$HOME/.config/terminator"
+install "atom" "$HOME/.atom"
 install "ctags" "$HOME/.ctags"
 
 # Set timezone to Amsterdam

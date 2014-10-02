@@ -1,0 +1,16 @@
+'menu': [
+  {
+    'label': 'Packages'
+    'submenu': [
+      {
+        'label': 'Relative Lines'
+        'submenu': [
+          {
+            'label': 'Toggle'
+            'command': 'relative-numbers:toggle'
+          }
+        ]
+      }
+    ]
+  }
+]

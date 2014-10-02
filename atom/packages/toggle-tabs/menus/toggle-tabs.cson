@@ -1,0 +1,16 @@
+# See https://atom.io/docs/latest/creating-a-package#menus for more details
+'context-menu':
+  '.tab-bar':
+    'Hide Tabs': 'toggle-tabs:toggle'
+  '.editor':
+    'Toggle Tabs': 'toggle-tabs:toggle'
+
+'menu': [
+  {
+    'label': 'View'
+    'submenu': [
+      'label': 'Toggle Tabs'
+      'command': 'toggle-tabs:toggle'
+    ]
+  }
+]

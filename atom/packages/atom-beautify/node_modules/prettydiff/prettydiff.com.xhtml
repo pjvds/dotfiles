@@ -1,0 +1,587 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.1//EN' 'http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd'>
+<html xml:lang='en' xmlns='http://www.w3.org/1999/xhtml'>
+    <head>
+        <title>Pretty Diff - The difference tool</title>
+        <meta content="index, follow" name="robots"/>
+        <meta content="Pretty Diff - The difference tool" name="DC.title"/>
+        <link href='http://prettydiff.com' rel='canonical' type='application/xhtml+xml'/>
+        <link href="http://prettydiff.com/images/favicon.ico" rel="icon" type="image/x-icon"/>
+        <link href="http://prettydiff.com/labels.rdf" rel="meta" title="ICRA labels" type="application/rdf+xml"/>
+        <meta content='(pics-1.1 "http://www.icra.org/pics/vocabularyv03/" l gen true for "http://prettydiff.com" r (n 0 s 0 v 0 l 0 oa 0 ob 0 oc 0 od 0 oe 0 of 0 og 0 oh 0 c 1) gen true for "http://www.prettydiff.com" r (n 0 s 0 v 0 l 0 oa 0 ob 0 oc 0 od 0 oe 0 of 0 og 0 oh 0 c 1))' http-equiv="pics-Label"/>
+        <meta content="Austin Cheney" name="author"/>
+        <meta content="Pretty Diff tool can minify, beautify (pretty-print), or diff between minified and beautified code. This tool can even beautify and minify HTML." name="description"/>
+        <meta content="Global" name="distribution"/>
+        <meta content="en" http-equiv="Content-Language"/>
+        <meta content="application/xhtml+xml;charset=UTF-8" http-equiv="Content-Type"/>
+        <meta content="blendTrans(Duration=0)" http-equiv="Page-Enter"/>
+        <meta content="blendTrans(Duration=0)" http-equiv="Page-Exit"/>
+        <meta content="text/css" http-equiv="content-style-type"/>
+        <meta content="application/javascript" http-equiv="content-script-type"/>
+        <meta content="qL8AV9yjL2-ZFGV9ey6wU3t7pTZdpD4lIetUSiNen7E" name="google-site-verification"/>
+        <meta content="#bbbbff" name="msapplication-TileColor"/>
+        <meta content="images/pdlogo.svg" name="msapplication-TileImage"/>
+        <link href="humans.txt" rel="author" type="text/plain"/>
+        <link href="cm/codemirror.css" media="all" rel="stylesheet" type="text/css"/>
+        <link href="diffview.css" media="all" rel="stylesheet" type="text/css"/>
+    </head>
+    <body class="white" id="webtool">
+        <ul id="displayOps">
+            <li><button id="resetOptions" title="Clicking this button will clear all stored data and reset all options to the default configuration. I recommend refreshing the page after clicking this button." type="button">Reset
+                Options</button></li>
+            <li><a href="documentation.xhtml" class="button">Documentation</a></li>
+            <li id="displayOps-hide"><button id="hideOptions" title="Clicking this button will visually hide everything except for textarea elements and one 'Execute' button." type="button">Show Options</button></li>
+        </ul>
+        <p id="functionGroup" class="append"><strong>Function</strong>
+            <span>
+                <input checked="checked" id="modediff" name="mode" title="This option tells the tool to generate a diff (code comparison) report. Force this display by default with the address parameter 'm=diff'." type="radio"/>
+                <label for="modediff" title="This option tells the tool to generate a diff (code comparison) report. Force this display by default with the address parameter 'm=diff'.">Compare</label></span>
+            <span>
+                <input id="modebeautify" name="mode" title="This option tells the tool to return well formatted code. Force this display by default with the address parameter 'm=beautify'." type="radio"/>
+                <label for="modebeautify" title="This option tells the tool to return well formatted code. Force this display by default with the address parameter 'm=beautify'.">Beautify</label></span>
+            <span>
+                <input id="modeminify" name="mode" title="This option tells thetool to return white space compressed code. Force this display by default with the address parameter 'm=minify'." type="radio"/>
+                <label for="modeminify" title="This option tells thetool to return white space compressed code. Force this display by default with the address parameter 'm=minify'.">Minify</label></span>
+        </p>
+        <p id="announcement" class="big"></p>
+        <p id="update">Updated:
+        </p>
+        <div id="top">
+            <h1 title="Pretty Diff is a language aware code comparison tool featuring automatic language detection. Some of the supported languages include: XML, SGML, JSTL, HTML, CSS, SCSS, CSV, JavaScript, and JSON">
+                <svg height="2000.000000pt" preserveAspectRatio="xMidYMid meet" version="1.0" viewBox="0 0 2000.000000 2000.000000" width="2000.000000pt" xmlns="http://www.w3.org/2000/svg"><g transform="translate(0.000000,2000.000000) scale(0.100000,-0.100000)" fill="#999" stroke="none"><path d="M14871 18523 c-16 -64 -611 -2317 -946 -3588 -175 -660 -319 -1202 -320 -1204 -2 -2 -50 39 -107 91 -961 876 -2202 1358 -3498 1358 -1255 0 -2456 -451 -3409 -1279 -161 -140 -424 -408 -560 -571 -507 -607 -870 -1320 -1062 -2090 -58 -232 -386 -1479 -2309 -8759 -148 -563 -270 -1028 -270 -1033 0 -4 614 -8 1365 -8 l1364 0 10 38 c16 63 611 2316 946 3587 175 660 319 1202 320 1204 2 2 50 -39 107 -91 543 -495 1169 -862 1863 -1093 1707 -568 3581 -211 4965 946 252 210 554 524 767 796 111 143 312 445 408 613 229 406 408 854 525 1320 57 225 380 1451 2310 8759 148 563 270 1028 270 1033 0 4 -614 8 -1365 8 l-1364 0 -10 -37z m-4498 -5957 c477 -77 889 -256 1245 -542 523 -419 850 -998 954 -1689 18 -121 18 -549 0 -670 -80 -529 -279 -972 -612 -1359 -412 -480 -967 -779 -1625 -878 -121 -18 -549 -18 -670 0 -494 74 -918 255 -1283 548 -523 419 -850 998 -954 1689 -18 121 -18 549 0 670 104 691 431 1270 954 1689 365 293 828 490 1283 545 50 6 104 13 120 15 72 10 495 -3 588 -18z"/></g></svg>
+                <span id="title_text">Pretty Diff - The difference tool</span></h1>
+            <div id="introduction"><h2>Introduction</h2>
+                <p class="information">Use this free open-source file comparison tool to
+                    accurately diff between file versions
+                    <em>regardless of comments or minification</em>
+                    to the whitespace. This tool is written entirely in JavaScript and it can
+                    also beautify (pretty-print) and minify HTML. Since this tool is
+                    client-side JavaScript only, meaning that the execution occurs on the
+                    local computer only and the resulting output is not transmitted or
+                    stored, it is safe for processing classified information. Please note
+                    that this tool is not a validation service. Pretty Diff is a language
+                    aware code comparison tool featuring automatic language detection. Some
+                    of the supported languages include: XML, SGML, JSTL, HTML, CSS, SCSS,
+                    CSV, JavaScript, and JSON.</p>
+                <p><strong>Confidential:</strong>
+                    This tool executes entirely on the client computer without leaking any
+                submitted data over the internet.</p>
+                <ul>
+                    <li><a href="documentation.xhtml">English documentation</a></li>
+                </ul>
+                <ul>
+                    <li><a href="samples.xhtml">samples</a></li>
+                    <li><a href="https://groups.google.com/d/forum/pretty-diff">mailing list</a></li>
+                    <li><a href="https://github.com/austincheney/Pretty-Diff">GitHub</a></li>
+                    <li><a href="api/node-local.js">Node.js</a></li>
+                    <li><a href="api/prettydiff.wsf">WSH</a></li>
+                    <li><a href="jspretty.xhtml">JSPretty</a></li>
+                    <li><a href="http://g6auc.me.uk/widgets.html">JSPretty Widget</a></li>
+                </ul>
+                <span class="clear"></span>
+            </div>
+        </div>
+        <div id="codeInput">
+            <div id="diffBase"><h2>Base Text</h2>
+                <p class="labeltext"><input id="baselabel" type="text" value="base"/>
+                    <label for="baselabel">Base label (optional)</label></p>
+                <p class="file"><input id="diffbasefile" multiple="multiple" type="file"/>
+                    <label for="diffbasefile">Base source file</label></p>
+                <p class="input"><label class="difflabel" for="baseText">Base code for
+                    diff</label>
+                    <textarea cols="80" id="baseText" rows="10" wrap="off"></textarea>
+                </p>
+            </div>
+            <div id="diffNew"><h2>New Text</h2>
+                <p class="labeltext"><input id="newlabel" type="text" value="new"/>
+                    <label for="newlabel">New label (optional)</label></p>
+                <p class="file"><input id="diffnewfile" multiple="multiple" type="file"/>
+                    <label for="diffnewfile">New source file</label></p>
+                <p class="input"><label class="difflabel" for="newText">New code for
+                    diff</label>
+                    <textarea cols="80" id="newText" rows="10" wrap="off"></textarea>
+                </p>
+            </div>
+            <div id="Beautify" style="display:none;"><h2 title="The term pretty-print is synonymous with code beautification.">Beautify
+                Code</h2>
+                <p class="file"><input id="beautyfile" multiple="multiple" type="file"/>
+                    <label for="beautyfile">Beautify local file</label></p>
+                <p class="input"><label for="beautyinput">Beautification input</label>
+                    <textarea cols="80" id="beautyinput" rows="10" wrap="off"></textarea>
+                </p>
+                <p class="output"><label class="outputlabel" for="beautyoutput">Beautification
+                    output</label>
+                    <textarea cols="40" id="beautyoutput" name="paste_code" readonly="readonly" rows="10" wrap="off"></textarea>
+                </p>
+                <span class="clear"></span>
+            </div>
+            <div id="Minify" style="display:none;"><h2>Minify Code</h2>
+                <p class="file"><input id="minifyfile" multiple="multiple" type="file"/>
+                    <label for="minifyfile">Minify local file</label></p>
+                <p class="input"><label for="minifyinput">Minification input</label>
+                    <textarea cols="80" id="minifyinput" rows="10" wrap="off"></textarea>
+                </p>
+                <p class="output"><label class="outputlabel" for="minifyoutput">Minification
+                    output</label>
+                    <textarea cols="40" id="minifyoutput" readonly="readonly" rows="10" wrap="off"></textarea>
+                </p>
+                <span class="clear"></span>
+            </div>
+            <span class="clear"></span>
+        </div>
+        <p id="button-primary" class="button"><button type="button" value="Execute">Execute</button></p>
+        <div id="reports"><h2>Reporting data which updates with each use of the
+            tool</h2>
+            <div class="box" id="diffreport">
+                <p style="display:none" class="buttons">
+                    <a href="#"><button class="save" title="Convert diff report to text that can be saved.">S</button></a>
+                    <button class="minimize" title="Minimize this dialogue ">&uarr;</button>
+                    <button class="maximize" title="Maximize this dialogue to the browser window.">&uarr;</button>
+                    <button class="resize" title="Resize this dialogue.">&harr;</button></p>
+                <h3 class="heading" title="Grab this title element to open this dialogue or move it around around the screen."><span>Diff
+                    Report</span></h3>
+                <div class="body" id="diffreportbody" style="display:none" xml:space="preserve"></div>
+            </div>
+            <div class="box" id="beaureport">
+                <p style="display:none" class="buttons">
+                    <button class="minimize" title="Minimize this dialogue">&uarr;</button>
+                    <button class="maximize" title="Maximize this dialogue to the browser window.">&uarr;</button>
+                    <button class="resize" title="Resize this dialogue.">&harr;</button></p>
+                <h3 class="heading" title="Grab this title element to open this dialogue or move it around the screen."><span>Beautify
+                    Report</span></h3>
+                <div class="body" id="beaureportbody" style="display:none" xml:space="preserve"></div>
+            </div>
+            <div class="box" id="minnreport">
+                <p style="display:none" class="buttons">
+                    <button class="minimize" title="Minimize this dialogue">&uarr;</button>
+                    <button class="maximize" title="Maximize this dialogue to the browser window.">&uarr;</button>
+                    <button class="resize" title="Resize this dialogue.">&harr;</button></p>
+                <h3 class="heading" title="Grab this title element to open this dialogue or move it around the screen."><span>Minify
+                    Report</span></h3>
+                <div class="body" id="minreportbody" style="display:none" xml:space="preserve"></div>
+            </div>
+            <div class="box" id="statreport">
+                <p style="display:none" class="buttons">
+                    <button class="minimize" title="Minimize this dialogue">&uarr;</button>
+                    <button class="maximize" title="Maximize this dialogue to the browser window.">&uarr;</button>
+                    <button class="resize" title="Resize this dialogue.">&harr;</button></p>
+                <h3 class="heading" title="Grab this title element to open this dialogue or move it around the screen."><span>Usage
+                    Statistics</span></h3>
+                <div class="body" id="statreportbody" style="display:none" xml:space="preserve">
+                    <div><h3>General statistics</h3>
+                        <ul><li>Total number of visits:
+                                <strong id="stvisit">0</strong></li>
+                            <li>Total usage count:
+                                <strong id="stusage">0</strong></li>
+                            <li>Start date of logging:
+                                <strong id="stfdate"></strong>
+                            </li>
+                            <li>Average visits per day:
+                                <strong id="stavday">0</strong></li>
+                            <li>Largest code source:
+                                <strong id="stlarge">0</strong>
+                                characters</li>
+                        </ul>
+                    </div>
+                    <div><h3>Usage statistics</h3>
+                        <ul><li>Diff:
+                                <strong id="stdiff">0</strong></li>
+                            <li>Beautification:
+                                <strong id="stbeau">0</strong></li>
+                            <li>Minification:
+                                <strong id="stminn">0</strong></li>
+                        </ul>
+                    </div>
+                    <div><h3>Language statistics</h3>
+                        <ul><li>Markup:
+                                <strong id="stmarkup">0</strong></li>
+                            <li>JavaScript:
+                                <strong id="stjs">0</strong></li>
+                            <li>CSS:
+                                <strong id="stcss">0</strong></li>
+                            <li>CSV:
+                                <strong id="stcsv">0</strong></li>
+                            <li>Plain text:
+                                <strong id="sttext">0</strong></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="options" id="options"><h2>Main Options</h2>
+            <p><label class="label" for="colorScheme" title="Pick a color theme with this list of options. Force a theme by default with the address parameter 'c', for example 'c=shadow'.">Color Scheme</label>
+                <select id="colorScheme" title="Pick a color theme with this list of options. Force a theme by default with the address parameter 'c', for example 'c=shadow'."><option>Default</option><option>Canvas</option><option>Shadow</option><option selected="selected">White</option></select>
+            </p>
+            <p><label class="label" for="language" title="Choose a specific language with this list. Pick a language by default with the 'l' address parameter, for example 'l=html'.">Code type</label>
+                <select id="language" title="Choose a specific language with this list. Pick a language by default with the 'l' address parameter, for example 'l=html'."><option selected="selected" value="auto">Auto
+                    Detect</option><option value="css">CSS</option><option value="csv">CSV</option><option value="html">HTML</option><option value="javascript">JavaScript</option><option value="javascript">JSON</option><option value="markup">JSTL</option><option value="markup">markup
+                    (non-specific)</option><option value="text">Plain
+                    Text</option><option value="css">SCSS
+                    (SASS)</option><option value="markup">SGML</option><option value="markup">XML</option></select>
+            </p>
+            <p id="csvcharp" style="display:none;"><label class="label" for="csvchar">Character
+                separator</label>
+                <input id="csvchar" title="If the language type is set to CSV this field will allow definition of the separating character. Please read the documentation for advanced usage." type="text" value=","/></p>
+            <p><label class="label" for="option_comment">Pretty Diff Comment</label><textarea cols="30" id="option_comment" readonly="readonly" rows="2" title="This area contains a configuration string as a code comment. This string can be applied to the top of JavaScript and CSS code to supply instructions to the Pretty Diff tool without need to set options in the user interface.">/*prettydiff.com
+                */</textarea></p>
+        </div>
+        <div id="addOptions">
+            <div class="options" id="diffops"><h2>Diff Options</h2>
+                <fieldset><legend>Diff Report Options</legend>
+                    <p><strong>Print or Save Output</strong>
+                        <span>
+                            <input id="diff-save" title="A diff report formatting option. Checking this option returns plain text code of the diff report instead of parsed HTML. The intention here is to allow users to copy the text and paste it into a text editor in order to save down the diff report." type="checkbox"/>
+                            <label for="diff-save">&mdash; Generates HTML report as raw text inside
+                                a text area.</label></span>
+                    </p>
+                    <p><label class="label" for="contextSize">Context size
+                        (optional)</label>
+                        <span>
+                            <input id="contextSize" title="A diff report formatting option. If the value is empty or, not 0, or not a positive integer then a diff is generated showing the entirety of the code samples. If the value is 0 or a positive integer then this value dictates how many 'equal' lines of code will display in the report between lines with differences." type="text" value=""/>
+                            <label for="contextSize">&mdash; This sets number of matching lines of code to
+                                pad the differences.</label></span>
+                    </p>
+                    <p><strong>Diff View Type</strong>
+                        <span>
+                            <input checked="checked" id="sidebyside" name="_viewtype" title="This diff report option determines whether the diff report will show a table with columns for each code sample for a left and right comparison." type="radio"/>
+                            <label for="sidebyside">Side by side view</label></span>
+                        <span>
+                            <input id="inline" name="_viewtype" title="This diff option will generate a diff report with only one column and two rows dedicated to each different line of code." type="radio"/>
+                            <label for="inline">Inline view</label></span>
+                    </p>
+                </fieldset>
+                <fieldset><legend>Difference Reduction Options</legend>
+                    <p><strong>Diff Quotes</strong>
+                        <span>
+                            <input checked="checked" id="diffquotey" name="diffquote" title="This option will report single quote characters and double quote characters as differences." type="radio"/><label for="diffquotey">Diff
+                            quotes literally</label></span>
+                        <span>
+                            <input id="diffquoten" name="diffquote" title="This option will convert all single quote characters to double quote characters so as to reduce the number of total code differences from the diff report." type="radio"/><label for="diffquoten">Normalize
+                            single quote characters to double quote characters</label></span>
+                    </p>
+                    <p><strong>Trailing Semicolons</strong>
+                        <span>
+                            <input checked="checked" id="diffscolony" name="diffscolon" title="This option will prevent the tool from removing semicolons at the end of lines of code so as to preserve the integrity of the code samples in the diff report." type="radio"/><label for="diffscolony">Diff
+                            semicolons</label></span>
+                        <span>
+                            <input id="diffscolonn" name="diffscolon" title="This option will remove all trailing semicolons so as to reduce the number of potential differences from the diff report." type="radio"/><label for="diffscolonn">Remove
+                            trailing semicolons</label></span>
+                    </p>
+                    <p><strong>Code Comments</strong>
+                        <span>
+                            <input checked="checked" id="diffcommentsn" name="diffcomments" title="This option will remove all code comments from the diff analysis. This effect of this option can be partially overridden when selecting the option 'Preserve HTML conditional comments' for HTML." type="radio"/><label for="diffcommentsn">Remove
+                            code comments</label></span>
+                        <span>
+                            <input id="diffcommentsy" name="diffcomments" title="This option will allow comparison of all comments and code." type="radio"/><label for="diffcommentsy">Compare
+                            code and comments</label></span>
+                    </p>
+                    <p><strong>Ignore Content (Markup / JavaScript)</strong>
+                        <span>
+                            <input checked="checked" id="diffcontenty" name="diffcontent" title="This option maintains document integrity with regard to markup content and JavaScript string contents." type="radio"/>
+                            <label for="diffcontenty">Diff content literally</label></span>
+                        <span>
+                            <input id="diffcontentn" name="diffcontent" title="This option removes content from markup or string contents from JavaScript so as to allow comparison of syntax only." type="radio"/>
+                            <label for="diffcontentn">Normalize content and string literals</label></span>
+                    </p>
+                </fieldset>
+                <fieldset id="diffbeautify"><legend>Beautification Options</legend>
+                    <p id="diffquanp"><label class="label" for="diff-quan">Indentation
+                        size</label>
+                        <span>
+                            <input id="diff-quan" title="This text field expects a value of 0 or a positive integer. The number provided dictates how many characters constitute a single indentation of formatted code." type="text" value="4"/>
+                        </span>
+                    </p>
+                    <p id="difftypep"><label class="label" for="diff-char">Indentation
+                        character</label>
+                        <span>
+                            <input class="unchecked" id="diff-char" title="Accessibility Note: In order for this field to be accepted by the application the radio button labeled 'Indent with Other Characters' must be checked. This text field allows entry of any text characters to constitute indentation." type="text" value="Click me for custom input"/>
+                        </span>
+                        <span id="diff-other-span">
+                            <input id="diff-other" name="diffchar" title="This option is only provided for functional reasons so as to enable the 'diff-char' text field and ignore its peer radio buttons from the application." type="radio"/>
+                            <label for="diff-other">Indent with other characters</label></span>
+                        <span>
+                            <input checked="checked" id="diff-space" name="diffchar" title="This option indicates a space character will be the character of indentation." type="radio"/>
+                            <label for="diff-space">Indent space</label></span>
+                        <span>
+                            <input id="diff-tab" name="diffchar" title="This option makes a tab character the character of indentation." type="radio"/>
+                            <label for="diff-tab">Indent tab</label></span>
+                        <span>
+                            <input id="diff-line" name="diffchar" title="This option makes a new line character the character of indentation." type="radio"/>
+                            <label for="diff-line">Indent new line</label></span>
+                    </p>
+                    <p><label class="label" for="diff-wrap">Wrap text (Markup Only)</label>
+                        <span>
+                            <input id="diff-wrap" title="Determines how long text can be before wrapping. Use a value of 0 to eliminate wrapping." type="text" value="72"/></span></p>
+                    <p><strong>Indent Style/Script (Markup Only)</strong>
+                        <span>
+                            <input checked="checked" id="inscriptd-yes" name="inscriptd" title="This markup only option sets the baseline for script and style definition from the identation point of the opening markup tag plus one indentation step." type="radio"/>
+                            <label for="inscriptd-yes">Indent to markup</label></span>
+                        <span>
+                            <input id="inscriptd-no" name="inscriptd" title="This option sets the indentation baseline for script and style code to 0 regardless of surrounding markup." type="radio"/>
+                            <label for="inscriptd-no">Indent style/script independently</label></span>
+                    </p>
+                    <p><strong>Presume HTML (Markup Only)</strong>
+                        <span>
+                            <input checked="checked" id="htmld-no" name="presumehtmld" title="Use this option to ignore HTML specific vocabulary and instead focus purely on syntax." type="radio"/>
+                            <label for="htmld-no">Strict XML syntax</label></span>
+                        <span>
+                            <input id="htmld-yes" name="presumehtmld" title="This option determines whether HTML tags like &lt;br&gt; and lt;hr&gt; should be evaluated as singletons, such as &lt;br/&gt; and lt;hr/&gt;." type="radio"/>
+                            <label for="htmld-yes">Tolerate HTML foolishness</label></span>
+                    </p>
+                    <p><strong>Force Indentation (Markup Only)</strong>
+                        <span>
+                            <input checked="checked" id="dforce_indent-no" name="dforce_indent" title="This markup only option maintains document integrity with regard to indentation that would create text nodes adjacent to content that did not exist before." type="radio"/>
+                            <label for="dforce_indent-no">Maintain code integrity</label></span>
+                        <span>
+                            <input id="dforce_indent-yes" name="dforce_indent" title="This markup only option forces indentation for all content and elements without regard for integrity of document structure or content." type="radio"/><label for="dforce_indent-yes">Always
+                                force indentation</label></span>
+                    </p>
+                    <p><strong>IE Comments (HTML Only)</strong>
+                        <span>
+                            <input checked="checked" id="conditionald-no" name="conditionald" title="Use this option to remove HTML contitional comments used by Internet Explorer." type="radio"/>
+                            <label for="conditionald-no">Remove all comments</label></span>
+                        <span>
+                            <input id="conditionald-yes" name="conditionald" title="Use this option to keep HTML contitional comments used by Internet Explorer." type="radio"/>
+                            <label for="conditionald-yes">Preserve HTML conditional comments</label></span>
+                    </p>
+                    <p><strong>Alphabetic Sorting (CSS Only)</strong>
+                        <span><input checked="checked" id="dalphasort-no" name="dalphasort" title="Turn sorting off for CSS. Use this option for LESS and SASS code" type="radio"/>
+                            <label for="dalphasort-no">Turn off sorting</label></span>
+                        <span><input id="dalphasort-yes" name="dalphasort" title="Sort CSS properties alphabetically. Disable this option for LESS and SASS code" type="radio"/>
+                            <label for="dalphasort-yes">Sort by property name</label></span>
+                    </p>
+                    <p><strong>Style of Indent (JavaScript Only)</strong>
+                        <span>
+                            <input checked="checked" id="jsindentd-knr" name="jsindentdiff" title="This JavaScript only option sets opening curly braces at the end of the current line of code." type="radio"/>
+                            <label for="jsindentd-knr">K&amp;R style</label></span>
+                        <span>
+                            <input id="jsindentd-all" name="jsindentdiff" title="This JavaScript only option moves opening curly braces onto a new line for visibility of brace contents apart from other code." type="radio"/>
+                            <label for="jsindentd-all">Allman (ANSI) style &mdash; sets opening
+                                curly braces on a new line.</label></span>
+                    </p>
+                    <p><strong>Function Space (JavaScript Only)</strong>
+                        <span>
+                            <input checked="checked" id="jsspaced-yes" name="jsspaced" title="This JavaScript only option retains a single space between the 'function' keyword and the opening parenthesis character of anonymous functions." type="radio"/>
+                            <label for="jsspaced-yes">Retain function space</label></span>
+                        <span>
+                            <input id="jsspaced-no" name="jsspaced" title="This JavaScript only option removes a single space between the 'function' keyword and the opening parenthesis character of anonymous functions." type="radio"/>
+                            <label for="jsspaced-no">Remove space following function</label></span>
+                    </p>
+                    <p><strong>Empty Lines (JavaScript Only)</strong>
+                        <span>
+                            <input checked="checked" id="jslinesd-yes" name="jslinesd" title="This JavaScript only option retains a single empty line for each series of empty lines of code input." type="radio"/>
+                            <label for="jslinesd-yes">Preserve empty lines</label></span>
+                        <span>
+                            <input id="jslinesd-no" name="jslinesd" title="This JavaScript only option removes all empty lines." type="radio"/>
+                            <label for="jslinesd-no">Remove empty lines</label></span>
+                    </p>
+                    <p><strong>Else on New Line (JavaScript Only)</strong>
+                        <span>
+                            <input checked="checked" id="jselselined-no" name="jselselined" title="This JavaScript only option will precede the 'else' keyword with a space." type="radio"/>
+                            <label for="jselselined-no">A space precedes 'else'</label></span>
+                        <span>
+                            <input id="jselselined-yes" name="jselselined" title="This JavaScript only option will force the 'else' keyword onto a new line." type="radio"/>
+                            <label for="jselselined-yes">Force 'else' keyword onto a new line</label></span>
+                    </p>
+                </fieldset>
+            </div>
+            <div class="options" id="beauops" style="display:none;"><h2 title="The term pretty-print is synonymous with code beautification.">Beautify
+                Options</h2>
+                <fieldset><legend>Basic Options</legend>
+                    <p><label class="label" for="beau-quan">Indentation size</label>
+                        <span>
+                            <input id="beau-quan" title="This text field expects a value of 0 or a positive integer. The number provided dictates how many characters constitute a single indentation of formatted code." type="text" value="4"/>
+                        </span>
+                    </p>
+                    <p><label class="label" for="jsinlevel">Indentation offset (JavaScript Only)</label>
+                        <span>
+                            <input id="jsinlevel" title="This text field expects a value of 0 or a positive integer. This value supplies addition indentation, or padding, as an offset." type="text" value="0"/>
+                        </span>
+                    </p>
+                    <p><label class="label" for="beau-char">Indentation character</label>
+                        <span>
+                            <input class="unchecked" id="beau-char" title="Accessibility Note: In order for this field to be accepted by the application the radio button labeled 'Indent with Other Characters' must be checked. This text field allows entry of any text characters to constitute indentation." type="text" value="Click me for custom input"/>
+                        </span>
+                        <span id="beau-other-span">
+                            <input id="beau-other" name="beauchar" title="This option is only provided for functional reasons so as to enable the 'beau-char' text field and ignore its peer radio buttons from the application." type="radio"/>
+                            <label for="beau-other">Indent with other characters</label></span>
+                        <span>
+                            <input checked="checked" id="beau-space" name="beauchar" title="This option indicates a space character will be the character of indentation." type="radio"/>
+                            <label for="beau-space">Indent space</label></span>
+                        <span>
+                            <input id="beau-tab" name="beauchar" title="This option makes a tab character the character of indentation." type="radio"/>
+                            <label for="beau-tab">Indent tab</label></span>
+                        <span>
+                            <input id="beau-line" name="beauchar" title="This option makes a new line character the character of indentation." type="radio"/>
+                            <label for="beau-line">Indent new line</label></span>
+                    </p>
+                </fieldset>
+                <fieldset><legend>Advanced Options</legend>
+                    <p><strong>Indent Comments</strong>
+                        <span>
+                            <input checked="checked" id="incomment-yes" name="incomment" title="This option will cause comments to be indented." type="radio"/>
+                            <label for="incomment-yes">Indent comments</label></span>
+                        <span>
+                            <input id="incomment-no" name="incomment" title="This option will force comments to the start of the line without the benefit of indentation." type="radio"/>
+                            <label for="incomment-no">No comment indentation</label></span>
+                    </p>
+                    
+                    <p><label class="label" for="beau-wrap">Wrap text (Markup Only)</label>
+                        <span>
+                            <input id="beau-wrap" title="Determines how long text can be before wrapping. Use a value of 0 to eliminate wrapping." type="text" value="72"/></span></p>
+                    <p><strong>Indent Style/Script (Markup Only)</strong>
+                        <span>
+                            <input checked="checked" id="inscript-yes" name="inscript" title="This markup only option sets the baseline for script and style definition from the identation point of the opening markup tag plus one indentation step." type="radio"/>
+                            <label for="inscript-yes">Indent to markup</label></span>
+                        <span>
+                            <input id="inscript-no" name="inscript" title="This option sets the indentation baseline for script and style code to 0 regardless of surrounding markup." type="radio"/>
+                            <label for="inscript-no">Indent script/style independently</label></span>
+                    </p>
+                    <p><strong>Presume HTML (Markup Only)</strong>
+                        <span>
+                            <input checked="checked" id="html-no" name="presumehtml" title="Use this option to ignore HTML specific vocabulary and instead focus purely on syntax." type="radio"/>
+                            <label for="html-no">Strict XML syntax</label></span>
+                        <span>
+                            <input id="html-yes" name="presumehtml" title="This option determines whether HTML tags like &lt;br&gt; and lt;hr&gt; should be evaluated as singletons, such as &lt;br/&gt; and lt;hr/&gt;." type="radio"/>
+                            <label for="html-yes">Tolerate HTML foolishness</label></span>
+                    </p>
+                    <p><strong>Force Indentation (Markup Only)</strong>
+                        <span>
+                            <input checked="checked" id="bforce_indent-no" name="bforce_indent" title="This markup only option maintains document integrity with regard to indentation that would create text nodes adjacent to content that did not exist before." type="radio"/>
+                            <label for="bforce_indent-no">Maintain code integrity</label></span>
+                        <span>
+                            <input id="bforce_indent-yes" name="bforce_indent" title="This markup only option forces indentation for all content and elements without regard for integrity of document structure or content." type="radio"/><label for="bforce_indent-yes">Always
+                                force indentation</label></span>
+                    </p>
+                    <p><strong>Alphabetic Sorting (CSS Only)</strong>
+                        <span>
+                            <input checked="checked" id="balphasort-no" name="balphasort" title="Turn sorting off for CSS. Use this option for LESS and SASS code" type="radio"/>
+                            <label for="balphasort-no">Turn off sorting</label></span>
+                        <span>
+                            <input id="balphasort-yes" name="balphasort" title="Sort CSS properties alphabetically. Disable this option for LESS and SASS code" type="radio"/>
+                            <label for="balphasort-yes">Sort by property name</label></span>
+                    </p>
+                    <p><strong>Vertically Align (CSS / JavaScript)</strong>
+                        <span>
+                            <input id="vertical-jsonly" checked="checked" name="vertical" title="This option provides vertical alignment of assignments only to JavaScript and not CSS like languages." type="radio"/>
+                            <label for="vertical-jsonly">JavaScript only</label></span>
+                        <span>
+                            <input id="vertical-yes" name="vertical" title="This option causes lists of assignments and properties to be vertically aligned for faster reading." type="radio"/>
+                            <label for="vertical-yes">Vertically alignment</label></span>
+                        <span>
+                            <input id="vertical-no" name="vertical" title="This option prevents padding of variable and property names." type="radio"/>
+                            <label for="vertical-no">Normal assignments</label></span>
+                    </p>
+                    <p><strong>Scope Analysis (JavaScript Only)</strong>
+                        <span>
+                            <input checked="checked" id="jsscope-no" name="jsscope" title="This option will causes standard text beautification for JavaScript" type="radio"/>
+                            <label for="jsscope-no">Standard beautification</label></span>
+                        <span>
+                            <input id="jsscope-yes" name="jsscope" title="This option will display a colorful HTML output of the code that color codes variables to the scope they are declared so as to illustrate the nature of closure and inheritance." type="radio"/>
+                            <label for="jsscope-yes">Scope analysis output</label></span>
+                    </p>
+                    <p><strong>Style of Indent (JavaScript Only)</strong>
+                        <span>
+                            <input checked="checked" id="jsindent-knr" name="jsindent" title="This JavaScript only option sets opening curly braces at the end of the current line of code." type="radio"/>
+                            <label for="jsindent-knr">K&amp;R style</label></span>
+                        <span>
+                            <input id="jsindent-all" name="jsindent" title="This JavaScript only option moves opening curly braces onto a new line for visibility of brace contents apart from other code." type="radio"/>
+                            <label for="jsindent-all">Allman (ANSI) style &mdash; sets opening curly
+                                braces on a new line.</label></span>
+                    </p>
+                    <p><strong>Function Space (JavaScript Only)</strong>
+                        <span>
+                            <input checked="checked" id="jsspace-yes" name="jsspace" title="This JavaScript only option retains a single space between the 'function' keyword and the opening parenthesis character of anonymous functions." type="radio"/>
+                            <label for="jsspace-yes">Retain function space</label></span>
+                        <span>
+                            <input id="jsspace-no" name="jsspace" title="This JavaScript only option removes a single space between the 'function' keyword and the opening parenthesis character of anonymous functions." type="radio"/>
+                            <label for="jsspace-no">Remove space following function</label></span>
+                    </p>
+                    <p><strong>Empty Lines (JavaScript Only)</strong>
+                        <span>
+                            <input checked="checked" id="jslines-yes" name="jslines" title="This JavaScript only option retains a single empty line for each series of empty lines of code input." type="radio"/>
+                            <label for="jslines-yes">Preserve empty lines</label></span>
+                        <span>
+                            <input id="jslines-no" name="jslines" title="This JavaScript only option removes all empty lines." type="radio"/>
+                            <label for="jslines-no">Remove empty lines</label></span>
+                    </p>
+                    <p><strong>Fix Sloppy Code (JavaScript Only)</strong>
+                        <span>
+                            <input checked="checked" id="jscorrect-no" name="jscorrect" title="Do not alter or remove sloppy JavaScript code." type="radio"/>
+                            <label for="jscorrect-no">Ignore code correction</label></span>
+                        <span>
+                            <input id="jscorrect-yes" name="jscorrect" title="This JavaScript only option automatically converts some sloppy behaviors into known best practices." type="radio"/>
+                            <label for="jscorrect-yes">Correct for sloppiness</label></span>
+                    </p>
+                    <p><strong>Else on New Line (JavaScript Only)</strong>
+                        <span>
+                            <input checked="checked" id="jselseline-no" name="jselseline" title="This JavaScript only option will precede the 'else' keyword with a space." type="radio"/>
+                            <label for="jselseline-no">A space precedes 'else'</label></span>
+                        <span>
+                            <input id="jselseline-yes" name="jselseline" title="This JavaScript only option will force the 'else' keyword onto a new line." type="radio"/>
+                            <label for="jselseline-yes">Force 'else' keyword onto a new line</label></span>
+                    </p>
+                </fieldset>
+            </div>
+            <div class="options" id="miniops" style="display:none;"><h2>Minify
+                Options</h2>
+                <p><strong>Presume HTML (Markup Only)</strong>
+                    <span>
+                        <input checked="checked" id="htmlm-no" name="presumehtmlm" title="Use this option to ignore HTML specific vocabulary and instead focus purely on syntax." type="radio"/>
+                        <label for="htmlm-no">Strict XML syntax</label></span>
+                    <span>
+                        <input id="htmlm-yes" name="presumehtmlm" title="This option determines whether HTML tags like &lt;br&gt; and lt;hr&gt; should be evaluated as singletons, such as &lt;br/&gt; and lt;hr/&gt;." type="radio"/>
+                        <label for="htmlm-yes">Tolerate HTML foolishness</label></span>
+                </p>
+                <p><strong>IE Comments (HTML Only)</strong>
+                    <span>
+                        <input checked="checked" id="conditionalm-no" name="conditionalm" title="Use this option to remove HTML contitional comments used by Internet Explorer." type="radio"/>
+                        <label for="conditionalm-no">Remove all comments</label></span>
+                    <span>
+                        <input id="conditionalm-yes" name="conditionalm" title="Use this option to keep HTML contitional comments used by Internet Explorer." type="radio"/>
+                        <label for="conditionalm-yes">Preserve HTML conditional comments</label></span>
+                </p>
+                <p><strong>Alphabetic Sorting (CSS Only)</strong>
+                    <span>
+                        <input checked="checked" id="malphasort-no" name="malphasort" title="Turn sorting off for CSS. Use this option for LESS and SASS code" type="radio"/>
+                        <label for="malphasort-no">Turn off sorting</label></span>
+                    <span>
+                        <input id="malphasort-yes" name="malphasort" title="Sort CSS properties alphabetically. Disable this option for LESS and SASS code" type="radio"/>
+                        <label for="malphasort-yes">Sort by property name</label></span>
+                </p>
+                <p><strong>Top Comments (JavaScript / CSS)</strong>
+                    <span>
+                        <input checked="checked" id="topcoms-no" name="topcoms" title="Use this remove all comments in JavaScript and CSS including comments above the first line of code." type="radio"/>
+                        <label for="topcoms-no">Minify all comments</label></span>
+                    <span>
+                        <input id="topcoms-yes" name="topcoms" title="Use this option retain comments comments above the first line of JavaScript and CSS code." type="radio"/>
+                        <label for="topcoms-yes">Preserve comments before any code</label></span>
+                </p>
+                <p><strong>Obfuscation (JavaScript)</strong>
+                    <span>
+                        <input checked="checked" id="obfuscate-no" name="obfuscate" title="This option avoids code obfuscation." type="radio"/>
+                        <label for="obfuscate-no">No obfuscation</label></span>
+                    <span>
+                        <input id="obfuscate-yes" name="obfuscate" title="Use this option to shorten variable names and remove some semicolons." type="radio"/>
+                        <label for="obfuscate-yes">Shorten variable names and remove some semicolons (Warning: changes to variable names cannot be undone)</label></span>
+                </p>
+            </div>
+            <p class="button"><button type="button" value="Execute">Execute</button></p>
+        </div>
+        <div id="diffoutput"><p id="emailme">Please post comments, feedback, and
+            requests on the
+                <a href="https://groups.google.com/d/forum/pretty-diff">Pretty Diff
+                    mailing list</a>.</p>
+            <p>Created by
+                <a href="http://mailmarkup.org/">Austin Cheney</a>
+                on 3 Mar 2009. This is a heavy modification of JavaScript tools:
+                <a href="https://github.com/cemerick/jsdifflib/">jsdifflib</a>,
+                <a href="https://github.com/austincheney/Pretty-Diff/blob/master/lib/jspretty.js">jspretty</a>,
+                <a href="https://github.com/austincheney/Pretty-Diff/blob/master/lib/markup_beauty.js">markup_beauty</a>,
+                and other custom written libraries.</p>
+        </div>
+        <script type="application/javascript" src="cm/codemirror.js"></script>
+        <script type="application/javascript" src="prettydiff.js"></script>
+        <script type="application/javascript" src="api/dom.js"></script>
+    </body>
+</html>

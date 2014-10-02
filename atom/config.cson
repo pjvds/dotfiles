@@ -1,0 +1,18 @@
+'exception-reporting':
+  'userId': 'bd43739a-b81f-7cfa-e410-fce86b7ef342'
+'welcome':
+  'showOnStartup': false
+'metrics':
+  'userId': '5afe01d925f56ca54ea8945b2cce677f8755be3a'
+'core':
+  'themes': [
+    'atom-light-ui'
+    'tomorrow-syntax'
+  ]
+'editor':
+  'fontFamily': 'Source Code Pro'
+  'fontSize': 24
+'linter':
+  'showHighlighting': false
+  'lintOnChange': false
+'vim-mode': {}

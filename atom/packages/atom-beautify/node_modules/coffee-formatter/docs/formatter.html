@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>Coffee-Formatter</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="public/stylesheets/normalize.css" />
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="page">
+
+      <div class="header">
+        
+          
+          <h1>Coffee-Formatter</h1>
+<h2>Introduction</h2>
+<p>CoffeeFormatter (abbreviated as CF) is a, guess what, formatter for CoffeeScript.  Let me know if you were actually expecting otherwise lol.</p>
+<p>The code is written in Literate CoffeeScript.  Checkout Wikipedia for what &quot;Literate Programming&quot; means.</p>
+<h2>Code</h2>
+<h3>Dependencies</h3>
+<p>CF relies on the following packages:</p>
+<ul>
+<li><code>lazy</code> for reading files line by line.  An example is given <a href="http://stackoverflow.com/questions/6156501/read-a-file-one-line-at-a-time-in-node-js">here</a>.</li>
+<li><code>fs</code> for file io.</li>
+<li><code>optimist</code> for command line parsing.</li>
+</ul>
+<p>Code:</p>
+
+          
+            <div class='highlight'><pre>Lazy = require <span class="string">'lazy'</span>
+fs = require <span class="string">'fs'</span></pre></div>
+          
+        
+
+        
+      </div>
+
+      
+        
+        <p>By default, we use a tab width of 2 and use spaces exclusively.  This is the style most widely used in the community.  For a detailed guide of CoffeeScript style, check out <a href="https://github.com/polarmobile/coffeescript-style-guide">this</a>.</p>
+
+        
+          <div class='highlight'><pre>argv = (require <span class="string">'optimist'</span>)
+  .<span class="reserved">default</span>(<span class="string">'tab-width'</span>, <span class="number">2</span>)
+  .<span class="reserved">default</span>(<span class="string">'use-space'</span>, <span class="literal">true</span>)
+  .argv</pre></div>
+        
+      
+        
+        <h3>Constants</h3>
+<p>We define a set of constants, including:</p>
+<p>Two-space operators.  These operators should have one space both before and after.</p>
+
+        
+          <div class='highlight'><pre>TWO_SPACE_OPERATORS = [<span class="string">'='</span>, <span class="string">'+='</span>, <span class="string">'-='</span>, <span class="string">'=='</span>, <span class="string">'&lt;='</span>, <span class="string">'&gt;='</span>,
+                    <span class="string">'&gt;'</span>, <span class="string">"&lt;"</span>, <span class="string">'+'</span>, <span class="string">'-'</span>, <span class="string">'*'</span>, <span class="string">'/'</span>]</pre></div>
+        
+      
+        
+        <p>One-space operators.  They should have one space after.</p>
+
+        
+          <div class='highlight'><pre>ONE_SPACE_OPERATORS = [<span class="string">':'</span>, <span class="string">'?'</span>, <span class="string">')'</span>, <span class="string">'}'</span>, <span class="string">','</span>]</pre></div>
+        
+      
+        
+        <h3>Helper Functions</h3>
+<p>Given a line and an index, the function determines whether or not the index is inside of a CoffeeScript string or part of a CoffeeScript comment.</p>
+
+        
+          <div class='highlight'><pre><span class="function"><span class="title">inStringOrComment</span></span> = (index, line) -&gt;
+  <span class="keyword">for</span> c, i <span class="keyword">in</span> line
+    <span class="keyword">if</span> c == <span class="string">'#'</span> <span class="keyword">and</span> i &lt;= index
+      <span class="keyword">return</span> <span class="literal">true</span>
+    <span class="keyword">if</span> c == <span class="string">"'"</span> <span class="keyword">or</span> c == <span class="string">'"'</span>
+      subLine = line.substr (i + <span class="number">1</span>)
+      <span class="keyword">for</span> cc, ii <span class="keyword">in</span> subLine
+        <span class="keyword">if</span> cc == c
+          <span class="keyword">if</span> i &lt;= index &lt;= (ii + i + <span class="number">1</span>)
+            <span class="keyword">return</span> <span class="literal">true</span>
+          <span class="keyword">else</span>
+            <span class="keyword">return</span> inStringOrComment (index - (ii + <span class="number">1</span>)), (line.substr (ii + <span class="number">1</span>))
+
+  <span class="keyword">return</span> <span class="literal">false</span></pre></div>
+        
+      
+        
+        <p>The negation:</p>
+
+        
+          <div class='highlight'><pre><span class="function"><span class="title">notInStringOrComment</span></span> = (index, line) -&gt;
+  <span class="keyword">return</span> <span class="keyword">not</span> inStringOrComment(index, line)</pre></div>
+        
+      
+        
+        <p><code>getExtension()</code> returns the extension of a filename, excluding the dot.</p>
+
+        
+          <div class='highlight'><pre><span class="function"><span class="title">getExtension</span></span> = (filename) -&gt;
+  i = filename.lastIndexOf <span class="string">'.'</span>
+  <span class="keyword">return</span> <span class="keyword">if</span> i &lt; <span class="number">0</span> <span class="keyword">then</span> <span class="string">''</span> <span class="keyword">else</span> filename.substr (i+<span class="number">1</span>)</pre></div>
+        
+      
+        
+        <p>This function makes sure that there is one and only one space before and after the operators defined in <code>TWO_SPACE_OPERATORS</code>.  Before it inserts spaces, however, it makes sure that the operator in question is not part of a string.</p>
+<p>The idea behind this implementation is that, we can firstly add one space both before and after the operator, and then use <code>shortenSpaces</code> (described later) to get rid of any additional spaces.</p>
+<p>The boolean logic is much more complex than I would like.  It should be refactored at some point.</p>
+
+        
+          <div class='highlight'><pre><span class="function"><span class="title">formatTwoSpaceOperator</span></span> = (line) -&gt;
+  <span class="keyword">for</span> operator <span class="keyword">in</span> TWO_SPACE_OPERATORS
+    newLine = <span class="string">''</span>
+    skipNext = <span class="literal">false</span>
+    <span class="keyword">for</span> c, i <span class="keyword">in</span> line</pre></div>
+        
+      
+        
+        <p>Test if the operator is at i</p>
+
+        
+          <div class='highlight'><pre>      <span class="keyword">if</span> (line.substr(i).indexOf(operator) == <span class="number">0</span>) <span class="keyword">and</span> (notInStringOrComment i, line) <span class="keyword">and</span>
+      (<span class="keyword">not</span> ((operator.length == <span class="number">1</span>) <span class="keyword">and</span>
+        ((line[i + <span class="number">1</span>] <span class="keyword">in</span> TWO_SPACE_OPERATORS) <span class="keyword">or</span>
+          (line[i-<span class="number">1</span>] <span class="keyword">in</span> TWO_SPACE_OPERATORS))))
+        newLine += <span class="string">" <span class="subst">#{operator}</span> "</span> <span class="comment"># Insert a space before and after</span>
+        skipNext = <span class="literal">true</span> <span class="keyword">if</span> operator.length == <span class="number">2</span>
+      <span class="keyword">else</span>
+        <span class="keyword">unless</span> skipNext
+          newLine += c
+        skipNext = <span class="literal">false</span>
+
+    line = shortenSpaces newLine
+
+  <span class="keyword">return</span> line</pre></div>
+        
+      
+        
+        <p>This method shortens consecutive spaces into one single space.</p>
+
+        
+          <div class='highlight'><pre><span class="function"><span class="title">formatOneSpaceOperator</span></span> = (line) -&gt;
+  <span class="keyword">for</span> operator <span class="keyword">in</span> ONE_SPACE_OPERATORS
+    newLine = <span class="string">''</span>
+    <span class="keyword">for</span> c, i <span class="keyword">in</span> line
+      <span class="keyword">if</span> (line.substr(i).indexOf(operator) == <span class="number">0</span>) <span class="keyword">and</span> (notInStringOrComment i, line) <span class="keyword">and</span></pre></div>
+        
+      
+        
+        <p>One exception has to be accounted for, which is experssion of the form <code>Object::property</code></p>
+
+        
+          <div class='highlight'><pre>      (line.substr(i).indexOf(<span class="string">'::'</span>) != <span class="number">0</span>) <span class="keyword">and</span>
+      (line.substr(i-<span class="number">1</span>).indexOf(<span class="string">'::'</span>) != <span class="number">0</span>) <span class="keyword">and</span></pre></div>
+        
+      
+        
+        <p>Another exception: <code>if (options = arguments[i])?</code></p>
+
+        
+          <div class='highlight'><pre>      (line.substr(i+<span class="number">1</span>).indexOf(<span class="string">'?'</span>) != <span class="number">0</span>)
+        newLine += <span class="string">"<span class="subst">#{operator}</span> "</span> <span class="comment"># Insert a space after</span>
+      <span class="keyword">else</span>
+        newLine += c
+
+    line = shortenSpaces newLine
+
+  <span class="keyword">return</span> line</pre></div>
+        
+      
+        
+        <p>Note that the function should not shorten indentations.</p>
+
+        
+          <div class='highlight'><pre><span class="function"><span class="title">shortenSpaces</span></span> = (line) -&gt;
+  prevChar = <span class="literal">null</span>
+  newLine = <span class="string">''</span>
+
+  <span class="keyword">for</span> c, i <span class="keyword">in</span> line
+    <span class="keyword">if</span> c == <span class="string">' '</span>
+      newLine += c
+    <span class="keyword">else</span>
+      line = line.substring(i)
+      <span class="keyword">break</span>
+
+  <span class="keyword">for</span> c, i <span class="keyword">in</span> line
+    <span class="keyword">unless</span> notInStringOrComment(i, line) <span class="keyword">and</span> (c == <span class="string">' '</span> == prevChar)
+      newLine = newLine + c
+    prevChar = c
+
+  <span class="keyword">return</span> newLine</pre></div>
+        
+      
+        
+        <h3>Body</h3>
+<p>The body of this module does the following:</p>
+<ol>
+<li>Parse command line.</li>
+<li>Read the files specified by the user.</li>
+<li>Perform formatting.</li>
+</ol>
+<p>We loop through <code>argv._</code>, which should be a list of filenames given by the user.</p>
+
+        
+          <div class='highlight'><pre><span class="keyword">for</span> filename <span class="keyword">in</span> argv._</pre></div>
+        
+      
+        
+        <p>Then we check if the extension is &quot;coffee&quot;.  Literate CoffeeScript will also be supported at some point.</p>
+
+        
+          <div class='highlight'><pre>  <span class="keyword">if</span> (getExtension filename) <span class="keyword">isnt</span> <span class="string">'coffee'</span>
+    console.log
+    <span class="string">"<span class="subst">#{filename}</span> doesn't appear to be a CoffeeScript file. Skipping..."</span>
+    console.log <span class="string">"Use --force to format it anyway."</span></pre></div>
+        
+      
+        
+        <p>If the extension is &quot;coffee&quot;, we proceed to the actual formatting.</p>
+<p>Firstly, we read the file line by line:</p>
+
+        
+          <div class='highlight'><pre>  <span class="keyword">else</span>
+    file = <span class="string">''</span>
+
+    lazy = <span class="keyword">new</span> Lazy(fs.createReadStream filename, encoding: <span class="string">'utf8'</span>)
+
+    lazy.<span class="literal">on</span> <span class="string">'end'</span>, -&gt;
+      fs.writeFileSync filename, file
+
+    lazy.lines
+      .forEach (line) -&gt;
+        line = String(line)</pre></div>
+        
+      
+        
+        <p>For some weird reason regarding IO, empty line is read as &#39;0&#39;. Therefore I have to check against 0.  This may cause weird bugs if a line actually contains only &#39;0&#39;.</p>
+
+        
+          <div class='highlight'><pre>        <span class="keyword">if</span> line != <span class="string">'0'</span>
+          newLine = line</pre></div>
+        
+      
+        
+        <p><code>newLine</code> is used to hold a processed line.  <code>file</code> is used to hold the processed file.</p>
+<p>Now we add spaces before and after a binary operator, using the helper function:</p>
+
+        
+          <div class='highlight'><pre>          newLine = formatTwoSpaceOperator newLine</pre></div>
+        
+      
+        
+        <p>Do the same for single-space operators:</p>
+
+        
+          <div class='highlight'><pre>          newLine = formatOneSpaceOperator newLine</pre></div>
+        
+      
+        
+        <p>Shorten any consecutive spaces into a single space:</p>
+
+        
+          <div class='highlight'><pre>          newLine = shortenSpaces newLine
+
+          file += newLine + <span class="string">'\n'</span>
+        <span class="keyword">else</span>
+          file += <span class="string">'\n'</span></pre></div>
+        
+      
+        
+        <p>After the <code>forEach</code> completes, we have a file that is formatted line by line.  However, a comprehensive formatter needs to consider the code in a block level.  Specifically:</p>
+<ul>
+<li>Indentation should be formatted according to the parameters specified by the user.</li>
+</ul>
+<p>This haven&#39;t been implemented yet.</p>
+<h3>Exports</h3>
+<h4>Test Only</h4>
+<p>The following exports are for testing only and should be commented out in production:</p>
+
+        
+          <div class='highlight'><pre>exports.shortenSpaces = shortenSpaces
+exports.formatTwoSpaceOperator = formatTwoSpaceOperator
+exports.notInStringOrComment = notInStringOrComment
+exports.formatOneSpaceOperator = formatOneSpaceOperator</pre></div>
+        
+      
+      <div class="fleur">h</div>
+    </div>
+  </div>
+</body>
+</html>

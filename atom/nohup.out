@@ -1,0 +1,76 @@
+[37180:1002/154936:ERROR:browser_main_loop.cc(161)] Running without the SUID sandbox! See https://code.google.com/p/chromium/wiki/LinuxSUIDSandboxDevelopment for more information on developing with the sandbox on.
+ATTENTION: default value of option force_s3tc_enable overridden by environment.
+[37222:1002/154937:INFO:renderer_main.cc(227)] Renderer process started
+App load time: 281ms
+ATTENTION: default value of option force_s3tc_enable overridden by environment.
+[37180:1002/154938:INFO:CONSOLE(0)] "Refused to evaluate a string as JavaScript because 'unsafe-eval' is not an allowed source of script in the following Content Security Policy directive: "script-src 'self'".
+", source:  (0)
+[37180:1002/154938:INFO:CONSOLE(157)] "Failed to load package named 'atom-beautify'", source: /usr/share/atom/resources/app/src/package.js (157)
+[37180:1002/154939:INFO:CONSOLE(0)] "Refused to evaluate a string as JavaScript because 'unsafe-eval' is not an allowed source of script in the following Content Security Policy directive: "script-src 'self'".
+", source:  (0)
+[37180:1002/154939:INFO:CONSOLE(203)] "Failed to activate package named 'atom-beautify'", source: /usr/share/atom/resources/app/src/package.js (203)
+[37180:1002/154939:INFO:CONSOLE(13)] "activate linter-eslint", source: /home/pjvds/.atom/packages/linter-eslint/lib/init.coffee (13)
+[37180:1002/154939:INFO:CONSOLE(18)] "Window load time: 2069ms", source: /usr/share/atom/resources/app/src/window-bootstrap.js (18)
+[37180:1002/155235:INFO:CONSOLE(63)] "Jsfmt:", source: /home/pjvds/.atom/packages/atom-jsfmt/lib/jsfmtRunner.coffee (63)
+[37180:1002/155712:INFO:CONSOLE(0)] "Refused to evaluate a string as JavaScript because 'unsafe-eval' is not an allowed source of script in the following Content Security Policy directive: "script-src 'self'".
+", source:  (0)
+[37180:1002/155712:INFO:CONSOLE(416)] "Error activating package config for “atom-beautify”", source: /usr/share/atom/resources/app/node_modules/settings-view/lib/settings-view.js (416)
+ATTENTION: default value of option force_s3tc_enable overridden by environment.
+libGL error: MESA-LOADER: could not create udev device for fd 26
+ATTENTION: default value of option force_s3tc_enable overridden by environment.
+[37731:37731:1002/155732:ERROR:profile_sync_service.cc(1379)] History Delete Directives datatype error was encountered: Delete directives not supported with encryption.
+[37731:37731:1002/155732:ERROR:data_type_manager_impl.cc(34)] Bookmarks cryptographer error was encountered: 
+[37731:37731:1002/155732:ERROR:data_type_manager_impl.cc(34)] Preferences cryptographer error was encountered: 
+[37731:37731:1002/155732:ERROR:data_type_manager_impl.cc(34)] Passwords cryptographer error was encountered: 
+[37731:37731:1002/155732:ERROR:data_type_manager_impl.cc(34)] Autofill Profiles cryptographer error was encountered: 
+[37731:37731:1002/155732:ERROR:data_type_manager_impl.cc(34)] Autofill cryptographer error was encountered: 
+[37731:37731:1002/155732:ERROR:data_type_manager_impl.cc(34)] Themes cryptographer error was encountered: 
+[37731:37731:1002/155732:ERROR:data_type_manager_impl.cc(34)] Typed URLs cryptographer error was encountered: 
+[37731:37731:1002/155732:ERROR:data_type_manager_impl.cc(34)] Extensions cryptographer error was encountered: 
+[37731:37731:1002/155732:ERROR:data_type_manager_impl.cc(34)] Search Engines cryptographer error was encountered: 
+[37731:37731:1002/155732:ERROR:data_type_manager_impl.cc(34)] Sessions cryptographer error was encountered: 
+[37731:37731:1002/155732:ERROR:data_type_manager_impl.cc(34)] Apps cryptographer error was encountered: 
+[37731:37731:1002/155732:ERROR:data_type_manager_impl.cc(34)] App settings cryptographer error was encountered: 
+[37731:37731:1002/155732:ERROR:data_type_manager_impl.cc(34)] Extension settings cryptographer error was encountered: 
+[37731:37731:1002/155732:ERROR:data_type_manager_impl.cc(34)] Dictionary cryptographer error was encountered: 
+[37731:37731:1002/155732:ERROR:data_type_manager_impl.cc(34)] Favicon Images cryptographer error was encountered: 
+[37731:37731:1002/155732:ERROR:data_type_manager_impl.cc(34)] Favicon Tracking cryptographer error was encountered: 
+[37731:37731:1002/155732:ERROR:data_type_manager_impl.cc(34)] App List cryptographer error was encountered: 
+[WARNING:flash/platform/pepper/pep_module.cpp(63)] SANDBOXED
+Created new window in existing browser session.
+[37180:1002/160515:INFO:CONSOLE(63)] "Jsfmt:", source: /home/pjvds/.atom/packages/atom-jsfmt/lib/jsfmtRunner.coffee (63)
+[37180:1002/161102:INFO:CONSOLE(954)] "TextEditorScrollView scrolled when it shouldn't have.", source: /usr/share/atom/resources/app/src/text-editor-component.js (954)
+[37180:1002/161102:INFO:CONSOLE(954)] "TextEditorScrollView scrolled when it shouldn't have.", source: /usr/share/atom/resources/app/src/text-editor-component.js (954)
+[37180:1002/161104:INFO:CONSOLE(954)] "TextEditorScrollView scrolled when it shouldn't have.", source: /usr/share/atom/resources/app/src/text-editor-component.js (954)
+[37180:1002/161104:INFO:CONSOLE(954)] "TextEditorScrollView scrolled when it shouldn't have.", source: /usr/share/atom/resources/app/src/text-editor-component.js (954)
+[37180:1002/161200:INFO:CONSOLE(954)] "TextEditorScrollView scrolled when it shouldn't have.", source: /usr/share/atom/resources/app/src/text-editor-component.js (954)
+[37180:1002/161200:INFO:CONSOLE(954)] "TextEditorScrollView scrolled when it shouldn't have.", source: /usr/share/atom/resources/app/src/text-editor-component.js (954)
+[37180:1002/161202:INFO:CONSOLE(954)] "TextEditorScrollView scrolled when it shouldn't have.", source: /usr/share/atom/resources/app/src/text-editor-component.js (954)
+[37180:1002/161202:INFO:CONSOLE(954)] "TextEditorScrollView scrolled when it shouldn't have.", source: /usr/share/atom/resources/app/src/text-editor-component.js (954)
+[37180:1002/162735:INFO:CONSOLE(0)] "Refused to evaluate a string as JavaScript because 'unsafe-eval' is not an allowed source of script in the following Content Security Policy directive: "script-src 'self'".
+", source:  (0)
+[37180:1002/162735:INFO:CONSOLE(416)] "Error activating package config for “atom-beautify”", source: /usr/share/atom/resources/app/node_modules/settings-view/lib/settings-view.js (416)
+ATTENTION: default value of option force_s3tc_enable overridden by environment.
+libGL error: MESA-LOADER: could not create udev device for fd 26
+ATTENTION: default value of option force_s3tc_enable overridden by environment.
+[39864:39864:1002/162817:ERROR:profile_sync_service.cc(1379)] History Delete Directives datatype error was encountered: Delete directives not supported with encryption.
+[39864:39864:1002/162817:ERROR:data_type_manager_impl.cc(34)] Bookmarks cryptographer error was encountered: 
+[39864:39864:1002/162817:ERROR:data_type_manager_impl.cc(34)] Preferences cryptographer error was encountered: 
+[39864:39864:1002/162817:ERROR:data_type_manager_impl.cc(34)] Passwords cryptographer error was encountered: 
+[39864:39864:1002/162817:ERROR:data_type_manager_impl.cc(34)] Autofill Profiles cryptographer error was encountered: 
+[39864:39864:1002/162817:ERROR:data_type_manager_impl.cc(34)] Autofill cryptographer error was encountered: 
+[39864:39864:1002/162817:ERROR:data_type_manager_impl.cc(34)] Themes cryptographer error was encountered: 
+[39864:39864:1002/162817:ERROR:data_type_manager_impl.cc(34)] Typed URLs cryptographer error was encountered: 
+[39864:39864:1002/162817:ERROR:data_type_manager_impl.cc(34)] Extensions cryptographer error was encountered: 
+[39864:39864:1002/162817:ERROR:data_type_manager_impl.cc(34)] Search Engines cryptographer error was encountered: 
+[39864:39864:1002/162817:ERROR:data_type_manager_impl.cc(34)] Sessions cryptographer error was encountered: 
+[39864:39864:1002/162817:ERROR:data_type_manager_impl.cc(34)] Apps cryptographer error was encountered: 
+[39864:39864:1002/162817:ERROR:data_type_manager_impl.cc(34)] App settings cryptographer error was encountered: 
+[39864:39864:1002/162817:ERROR:data_type_manager_impl.cc(34)] Extension settings cryptographer error was encountered: 
+[39864:39864:1002/162817:ERROR:data_type_manager_impl.cc(34)] Dictionary cryptographer error was encountered: 
+[39864:39864:1002/162817:ERROR:data_type_manager_impl.cc(34)] Favicon Images cryptographer error was encountered: 
+[39864:39864:1002/162817:ERROR:data_type_manager_impl.cc(34)] Favicon Tracking cryptographer error was encountered: 
+[39864:39864:1002/162817:ERROR:data_type_manager_impl.cc(34)] App List cryptographer error was encountered: 
+[WARNING:flash/platform/pepper/pep_module.cpp(63)] SANDBOXED
+[37180:1002/164343:INFO:CONSOLE(954)] "TextEditorScrollView scrolled when it shouldn't have.", source: /usr/share/atom/resources/app/src/text-editor-component.js (954)
+[37180:1002/164343:INFO:CONSOLE(954)] "TextEditorScrollView scrolled when it shouldn't have.", source: /usr/share/atom/resources/app/src/text-editor-component.js (954)

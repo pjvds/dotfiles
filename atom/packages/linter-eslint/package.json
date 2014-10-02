@@ -1,0 +1,31 @@
+{
+  "name": "linter-eslint",
+  "main": "./lib/init",
+  "linter-package": true,
+  "activationEvents": [],
+  "version": "0.1.3",
+  "description": "Lint JavaScript on the fly, using ESLint",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AtomLinter/linter-eslint.git"
+  },
+  "license": "MIT",
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "dependencies": {
+    "eslint": "~0.8.2"
+  },
+  "readme": "linter-eslint\n=========================\n\nThis linter plugin for [Linter](https://github.com/AtomLinter/Linter) provides an interface to [eslint](http://eslint.org). It will be used with files that have the “JavaScript” syntax.\n\n## Installation\nLinter package must be installed in order to use this plugin. If Linter is not installed, please follow the instructions [here](https://github.com/AtomLinter/Linter).\n\n### Plugin installation\n```\n$ apm install linter-eslint\n```\n\n## Settings\nYou can configure linter-eslint by editing ~/.atom/config.cson (choose Open Your Config in Atom menu):\n```\n'linter-eslint':\n  'eslintExecutablePath': null #eslint path. run 'which eslint' to find the path\n  'eslintRulesDir': null\n  'defaultEslintConfig': null\n```\n\n**Note**: This plugin finds the nearest .eslintrc file and uses the `--config` command line argument to use that file. If no config file is found, it uses the `defaultEslintConfig` setting instead.\n\nThe `eslintRulesDir` is relative to the working directory (project root).\n\n## Contributing\nIf you would like to contribute enhancements or fixes, please do the following:\n\n1. Fork the plugin repository.\n1. Hack on a separate topic branch created from the latest `master`.\n1. Commit and push the topic branch.\n1. Make a pull request.\n1. welcome to the club\n\nPlease note that modifications should follow these coding guidelines:\n\n- Indent is 2 spaces.\n- Code should pass coffeelint linter.\n- Vertical whitespace helps readability, don’t be afraid to use it.\n\nThank you for helping out!\n\n## Donation\n[![Share the love!](https://chewbacco-stuff.s3.amazonaws.com/donate.png)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=KXUYS4ARNHCN8)\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/AtomLinter/linter-eslint/issues"
+  },
+  "homepage": "https://github.com/AtomLinter/linter-eslint",
+  "_id": "linter-eslint@0.1.3",
+  "dist": {
+    "shasum": "3939abace0b24646f1e1eb7e1bd7a30246f50bb9"
+  },
+  "_resolved": "/tmp/d-11492-20368-1geq2s3/package.tgz",
+  "_from": "/tmp/d-11492-20368-1geq2s3/package.tgz"
+}

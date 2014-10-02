@@ -1,0 +1,31 @@
+{
+  "name": "relative-numbers",
+  "main": "./lib/relative-numbers",
+  "version": "0.2.0",
+  "description": "Shows relative line numbers in editor",
+  "activationEvents": [
+    "application:open",
+    "relative-numbers:toggle"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/robinridderholt/atom-relative-linenumbers.git"
+  },
+  "license": "MIT",
+  "engines": {
+    "atom": "*"
+  },
+  "dependencies": {},
+  "readme": "# relative-numbers package\n\nShow relative line numbers in your editor\n\n![A screenshot of your spankin' package](https://raw.githubusercontent.com/robinridderholt/atom-relative-linenumbers/master/img/screenshot.PNG)\n\n##How to activate\nSimply press Ctrl+Alt+o or use the menu Packages - Relative Line - Toggle\n\n##Contributors\n[Erran Carey](https://github.com/erran) - Show true line number insted of zero\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/robinridderholt/atom-relative-linenumbers/issues"
+  },
+  "homepage": "https://github.com/robinridderholt/atom-relative-linenumbers",
+  "_id": "relative-numbers@0.2.0",
+  "dist": {
+    "shasum": "3132a8f8042ef5f7750dd23d2414bd22697f7ec7"
+  },
+  "_resolved": "/tmp/d-11492-23110-gl1c9p/package.tgz",
+  "_from": "/tmp/d-11492-23110-gl1c9p/package.tgz"
+}
