@@ -3,7 +3,7 @@
   "main": "./lib/init",
   "linter-package": true,
   "activationEvents": [],
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Lint JavaScript on the fly, using ESLint",
   "repository": {
     "type": "git",
@@ -22,10 +22,10 @@
     "url": "https://github.com/AtomLinter/linter-eslint/issues"
   },
   "homepage": "https://github.com/AtomLinter/linter-eslint",
-  "_id": "linter-eslint@0.1.3",
+  "_id": "linter-eslint@0.1.4",
   "dist": {
-    "shasum": "3939abace0b24646f1e1eb7e1bd7a30246f50bb9"
+    "shasum": "c3dddfab1906b188c6f23972ef464b5549497aa3"
   },
-  "_resolved": "/tmp/d-11492-20368-1geq2s3/package.tgz",
-  "_from": "/tmp/d-11492-20368-1geq2s3/package.tgz"
+  "_resolved": "/tmp/d-11498-56725-nkiq5c/package.tgz",
+  "_from": "/tmp/d-11498-56725-nkiq5c/package.tgz"
 }

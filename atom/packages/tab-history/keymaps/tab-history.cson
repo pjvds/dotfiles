@@ -1,0 +1,3 @@
+'.workspace .editor':
+  'ctrl-tab': 'tab-history:previous'
+  'ctrl-shift-tab': 'tab-history:next'

@@ -1,0 +1,28 @@
+{
+  "name": "react",
+  "version": "0.5.2",
+  "description": "React.js (JSX) language support and snippets",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/orktes/atom-react"
+  },
+  "license": "Apache 2.0",
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "dependencies": {
+    "jstransform": "~6.1.0"
+  },
+  "readme": "# Atom React.js support\n\nInitially a port of [sublime-react](https://github.com/reactjs/sublime-react) for [Atom](https://github.com/atom/atom).\n\n## Features\n\n- Syntax highlighting\n- Snippets\n\nContributions are greatly appreciated. Please fork this repository and open a pull request to add snippets, make grammar tweaks, etc.\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/orktes/atom-react/issues"
+  },
+  "homepage": "https://github.com/orktes/atom-react",
+  "_id": "react@0.5.2",
+  "dist": {
+    "shasum": "267bb206e1e71a038d4512af2df21f7ddadb442a"
+  },
+  "_resolved": "/tmp/d-11497-33213-7yb4uf/package.tgz",
+  "_from": "/tmp/d-11497-33213-7yb4uf/package.tgz"
+}

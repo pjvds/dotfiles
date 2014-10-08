@@ -1,0 +1,30 @@
+{
+  "name": "tab-history",
+  "main": "./lib/tab-history",
+  "version": "0.2.1",
+  "description": "Cycle tabs by last focused in Atom.",
+  "activationEvents": [],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/guillaume86/tab-history"
+  },
+  "license": "MIT",
+  "engines": {
+    "atom": ">=0.72.0"
+  },
+  "dependencies": {
+    "emissary": "^1.2.2"
+  },
+  "readme": "# Tab History\n\nTab History overrides the default 'pane:prev-item' and 'pane:next-item' shortcuts\nto allow switching tabs according to most recent usage.\n\n## Limitations\n\nThe current version only support ctrl as the main modifier key.\nThis plugin will not behave well with shortcuts not using ctrl as a modifier key.\n\n## Todo\n\n  - Display the list of most recent tabs when switching to allow faster navigation.\n\n  - Handle different main modifier keys (alt/shift/mac commands?) by\n    parsing the keybindings.\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/guillaume86/tab-history/issues"
+  },
+  "homepage": "https://github.com/guillaume86/tab-history",
+  "_id": "tab-history@0.2.1",
+  "dist": {
+    "shasum": "96f57a76c09601a8cf9742495f8b2e366f0b95e4"
+  },
+  "_resolved": "/tmp/d-11497-44476-qsh4tl/package.tgz",
+  "_from": "/tmp/d-11497-44476-qsh4tl/package.tgz"
+}

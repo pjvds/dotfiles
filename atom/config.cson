@@ -9,10 +9,21 @@
     'atom-light-ui'
     'tomorrow-syntax'
   ]
+  'disabledPackages': [
+    'tab-switcher'
+  ]
 'editor':
   'fontFamily': 'Source Code Pro'
-  'fontSize': 24
+  'preferredLineLength': 100
 'linter':
   'showHighlighting': false
   'lintOnChange': false
-'vim-mode': {}
+'relative-numbers':
+  'displayTrueLineNumberOnCurrentLine': true
+'tree-view':
+  'showOnRightSide': true
+'tabs': {}
+'toggle-tabs':
+  'hiddenByDefault': true
+'atom-beautify':
+  '_analyticsUserId': '5876ab13-c29a-486e-84e0-cad059056517'
