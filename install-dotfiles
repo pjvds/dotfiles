@@ -47,7 +47,7 @@ install "colors" "$HOME/.colors"
 install "Xresources" "$HOME/.Xresources"
 install "terminator" "$HOME/.config/terminator"
 install "atom" "$HOME/.atom"
-install "ctags" "$HOME/.ctags"
+install "ctags.conf" "$HOME/.ctags.conf"
 
 # Set timezone to Amsterdam
 sudo ln -sf /usr/share/zoneinfo/Europe/Amsterdam /etc/localtime
