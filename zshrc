@@ -54,11 +54,6 @@ alias gb="go build ./..."
 alias gr="go run *.go"
 alias gdg="go build -gcflags '-N -l' -o main && cgdb main"
 
-# Scala
-export SCALA_HOME="/usr/local/share/scala/"
-export SBT_HOME="$HOME/bin/"
-export PATH=$PATH:$SCALA_HOME/bin:$SBT_HOME
-
 # nodejs
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 export NVM_DIR="/home/pjvds/.nvm"
