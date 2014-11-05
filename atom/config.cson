@@ -1,29 +1,66 @@
-'exception-reporting':
-  'userId': 'bd43739a-b81f-7cfa-e410-fce86b7ef342'
-'welcome':
-  'showOnStartup': false
-'metrics':
-  'userId': '5afe01d925f56ca54ea8945b2cce677f8755be3a'
-'core':
-  'themes': [
-    'atom-light-ui'
-    'tomorrow-syntax'
-  ]
-  'disabledPackages': [
-    'tab-switcher'
-  ]
-'editor':
-  'fontFamily': 'Source Code Pro'
-  'preferredLineLength': 100
-'linter':
-  'showHighlighting': false
-  'lintOnChange': false
-'relative-numbers':
-  'displayTrueLineNumberOnCurrentLine': true
-'tree-view':
-  'showOnRightSide': true
-'tabs': {}
-'toggle-tabs':
-  'hiddenByDefault': true
-'atom-beautify':
-  '_analyticsUserId': '5876ab13-c29a-486e-84e0-cad059056517'
+'global':
+  'exception-reporting':
+    'userId': 'bd43739a-b81f-7cfa-e410-fce86b7ef342'
+  'welcome':
+    'showOnStartup': false
+  'metrics':
+    'userId': '5afe01d925f56ca54ea8945b2cce677f8755be3a'
+  'core':
+    'themes': [
+      'atom-light-ui'
+      'tomorrow-syntax'
+    ]
+    'disabledPackages': [
+      'tab-switcher'
+      'file-icons'
+      'tabs'
+      'toggle-tabs'
+      'symbols-view'
+      'autocomplete'
+      'atom-jsfmt'
+    ]
+  'editor':
+    'fontFamily': 'Source Code Pro'
+    'preferredLineLength': 100
+    'fontSize': 17
+    'showInvisibles': true
+    'softTabs': false
+    'invisibles': {}
+    'tabLength': 4
+  'linter':
+    'showHighlighting': false
+    'lintOnChange': false
+  'relative-numbers':
+    'displayTrueLineNumberOnCurrentLine': true
+  'tree-view':
+    'showOnRightSide': true
+  'toggle-tabs':
+    'hiddenByDefault': true
+  'atom-beautify':
+    '_analyticsUserId': '5876ab13-c29a-486e-84e0-cad059056517'
+  'vim-mode':
+    'commandModeInputViewFontSize': 16
+  'go-plus':
+    'lintOnSave': false
+  'atom-ctags':
+    'autoBuildTagsWhenActive': true
+    'buildTimeout': 30000
+    'cmdArgs': '--exclude=**/node_modules --exclude=**/build'
+  'tabs-to-spaces':
+    'onSave': 'tabify'
+  'git-plus':
+    'splitPane': 'up'
+  'atom-jsfmt':
+    'saveAfterFormatting': true
+  'jsformat':
+    'indent_with_tabs': true
+    'jslint_happy': true
+    'e4x': true
+'.js.jsx.source':
+  'editor': {}
+'.jsx.regexp.source':
+  'editor': {}
+'.jsx.source':
+  'editor': {}
+'.diff.source':
+  'editor': {}

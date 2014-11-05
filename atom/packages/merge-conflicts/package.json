@@ -1,0 +1,122 @@
+{
+  "name": "merge-conflicts",
+  "main": "./lib/merge-conflicts",
+  "version": "1.2.7",
+  "private": true,
+  "description": "Resolve git conflicts within Atom",
+  "contributors": [
+    {
+      "name": "Maximilian Schüßler",
+      "email": "maximilian@mschuessler.org"
+    }
+  ],
+  "activationEvents": [
+    "merge-conflicts:detect"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/smashwilson/merge-conflicts"
+  },
+  "license": "MIT",
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "dependencies": {
+    "underscore-plus": "1.x",
+    "emissary": "1.x"
+  },
+  "readme": "# Merge Conflicts\n\n[![Build Status](https://travis-ci.org/smashwilson/merge-conflicts.svg?branch=master)](https://travis-ci.org/smashwilson/merge-conflicts)\n\nResolve your git merge conflicts in Atom!\n\n![conflict-resolution](https://raw.github.com/smashwilson/merge-conflicts/master/docs/conflict-resolution.gif)\n\nThis package detects the conflict markers left by `git merge` and overlays a set of controls for resolving each and navigating among them. Additionally, it displays your progress through a merge.\n\n## Features\n\n * Conflict resolution controls are provided for each detected conflict.\n * Choose your version, their version, combinations thereof, or arbitrary changes edited in place as a resolution.\n * Navigate to the next and previous conflicts in each file.\n * Track your progress through a merge with per-file progress bars and a file list.\n * Save and stage your resolved version of each file as it's completed.\n\n## Events\n\nThe merge-conflicts plugin emits a number of events that other packages can subscribe to, if they wish. If you want your plugin to consume one, use code like the following:\n\n```coffeescript\natom.on 'merge-conflicts:resolved', (event) ->\n```\n\n * `merge-conflicts:resolved`: broadcast whenever a conflict is resolved. `event.file`: the absolute path of the file in which the conflict was found; `event.total`: the total number of conflicts in that file; `event.resolved`: the number of conflicts that are resolved, including this one.\n * `merge-conflicts:staged`: broadcast whenever a file has been completed and staged for commit. `event.file`: the absolute path of the file that was staged.\n * `merge-conflicts:quit`: broadcast when you stop merging conflicts by clicking the quit button.\n * `merge-conflicts:done`: broadcast when all conflicts in all files have successfully been resolved.\n\n## Contributions\n\nContributors are welcome! I'm a big believer in [the GitHub flow](http://guides.github.com/overviews/flow/), and the [Atom package contribution guide](https://atom.io/docs/latest/contributing) is a solid resource, too.\n\nHere's the process in a nutshell:\n\n 1. Fork it. :fork_and_knife:\n 2. Run `apm develop merge-conflicts` from your terminal to get a clone of this repo. By default, this will end up in a subdirectory of `${HOME}/github`, but you can customize it by setting `${ATOM_REPOS_HOME}`.\n 3. Fix up your remotes. The convention is to have `origin` pointing to your fork and `upstream` pointing to this repo.\n\n Assuming you set up your username using [the local GitHub Config Convention](https://github.com/blog/180-local-github-config)\n\n ```bash\n $ git config --global github.user your_username\n ```\n\n You can set your remotes up with something like:\n\n   ```bash\n   cd ${ATOM_REPOS_HOME:-~/github}/merge-conflicts\n   git remote rename origin upstream\n   git remote add origin git@github.com:`git config github.user`/merge-conflicts.git\n   ```\n\n 4. Create a branch and work on your awesome bug or feature! Commit often and consider opening a pull request *before* you're done. Follow the style and conventions of existing code and be sure to write specs!\n 5. Get it merged. Profit :dollar:\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/smashwilson/merge-conflicts/issues"
+  },
+  "homepage": "https://github.com/smashwilson/merge-conflicts",
+  "_id": "merge-conflicts@1.2.7",
+  "dist": {
+    "shasum": "458c9fd7ae7517578b896b6be528cdc8533570cb"
+  },
+  "_resolved": "/tmp/d-114910-27384-1yfvq3p/package.tgz",
+  "_from": "/tmp/d-114910-27384-1yfvq3p/package.tgz",
+  "_atomModuleCache": {
+    "version": 1,
+    "dependencies": [
+      {
+        "name": "emissary",
+        "version": "1.3.1",
+        "path": "node_modules/emissary/lib/emissary.js"
+      },
+      {
+        "name": "harmony-collections",
+        "version": "0.3.7",
+        "path": "node_modules/emissary/node_modules/harmony-collections/harmony-collections.js"
+      },
+      {
+        "name": "mixto",
+        "version": "1.0.0",
+        "path": "node_modules/emissary/node_modules/mixto/lib/mixin.js"
+      },
+      {
+        "name": "property-accessors",
+        "version": "1.1.0",
+        "path": "node_modules/emissary/node_modules/property-accessors/lib/property-accessors.js"
+      },
+      {
+        "name": "harmony-collections",
+        "version": "0.3.7",
+        "path": "node_modules/emissary/node_modules/property-accessors/node_modules/harmony-collections/harmony-collections.js"
+      },
+      {
+        "name": "underscore-plus",
+        "version": "1.5.1",
+        "path": "node_modules/underscore-plus/lib/underscore-plus.js"
+      },
+      {
+        "name": "underscore",
+        "version": "1.6.0",
+        "path": "node_modules/underscore-plus/node_modules/underscore/underscore.js"
+      }
+    ],
+    "folders": [
+      {
+        "paths": [
+          "lib",
+          "",
+          "spec"
+        ],
+        "dependencies": {
+          "underscore-plus": "1.x",
+          "emissary": "1.x"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/emissary/lib",
+          "node_modules/emissary"
+        ],
+        "dependencies": {
+          "underscore-plus": "1.x",
+          "mixto": "1.x",
+          "property-accessors": "^1.1"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/emissary/node_modules/property-accessors/lib",
+          "node_modules/emissary/node_modules/property-accessors"
+        ],
+        "dependencies": {
+          "mixto": "1.x"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/underscore-plus/lib",
+          "node_modules/underscore-plus"
+        ],
+        "dependencies": {
+          "underscore": "~1.6.0"
+        }
+      }
+    ]
+  }
+}

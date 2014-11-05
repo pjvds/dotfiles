@@ -1,3 +1,21 @@
+# v0.15.1 (2014-10-26)
+- [Fixes #103. BeautifyEntireFileOnSave only applies when saving](https://github.com/Glavin001/atom-beautify/commit/dda313fbfe47f9d273e06e8e380f2e4c311c1b84)
+
+# v0.15.0 (2014-10-26)
+- [Closes #123. Add Mustache support.](https://github.com/Glavin001/atom-beautify/commit/ecbbbaec2942ed95461e2c103d23bd3665edab2e)
+
+# v0.14.1 (2014-10-21)
+- [Closes #127. Increase startup time by using ActivationEvents](https://github.com/Glavin001/atom-beautify/commit/c0ee2bed96499ac71ea1266ccb227e9b3581c935)
+
+# v0.14.0 (2014-10-16)
+- [Closes #49. Add TypeScript support](https://github.com/Glavin001/atom-beautify/commit/dcc9e2d3b58767578006ffacaca198da69fa3832)
+
+# v0.13.4 (2014-10-05)
+- [Fixes #110. Fixes Handlebars missing beautification](https://github.com/Glavin001/atom-beautify/commit/120315f90d5a0bbdade2728472926f965150e7c1)
+
+# v0.13.3 (2014-10-05)
+- [Resolve Unsafe-Eval error for Atom >=0.128.0](https://github.com/Glavin001/atom-beautify/commit/fbc58a648d3ccd845548d556f3dd1e046075bf04)
+
 # v0.13.2 (2014-09-28)
 - [Fixes #96. Fix support for Alphasort option for LESS/SCSS properties](https://github.com/Glavin001/atom-beautify/commit/ccc8802f36fe15c4f29abffcd974cb0c7d1acdad)
 

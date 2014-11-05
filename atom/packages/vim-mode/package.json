@@ -26,5 +26,44 @@
     "shasum": "b813b1fdf7a3ae8c195a2d9a1285089d063dcc5c"
   },
   "_resolved": "/tmp/d-11492-20903-16p3opv/package.tgz",
-  "_from": "/tmp/d-11492-20903-16p3opv/package.tgz"
+  "_from": "/tmp/d-11492-20903-16p3opv/package.tgz",
+  "_atomModuleCache": {
+    "version": 1,
+    "dependencies": [
+      {
+        "name": "underscore-plus",
+        "version": "1.5.1",
+        "path": "node_modules/underscore-plus/lib/underscore-plus.js"
+      },
+      {
+        "name": "underscore",
+        "version": "1.6.0",
+        "path": "node_modules/underscore-plus/node_modules/underscore/underscore.js"
+      }
+    ],
+    "folders": [
+      {
+        "paths": [
+          "lib/motions",
+          "lib/operators",
+          "lib",
+          "lib/view-models",
+          "",
+          "spec"
+        ],
+        "dependencies": {
+          "underscore-plus": "1.x"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/underscore-plus/lib",
+          "node_modules/underscore-plus"
+        ],
+        "dependencies": {
+          "underscore": "~1.6.0"
+        }
+      }
+    ]
+  }
 }

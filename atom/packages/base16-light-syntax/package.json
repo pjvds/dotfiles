@@ -22,5 +22,10 @@
     "shasum": "f6d62ec55370957f4f7cc73df0029fdfcb1b80c0"
   },
   "_resolved": "/tmp/d-11492-21162-xl3pje/package.tgz",
-  "_from": "/tmp/d-11492-21162-xl3pje/package.tgz"
+  "_from": "/tmp/d-11492-21162-xl3pje/package.tgz",
+  "_atomModuleCache": {
+    "version": 1,
+    "dependencies": [],
+    "folders": []
+  }
 }

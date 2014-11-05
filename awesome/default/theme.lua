@@ -5,7 +5,7 @@
 theme = {}
 
 theme.theme_dir     = "/home/pjvds/.config/awesome/default/"
-theme.font          = "Bitstream Courier 14"
+theme.font          = "Bitstream Courier 12"
 theme.transparancy  = ""
 -- theme.bg_normal     = "#ffffff" .. theme.transparancy
 -- theme.bg_focus      = "#efefef" .. theme.transparancy
@@ -27,11 +27,11 @@ theme.fg_focus      = "#4271ae"
 theme.fg_urgent     = "#000000"
 theme.fg_minimize   = "#000000"
 
-theme.border_width  = 4
+theme.border_width  = 3
 theme.border_normal = "#efefef"
 theme.border_focus  = "#f5871f"
 theme.border_marked = "#4271ae"
-theme.useless_gap_width = 10
+theme.useless_gap_width = 0
 
 theme.lain_icons         = "/home/pjvds/.config/awesome/lain/icons/layout/default/"
 theme.layout_termfair    = theme.lain_icons .. "termfairw.png"

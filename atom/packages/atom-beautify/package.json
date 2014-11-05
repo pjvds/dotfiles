@@ -1,9 +1,9 @@
 {
   "name": "atom-beautify",
   "main": "./lib/beautify",
-  "version": "0.13.4",
+  "version": "0.15.1",
   "private": true,
-  "description": "Beautify HTML, CSS, JavaScript, PHP, Python, Ruby, Java, C, C++, C#, Objective-C, CoffeeScript, and SQL in Atom",
+  "description": "Beautify HTML, CSS, JavaScript, PHP, Python, Ruby, Java, C, C++, C#, Objective-C, CoffeeScript, TypeScript, and SQL in Atom",
   "repository": {
     "type": "git",
     "url": "https://github.com/Glavin001/atom-beautify"
@@ -49,6 +49,7 @@
     "pretty",
     "html",
     "handlebars",
+    "mustache",
     "xml",
     "css",
     "javascript",
@@ -63,6 +64,7 @@
     "python",
     "ruby",
     "coffeescript",
+    "typescript",
     "c",
     "c++",
     "cpp",
@@ -94,15 +96,1947 @@
     "coffee-formatter": "git+https://github.com/Glavin001/Coffee-Formatter.git",
     "atom-message-panel": "^1.1.1",
     "editorconfig": "^0.11.4",
-    "loophole": "^1.0.0"
+    "loophole": "^1.0.0",
+    "typescript-formatter": "~0.1.4"
   },
-  "readme": "# [atom-beautify](https://github.com/donaldpipowitch/atom-beautify)\n\n[![Gitter chat](https://badges.gitter.im/Glavin001/atom-beautify.png)](https://gitter.im/Glavin001/atom-beautify)\n[![Issue Stats](http://issuestats.com/github/glavin001/atom-beautify/badge/pr?style=flat)](http://issuestats.com/github/glavin001/atom-beautify)\n[![Issue Stats](http://issuestats.com/github/glavin001/atom-beautify/badge/issue?style=flat)](http://issuestats.com/github/glavin001/atom-beautify)\n\n> [Beautify](https://github.com/einars/js-beautify)\nHTML (including [Handlebars](http://handlebarsjs.com/)),\nCSS (including [Sass](http://sass-lang.com/) and [LESS](http://lesscss.org/)),\nJavaScript, and much more in Atom.\n\nAtom Package: https://atom.io/packages/atom-beautify\n\n```bash\napm install atom-beautify\n```\n\nOr Settings/Preferences ➔ Packages ➔ Search for `atom-beautify`\n\n\n## Language Support\n\n- [x] JavaScript and JSON\n- [x] HTML, including\n  - [x] [Handlebars](http://handlebarsjs.com/)\n  - [x] [Embedded Ruby (ERB)](https://github.com/Glavin001/atom-beautify/issues/80)\n    - Requires [htmlbeautifier](https://github.com/threedaymonk/htmlbeautifier)\n  - [x] XML\n- [x] CSS, including\n  - [Sass](http://sass-lang.com/)\n  - [LESS](http://lesscss.org/)\n- [x] [SQL](https://github.com/Glavin001/atom-beautify/pull/67)\n  - Requires [python-sqlparse](https://github.com/andialbrecht/sqlparse)\n- [x] [Markdown](https://github.com/Glavin001/atom-beautify/issues/93#issuecomment-55642483)\n  - Requires [Pandoc](http://johnmacfarlane.net/pandoc/) to be already installed\n- [x] [PHP](https://github.com/donaldpipowitch/atom-beautify/issues/26)  \n  - Requires [PHP_Beautifier](http://pear.php.net/package/PHP_Beautifier) to be already installed.\n- [x] [Python](https://github.com/donaldpipowitch/atom-beautify/issues/24)\n  - Requires [autopep8](https://github.com/hhatto/autopep8) to be already installed.\n  - Beautifies to [PEP 8](http://legacy.python.org/dev/peps/pep-0008/).\n- [x] [Ruby](https://github.com/donaldpipowitch/atom-beautify/issues/25)\n  - Requires [RBeautify](https://github.com/erniebrodeur/ruby-beautify)\n- [x] [CoffeeScript](https://github.com/donaldpipowitch/atom-beautify/issues/31)\n- [x] [Java](https://github.com/Glavin001/atom-beautify/issues/45)\n  - Requires [Uncrustify](http://sourceforge.net/projects/uncrustify/)\n- [x] [C](https://github.com/Glavin001/atom-beautify/issues/57)\n  - Requires [Uncrustify](http://sourceforge.net/projects/uncrustify/)\n- [x] [C++](https://github.com/Glavin001/atom-beautify/issues/57)\n  - Requires [Uncrustify](http://sourceforge.net/projects/uncrustify/)\n- [x] [C#](https://github.com/Glavin001/atom-beautify/issues/57)\n  - Requires [Uncrustify](http://sourceforge.net/projects/uncrustify/)\n- [x] [Objective-C](https://github.com/Glavin001/atom-beautify/issues/57)\n  - Requires [Uncrustify](http://sourceforge.net/projects/uncrustify/)\n- [x] [D](https://github.com/Glavin001/atom-beautify/issues/57)\n  - Requires [Uncrustify](http://sourceforge.net/projects/uncrustify/)\n- [x] [Pawn](https://github.com/Glavin001/atom-beautify/issues/57)\n  - Requires [Uncrustify](http://sourceforge.net/projects/uncrustify/)\n- [x] [Vala](https://github.com/Glavin001/atom-beautify/issues/57)\n  - Requires [Uncrustify](http://sourceforge.net/projects/uncrustify/)\n\n### Road Map\n\n#### Language support\n\n- [ ] [TypeScript](https://github.com/Glavin001/atom-beautify/issues/49)\n- [ ] [Perl](https://github.com/Glavin001/atom-beautify/issues/33)\n\n\n## Usage\n\nOpen the [Command Palette](https://github.com/atom/command-palette), and type `Beautify`.\n\nIt will only beautify selected text, if a selection is found - if not, the whole file will be beautified.\n\n### Shortcut\n\nYou can also type `ctrl-alt-b` as a shortcut or click `Packages > Beautify` in the menu.\n\n#### Custom Keyboard Shortcuts\n\nSee [Keymaps In-Depth](https://atom.io/docs/latest/advanced/keymaps) for more details.\n\nFor example:\n\n```coffeescript\n'.editor': # Available from Editor only\n  'ctrl-alt-b': 'beautify'\n```\n\n### Package Options\n\n- `beautifyOnSave`  (Default *false*)\nYou can also choose to beautify on every file save.\n\n- `beautifyEntireFileOnSave` (Default *true*)\nBeautification will normally only beautify your selected text.\nHowever, when beautification occurs on save then it will\nbe forced to beautify the entire file's contents,\nnot just selected text.\n\n- `muteUnsupportedLanguageErrors` (Default *false*)\nMute only *unsupported language* errors.\n\n- `muteAllErrors` (Default *false*)\nDo not show the *Atom Beautify Error Messages* panel\nfor any of the errors occurring while beautifying.\n\n- `analytics`  (Default *true*)\nThere is [Segment.io](https://segment.io/),\nwhich forwards the data to [Google Analytics](http://www.google.com/analytics/),\nto track what languages\nare being used the most and other stats.\nEverything is anonymized and no personal information,\nsuch as source code, is sent.\nSee https://github.com/Glavin001/atom-beautify/issues/47\nfor more details.\n\n## Configuration\n\nEdit your `.jsbeautifyrc` file in any of the following locations:\n\n- Atom Package Settings  \n  `Atom` ➔ `Preferences` ➔ Search for `atom-beautify`\n- Same directory as current file\n- Project root  \n`atom-beautify` will recursively look up from the current file's directory to find `.jsbeautifyrc`.\n- Your User's Home directory\n\n**Note**: *Comments are supported in `.jsbeautifyrc` thanks to [strip-json-comments](https://github.com/sindresorhus/strip-json-comments).*\n\nSee examples of both way inside [`examples/`](https://github.com/donaldpipowitch/atom-beautify/tree/master/examples)\n\nOption table is available at the [js-beautify repo](https://github.com/beautify-web/js-beautify#options).\n\n### Simple\n\nSee [examples/simple-jsbeautifyrc/.jsbeautifyrc](https://github.com/donaldpipowitch/atom-beautify/blob/master/examples/simple-jsbeautifyrc/.jsbeautifyrc).\n\n```json\n{\n  \"indent_size\": 2,\n  \"indent_char\": \" \",\n  \"other\": \" \",\n  \"indent_level\": 0,\n  \"indent_with_tabs\": false,\n  \"preserve_newlines\": true,\n  \"max_preserve_newlines\": 2,\n  \"jslint_happy\": true,\n  \"indent_handlebars\": true\n}\n```\n\n### Nested\n\nSee [examples/nested-jsbeautifyrc/.jsbeautifyrc](https://github.com/donaldpipowitch/atom-beautify/blob/master/examples/nested-jsbeautifyrc/.jsbeautifyrc).\n\n```json\n{\n  \"html\": {\n    \"brace_style\": \"collapse\",\n    \"indent_char\": \" \",\n    \"indent_scripts\": \"normal\",\n    \"indent_size\": 6,\n    \"max_preserve_newlines\": 1,\n    \"preserve_newlines\": true,\n    \"unformatted\": [\"a\", \"sub\", \"sup\", \"b\", \"i\", \"u\"],\n    \"wrap_line_length\": 0\n  },\n  \"css\": {\n    \"indent_char\": \" \",\n    \"indent_size\": 4\n  },\n  \"js\": {\n    \"indent_size\": 2,\n    \"indent_char\": \" \",\n    \"indent_level\": 0,\n    \"indent_with_tabs\": false,\n    \"preserve_newlines\": true,\n    \"max_preserve_newlines\": 2,\n    \"jslint_happy\": true\n  },\n  \"sql\": {\n    \"indent_size\": 4,\n    \"indent_char\": \" \",\n    \"indent_level\": 0,\n    \"indent_with_tabs\": false\n  }\n}\n```\n\n## Advanced Language Setup\n\n### PHP\n\nTo use with PHP we require [PHP_Beautifier](http://pear.php.net/package/PHP_Beautifier)\nand that you set the `Php beautifier path` in the package settings.\n\n#### Retrieve the path on Mac & Linux\n\nRun `which php_beautifier` in your Terminal.\n\n### Python\n\nTo use with Python we require [autopep8](https://github.com/hhatto/autopep8)\nand that you set the `Python autopep8 path` in the package settings.\n\n#### Retrieve the path on Mac & Linux\n\nRun `which autopep8` in your Terminal.\n\n### Markdown\n\nTo use with Markdown we require [pandoc](http://johnmacfarlane.net/pandoc/)\nand you set the `Markdown Pandoc path` in the package settings.\n\n\n## Contributing\n\n[See all contributors on GitHub](https://github.com/donaldpipowitch/atom-beautify/graphs/contributors).\n\nPlease update the [CHANGELOG.md](https://github.com/donaldpipowitch/atom-beautify/blob/master/CHANGELOG.md),\nadd yourself as a contributor to the [package.json](https://github.com/donaldpipowitch/atom-beautify/blob/master/package.json),\nand submit a [Pull Request on GitHub](https://help.github.com/articles/using-pull-requests).\n\n## License\n\n[MIT](https://github.com/donaldpipowitch/atom-beautify/blob/master/LICENSE.md) © [Donald Pipowitch](https://github.com/donaldpipowitch)\n",
+  "activationEvents": [
+    "beautify",
+    "core:save",
+    "core:save-as"
+  ],
+  "readme": "# [atom-beautify](https://github.com/donaldpipowitch/atom-beautify)\n\n[![Gitter chat](https://badges.gitter.im/Glavin001/atom-beautify.png)](https://gitter.im/Glavin001/atom-beautify)\n[![Issue Stats](http://issuestats.com/github/glavin001/atom-beautify/badge/pr?style=flat)](http://issuestats.com/github/glavin001/atom-beautify)\n[![Issue Stats](http://issuestats.com/github/glavin001/atom-beautify/badge/issue?style=flat)](http://issuestats.com/github/glavin001/atom-beautify)\n\n> [Beautify](https://github.com/einars/js-beautify)\nHTML (including [Handlebars](http://handlebarsjs.com/)),\nCSS (including [Sass](http://sass-lang.com/) and [LESS](http://lesscss.org/)),\nJavaScript, and much more in Atom.\n\nAtom Package: https://atom.io/packages/atom-beautify\n\n```bash\napm install atom-beautify\n```\n\nOr Settings/Preferences ➔ Packages ➔ Search for `atom-beautify`\n\n\n## Language Support\n\n- [x] JavaScript and JSON\n- [x] HTML, including\n  - [x] [Handlebars](http://handlebarsjs.com/)\n  - [x] [Mustache](http://mustache.github.io)\n  - [x] [Embedded Ruby (ERB)](https://github.com/Glavin001/atom-beautify/issues/80)\n    - Requires [htmlbeautifier](https://github.com/threedaymonk/htmlbeautifier)\n  - [x] XML\n- [x] CSS, including\n  - [Sass](http://sass-lang.com/)\n  - [LESS](http://lesscss.org/)\n- [x] [SQL](https://github.com/Glavin001/atom-beautify/pull/67)\n  - Requires [python-sqlparse](https://github.com/andialbrecht/sqlparse)\n- [x] [Markdown](https://github.com/Glavin001/atom-beautify/issues/93#issuecomment-55642483)\n  - Requires [Pandoc](http://johnmacfarlane.net/pandoc/) to be already installed\n- [x] [PHP](https://github.com/donaldpipowitch/atom-beautify/issues/26)  \n  - Requires [PHP_Beautifier](http://pear.php.net/package/PHP_Beautifier) to be already installed.\n- [x] [Python](https://github.com/donaldpipowitch/atom-beautify/issues/24)\n  - Requires [autopep8](https://github.com/hhatto/autopep8) to be already installed.\n  - Beautifies to [PEP 8](http://legacy.python.org/dev/peps/pep-0008/).\n- [x] [Ruby](https://github.com/donaldpipowitch/atom-beautify/issues/25)\n  - Requires [RBeautify](https://github.com/erniebrodeur/ruby-beautify)\n- [x] [CoffeeScript](https://github.com/donaldpipowitch/atom-beautify/issues/31)\n- [x] [Java](https://github.com/Glavin001/atom-beautify/issues/45)\n  - Requires [Uncrustify](http://sourceforge.net/projects/uncrustify/)\n- [x] [C](https://github.com/Glavin001/atom-beautify/issues/57)\n  - Requires [Uncrustify](http://sourceforge.net/projects/uncrustify/)\n- [x] [C++](https://github.com/Glavin001/atom-beautify/issues/57)\n  - Requires [Uncrustify](http://sourceforge.net/projects/uncrustify/)\n- [x] [C#](https://github.com/Glavin001/atom-beautify/issues/57)\n  - Requires [Uncrustify](http://sourceforge.net/projects/uncrustify/)\n- [x] [Objective-C](https://github.com/Glavin001/atom-beautify/issues/57)\n  - Requires [Uncrustify](http://sourceforge.net/projects/uncrustify/)\n- [x] [D](https://github.com/Glavin001/atom-beautify/issues/57)\n  - Requires [Uncrustify](http://sourceforge.net/projects/uncrustify/)\n- [x] [Pawn](https://github.com/Glavin001/atom-beautify/issues/57)\n  - Requires [Uncrustify](http://sourceforge.net/projects/uncrustify/)\n- [x] [Vala](https://github.com/Glavin001/atom-beautify/issues/57)\n  - Requires [Uncrustify](http://sourceforge.net/projects/uncrustify/)\n- [x] [TypeScript](https://github.com/Glavin001/atom-beautify/issues/49)\n\n### Road Map\n\n#### Language support\n\n- [ ] [Perl](https://github.com/Glavin001/atom-beautify/issues/33)\n\n\n## Usage\n\nOpen the [Command Palette](https://github.com/atom/command-palette), and type `Beautify`.\n\nIt will only beautify selected text, if a selection is found - if not, the whole file will be beautified.\n\n### Shortcut\n\nYou can also type `ctrl-alt-b` as a shortcut or click `Packages > Beautify` in the menu.\n\n#### Custom Keyboard Shortcuts\n\nSee [Keymaps In-Depth](https://atom.io/docs/latest/advanced/keymaps) for more details.\n\nFor example:\n\n```coffeescript\n'.editor': # Available from Editor only\n  'ctrl-alt-b': 'beautify'\n```\n\n### Package Options\n\n- `beautifyOnSave`  (Default *false*)\nYou can also choose to beautify on every file save.\n\n- `beautifyEntireFileOnSave` (Default *true*)\nBeautification will normally only beautify your selected text.\nHowever, when beautification occurs on save then it will\nbe forced to beautify the entire file's contents,\nnot just selected text.\n\n- `muteUnsupportedLanguageErrors` (Default *false*)\nMute only *unsupported language* errors.\n\n- `muteAllErrors` (Default *false*)\nDo not show the *Atom Beautify Error Messages* panel\nfor any of the errors occurring while beautifying.\n\n- `analytics`  (Default *true*)\nThere is [Segment.io](https://segment.io/),\nwhich forwards the data to [Google Analytics](http://www.google.com/analytics/),\nto track what languages\nare being used the most and other stats.\nEverything is anonymized and no personal information,\nsuch as source code, is sent.\nSee https://github.com/Glavin001/atom-beautify/issues/47\nfor more details.\n\n## Configuration\n\nEdit your `.jsbeautifyrc` file in any of the following locations:\n\n- Atom Package Settings  \n  `Atom` ➔ `Preferences` ➔ Search for `atom-beautify`\n- Same directory as current file\n- Project root  \n`atom-beautify` will recursively look up from the current file's directory to find `.jsbeautifyrc`.\n- Your User's Home directory\n\n**Note**: *Comments are supported in `.jsbeautifyrc` thanks to [strip-json-comments](https://github.com/sindresorhus/strip-json-comments).*\n\nSee examples of both way inside [`examples/`](https://github.com/donaldpipowitch/atom-beautify/tree/master/examples)\n\nOption table is available at the [js-beautify repo](https://github.com/beautify-web/js-beautify#options).\n\n### Simple\n\nSee [examples/simple-jsbeautifyrc/.jsbeautifyrc](https://github.com/donaldpipowitch/atom-beautify/blob/master/examples/simple-jsbeautifyrc/.jsbeautifyrc).\n\n```json\n{\n  \"indent_size\": 2,\n  \"indent_char\": \" \",\n  \"other\": \" \",\n  \"indent_level\": 0,\n  \"indent_with_tabs\": false,\n  \"preserve_newlines\": true,\n  \"max_preserve_newlines\": 2,\n  \"jslint_happy\": true,\n  \"indent_handlebars\": true\n}\n```\n\n### Nested\n\nSee [examples/nested-jsbeautifyrc/.jsbeautifyrc](https://github.com/donaldpipowitch/atom-beautify/blob/master/examples/nested-jsbeautifyrc/.jsbeautifyrc).\n\n```json\n{\n  \"html\": {\n    \"brace_style\": \"collapse\",\n    \"indent_char\": \" \",\n    \"indent_scripts\": \"normal\",\n    \"indent_size\": 6,\n    \"max_preserve_newlines\": 1,\n    \"preserve_newlines\": true,\n    \"unformatted\": [\"a\", \"sub\", \"sup\", \"b\", \"i\", \"u\"],\n    \"wrap_line_length\": 0\n  },\n  \"css\": {\n    \"indent_char\": \" \",\n    \"indent_size\": 4\n  },\n  \"js\": {\n    \"indent_size\": 2,\n    \"indent_char\": \" \",\n    \"indent_level\": 0,\n    \"indent_with_tabs\": false,\n    \"preserve_newlines\": true,\n    \"max_preserve_newlines\": 2,\n    \"jslint_happy\": true\n  },\n  \"sql\": {\n    \"indent_size\": 4,\n    \"indent_char\": \" \",\n    \"indent_level\": 0,\n    \"indent_with_tabs\": false\n  }\n}\n```\n\n## Advanced Language Setup\n\n### PHP\n\nTo use with PHP we require [PHP_Beautifier](http://pear.php.net/package/PHP_Beautifier)\nand that you set the `Php beautifier path` in the package settings.\n\n#### Retrieve the path on Mac & Linux\n\nRun `which php_beautifier` in your Terminal.\n\n### Python\n\nTo use with Python we require [autopep8](https://github.com/hhatto/autopep8)\nand that you set the `Python autopep8 path` in the package settings.\n\n#### Retrieve the path on Mac & Linux\n\nRun `which autopep8` in your Terminal.\n\n### Markdown\n\nTo use with Markdown we require [pandoc](http://johnmacfarlane.net/pandoc/)\nand you set the `Markdown Pandoc path` in the package settings.\n\n\n## Contributing\n\n[See all contributors on GitHub](https://github.com/donaldpipowitch/atom-beautify/graphs/contributors).\n\nPlease update the [CHANGELOG.md](https://github.com/donaldpipowitch/atom-beautify/blob/master/CHANGELOG.md),\nadd yourself as a contributor to the [package.json](https://github.com/donaldpipowitch/atom-beautify/blob/master/package.json),\nand submit a [Pull Request on GitHub](https://help.github.com/articles/using-pull-requests).\n\n## License\n\n[MIT](https://github.com/donaldpipowitch/atom-beautify/blob/master/LICENSE.md) © [Donald Pipowitch](https://github.com/donaldpipowitch)\n",
   "readmeFilename": "README.md",
   "homepage": "https://github.com/Glavin001/atom-beautify",
-  "_id": "atom-beautify@0.13.4",
+  "_id": "atom-beautify@0.15.1",
   "dist": {
-    "shasum": "47dd59595c557b53f445828f0d2a25b1a6449b17"
+    "shasum": "052588485a36a9b468dfc2eb0d0b9c1f6f1fef68"
   },
-  "_resolved": "/tmp/d-11498-56709-vnx394/package.tgz",
-  "_from": "/tmp/d-11498-56709-vnx394/package.tgz"
+  "_resolved": "/tmp/d-114929-46705-1mpnkvd/package.tgz",
+  "_from": "/tmp/d-114929-46705-1mpnkvd/package.tgz",
+  "_atomModuleCache": {
+    "version": 1,
+    "dependencies": [
+      {
+        "name": "analytics-node",
+        "version": "1.1.0",
+        "path": "node_modules/analytics-node/lib/index.js"
+      },
+      {
+        "name": "clone",
+        "version": "0.1.18",
+        "path": "node_modules/analytics-node/node_modules/clone/clone.js"
+      },
+      {
+        "name": "component-type",
+        "version": "1.0.0",
+        "path": "node_modules/analytics-node/node_modules/component-type/index.js"
+      },
+      {
+        "name": "debug",
+        "version": "1.0.4",
+        "path": "node_modules/analytics-node/node_modules/debug/node.js"
+      },
+      {
+        "name": "ms",
+        "version": "0.6.2",
+        "path": "node_modules/analytics-node/node_modules/debug/node_modules/ms/index.js"
+      },
+      {
+        "name": "join-component",
+        "version": "1.0.0",
+        "path": "node_modules/analytics-node/node_modules/join-component/index.js"
+      },
+      {
+        "name": "superagent",
+        "version": "0.16.0",
+        "path": "node_modules/analytics-node/node_modules/superagent/lib/node/index.js"
+      },
+      {
+        "name": "cookiejar",
+        "version": "1.3.0",
+        "path": "node_modules/analytics-node/node_modules/superagent/node_modules/cookiejar/cookiejar.js"
+      },
+      {
+        "name": "debug",
+        "version": "0.7.4",
+        "path": "node_modules/analytics-node/node_modules/superagent/node_modules/debug/lib/debug.js"
+      },
+      {
+        "name": "emitter-component",
+        "version": "1.0.0",
+        "path": "node_modules/analytics-node/node_modules/superagent/node_modules/emitter-component/index.js"
+      },
+      {
+        "name": "formidable",
+        "version": "1.0.14",
+        "path": "node_modules/analytics-node/node_modules/superagent/node_modules/formidable/lib/index.js"
+      },
+      {
+        "name": "methods",
+        "version": "0.0.1",
+        "path": "node_modules/analytics-node/node_modules/superagent/node_modules/methods/index.js"
+      },
+      {
+        "name": "mime",
+        "version": "1.2.5",
+        "path": "node_modules/analytics-node/node_modules/superagent/node_modules/mime/mime.js"
+      },
+      {
+        "name": "qs",
+        "version": "0.6.5",
+        "path": "node_modules/analytics-node/node_modules/superagent/node_modules/qs/index.js"
+      },
+      {
+        "name": "reduce-component",
+        "version": "1.0.1",
+        "path": "node_modules/analytics-node/node_modules/superagent/node_modules/reduce-component/index.js"
+      },
+      {
+        "name": "superagent-proxy",
+        "version": "0.3.1",
+        "path": "node_modules/analytics-node/node_modules/superagent-proxy/index.js"
+      },
+      {
+        "name": "debug",
+        "version": "0.7.4",
+        "path": "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/debug/lib/debug.js"
+      },
+      {
+        "name": "proxy-agent",
+        "version": "1.1.0",
+        "path": "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/index.js"
+      },
+      {
+        "name": "http-proxy-agent",
+        "version": "0.2.6",
+        "path": "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/http-proxy-agent/http-proxy-agent.js"
+      },
+      {
+        "name": "agent-base",
+        "version": "1.0.1",
+        "path": "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/http-proxy-agent/node_modules/agent-base/agent.js"
+      },
+      {
+        "name": "debug",
+        "version": "1.0.4",
+        "path": "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/http-proxy-agent/node_modules/debug/node.js"
+      },
+      {
+        "name": "ms",
+        "version": "0.6.2",
+        "path": "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/http-proxy-agent/node_modules/debug/node_modules/ms/index.js"
+      },
+      {
+        "name": "extend",
+        "version": "1.2.1",
+        "path": "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/http-proxy-agent/node_modules/extend/index.js"
+      },
+      {
+        "name": "https-proxy-agent",
+        "version": "0.3.5",
+        "path": "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/https-proxy-agent/https-proxy-agent.js"
+      },
+      {
+        "name": "agent-base",
+        "version": "1.0.1",
+        "path": "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/https-proxy-agent/node_modules/agent-base/agent.js"
+      },
+      {
+        "name": "debug",
+        "version": "1.0.4",
+        "path": "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/https-proxy-agent/node_modules/debug/node.js"
+      },
+      {
+        "name": "ms",
+        "version": "0.6.2",
+        "path": "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/https-proxy-agent/node_modules/debug/node_modules/ms/index.js"
+      },
+      {
+        "name": "extend",
+        "version": "1.2.1",
+        "path": "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/https-proxy-agent/node_modules/extend/index.js"
+      },
+      {
+        "name": "lru-cache",
+        "version": "2.5.0",
+        "path": "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/lru-cache/lib/lru-cache.js"
+      },
+      {
+        "name": "pac-proxy-agent",
+        "version": "0.1.2",
+        "path": "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/index.js"
+      },
+      {
+        "name": "agent-base",
+        "version": "1.0.1",
+        "path": "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/agent-base/agent.js"
+      },
+      {
+        "name": "debug",
+        "version": "0.8.1",
+        "path": "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/debug/lib/debug.js"
+      },
+      {
+        "name": "extend",
+        "version": "1.2.1",
+        "path": "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/extend/index.js"
+      },
+      {
+        "name": "get-uri",
+        "version": "0.1.3",
+        "path": "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/index.js"
+      },
+      {
+        "name": "data-uri-to-buffer",
+        "version": "0.0.3",
+        "path": "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/data-uri-to-buffer/index.js"
+      },
+      {
+        "name": "file-uri-to-path",
+        "version": "0.0.2",
+        "path": "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/file-uri-to-path/index.js"
+      },
+      {
+        "name": "ftp",
+        "version": "0.3.7",
+        "path": "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/ftp/lib/connection.js"
+      },
+      {
+        "name": "readable-stream",
+        "version": "1.1.13",
+        "path": "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/ftp/node_modules/readable-stream/readable.js"
+      },
+      {
+        "name": "core-util-is",
+        "version": "1.0.1",
+        "path": "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/ftp/node_modules/readable-stream/node_modules/core-util-is/lib/util.js"
+      },
+      {
+        "name": "inherits",
+        "version": "2.0.1",
+        "path": "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/ftp/node_modules/readable-stream/node_modules/inherits/inherits.js"
+      },
+      {
+        "name": "isarray",
+        "version": "0.0.1",
+        "path": "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/ftp/node_modules/readable-stream/node_modules/isarray/index.js"
+      },
+      {
+        "name": "string_decoder",
+        "version": "0.10.31",
+        "path": "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/ftp/node_modules/readable-stream/node_modules/string_decoder/index.js"
+      },
+      {
+        "name": "xregexp",
+        "version": "2.0.0",
+        "path": "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/ftp/node_modules/xregexp/xregexp-all.js"
+      },
+      {
+        "name": "readable-stream",
+        "version": "1.0.33",
+        "path": "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/readable-stream/readable.js"
+      },
+      {
+        "name": "core-util-is",
+        "version": "1.0.1",
+        "path": "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/readable-stream/node_modules/core-util-is/lib/util.js"
+      },
+      {
+        "name": "inherits",
+        "version": "2.0.1",
+        "path": "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/readable-stream/node_modules/inherits/inherits.js"
+      },
+      {
+        "name": "isarray",
+        "version": "0.0.1",
+        "path": "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/readable-stream/node_modules/isarray/index.js"
+      },
+      {
+        "name": "string_decoder",
+        "version": "0.10.31",
+        "path": "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/readable-stream/node_modules/string_decoder/index.js"
+      },
+      {
+        "name": "pac-resolver",
+        "version": "1.2.2",
+        "path": "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/index.js"
+      },
+      {
+        "name": "co",
+        "version": "3.0.6",
+        "path": "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/co/index.js"
+      },
+      {
+        "name": "degenerator",
+        "version": "0.0.3",
+        "path": "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/degenerator/index.js"
+      },
+      {
+        "name": "ast-types",
+        "version": "0.3.38",
+        "path": "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/degenerator/node_modules/ast-types/main.js"
+      },
+      {
+        "name": "private",
+        "version": "0.1.5",
+        "path": "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/degenerator/node_modules/ast-types/node_modules/private/private.js"
+      },
+      {
+        "name": "escodegen",
+        "version": "1.3.3",
+        "path": "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/degenerator/node_modules/escodegen/escodegen.js"
+      },
+      {
+        "name": "esprima",
+        "version": "1.1.1",
+        "path": "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/degenerator/node_modules/escodegen/node_modules/esprima/esprima.js"
+      },
+      {
+        "name": "estraverse",
+        "version": "1.5.1",
+        "path": "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/degenerator/node_modules/escodegen/node_modules/estraverse/estraverse.js"
+      },
+      {
+        "name": "esutils",
+        "version": "1.0.0",
+        "path": "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/degenerator/node_modules/escodegen/node_modules/esutils/lib/utils.js"
+      },
+      {
+        "name": "source-map",
+        "version": "0.1.40",
+        "path": "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/degenerator/node_modules/escodegen/node_modules/source-map/lib/source-map.js"
+      },
+      {
+        "name": "amdefine",
+        "version": "0.1.0",
+        "path": "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/degenerator/node_modules/escodegen/node_modules/source-map/node_modules/amdefine/amdefine.js"
+      },
+      {
+        "name": "esprima",
+        "version": "1.1.0-dev-harmony",
+        "path": "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/degenerator/node_modules/esprima/esprima.js"
+      },
+      {
+        "name": "netmask",
+        "version": "1.0.4",
+        "path": "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/netmask/lib/netmask.js"
+      },
+      {
+        "name": "regenerator",
+        "version": "0.4.12",
+        "path": "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/main.js"
+      },
+      {
+        "name": "commander",
+        "version": "2.1.0",
+        "path": "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/commander/index.js"
+      },
+      {
+        "name": "defs",
+        "version": "0.6.2",
+        "path": "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/defs/build/es5/defs-main.js"
+      },
+      {
+        "name": "alter",
+        "version": "0.2.0",
+        "path": "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/defs/node_modules/alter/alter.js"
+      },
+      {
+        "name": "stable",
+        "version": "0.1.5",
+        "path": "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/defs/node_modules/alter/node_modules/stable/stable.js"
+      },
+      {
+        "name": "ast-traverse",
+        "version": "0.1.1",
+        "path": "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/defs/node_modules/ast-traverse/ast-traverse.js"
+      },
+      {
+        "name": "breakable",
+        "version": "0.1.0",
+        "path": "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/defs/node_modules/breakable/breakable.js"
+      },
+      {
+        "name": "esprima",
+        "version": "1.0.4",
+        "path": "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/defs/node_modules/esprima/esprima.js"
+      },
+      {
+        "name": "simple-fmt",
+        "version": "0.1.0",
+        "path": "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/defs/node_modules/simple-fmt/simple-fmt.js"
+      },
+      {
+        "name": "simple-is",
+        "version": "0.2.0",
+        "path": "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/defs/node_modules/simple-is/simple-is.js"
+      },
+      {
+        "name": "stringmap",
+        "version": "0.2.2",
+        "path": "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/defs/node_modules/stringmap/stringmap.js"
+      },
+      {
+        "name": "stringset",
+        "version": "0.2.1",
+        "path": "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/defs/node_modules/stringset/stringset.js"
+      },
+      {
+        "name": "tryor",
+        "version": "0.1.2",
+        "path": "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/defs/node_modules/tryor/tryor.js"
+      },
+      {
+        "name": "esprima",
+        "version": "1.1.0-dev-harmony",
+        "path": "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/esprima/esprima.js"
+      },
+      {
+        "name": "private",
+        "version": "0.1.5",
+        "path": "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/private/private.js"
+      },
+      {
+        "name": "recast",
+        "version": "0.6.10",
+        "path": "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/recast/main.js"
+      },
+      {
+        "name": "ast-types",
+        "version": "0.4.13",
+        "path": "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/recast/node_modules/ast-types/main.js"
+      },
+      {
+        "name": "depd",
+        "version": "1.0.0",
+        "path": "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/recast/node_modules/ast-types/node_modules/depd/index.js"
+      },
+      {
+        "name": "cls",
+        "version": "0.1.5",
+        "path": "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/recast/node_modules/cls/main.js"
+      },
+      {
+        "name": "esprima",
+        "version": "1.1.0-dev-harmony",
+        "path": "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/recast/node_modules/esprima/esprima.js"
+      },
+      {
+        "name": "source-map",
+        "version": "0.1.32",
+        "path": "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/recast/node_modules/source-map/lib/source-map.js"
+      },
+      {
+        "name": "amdefine",
+        "version": "0.1.0",
+        "path": "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/recast/node_modules/source-map/node_modules/amdefine/amdefine.js"
+      },
+      {
+        "name": "thunkify",
+        "version": "2.1.2",
+        "path": "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/thunkify/index.js"
+      },
+      {
+        "name": "stream-to-array",
+        "version": "1.0.0",
+        "path": "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/stream-to-array/index.js"
+      },
+      {
+        "name": "socks-proxy-agent",
+        "version": "0.1.2",
+        "path": "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/socks-proxy-agent/socks-proxy-agent.js"
+      },
+      {
+        "name": "agent-base",
+        "version": "1.0.1",
+        "path": "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/socks-proxy-agent/node_modules/agent-base/agent.js"
+      },
+      {
+        "name": "extend",
+        "version": "1.2.1",
+        "path": "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/socks-proxy-agent/node_modules/extend/index.js"
+      },
+      {
+        "name": "rainbowsocks",
+        "version": "0.1.2",
+        "path": "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/socks-proxy-agent/node_modules/rainbowsocks/index.js"
+      },
+      {
+        "name": "debug",
+        "version": "1.0.4",
+        "path": "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/socks-proxy-agent/node_modules/rainbowsocks/node_modules/debug/node.js"
+      },
+      {
+        "name": "ms",
+        "version": "0.6.2",
+        "path": "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/socks-proxy-agent/node_modules/rainbowsocks/node_modules/debug/node_modules/ms/index.js"
+      },
+      {
+        "name": "uid",
+        "version": "0.0.2",
+        "path": "node_modules/analytics-node/node_modules/uid/index.js"
+      },
+      {
+        "name": "atom-message-panel",
+        "version": "1.1.2",
+        "path": "node_modules/atom-message-panel/lib/index.js"
+      },
+      {
+        "name": "coffee-formatter",
+        "version": "0.1.0",
+        "path": "node_modules/coffee-formatter/formatter.js"
+      },
+      {
+        "name": "lazy",
+        "version": "1.0.11",
+        "path": "node_modules/coffee-formatter/node_modules/lazy/lazy.js"
+      },
+      {
+        "name": "optimist",
+        "version": "0.5.2",
+        "path": "node_modules/coffee-formatter/node_modules/optimist/index.js"
+      },
+      {
+        "name": "wordwrap",
+        "version": "0.0.2",
+        "path": "node_modules/coffee-formatter/node_modules/optimist/node_modules/wordwrap/index.js"
+      },
+      {
+        "name": "editorconfig",
+        "version": "0.11.4",
+        "path": "node_modules/editorconfig/editorconfig.js"
+      },
+      {
+        "name": "commander",
+        "version": "1.1.1",
+        "path": "node_modules/editorconfig/node_modules/commander/index.js"
+      },
+      {
+        "name": "keypress",
+        "version": "0.1.0",
+        "path": "node_modules/editorconfig/node_modules/commander/node_modules/keypress/index.js"
+      },
+      {
+        "name": "lru-cache",
+        "version": "2.0.4",
+        "path": "node_modules/editorconfig/node_modules/lru-cache/lib/lru-cache.js"
+      },
+      {
+        "name": "sigmund",
+        "version": "1.0.0",
+        "path": "node_modules/editorconfig/node_modules/sigmund/sigmund.js"
+      },
+      {
+        "name": "emissary",
+        "version": "1.3.1",
+        "path": "node_modules/emissary/lib/emissary.js"
+      },
+      {
+        "name": "harmony-collections",
+        "version": "0.3.7",
+        "path": "node_modules/emissary/node_modules/harmony-collections/harmony-collections.js"
+      },
+      {
+        "name": "mixto",
+        "version": "1.0.0",
+        "path": "node_modules/emissary/node_modules/mixto/lib/mixin.js"
+      },
+      {
+        "name": "property-accessors",
+        "version": "1.1.0",
+        "path": "node_modules/emissary/node_modules/property-accessors/lib/property-accessors.js"
+      },
+      {
+        "name": "harmony-collections",
+        "version": "0.3.7",
+        "path": "node_modules/emissary/node_modules/property-accessors/node_modules/harmony-collections/harmony-collections.js"
+      },
+      {
+        "name": "underscore-plus",
+        "version": "1.6.1",
+        "path": "node_modules/emissary/node_modules/underscore-plus/lib/underscore-plus.js"
+      },
+      {
+        "name": "underscore",
+        "version": "1.6.0",
+        "path": "node_modules/emissary/node_modules/underscore-plus/node_modules/underscore/underscore.js"
+      },
+      {
+        "name": "extend",
+        "version": "1.3.0",
+        "path": "node_modules/extend/index.js"
+      },
+      {
+        "name": "js-beautify",
+        "version": "1.5.4",
+        "path": "node_modules/js-beautify/js/index.js"
+      },
+      {
+        "name": "config-chain",
+        "version": "1.1.8",
+        "path": "node_modules/js-beautify/node_modules/config-chain/index.js"
+      },
+      {
+        "name": "ini",
+        "version": "1.3.0",
+        "path": "node_modules/js-beautify/node_modules/config-chain/node_modules/ini/ini.js"
+      },
+      {
+        "name": "proto-list",
+        "version": "1.2.3",
+        "path": "node_modules/js-beautify/node_modules/config-chain/node_modules/proto-list/proto-list.js"
+      },
+      {
+        "name": "mkdirp",
+        "version": "0.5.0",
+        "path": "node_modules/js-beautify/node_modules/mkdirp/index.js"
+      },
+      {
+        "name": "minimist",
+        "version": "0.0.8",
+        "path": "node_modules/js-beautify/node_modules/mkdirp/node_modules/minimist/index.js"
+      },
+      {
+        "name": "nopt",
+        "version": "3.0.1",
+        "path": "node_modules/js-beautify/node_modules/nopt/lib/nopt.js"
+      },
+      {
+        "name": "abbrev",
+        "version": "1.0.5",
+        "path": "node_modules/js-beautify/node_modules/nopt/node_modules/abbrev/abbrev.js"
+      },
+      {
+        "name": "js-yaml",
+        "version": "3.2.2",
+        "path": "node_modules/js-yaml/index.js"
+      },
+      {
+        "name": "argparse",
+        "version": "0.1.15",
+        "path": "node_modules/js-yaml/node_modules/argparse/index.js"
+      },
+      {
+        "name": "underscore",
+        "version": "1.4.4",
+        "path": "node_modules/js-yaml/node_modules/argparse/node_modules/underscore/underscore.js"
+      },
+      {
+        "name": "underscore.string",
+        "version": "2.3.3",
+        "path": "node_modules/js-yaml/node_modules/argparse/node_modules/underscore.string/lib/underscore.string.js"
+      },
+      {
+        "name": "esprima",
+        "version": "1.0.4",
+        "path": "node_modules/js-yaml/node_modules/esprima/esprima.js"
+      },
+      {
+        "name": "lodash",
+        "version": "2.4.1",
+        "path": "node_modules/lodash/dist/lodash.js"
+      },
+      {
+        "name": "loophole",
+        "version": "1.0.0",
+        "path": "node_modules/loophole/lib/loophole.js"
+      },
+      {
+        "name": "node-uuid",
+        "version": "1.4.1",
+        "path": "node_modules/node-uuid/uuid.js"
+      },
+      {
+        "name": "prettydiff",
+        "version": "1.4.2",
+        "path": "node_modules/prettydiff/prettydiff.js"
+      },
+      {
+        "name": "strip-json-comments",
+        "version": "0.1.3",
+        "path": "node_modules/strip-json-comments/strip-json-comments.js"
+      },
+      {
+        "name": "temp",
+        "version": "0.8.1",
+        "path": "node_modules/temp/lib/temp.js"
+      },
+      {
+        "name": "rimraf",
+        "version": "2.2.8",
+        "path": "node_modules/temp/node_modules/rimraf/rimraf.js"
+      },
+      {
+        "name": "typescript-formatter",
+        "version": "0.1.4",
+        "path": "node_modules/typescript-formatter/index.js"
+      },
+      {
+        "name": "commander",
+        "version": "2.2.0",
+        "path": "node_modules/typescript-formatter/node_modules/commander/index.js"
+      }
+    ],
+    "extensions": {
+      ".coffee": [
+        "lib/beautify.coffee",
+        "lib/langs/cli-beautify.coffee",
+        "lib/langs/coffeescript-beautify.coffee",
+        "lib/langs/html-erb-beautify.coffee",
+        "lib/langs/less-beautify.coffee",
+        "lib/langs/markdown-beautify.coffee",
+        "lib/langs/php-beautify.coffee",
+        "lib/langs/python-beautify.coffee",
+        "lib/langs/ruby-beautify.coffee",
+        "lib/langs/sql-beautify.coffee",
+        "lib/langs/typescript-beautify.coffee",
+        "lib/langs/uncrustify/cfg.coffee",
+        "lib/langs/uncrustify/index.coffee",
+        "lib/language-options.coffee",
+        "lib/loading-view.coffee",
+        "lib/message-view.coffee",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/netmask/example/ipcalc.coffee",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/netmask/lib/netmask.coffee",
+        "node_modules/coffee-formatter/sample/vdvc.coffee"
+      ],
+      ".json": [
+        "lib/langs/uncrustify/possible-options.json",
+        "node_modules/analytics-node/node_modules/clone/package.json",
+        "node_modules/analytics-node/node_modules/component-type/component.json",
+        "node_modules/analytics-node/node_modules/component-type/package.json",
+        "node_modules/analytics-node/node_modules/debug/component.json",
+        "node_modules/analytics-node/node_modules/debug/node_modules/ms/package.json",
+        "node_modules/analytics-node/node_modules/debug/package.json",
+        "node_modules/analytics-node/node_modules/join-component/component.json",
+        "node_modules/analytics-node/node_modules/join-component/package.json",
+        "node_modules/analytics-node/node_modules/superagent/component.json",
+        "node_modules/analytics-node/node_modules/superagent/components/RedVentures-reduce/component.json",
+        "node_modules/analytics-node/node_modules/superagent/components/component-emitter/component.json",
+        "node_modules/analytics-node/node_modules/superagent/node_modules/cookiejar/package.json",
+        "node_modules/analytics-node/node_modules/superagent/node_modules/debug/package.json",
+        "node_modules/analytics-node/node_modules/superagent/node_modules/emitter-component/component.json",
+        "node_modules/analytics-node/node_modules/superagent/node_modules/emitter-component/package.json",
+        "node_modules/analytics-node/node_modules/superagent/node_modules/formidable/package.json",
+        "node_modules/analytics-node/node_modules/superagent/node_modules/methods/package.json",
+        "node_modules/analytics-node/node_modules/superagent/node_modules/mime/package.json",
+        "node_modules/analytics-node/node_modules/superagent/node_modules/qs/package.json",
+        "node_modules/analytics-node/node_modules/superagent/node_modules/reduce-component/component.json",
+        "node_modules/analytics-node/node_modules/superagent/node_modules/reduce-component/package.json",
+        "node_modules/analytics-node/node_modules/superagent/package.json",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/debug/package.json",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/http-proxy-agent/node_modules/agent-base/package.json",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/http-proxy-agent/node_modules/debug/component.json",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/http-proxy-agent/node_modules/debug/node_modules/ms/package.json",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/http-proxy-agent/node_modules/debug/package.json",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/http-proxy-agent/node_modules/extend/package.json",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/http-proxy-agent/package.json",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/https-proxy-agent/node_modules/agent-base/package.json",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/https-proxy-agent/node_modules/debug/component.json",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/https-proxy-agent/node_modules/debug/node_modules/ms/package.json",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/https-proxy-agent/node_modules/debug/package.json",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/https-proxy-agent/node_modules/extend/package.json",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/https-proxy-agent/package.json",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/lru-cache/package.json",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/agent-base/package.json",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/debug/package.json",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/extend/package.json",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/data-uri-to-buffer/package.json",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/file-uri-to-path/package.json",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/ftp/node_modules/readable-stream/node_modules/core-util-is/package.json",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/ftp/node_modules/readable-stream/node_modules/inherits/package.json",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/ftp/node_modules/readable-stream/node_modules/isarray/component.json",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/ftp/node_modules/readable-stream/node_modules/isarray/package.json",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/ftp/node_modules/readable-stream/node_modules/string_decoder/package.json",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/ftp/node_modules/readable-stream/package.json",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/ftp/node_modules/xregexp/package.json",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/ftp/package.json",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/readable-stream/node_modules/core-util-is/package.json",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/readable-stream/node_modules/inherits/package.json",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/readable-stream/node_modules/isarray/component.json",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/readable-stream/node_modules/isarray/package.json",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/readable-stream/node_modules/string_decoder/package.json",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/readable-stream/package.json",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/package.json",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/co/package.json",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/degenerator/node_modules/ast-types/node_modules/private/package.json",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/degenerator/node_modules/ast-types/package.json",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/degenerator/node_modules/escodegen/component.json",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/degenerator/node_modules/escodegen/node_modules/esprima/package.json",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/degenerator/node_modules/escodegen/node_modules/estraverse/package.json",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/degenerator/node_modules/escodegen/node_modules/esutils/package.json",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/degenerator/node_modules/escodegen/node_modules/source-map/node_modules/amdefine/package.json",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/degenerator/node_modules/escodegen/node_modules/source-map/package.json",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/degenerator/node_modules/escodegen/package.json",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/degenerator/node_modules/esprima/package.json",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/degenerator/package.json",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/netmask/package.json",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/commander/package.json",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/defs/defs-config.json",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/defs/node_modules/alter/node_modules/stable/bower.json",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/defs/node_modules/alter/node_modules/stable/package.json",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/defs/node_modules/alter/package.json",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/defs/node_modules/ast-traverse/package.json",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/defs/node_modules/ast-traverse/tst/tst-ast.json",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/defs/node_modules/breakable/package.json",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/defs/node_modules/esprima/package.json",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/defs/node_modules/simple-fmt/package.json",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/defs/node_modules/simple-is/package.json",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/defs/node_modules/stringmap/package.json",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/defs/node_modules/stringset/package.json",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/defs/node_modules/tryor/package.json",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/defs/package.json",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/esprima/package.json",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/private/package.json",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/recast/node_modules/ast-types/node_modules/depd/package.json",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/recast/node_modules/ast-types/package.json",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/recast/node_modules/cls/package.json",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/recast/node_modules/esprima/package.json",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/recast/node_modules/source-map/node_modules/amdefine/package.json",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/recast/node_modules/source-map/package.json",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/recast/package.json",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/package.json",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/thunkify/package.json",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/package.json",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/stream-to-array/package.json",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/package.json",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/socks-proxy-agent/node_modules/agent-base/package.json",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/socks-proxy-agent/node_modules/extend/package.json",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/socks-proxy-agent/node_modules/rainbowsocks/node_modules/debug/component.json",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/socks-proxy-agent/node_modules/rainbowsocks/node_modules/debug/node_modules/ms/package.json",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/socks-proxy-agent/node_modules/rainbowsocks/node_modules/debug/package.json",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/socks-proxy-agent/node_modules/rainbowsocks/package.json",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/socks-proxy-agent/package.json",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/package.json",
+        "node_modules/analytics-node/node_modules/superagent-proxy/package.json",
+        "node_modules/analytics-node/node_modules/uid/component.json",
+        "node_modules/analytics-node/node_modules/uid/package.json",
+        "node_modules/analytics-node/package.json",
+        "node_modules/atom-message-panel/package.json",
+        "node_modules/coffee-formatter/node_modules/lazy/package.json",
+        "node_modules/coffee-formatter/node_modules/optimist/node_modules/wordwrap/package.json",
+        "node_modules/coffee-formatter/node_modules/optimist/package.json",
+        "node_modules/coffee-formatter/package.json",
+        "node_modules/editorconfig/node_modules/commander/node_modules/keypress/package.json",
+        "node_modules/editorconfig/node_modules/commander/package.json",
+        "node_modules/editorconfig/node_modules/lru-cache/package.json",
+        "node_modules/editorconfig/node_modules/sigmund/package.json",
+        "node_modules/editorconfig/package.json",
+        "node_modules/emissary/node_modules/harmony-collections/package.json",
+        "node_modules/emissary/node_modules/mixto/package.json",
+        "node_modules/emissary/node_modules/property-accessors/node_modules/harmony-collections/package.json",
+        "node_modules/emissary/node_modules/property-accessors/package.json",
+        "node_modules/emissary/node_modules/underscore-plus/node_modules/underscore/package.json",
+        "node_modules/emissary/node_modules/underscore-plus/package.json",
+        "node_modules/emissary/package.json",
+        "node_modules/extend/component.json",
+        "node_modules/extend/package.json",
+        "node_modules/js-beautify/bower.json",
+        "node_modules/js-beautify/js/config/defaults.json",
+        "node_modules/js-beautify/node_modules/config-chain/node_modules/ini/package.json",
+        "node_modules/js-beautify/node_modules/config-chain/node_modules/proto-list/package.json",
+        "node_modules/js-beautify/node_modules/config-chain/package.json",
+        "node_modules/js-beautify/node_modules/mkdirp/node_modules/minimist/package.json",
+        "node_modules/js-beautify/node_modules/mkdirp/package.json",
+        "node_modules/js-beautify/node_modules/nopt/node_modules/abbrev/package.json",
+        "node_modules/js-beautify/node_modules/nopt/package.json",
+        "node_modules/js-beautify/package.json",
+        "node_modules/js-yaml/bower.json",
+        "node_modules/js-yaml/examples/dumper.json",
+        "node_modules/js-yaml/node_modules/argparse/node_modules/underscore/package.json",
+        "node_modules/js-yaml/node_modules/argparse/node_modules/underscore.string/component.json",
+        "node_modules/js-yaml/node_modules/argparse/node_modules/underscore.string/package.json",
+        "node_modules/js-yaml/node_modules/argparse/package.json",
+        "node_modules/js-yaml/node_modules/esprima/package.json",
+        "node_modules/js-yaml/package.json",
+        "node_modules/lodash/package.json",
+        "node_modules/loophole/package.json",
+        "node_modules/node-uuid/component.json",
+        "node_modules/node-uuid/package.json",
+        "node_modules/prettydiff/.bower.json",
+        "node_modules/prettydiff/bower.json",
+        "node_modules/prettydiff/package.json",
+        "node_modules/strip-json-comments/package.json",
+        "node_modules/temp/node_modules/rimraf/package.json",
+        "node_modules/temp/package.json",
+        "node_modules/typescript-formatter/example/package.json",
+        "node_modules/typescript-formatter/node_modules/commander/package.json",
+        "node_modules/typescript-formatter/package.json",
+        "node_modules/typescript-formatter/tsd.json",
+        "node_modules/typescript-formatter/typescript-toolbox/package.json",
+        "node_modules/typescript-formatter/typescript-toolbox/tsd.json",
+        "package.json"
+      ],
+      ".js": [
+        "node_modules/analytics-node/lib/index.js",
+        "node_modules/analytics-node/node_modules/clone/clone.js",
+        "node_modules/analytics-node/node_modules/clone/test.js",
+        "node_modules/analytics-node/node_modules/component-type/index.js",
+        "node_modules/analytics-node/node_modules/debug/browser.js",
+        "node_modules/analytics-node/node_modules/debug/debug.js",
+        "node_modules/analytics-node/node_modules/debug/node.js",
+        "node_modules/analytics-node/node_modules/debug/node_modules/ms/index.js",
+        "node_modules/analytics-node/node_modules/join-component/index.js",
+        "node_modules/analytics-node/node_modules/superagent/components/RedVentures-reduce/index.js",
+        "node_modules/analytics-node/node_modules/superagent/components/component-emitter/index.js",
+        "node_modules/analytics-node/node_modules/superagent/lib/client.js",
+        "node_modules/analytics-node/node_modules/superagent/lib/node/agent.js",
+        "node_modules/analytics-node/node_modules/superagent/lib/node/index.js",
+        "node_modules/analytics-node/node_modules/superagent/lib/node/parsers/index.js",
+        "node_modules/analytics-node/node_modules/superagent/lib/node/parsers/json.js",
+        "node_modules/analytics-node/node_modules/superagent/lib/node/parsers/text.js",
+        "node_modules/analytics-node/node_modules/superagent/lib/node/parsers/urlencoded.js",
+        "node_modules/analytics-node/node_modules/superagent/lib/node/part.js",
+        "node_modules/analytics-node/node_modules/superagent/lib/node/response.js",
+        "node_modules/analytics-node/node_modules/superagent/lib/node/utils.js",
+        "node_modules/analytics-node/node_modules/superagent/node_modules/cookiejar/cookiejar.js",
+        "node_modules/analytics-node/node_modules/superagent/node_modules/debug/debug.js",
+        "node_modules/analytics-node/node_modules/superagent/node_modules/debug/index.js",
+        "node_modules/analytics-node/node_modules/superagent/node_modules/debug/lib/debug.js",
+        "node_modules/analytics-node/node_modules/superagent/node_modules/emitter-component/index.js",
+        "node_modules/analytics-node/node_modules/superagent/node_modules/formidable/benchmark/bench-multipart-parser.js",
+        "node_modules/analytics-node/node_modules/superagent/node_modules/formidable/example/json.js",
+        "node_modules/analytics-node/node_modules/superagent/node_modules/formidable/example/post.js",
+        "node_modules/analytics-node/node_modules/superagent/node_modules/formidable/example/upload.js",
+        "node_modules/analytics-node/node_modules/superagent/node_modules/formidable/index.js",
+        "node_modules/analytics-node/node_modules/superagent/node_modules/formidable/lib/file.js",
+        "node_modules/analytics-node/node_modules/superagent/node_modules/formidable/lib/incoming_form.js",
+        "node_modules/analytics-node/node_modules/superagent/node_modules/formidable/lib/index.js",
+        "node_modules/analytics-node/node_modules/superagent/node_modules/formidable/lib/json_parser.js",
+        "node_modules/analytics-node/node_modules/superagent/node_modules/formidable/lib/multipart_parser.js",
+        "node_modules/analytics-node/node_modules/superagent/node_modules/formidable/lib/octet_parser.js",
+        "node_modules/analytics-node/node_modules/superagent/node_modules/formidable/lib/querystring_parser.js",
+        "node_modules/analytics-node/node_modules/superagent/node_modules/formidable/tool/record.js",
+        "node_modules/analytics-node/node_modules/superagent/node_modules/methods/index.js",
+        "node_modules/analytics-node/node_modules/superagent/node_modules/mime/mime.js",
+        "node_modules/analytics-node/node_modules/superagent/node_modules/mime/test.js",
+        "node_modules/analytics-node/node_modules/superagent/node_modules/qs/index.js",
+        "node_modules/analytics-node/node_modules/superagent/node_modules/reduce-component/index.js",
+        "node_modules/analytics-node/node_modules/superagent/superagent.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/index.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/debug/debug.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/debug/index.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/debug/lib/debug.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/index.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/http-proxy-agent/http-proxy-agent.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/http-proxy-agent/node_modules/agent-base/agent.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/http-proxy-agent/node_modules/debug/browser.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/http-proxy-agent/node_modules/debug/debug.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/http-proxy-agent/node_modules/debug/node.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/http-proxy-agent/node_modules/debug/node_modules/ms/index.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/http-proxy-agent/node_modules/extend/index.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/https-proxy-agent/https-proxy-agent.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/https-proxy-agent/node_modules/agent-base/agent.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/https-proxy-agent/node_modules/debug/browser.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/https-proxy-agent/node_modules/debug/debug.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/https-proxy-agent/node_modules/debug/node.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/https-proxy-agent/node_modules/debug/node_modules/ms/index.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/https-proxy-agent/node_modules/extend/index.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/lru-cache/lib/lru-cache.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/index.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/agent-base/agent.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/debug/debug.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/debug/lib/debug.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/extend/index.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/data.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/file.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/ftp.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/http.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/https.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/index.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/data-uri-to-buffer/index.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/file-uri-to-path/index.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/ftp/lib/connection.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/ftp/lib/parser.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/ftp/node_modules/readable-stream/duplex.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/ftp/node_modules/readable-stream/lib/_stream_duplex.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/ftp/node_modules/readable-stream/lib/_stream_passthrough.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/ftp/node_modules/readable-stream/lib/_stream_readable.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/ftp/node_modules/readable-stream/lib/_stream_transform.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/ftp/node_modules/readable-stream/lib/_stream_writable.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/ftp/node_modules/readable-stream/node_modules/core-util-is/lib/util.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/ftp/node_modules/readable-stream/node_modules/core-util-is/util.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/ftp/node_modules/readable-stream/node_modules/inherits/inherits.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/ftp/node_modules/readable-stream/node_modules/inherits/inherits_browser.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/ftp/node_modules/readable-stream/node_modules/inherits/test.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/ftp/node_modules/readable-stream/node_modules/isarray/build/build.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/ftp/node_modules/readable-stream/node_modules/isarray/index.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/ftp/node_modules/readable-stream/node_modules/string_decoder/index.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/ftp/node_modules/readable-stream/passthrough.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/ftp/node_modules/readable-stream/readable.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/ftp/node_modules/readable-stream/transform.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/ftp/node_modules/readable-stream/writable.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/ftp/node_modules/xregexp/xregexp-all.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/readable-stream/duplex.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/readable-stream/lib/_stream_duplex.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/readable-stream/lib/_stream_passthrough.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/readable-stream/lib/_stream_readable.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/readable-stream/lib/_stream_transform.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/readable-stream/lib/_stream_writable.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/readable-stream/node_modules/core-util-is/lib/util.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/readable-stream/node_modules/core-util-is/util.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/readable-stream/node_modules/inherits/inherits.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/readable-stream/node_modules/inherits/inherits_browser.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/readable-stream/node_modules/inherits/test.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/readable-stream/node_modules/isarray/build/build.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/readable-stream/node_modules/isarray/index.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/readable-stream/node_modules/string_decoder/index.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/readable-stream/passthrough.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/readable-stream/readable.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/readable-stream/transform.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/readable-stream/writable.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/notfound.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/notmodified.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/dateRange.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/dnsDomainIs.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/dnsDomainLevels.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/dnsResolve.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/index.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/isInNet.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/isPlainHostName.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/isResolvable.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/localHostOrDomainIs.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/myIpAddress.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/co/index.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/degenerator/index.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/degenerator/node_modules/ast-types/def/core.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/degenerator/node_modules/ast-types/def/e4x.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/degenerator/node_modules/ast-types/def/es6.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/degenerator/node_modules/ast-types/def/es7.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/degenerator/node_modules/ast-types/def/fb-harmony.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/degenerator/node_modules/ast-types/def/mozilla.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/degenerator/node_modules/ast-types/lib/node-path.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/degenerator/node_modules/ast-types/lib/path.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/degenerator/node_modules/ast-types/lib/scope.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/degenerator/node_modules/ast-types/lib/shared.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/degenerator/node_modules/ast-types/lib/traverse.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/degenerator/node_modules/ast-types/lib/types.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/degenerator/node_modules/ast-types/main.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/degenerator/node_modules/ast-types/node_modules/private/private.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/degenerator/node_modules/escodegen/bin/escodegen.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/degenerator/node_modules/escodegen/bin/esgenerate.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/degenerator/node_modules/escodegen/escodegen.browser.min.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/degenerator/node_modules/escodegen/escodegen.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/degenerator/node_modules/escodegen/gulpfile.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/degenerator/node_modules/escodegen/node_modules/esprima/bin/esparse.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/degenerator/node_modules/escodegen/node_modules/esprima/bin/esvalidate.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/degenerator/node_modules/escodegen/node_modules/esprima/esprima.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/degenerator/node_modules/escodegen/node_modules/estraverse/estraverse.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/degenerator/node_modules/escodegen/node_modules/esutils/lib/code.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/degenerator/node_modules/escodegen/node_modules/esutils/lib/keyword.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/degenerator/node_modules/escodegen/node_modules/esutils/lib/utils.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/degenerator/node_modules/escodegen/node_modules/source-map/Makefile.dryice.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/degenerator/node_modules/escodegen/node_modules/source-map/build/assert-shim.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/degenerator/node_modules/escodegen/node_modules/source-map/build/mini-require.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/degenerator/node_modules/escodegen/node_modules/source-map/build/suffix-browser.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/degenerator/node_modules/escodegen/node_modules/source-map/build/test-prefix.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/degenerator/node_modules/escodegen/node_modules/source-map/build/test-suffix.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/degenerator/node_modules/escodegen/node_modules/source-map/lib/source-map/array-set.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/degenerator/node_modules/escodegen/node_modules/source-map/lib/source-map/base64-vlq.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/degenerator/node_modules/escodegen/node_modules/source-map/lib/source-map/base64.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/degenerator/node_modules/escodegen/node_modules/source-map/lib/source-map/binary-search.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/degenerator/node_modules/escodegen/node_modules/source-map/lib/source-map/source-map-consumer.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/degenerator/node_modules/escodegen/node_modules/source-map/lib/source-map/source-map-generator.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/degenerator/node_modules/escodegen/node_modules/source-map/lib/source-map/source-node.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/degenerator/node_modules/escodegen/node_modules/source-map/lib/source-map/util.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/degenerator/node_modules/escodegen/node_modules/source-map/lib/source-map.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/degenerator/node_modules/escodegen/node_modules/source-map/node_modules/amdefine/amdefine.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/degenerator/node_modules/escodegen/node_modules/source-map/node_modules/amdefine/intercept.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/degenerator/node_modules/esprima/bin/esparse.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/degenerator/node_modules/esprima/bin/esvalidate.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/degenerator/node_modules/esprima/esprima.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/netmask/lib/netmask.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/lib/emit.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/lib/hoist.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/lib/leap.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/lib/meta.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/lib/util.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/lib/visit.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/main.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/commander/index.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/defs/build/es5/defs-cmd.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/defs/build/es5/defs-main.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/defs/build/es5/error.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/defs/build/es5/jshint_globals/vars.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/defs/build/es5/options.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/defs/build/es5/run-tests.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/defs/build/es5/scope.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/defs/build/es5/stats.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/defs/defs-cmd.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/defs/defs-main.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/defs/error.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/defs/jshint_globals/vars.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/defs/node_modules/alter/alter.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/defs/node_modules/alter/node_modules/stable/stable.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/defs/node_modules/alter/node_modules/stable/test.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/defs/node_modules/ast-traverse/ast-traverse.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/defs/node_modules/ast-traverse/tst/tst.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/defs/node_modules/breakable/breakable.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/defs/node_modules/breakable/examples/example-explicit.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/defs/node_modules/breakable/examples/example.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/defs/node_modules/esprima/bin/esparse.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/defs/node_modules/esprima/bin/esvalidate.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/defs/node_modules/esprima/esprima.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/defs/node_modules/simple-fmt/simple-fmt.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/defs/node_modules/simple-is/simple-is.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/defs/node_modules/stringmap/examples.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/defs/node_modules/stringmap/stringmap.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/defs/node_modules/stringset/examples.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/defs/node_modules/stringset/stringset.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/defs/node_modules/tryor/tryor.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/defs/options.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/defs/other/v8-bug.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/defs/other/v8-for-in-scope-2.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/defs/other/v8-for-in-scope.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/defs/run-tests.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/defs/scope.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/defs/stats.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/esprima/bin/esparse.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/esprima/bin/esvalidate.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/esprima/esprima.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/private/private.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/recast/lib/comments.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/recast/lib/lines.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/recast/lib/mapping.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/recast/lib/options.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/recast/lib/parser.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/recast/lib/patcher.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/recast/lib/printer.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/recast/lib/types.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/recast/lib/util.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/recast/lib/visitor.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/recast/main.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/recast/node_modules/ast-types/def/core.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/recast/node_modules/ast-types/def/e4x.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/recast/node_modules/ast-types/def/es6.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/recast/node_modules/ast-types/def/es7.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/recast/node_modules/ast-types/def/fb-harmony.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/recast/node_modules/ast-types/def/mozilla.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/recast/node_modules/ast-types/lib/equiv.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/recast/node_modules/ast-types/lib/node-path.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/recast/node_modules/ast-types/lib/path-visitor.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/recast/node_modules/ast-types/lib/path.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/recast/node_modules/ast-types/lib/scope.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/recast/node_modules/ast-types/lib/shared.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/recast/node_modules/ast-types/lib/traverse.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/recast/node_modules/ast-types/lib/types.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/recast/node_modules/ast-types/main.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/recast/node_modules/ast-types/node_modules/depd/index.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/recast/node_modules/ast-types/node_modules/depd/lib/compat/buffer-concat.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/recast/node_modules/ast-types/node_modules/depd/lib/compat/callsite-tostring.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/recast/node_modules/ast-types/node_modules/depd/lib/compat/index.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/recast/node_modules/cls/main.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/recast/node_modules/esprima/bin/esparse.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/recast/node_modules/esprima/bin/esvalidate.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/recast/node_modules/esprima/esprima.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/recast/node_modules/source-map/Makefile.dryice.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/recast/node_modules/source-map/build/assert-shim.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/recast/node_modules/source-map/build/mini-require.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/recast/node_modules/source-map/build/suffix-browser.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/recast/node_modules/source-map/build/test-prefix.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/recast/node_modules/source-map/build/test-suffix.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/recast/node_modules/source-map/lib/source-map/array-set.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/recast/node_modules/source-map/lib/source-map/base64-vlq.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/recast/node_modules/source-map/lib/source-map/base64.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/recast/node_modules/source-map/lib/source-map/binary-search.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/recast/node_modules/source-map/lib/source-map/source-map-consumer.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/recast/node_modules/source-map/lib/source-map/source-map-generator.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/recast/node_modules/source-map/lib/source-map/source-node.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/recast/node_modules/source-map/lib/source-map/util.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/recast/node_modules/source-map/lib/source-map.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/recast/node_modules/source-map/node_modules/amdefine/amdefine.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/recast/node_modules/source-map/node_modules/amdefine/intercept.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/runtime/dev.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/runtime/min.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/thunkify/index.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/shExpMatch.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/timeRange.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/weekdayRange.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/stream-to-array/index.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/socks-proxy-agent/node_modules/agent-base/agent.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/socks-proxy-agent/node_modules/extend/index.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/socks-proxy-agent/node_modules/rainbowsocks/index.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/socks-proxy-agent/node_modules/rainbowsocks/node_modules/debug/browser.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/socks-proxy-agent/node_modules/rainbowsocks/node_modules/debug/debug.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/socks-proxy-agent/node_modules/rainbowsocks/node_modules/debug/node.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/socks-proxy-agent/node_modules/rainbowsocks/node_modules/debug/node_modules/ms/index.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/socks-proxy-agent/node_modules/rainbowsocks/test.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/socks-proxy-agent/socks-proxy-agent.js",
+        "node_modules/analytics-node/node_modules/uid/index.js",
+        "node_modules/atom-message-panel/lib/LineMessageView.js",
+        "node_modules/atom-message-panel/lib/MessagePanelView.js",
+        "node_modules/atom-message-panel/lib/PlainMessageView.js",
+        "node_modules/atom-message-panel/lib/index.js",
+        "node_modules/atom-message-panel/lib/utils.js",
+        "node_modules/coffee-formatter/formatter.js",
+        "node_modules/coffee-formatter/node_modules/lazy/lazy.js",
+        "node_modules/coffee-formatter/node_modules/optimist/example/bool.js",
+        "node_modules/coffee-formatter/node_modules/optimist/example/boolean_double.js",
+        "node_modules/coffee-formatter/node_modules/optimist/example/boolean_single.js",
+        "node_modules/coffee-formatter/node_modules/optimist/example/default_hash.js",
+        "node_modules/coffee-formatter/node_modules/optimist/example/default_singles.js",
+        "node_modules/coffee-formatter/node_modules/optimist/example/divide.js",
+        "node_modules/coffee-formatter/node_modules/optimist/example/line_count.js",
+        "node_modules/coffee-formatter/node_modules/optimist/example/line_count_options.js",
+        "node_modules/coffee-formatter/node_modules/optimist/example/line_count_wrap.js",
+        "node_modules/coffee-formatter/node_modules/optimist/example/nonopt.js",
+        "node_modules/coffee-formatter/node_modules/optimist/example/reflect.js",
+        "node_modules/coffee-formatter/node_modules/optimist/example/short.js",
+        "node_modules/coffee-formatter/node_modules/optimist/example/string.js",
+        "node_modules/coffee-formatter/node_modules/optimist/example/usage-options.js",
+        "node_modules/coffee-formatter/node_modules/optimist/example/xup.js",
+        "node_modules/coffee-formatter/node_modules/optimist/index.js",
+        "node_modules/coffee-formatter/node_modules/optimist/node_modules/wordwrap/example/center.js",
+        "node_modules/coffee-formatter/node_modules/optimist/node_modules/wordwrap/example/meat.js",
+        "node_modules/coffee-formatter/node_modules/optimist/node_modules/wordwrap/index.js",
+        "node_modules/editorconfig/editorconfig.js",
+        "node_modules/editorconfig/lib/fnmatch.js",
+        "node_modules/editorconfig/lib/ini.js",
+        "node_modules/editorconfig/lib/version.js",
+        "node_modules/editorconfig/node_modules/commander/index.js",
+        "node_modules/editorconfig/node_modules/commander/node_modules/keypress/index.js",
+        "node_modules/editorconfig/node_modules/commander/node_modules/keypress/test.js",
+        "node_modules/editorconfig/node_modules/lru-cache/lib/lru-cache.js",
+        "node_modules/editorconfig/node_modules/sigmund/bench.js",
+        "node_modules/editorconfig/node_modules/sigmund/sigmund.js",
+        "node_modules/emissary/lib/behavior.js",
+        "node_modules/emissary/lib/emissary.js",
+        "node_modules/emissary/lib/emitter.js",
+        "node_modules/emissary/lib/helpers.js",
+        "node_modules/emissary/lib/signal.js",
+        "node_modules/emissary/lib/subscriber.js",
+        "node_modules/emissary/lib/subscription.js",
+        "node_modules/emissary/node_modules/harmony-collections/harmony-collections.js",
+        "node_modules/emissary/node_modules/harmony-collections/harmony-collections.min.js",
+        "node_modules/emissary/node_modules/mixto/lib/mixin.js",
+        "node_modules/emissary/node_modules/property-accessors/lib/property-accessors.js",
+        "node_modules/emissary/node_modules/property-accessors/node_modules/harmony-collections/harmony-collections.js",
+        "node_modules/emissary/node_modules/property-accessors/node_modules/harmony-collections/harmony-collections.min.js",
+        "node_modules/emissary/node_modules/underscore-plus/lib/underscore-plus.js",
+        "node_modules/emissary/node_modules/underscore-plus/node_modules/underscore/underscore-min.js",
+        "node_modules/emissary/node_modules/underscore-plus/node_modules/underscore/underscore.js",
+        "node_modules/extend/index.js",
+        "node_modules/js-beautify/js/bin/css-beautify.js",
+        "node_modules/js-beautify/js/bin/html-beautify.js",
+        "node_modules/js-beautify/js/bin/js-beautify.js",
+        "node_modules/js-beautify/js/index.js",
+        "node_modules/js-beautify/js/lib/beautify-css.js",
+        "node_modules/js-beautify/js/lib/beautify-html.js",
+        "node_modules/js-beautify/js/lib/beautify.js",
+        "node_modules/js-beautify/js/lib/cli.js",
+        "node_modules/js-beautify/js/lib/unpackers/javascriptobfuscator_unpacker.js",
+        "node_modules/js-beautify/js/lib/unpackers/myobfuscate_unpacker.js",
+        "node_modules/js-beautify/js/lib/unpackers/p_a_c_k_e_r_unpacker.js",
+        "node_modules/js-beautify/js/lib/unpackers/urlencode_unpacker.js",
+        "node_modules/js-beautify/node_modules/config-chain/index.js",
+        "node_modules/js-beautify/node_modules/config-chain/node_modules/ini/ini.js",
+        "node_modules/js-beautify/node_modules/config-chain/node_modules/proto-list/proto-list.js",
+        "node_modules/js-beautify/node_modules/mkdirp/bin/cmd.js",
+        "node_modules/js-beautify/node_modules/mkdirp/examples/pow.js",
+        "node_modules/js-beautify/node_modules/mkdirp/index.js",
+        "node_modules/js-beautify/node_modules/mkdirp/node_modules/minimist/example/parse.js",
+        "node_modules/js-beautify/node_modules/mkdirp/node_modules/minimist/index.js",
+        "node_modules/js-beautify/node_modules/nopt/bin/nopt.js",
+        "node_modules/js-beautify/node_modules/nopt/examples/my-program.js",
+        "node_modules/js-beautify/node_modules/nopt/lib/nopt.js",
+        "node_modules/js-beautify/node_modules/nopt/node_modules/abbrev/abbrev.js",
+        "node_modules/js-beautify/node_modules/nopt/node_modules/abbrev/test.js",
+        "node_modules/js-yaml/bin/js-yaml.js",
+        "node_modules/js-yaml/dist/js-yaml.js",
+        "node_modules/js-yaml/dist/js-yaml.min.js",
+        "node_modules/js-yaml/examples/custom_types.js",
+        "node_modules/js-yaml/examples/dumper.js",
+        "node_modules/js-yaml/examples/sample_document.js",
+        "node_modules/js-yaml/index.js",
+        "node_modules/js-yaml/lib/js-yaml/common.js",
+        "node_modules/js-yaml/lib/js-yaml/dumper.js",
+        "node_modules/js-yaml/lib/js-yaml/exception.js",
+        "node_modules/js-yaml/lib/js-yaml/loader.js",
+        "node_modules/js-yaml/lib/js-yaml/mark.js",
+        "node_modules/js-yaml/lib/js-yaml/schema/core.js",
+        "node_modules/js-yaml/lib/js-yaml/schema/default_full.js",
+        "node_modules/js-yaml/lib/js-yaml/schema/default_safe.js",
+        "node_modules/js-yaml/lib/js-yaml/schema/failsafe.js",
+        "node_modules/js-yaml/lib/js-yaml/schema/json.js",
+        "node_modules/js-yaml/lib/js-yaml/schema.js",
+        "node_modules/js-yaml/lib/js-yaml/type/binary.js",
+        "node_modules/js-yaml/lib/js-yaml/type/bool.js",
+        "node_modules/js-yaml/lib/js-yaml/type/float.js",
+        "node_modules/js-yaml/lib/js-yaml/type/int.js",
+        "node_modules/js-yaml/lib/js-yaml/type/js/function.js",
+        "node_modules/js-yaml/lib/js-yaml/type/js/regexp.js",
+        "node_modules/js-yaml/lib/js-yaml/type/js/undefined.js",
+        "node_modules/js-yaml/lib/js-yaml/type/map.js",
+        "node_modules/js-yaml/lib/js-yaml/type/merge.js",
+        "node_modules/js-yaml/lib/js-yaml/type/null.js",
+        "node_modules/js-yaml/lib/js-yaml/type/omap.js",
+        "node_modules/js-yaml/lib/js-yaml/type/pairs.js",
+        "node_modules/js-yaml/lib/js-yaml/type/seq.js",
+        "node_modules/js-yaml/lib/js-yaml/type/set.js",
+        "node_modules/js-yaml/lib/js-yaml/type/str.js",
+        "node_modules/js-yaml/lib/js-yaml/type/timestamp.js",
+        "node_modules/js-yaml/lib/js-yaml/type.js",
+        "node_modules/js-yaml/lib/js-yaml.js",
+        "node_modules/js-yaml/node_modules/argparse/examples/arguments.js",
+        "node_modules/js-yaml/node_modules/argparse/examples/choice.js",
+        "node_modules/js-yaml/node_modules/argparse/examples/constants.js",
+        "node_modules/js-yaml/node_modules/argparse/examples/help.js",
+        "node_modules/js-yaml/node_modules/argparse/examples/nargs.js",
+        "node_modules/js-yaml/node_modules/argparse/examples/parents.js",
+        "node_modules/js-yaml/node_modules/argparse/examples/prefix_chars.js",
+        "node_modules/js-yaml/node_modules/argparse/examples/sub_commands.js",
+        "node_modules/js-yaml/node_modules/argparse/examples/sum.js",
+        "node_modules/js-yaml/node_modules/argparse/examples/testformatters.js",
+        "node_modules/js-yaml/node_modules/argparse/index.js",
+        "node_modules/js-yaml/node_modules/argparse/lib/action/append/constant.js",
+        "node_modules/js-yaml/node_modules/argparse/lib/action/append.js",
+        "node_modules/js-yaml/node_modules/argparse/lib/action/count.js",
+        "node_modules/js-yaml/node_modules/argparse/lib/action/help.js",
+        "node_modules/js-yaml/node_modules/argparse/lib/action/store/constant.js",
+        "node_modules/js-yaml/node_modules/argparse/lib/action/store/false.js",
+        "node_modules/js-yaml/node_modules/argparse/lib/action/store/true.js",
+        "node_modules/js-yaml/node_modules/argparse/lib/action/store.js",
+        "node_modules/js-yaml/node_modules/argparse/lib/action/subparsers.js",
+        "node_modules/js-yaml/node_modules/argparse/lib/action/version.js",
+        "node_modules/js-yaml/node_modules/argparse/lib/action.js",
+        "node_modules/js-yaml/node_modules/argparse/lib/action_container.js",
+        "node_modules/js-yaml/node_modules/argparse/lib/argparse.js",
+        "node_modules/js-yaml/node_modules/argparse/lib/argument/error.js",
+        "node_modules/js-yaml/node_modules/argparse/lib/argument/exclusive.js",
+        "node_modules/js-yaml/node_modules/argparse/lib/argument/group.js",
+        "node_modules/js-yaml/node_modules/argparse/lib/argument_parser.js",
+        "node_modules/js-yaml/node_modules/argparse/lib/const.js",
+        "node_modules/js-yaml/node_modules/argparse/lib/help/added_formatters.js",
+        "node_modules/js-yaml/node_modules/argparse/lib/help/formatter.js",
+        "node_modules/js-yaml/node_modules/argparse/lib/namespace.js",
+        "node_modules/js-yaml/node_modules/argparse/node_modules/underscore/index.js",
+        "node_modules/js-yaml/node_modules/argparse/node_modules/underscore/underscore-min.js",
+        "node_modules/js-yaml/node_modules/argparse/node_modules/underscore/underscore.js",
+        "node_modules/js-yaml/node_modules/argparse/node_modules/underscore.string/dist/underscore.string.min.js",
+        "node_modules/js-yaml/node_modules/argparse/node_modules/underscore.string/lib/underscore.string.js",
+        "node_modules/js-yaml/node_modules/esprima/bin/esparse.js",
+        "node_modules/js-yaml/node_modules/esprima/bin/esvalidate.js",
+        "node_modules/js-yaml/node_modules/esprima/esprima.js",
+        "node_modules/lodash/dist/lodash.compat.js",
+        "node_modules/lodash/dist/lodash.compat.min.js",
+        "node_modules/lodash/dist/lodash.js",
+        "node_modules/lodash/dist/lodash.min.js",
+        "node_modules/lodash/dist/lodash.underscore.js",
+        "node_modules/lodash/dist/lodash.underscore.min.js",
+        "node_modules/lodash/lodash.js",
+        "node_modules/loophole/lib/loophole.js",
+        "node_modules/node-uuid/benchmark/benchmark.js",
+        "node_modules/node-uuid/uuid.js",
+        "node_modules/prettydiff/api/dom.js",
+        "node_modules/prettydiff/api/node-local.js",
+        "node_modules/prettydiff/cm/codemirror.js",
+        "node_modules/prettydiff/lib/charDecoder.js",
+        "node_modules/prettydiff/lib/csspretty.js",
+        "node_modules/prettydiff/lib/csvbeauty.js",
+        "node_modules/prettydiff/lib/csvmin.js",
+        "node_modules/prettydiff/lib/diffview.js",
+        "node_modules/prettydiff/lib/jspretty.js",
+        "node_modules/prettydiff/lib/markup_beauty.js",
+        "node_modules/prettydiff/lib/markupmin.js",
+        "node_modules/prettydiff/prettydiff.js",
+        "node_modules/strip-json-comments/cli.js",
+        "node_modules/strip-json-comments/strip-json-comments.js",
+        "node_modules/temp/examples/grepcount.js",
+        "node_modules/temp/examples/pdfcreator.js",
+        "node_modules/temp/lib/temp.js",
+        "node_modules/temp/no_cleanup.js",
+        "node_modules/temp/no_cleanup_on_exit.js",
+        "node_modules/temp/no_cleanup_on_exit.spec.js",
+        "node_modules/temp/node_modules/rimraf/bin.js",
+        "node_modules/temp/node_modules/rimraf/rimraf.js",
+        "node_modules/typescript-formatter/Gruntfile.js",
+        "node_modules/typescript-formatter/example/index.js",
+        "node_modules/typescript-formatter/index.js",
+        "node_modules/typescript-formatter/lib/cli.js",
+        "node_modules/typescript-formatter/lib/lib.js",
+        "node_modules/typescript-formatter/lib/provider/base.js",
+        "node_modules/typescript-formatter/lib/provider/editorconfig.js",
+        "node_modules/typescript-formatter/lib/provider/tslintjson.js",
+        "node_modules/typescript-formatter/node_modules/commander/index.js",
+        "node_modules/typescript-formatter/testEspowered/mainTest.js",
+        "node_modules/typescript-formatter/typescript-toolbox/Gruntfile.js",
+        "node_modules/typescript-formatter/typescript-toolbox/lib/formatter.js",
+        "node_modules/typescript-formatter/typescript-toolbox/lib/languageServiceHost.js",
+        "node_modules/typescript-formatter/typescript-toolbox/typescript/0.9.5/typescriptServices.js",
+        "node_modules/typescript-formatter/typescript-toolbox/typescript/0.9.7/typescriptServices.js",
+        "node_modules/typescript-formatter/typescript-toolbox/typescript/1.0.0/typescriptServices.js",
+        "node_modules/typescript-formatter/typescript-toolbox/typescript/1.0.1/typescriptServices.js",
+        "node_modules/typescript-formatter/typescript-toolbox/typescript/tss.js"
+      ]
+    },
+    "folders": [
+      {
+        "paths": [
+          "examples/nested-jsbeautifyrc",
+          "examples/simple-jsbeautifyrc",
+          "lib",
+          "lib/langs",
+          "lib/langs/uncrustify",
+          "",
+          "spec"
+        ],
+        "dependencies": {
+          "emissary": "^1.0.0",
+          "extend": "^1.2.1",
+          "js-beautify": "^1.5.1",
+          "lodash": "2.4.1",
+          "strip-json-comments": "^0.1.3",
+          "js-yaml": "^3.0.2",
+          "temp": "^0.8.0",
+          "prettydiff": "^1.2.4",
+          "node-uuid": "^1.4.1",
+          "analytics-node": "^1.0.2",
+          "atom-message-panel": "^1.1.1",
+          "editorconfig": "^0.11.4",
+          "loophole": "^1.0.0",
+          "typescript-formatter": "~0.1.4"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/analytics-node/lib",
+          "node_modules/analytics-node",
+          "node_modules/analytics-node/test"
+        ],
+        "dependencies": {
+          "clone": "~0.1.17",
+          "component-type": "~1.0.0",
+          "join-component": "~1.0.0",
+          "lodash": "~2.4.1",
+          "superagent": "~0.16.0",
+          "superagent-proxy": "~0.3.1",
+          "debug": "~1.0.4",
+          "uid": "0.0.2"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/analytics-node/node_modules/debug"
+        ],
+        "dependencies": {
+          "ms": "0.6.2"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/analytics-node/node_modules/superagent",
+          "node_modules/analytics-node/node_modules/superagent/components/RedVentures-reduce",
+          "node_modules/analytics-node/node_modules/superagent/components/component-emitter",
+          "node_modules/analytics-node/node_modules/superagent/lib",
+          "node_modules/analytics-node/node_modules/superagent/lib/node",
+          "node_modules/analytics-node/node_modules/superagent/lib/node/parsers"
+        ],
+        "dependencies": {
+          "qs": "0.6.5",
+          "formidable": "1.0.14",
+          "mime": "1.2.5",
+          "emitter-component": "1.0.0",
+          "methods": "0.0.1",
+          "cookiejar": "1.3.0",
+          "debug": "~0.7.2",
+          "reduce-component": "1.0.1"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/analytics-node/node_modules/superagent-proxy",
+          "node_modules/analytics-node/node_modules/superagent-proxy/test"
+        ],
+        "dependencies": {
+          "proxy-agent": "1",
+          "debug": "~0.7.4"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent",
+          "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/test"
+        ],
+        "dependencies": {
+          "http-proxy-agent": "0",
+          "https-proxy-agent": "0",
+          "pac-proxy-agent": "0",
+          "socks-proxy-agent": "0",
+          "lru-cache": "~2.5.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/http-proxy-agent",
+          "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/http-proxy-agent/test"
+        ],
+        "dependencies": {
+          "agent-base": "~1.0.1",
+          "extend": "~1.2.1",
+          "debug": "~1.0.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/http-proxy-agent/node_modules/debug"
+        ],
+        "dependencies": {
+          "ms": "0.6.2"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/https-proxy-agent",
+          "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/https-proxy-agent/test"
+        ],
+        "dependencies": {
+          "agent-base": "~1.0.1",
+          "debug": "~1.0.0",
+          "extend": "~1.2.1"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/https-proxy-agent/node_modules/debug"
+        ],
+        "dependencies": {
+          "ms": "0.6.2"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent",
+          "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/test"
+        ],
+        "dependencies": {
+          "agent-base": "~1.0.1",
+          "extend": "~1.2.1",
+          "pac-resolver": "~1.2.1",
+          "proxy-agent": "1",
+          "get-uri": "~0.1.0",
+          "stream-to-array": "~1.0.0",
+          "debug": "~0.8.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri",
+          "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/test"
+        ],
+        "dependencies": {
+          "data-uri-to-buffer": "0",
+          "ftp": "~0.3.5",
+          "debug": "0",
+          "extend": "~1.2.1",
+          "file-uri-to-path": "0",
+          "readable-stream": "~1.0.26-4"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/ftp/lib",
+          "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/ftp",
+          "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/ftp/test"
+        ],
+        "dependencies": {
+          "xregexp": "2.0.0",
+          "readable-stream": "1.1.x"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/ftp/node_modules/readable-stream",
+          "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/ftp/node_modules/readable-stream/lib"
+        ],
+        "dependencies": {
+          "core-util-is": "~1.0.0",
+          "isarray": "0.0.1",
+          "string_decoder": "~0.10.x",
+          "inherits": "~2.0.1"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/readable-stream",
+          "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/readable-stream/lib"
+        ],
+        "dependencies": {
+          "core-util-is": "~1.0.0",
+          "isarray": "0.0.1",
+          "string_decoder": "~0.10.x",
+          "inherits": "~2.0.1"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver",
+          "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/test"
+        ],
+        "dependencies": {
+          "co": "~3.0.6",
+          "netmask": "~1.0.4",
+          "degenerator": "~0.0.3",
+          "regenerator": "~0.4.7",
+          "thunkify": "~2.1.1"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/degenerator",
+          "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/degenerator/test"
+        ],
+        "dependencies": {
+          "escodegen": "~1.3.1",
+          "ast-types": "~0.3.22"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/degenerator/node_modules/ast-types/def",
+          "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/degenerator/node_modules/ast-types/lib",
+          "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/degenerator/node_modules/ast-types",
+          "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/degenerator/node_modules/ast-types/test/data",
+          "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/degenerator/node_modules/ast-types/test"
+        ],
+        "dependencies": {
+          "private": "~0.1.2"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/degenerator/node_modules/escodegen/bin",
+          "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/degenerator/node_modules/escodegen"
+        ],
+        "dependencies": {
+          "esutils": "~1.0.0",
+          "estraverse": "~1.5.0",
+          "esprima": "~1.1.1",
+          "source-map": "~0.1.33"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/degenerator/node_modules/escodegen/node_modules/source-map",
+          "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/degenerator/node_modules/escodegen/node_modules/source-map/build",
+          "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/degenerator/node_modules/escodegen/node_modules/source-map/lib/source-map",
+          "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/degenerator/node_modules/escodegen/node_modules/source-map/lib",
+          "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/degenerator/node_modules/escodegen/node_modules/source-map/test",
+          "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/degenerator/node_modules/escodegen/node_modules/source-map/test/source-map"
+        ],
+        "dependencies": {
+          "amdefine": ">=0.0.4"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/lib",
+          "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator",
+          "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/runtime"
+        ],
+        "dependencies": {
+          "commander": "~2.1.0",
+          "recast": "~0.6.5",
+          "private": "~0.1.5",
+          "defs": "~0.6.2"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/defs/build/es5",
+          "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/defs/build/es5/jshint_globals",
+          "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/defs",
+          "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/defs/jshint_globals",
+          "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/defs/other",
+          "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/defs/tests"
+        ],
+        "dependencies": {
+          "alter": "~0.2.0",
+          "breakable": "~0.1.0",
+          "ast-traverse": "~0.1.1",
+          "simple-fmt": "~0.1.0",
+          "simple-is": "~0.2.0",
+          "stringmap": "~0.2.2",
+          "stringset": "~0.2.1",
+          "tryor": "~0.1.2",
+          "esprima": "~1.0.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/defs/node_modules/alter",
+          "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/defs/node_modules/alter/test"
+        ],
+        "dependencies": {
+          "stable": "~0.1.3"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/recast/lib",
+          "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/recast"
+        ],
+        "dependencies": {
+          "source-map": "0.1.32",
+          "private": "~0.1.5",
+          "cls": "~0.1.3",
+          "ast-types": "~0.4.7"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/recast/node_modules/ast-types/def",
+          "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/recast/node_modules/ast-types/lib",
+          "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/recast/node_modules/ast-types"
+        ],
+        "dependencies": {
+          "depd": "~1.0.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/recast/node_modules/source-map",
+          "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/recast/node_modules/source-map/build",
+          "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/recast/node_modules/source-map/lib/source-map",
+          "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/recast/node_modules/source-map/lib",
+          "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/recast/node_modules/source-map/test",
+          "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/pac-resolver/node_modules/regenerator/node_modules/recast/node_modules/source-map/test/source-map"
+        ],
+        "dependencies": {
+          "amdefine": ">=0.0.4"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/socks-proxy-agent",
+          "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/socks-proxy-agent/test"
+        ],
+        "dependencies": {
+          "agent-base": "~1.0.1",
+          "rainbowsocks": "~0.1.2",
+          "extend": "~1.2.1"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/socks-proxy-agent/node_modules/rainbowsocks"
+        ],
+        "dependencies": {
+          "debug": "~1.0.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/socks-proxy-agent/node_modules/rainbowsocks/node_modules/debug"
+        ],
+        "dependencies": {
+          "ms": "0.6.2"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/coffee-formatter",
+          "node_modules/coffee-formatter/sample",
+          "node_modules/coffee-formatter/test"
+        ],
+        "dependencies": {
+          "lazy": "~1.0.11",
+          "optimist": "~0.5.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/coffee-formatter/node_modules/optimist/example",
+          "node_modules/coffee-formatter/node_modules/optimist",
+          "node_modules/coffee-formatter/node_modules/optimist/test/_",
+          "node_modules/coffee-formatter/node_modules/optimist/test"
+        ],
+        "dependencies": {
+          "wordwrap": "~0.0.2"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/editorconfig",
+          "node_modules/editorconfig/lib"
+        ],
+        "dependencies": {
+          "commander": "~1.1.1",
+          "lru-cache": "~2.0.0",
+          "sigmund": "~1.0.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/editorconfig/node_modules/commander"
+        ],
+        "dependencies": {
+          "keypress": "0.1.x"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/emissary/lib",
+          "node_modules/emissary"
+        ],
+        "dependencies": {
+          "underscore-plus": "1.x",
+          "mixto": "1.x",
+          "property-accessors": "^1.1"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/emissary/node_modules/property-accessors/lib",
+          "node_modules/emissary/node_modules/property-accessors"
+        ],
+        "dependencies": {
+          "mixto": "1.x"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/emissary/node_modules/underscore-plus/lib",
+          "node_modules/emissary/node_modules/underscore-plus"
+        ],
+        "dependencies": {
+          "underscore": "~1.6.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/js-beautify",
+          "node_modules/js-beautify/js/bin",
+          "node_modules/js-beautify/js/config",
+          "node_modules/js-beautify/js",
+          "node_modules/js-beautify/js/lib",
+          "node_modules/js-beautify/js/lib/unpackers",
+          "node_modules/js-beautify/js/test",
+          "node_modules/js-beautify/js/test/resources",
+          "node_modules/js-beautify/test"
+        ],
+        "dependencies": {
+          "config-chain": "~1.1.5",
+          "mkdirp": "~0.5.0",
+          "nopt": "~3.0.1"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/js-beautify/node_modules/config-chain",
+          "node_modules/js-beautify/node_modules/config-chain/test"
+        ],
+        "dependencies": {
+          "proto-list": "~1.2.1",
+          "ini": "1"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/js-beautify/node_modules/mkdirp/bin",
+          "node_modules/js-beautify/node_modules/mkdirp/examples",
+          "node_modules/js-beautify/node_modules/mkdirp",
+          "node_modules/js-beautify/node_modules/mkdirp/test"
+        ],
+        "dependencies": {
+          "minimist": "0.0.8"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/js-beautify/node_modules/nopt/bin",
+          "node_modules/js-beautify/node_modules/nopt/examples",
+          "node_modules/js-beautify/node_modules/nopt/lib",
+          "node_modules/js-beautify/node_modules/nopt",
+          "node_modules/js-beautify/node_modules/nopt/test"
+        ],
+        "dependencies": {
+          "abbrev": "1"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/js-yaml/bin",
+          "node_modules/js-yaml",
+          "node_modules/js-yaml/dist",
+          "node_modules/js-yaml/examples",
+          "node_modules/js-yaml/lib/js-yaml",
+          "node_modules/js-yaml/lib/js-yaml/schema",
+          "node_modules/js-yaml/lib/js-yaml/type",
+          "node_modules/js-yaml/lib/js-yaml/type/js",
+          "node_modules/js-yaml/lib"
+        ],
+        "dependencies": {
+          "argparse": "~ 0.1.11",
+          "esprima": "~ 1.0.2"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/js-yaml/node_modules/argparse/examples",
+          "node_modules/js-yaml/node_modules/argparse",
+          "node_modules/js-yaml/node_modules/argparse/lib/action/append",
+          "node_modules/js-yaml/node_modules/argparse/lib/action",
+          "node_modules/js-yaml/node_modules/argparse/lib/action/store",
+          "node_modules/js-yaml/node_modules/argparse/lib",
+          "node_modules/js-yaml/node_modules/argparse/lib/argument",
+          "node_modules/js-yaml/node_modules/argparse/lib/help"
+        ],
+        "dependencies": {
+          "underscore": "~1.4.3",
+          "underscore.string": "~2.3.1"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/temp/examples",
+          "node_modules/temp/lib",
+          "node_modules/temp",
+          "node_modules/temp/test"
+        ],
+        "dependencies": {
+          "rimraf": "~2.2.6"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/typescript-formatter",
+          "node_modules/typescript-formatter/example",
+          "node_modules/typescript-formatter/lib",
+          "node_modules/typescript-formatter/lib/provider",
+          "node_modules/typescript-formatter/testEspowered",
+          "node_modules/typescript-formatter/tests/expected/default",
+          "node_modules/typescript-formatter/tests/expected/editorconfig/a",
+          "node_modules/typescript-formatter/tests/expected/editorconfig/newline-cr",
+          "node_modules/typescript-formatter/tests/expected/editorconfig/newline-crlf",
+          "node_modules/typescript-formatter/tests/expected/editorconfig/newline-lf",
+          "node_modules/typescript-formatter/tests/expected/editorconfig/space",
+          "node_modules/typescript-formatter/tests/expected/editorconfig/tab",
+          "node_modules/typescript-formatter/tests/expected/tsfmt/a",
+          "node_modules/typescript-formatter/tests/expected/tsfmt/b",
+          "node_modules/typescript-formatter/tests/expected/tslint/a",
+          "node_modules/typescript-formatter/tests/expected/tslint/indent",
+          "node_modules/typescript-formatter/tests/expected/tslint/whitespace-check-branch",
+          "node_modules/typescript-formatter/tests/expected/tslint/whitespace-check-operator",
+          "node_modules/typescript-formatter/tests/expected/tslint/whitespace-check-separator",
+          "node_modules/typescript-formatter/tests/fixture/tsfmt/a",
+          "node_modules/typescript-formatter/tests/fixture/tsfmt/b",
+          "node_modules/typescript-formatter/tests/fixture/tslint/a",
+          "node_modules/typescript-formatter/tests/fixture/tslint/indent",
+          "node_modules/typescript-formatter/tests/fixture/tslint/whitespace-check-branch",
+          "node_modules/typescript-formatter/tests/fixture/tslint/whitespace-check-operator",
+          "node_modules/typescript-formatter/tests/fixture/tslint/whitespace-check-separator",
+          "node_modules/typescript-formatter/typescript-toolbox",
+          "node_modules/typescript-formatter/typescript-toolbox/lib",
+          "node_modules/typescript-formatter/typescript-toolbox/typescript/0.9.5",
+          "node_modules/typescript-formatter/typescript-toolbox/typescript/0.9.7",
+          "node_modules/typescript-formatter/typescript-toolbox/typescript/1.0.0",
+          "node_modules/typescript-formatter/typescript-toolbox/typescript/1.0.1",
+          "node_modules/typescript-formatter/typescript-toolbox/typescript"
+        ],
+        "dependencies": {
+          "commander": "2.2.0",
+          "editorconfig": "0.11.4"
+        }
+      }
+    ]
+  }
 }

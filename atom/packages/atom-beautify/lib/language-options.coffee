@@ -18,6 +18,7 @@ beautifyCoffeeScript = null
 uncrustifyBeautifier = null
 beautifyHTMLERB = null
 beautifyMarkdown = null
+beautifyTypeScript = null
 Analytics = null
 
 # Misc
@@ -50,6 +51,7 @@ module.exports =
     "d"
     "pawn"
     "vala"
+    "typescript"
   ]
 
   # Default options per language
@@ -157,7 +159,7 @@ module.exports =
       when "CoffeeScript"
         beautifyCoffeeScript ?= require("./langs/coffeescript-beautify")
         beautifyCoffeeScript text, self.getOptions("js", allOptions), beautifyCompleted
-      when "Handlebars"
+      when "Handlebars", "HTML (Mustache)"
         # jshint ignore: start
         allOptions.push indent_handlebars: true # Force jsbeautify to indent_handlebars
         # jshint ignore: end
@@ -233,6 +235,9 @@ module.exports =
         options.languageOverride = "JAVA"
         uncrustifyBeautifier ?= require("./langs/uncrustify/")
         uncrustifyBeautifier text, options, beautifyCompleted
+      when "TypeScript"
+        beautifyTypeScript ?= require("./langs/typescript-beautify")
+        beautifyTypeScript text, self.getOptions("js", allOptions), beautifyCompleted
       else
         unsupportedGrammar = true
 

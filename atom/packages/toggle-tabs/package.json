@@ -23,5 +23,10 @@
     "shasum": "d4afe30b620500e30aa16645677372bd3494d4eb"
   },
   "_resolved": "/tmp/d-11492-40482-fg643u/package.tgz",
-  "_from": "/tmp/d-11492-40482-fg643u/package.tgz"
+  "_from": "/tmp/d-11492-40482-fg643u/package.tgz",
+  "_atomModuleCache": {
+    "version": 1,
+    "dependencies": [],
+    "folders": []
+  }
 }

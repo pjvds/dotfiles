@@ -167,4 +167,14 @@ if [ ! -d "$HOME/.oh-my-zsh" ] ; then
     wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
 fi
 
+##
+#  Mosh
+##
+if hasg mosh 2>/dev/null ; then
+    echo "Installing mosh"
+    sudo add-apt-repository ppa:keithw/mosh
+    sudo apt-get update
+    sudo apt-get install mosh
+fi
+
 sudo apt-get autoremove -y -qq

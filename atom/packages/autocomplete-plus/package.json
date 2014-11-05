@@ -37,5 +37,99 @@
     "shasum": "486f622ec78b8497bf91251b59373837d0bcf4e0"
   },
   "_resolved": "/tmp/d-11492-33293-19uppmb/package.tgz",
-  "_from": "/tmp/d-11492-33293-19uppmb/package.tgz"
+  "_from": "/tmp/d-11492-33293-19uppmb/package.tgz",
+  "_atomModuleCache": {
+    "version": 1,
+    "dependencies": [
+      {
+        "name": "fuzzaldrin",
+        "version": "1.0.0",
+        "path": "node_modules/fuzzaldrin/lib/fuzzaldrin.js"
+      },
+      {
+        "name": "minimatch",
+        "version": "0.2.14",
+        "path": "node_modules/minimatch/minimatch.js"
+      },
+      {
+        "name": "lru-cache",
+        "version": "2.5.0",
+        "path": "node_modules/minimatch/node_modules/lru-cache/lib/lru-cache.js"
+      },
+      {
+        "name": "sigmund",
+        "version": "1.0.0",
+        "path": "node_modules/minimatch/node_modules/sigmund/sigmund.js"
+      },
+      {
+        "name": "temp",
+        "version": "0.8.1",
+        "path": "node_modules/temp/lib/temp.js"
+      },
+      {
+        "name": "rimraf",
+        "version": "2.2.8",
+        "path": "node_modules/temp/node_modules/rimraf/rimraf.js"
+      },
+      {
+        "name": "underscore-plus",
+        "version": "1.5.1",
+        "path": "node_modules/underscore-plus/lib/underscore-plus.js"
+      },
+      {
+        "name": "underscore",
+        "version": "1.6.0",
+        "path": "node_modules/underscore-plus/node_modules/underscore/underscore.js"
+      }
+    ],
+    "folders": [
+      {
+        "paths": [
+          "lib",
+          "",
+          "spec",
+          "spec/fixtures/issues",
+          "spec/fixtures",
+          "spec/issues",
+          "spec/lib"
+        ],
+        "dependencies": {
+          "fuzzaldrin": "~1.0.0",
+          "minimatch": "~0.2.14",
+          "temp": ">=0.7.0",
+          "underscore-plus": "1.x"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/minimatch",
+          "node_modules/minimatch/test"
+        ],
+        "dependencies": {
+          "lru-cache": "2",
+          "sigmund": "~1.0.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/temp/examples",
+          "node_modules/temp/lib",
+          "node_modules/temp",
+          "node_modules/temp/test"
+        ],
+        "dependencies": {
+          "rimraf": "~2.2.6"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/underscore-plus/lib",
+          "node_modules/underscore-plus"
+        ],
+        "dependencies": {
+          "underscore": "~1.6.0"
+        }
+      }
+    ]
+  }
 }

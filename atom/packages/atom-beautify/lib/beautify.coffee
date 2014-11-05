@@ -9,7 +9,7 @@ languages = beautifier.languages
 defaultLanguageOptions = beautifier.defaultLanguageOptions
 # Lazy loaded dependencies
 fs = null
-path = null
+path = require("path")
 strip = null
 yaml = null
 LoadingView = null
@@ -125,7 +125,7 @@ getConfigOptionsFromSettings = (langs) ->
   # console.log(options);
   options
 
-beautify = ->
+beautify = ({onSave})->
   path ?= require("path")
   MessagePanelView ?= require('atom-message-panel').MessagePanelView
   PlainMessageView ?= require('atom-message-panel').PlainMessageView
@@ -133,7 +133,7 @@ beautify = ->
   @messagePanel ?= new MessagePanelView title: 'Atom Beautify Error Messages'
   @loadingView ?= new LoadingView()
   @loadingView.show()
-  forceEntireFile = atom.config.get("atom-beautify.beautifyEntireFileOnSave")
+  forceEntireFile = onSave && atom.config.get("atom-beautify.beautifyEntireFileOnSave")
   # Show error
   showError = (e) =>
       @loadingView.hide()
@@ -306,11 +306,11 @@ handleSaveEvent = =>
     plugin.unsubscribe buffer
     if atom.config.get("atom-beautify.beautifyOnSave")
       events = "will-be-saved"
-      plugin.subscribe buffer, events, beautify.bind(@)
+      plugin.subscribe buffer, events, beautify.bind(@, {onSave:true})
     return
   return
 
-Subscriber = require("emissary").Subscriber
+{Subscriber} = require path.join(atom.packages.resourcePath, 'node_modules', 'emissary')
 Subscriber.extend plugin
 plugin.configDefaults = _.merge(
   analytics: true

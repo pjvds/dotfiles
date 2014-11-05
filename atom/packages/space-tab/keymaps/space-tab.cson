@@ -1,0 +1,3 @@
+'.workspace':
+  'ctrl-alt-]': 'space-tab:convert-to-tabs'
+  'ctrl-alt-[': 'space-tab:convert-to-spaces'

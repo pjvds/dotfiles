@@ -27,5 +27,10 @@
     "shasum": "3132a8f8042ef5f7750dd23d2414bd22697f7ec7"
   },
   "_resolved": "/tmp/d-11492-23110-gl1c9p/package.tgz",
-  "_from": "/tmp/d-11492-23110-gl1c9p/package.tgz"
+  "_from": "/tmp/d-11492-23110-gl1c9p/package.tgz",
+  "_atomModuleCache": {
+    "version": 1,
+    "dependencies": [],
+    "folders": []
+  }
 }
