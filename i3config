@@ -151,3 +151,7 @@ bindsym $mod+r mode "resize"
 bar {
         status_command i3status
 }
+
+# Startup programs
+exec --no-startup-id unclutter
+exec --no-startup-id vmware-user
