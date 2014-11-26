@@ -152,6 +152,9 @@ bar {
         status_command i3status
 }
 
+client.focused #f5871f #4d4d4c#fffff
+client.unfocused #333333 #8e908c #ffffff
+
 # Startup programs
 exec --no-startup-id unclutter
 exec --no-startup-id vmware-user
