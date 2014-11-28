@@ -1,24 +1,27 @@
 [global_config]
   geometry_hinting = False
+  enabled_plugins = LaunchpadCodeURLHandler, APTURLHandler, LaunchpadBugURLHandler
   inactive_color_offset = 1.0
-  borderless = True
+  sticky = True
 [keybindings]
 [profiles]
   [[default]]
     use_system_font = False
     font = Bitstream Vera Sans Mono 12
-    scrollback_infinite = True
-    show_titlebar = False
     background_image = None
+    scrollback_infinite = True
   [[tomorrow]]
     palette = "#1d1f21:#282a2e:#373b41:#969896:#b4b7b4:#c5c8c6:#e0e0e0:#ffffff:#c82829:#f5871f:#eab700:#718c00:#3e999f:#4271ae:#8959a8:#a3685a"
+    visible_bell = True
     background_image = None
+    urgent_bell = True
     use_system_font = False
     cursor_color = "#373b41"
     foreground_color = "#4d4d4c"
     show_titlebar = False
     font = Menlo 10
     background_color = "#ffffff"
+    audible_bell = True
     scrollback_infinite = True
   [[tomorrow-night]]
     background_image = None
