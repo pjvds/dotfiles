@@ -39,7 +39,7 @@ export PATH=$PATH:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/s
 export PATH=$PATH:$HOME/liteide/bin
 
 # Autojump
-source /usr/share/autojump/autojump.sh
+source /etc/profile.d/autojump.zsh
 autoload -U compinit && compinit
 
 # Sublime
@@ -61,3 +61,7 @@ export NVM_DIR="/home/pjvds/.nvm"
 
 bindkey '^[OA' history-beginning-search-backward
 bindkey '^[OB' history-beginning-search-forward
+
+# java
+export JAVA_HOME=/usr/lib/jvm/java-1.7.0-openjdk-1.7.0.71-2.5.3.0.fc20.x86_64/jre/
+export PATH=$JAVA_HOME/bin:$PATH
