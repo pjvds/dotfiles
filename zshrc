@@ -63,5 +63,18 @@ bindkey '^[OA' history-beginning-search-backward
 bindkey '^[OB' history-beginning-search-forward
 
 # java
-export JAVA_HOME=/usr/lib/jvm/java-1.7.0-openjdk-1.7.0.71-2.5.3.0.fc20.x86_64/jre/
+export JAVA_HOME=/usr/lib/jvm/java-1.7.0-openjdk-1.7.0.71-2.5.3.2.fc20.x86_64/
 export PATH=$JAVA_HOME/bin:$PATH
+
+# history
+export HISTSIZE=100000
+export HISTFILE="$HOME/.history"
+export SAVEHIST=$HISTSIZE
+# Don't overwrite, append!
+setopt APPEND_HISTORY
+# Killer: share history between multiple shells
+setopt SHARE_HISTORY
+# If I type cd and then cd again, only save the last one
+#setopt HIST_IGNORE_DUPS
+# Even if there are commands inbetween commands that are the same, still only save the last one
+#setopt HIST_IGNORE_ALL_DUPS
