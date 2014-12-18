@@ -26,8 +26,12 @@ alias gd='git diff -w | view -'
 alias gu='git stash && git pull && git stash pop'
 alias fdb="fdbcli"
 alias gdoc="godoc $1 | less"
-mkcd () { mkdir "$@" && cd "${!#}"; }
 
+function mkcd
+{
+      dir="$*";
+      mkdir -p "$dir" && cd "$dir";
+}
 
 # Enable rvm
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
@@ -77,4 +81,7 @@ setopt SHARE_HISTORY
 # If I type cd and then cd again, only save the last one
 #setopt HIST_IGNORE_DUPS
 # Even if there are commands inbetween commands that are the same, still only save the last one
-#setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_IGNORE_ALL_DUPS
+
+# output exit status of last command
+#export RPROMPT='[%?]'
