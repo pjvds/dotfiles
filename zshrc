@@ -50,10 +50,10 @@ autoload -U compinit && compinit
 alias sublp="if [ -e *.sublime-project ] ; then subl --project *.sublime-project ; else echo 'No *.sublime-project file found'; fi"
 
 # Go
-export GOPATH="/home/pjvds/go"
+export GOPATH="/home/pjvds/dev/go"
 export GOROOT="/usr/local/go"
 export PATH=$PATH:$GOROOT/bin:$GOPATH:/bin
-export GOMAXPROCS=6
+export GOMAXPROCS=`cat /proc/cpuinfo | grep "^processor" | wc -l`
 alias gb="go build ./..."
 alias gr="go run *.go"
 alias gdg="go build -gcflags '-N -l' -o main && cgdb main"
