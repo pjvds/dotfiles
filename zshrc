@@ -58,6 +58,9 @@ alias gb="go build ./..."
 alias gr="go run *.go"
 alias gdg="go build -gcflags '-N -l' -o main && cgdb main"
 
+# Hint for pkgconfig path
+export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig/"
+
 # nodejs
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 export NVM_DIR="/home/pjvds/.nvm"
