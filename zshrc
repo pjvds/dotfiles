@@ -59,6 +59,7 @@ alias gr="go run *.go"
 alias gdg="go build -gcflags '-N -l' -o main && cgdb main"
 
 # Hint for pkgconfig path
+export LD_LIBRARY_PATH="/usr/local/lib"
 export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig/"
 
 # nodejs
