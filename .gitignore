@@ -4,3 +4,10 @@ log.txt
 atom/compile-cache/
 atom/storage/
 atom/.node-gyp/
+
+sublime-text-3/Backup/
+sublime-text-3/Cache/
+sublime-text-3/Index/
+sublime-text-3/Local/
+sublime-text-3/Packages/
+
