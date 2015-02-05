@@ -17,7 +17,7 @@ DISABLE_CORRECTION="true"
 # COMPLETION_WAITING_DOTS="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-plugins=(git github rvm)
+plugins=(git github rvm extract)
 
 source $ZSH/oh-my-zsh.sh
 
