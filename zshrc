@@ -22,7 +22,7 @@ plugins=(git github rvm extract)
 source $ZSH/oh-my-zsh.sh
 
 alias gs="git status"
-alias gd='git diff -w | view -'
+alias gd='vim +":set filetype=diff" +"set bt=nowrite" <(git diff)'
 alias gu='git stash && git pull && git stash pop'
 alias fdb="fdbcli"
 alias gdoc="godoc $1 | less"
