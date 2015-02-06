@@ -67,6 +67,9 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 export NVM_DIR="/home/pjvds/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
+# fdb aliases
+alias fdbclear="fdbcli --exec 'clearrange \"\" 0xff'"
+
 bindkey '^[OA' history-beginning-search-backward
 bindkey '^[OB' history-beginning-search-forward
 bindkey '^j' history-beginning-search-forward
