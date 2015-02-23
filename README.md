@@ -1,6 +1,6 @@
-# Ubuntu config
+# dotfiles
 
-This is my Ubuntu configuration. It contains all my dotfiles and other configurations, like Sublime packages and such.
+This is my dotfiles configuration. It contains all my dotfiles and configurations, like zsh, terminator, sublime text, etc.
 
 ## Screenshot
 
