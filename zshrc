@@ -17,7 +17,7 @@ DISABLE_CORRECTION="true"
 # COMPLETION_WAITING_DOTS="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-plugins=(git github rvm extract)
+plugins=(git github rvm extract autojump)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -42,10 +42,6 @@ export PATH=$PATH:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/s
 
 # Apps I like to have in my path
 export PATH=$PATH:$HOME/liteide/bin
-
-# Autojump
-source /etc/profile.d/autojump.zsh
-autoload -U compinit && compinit
 
 # Sublime
 alias sublp="if [ -e *.sublime-project ] ; then subl --project *.sublime-project ; else echo 'No *.sublime-project file found'; fi"
