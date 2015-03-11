@@ -4,5 +4,8 @@ set gui=none
 " Use the alphabets at the hint mode
 set hintchars=ifjklasdweuocvbnm
 
+" don't focus any input elements automaticly when open pages
+set focuscontent
+
 " Finish
 echo ".vimperatorrc sourced"
