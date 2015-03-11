@@ -1,4 +1,4 @@
-# Path to your oh-my-zsh configuration.
+j# Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 
 export EDITOR=vim
@@ -28,6 +28,8 @@ alias fdb="fdbcli"
 alias gdoc="godoc $1 | less"
 alias ga.="ga ."
 
+# Create directories in specified path and change working directory to it.
+# use: `mkcd ~/foo/bar`
 function mkcd
 {
       dir="$*";
