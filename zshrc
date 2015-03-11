@@ -36,6 +36,12 @@ function mkcd
       mkdir -p "$dir" && cd "$dir";
 }
 
+# Create and edit in Sublime Text
+# use: `credit README.md`
+func credit() {
+    touch $1 && subl $1;
+}
+
 # Enable rvm
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 
