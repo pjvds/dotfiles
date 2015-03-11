@@ -7,5 +7,8 @@ set hintchars=ifjklasdweuocvbnm
 " don't focus any input elements automaticly when open pages
 set focuscontent
 
+" remove keys mapping I press by accident
+noremap p <Nop>
+
 " Finish
 echo ".vimperatorrc sourced"
