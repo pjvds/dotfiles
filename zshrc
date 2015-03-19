@@ -42,6 +42,13 @@ func credit() {
     touch $1 && subl $1;
 }
 
+# Prints github streak for user
+# use: `streak pjvds`
+func streak() {
+    type pup &> /dev/null || go get github.com/EricChiang/pup
+    curl -s https://github.com/$1 | pup '#contributions-calendar > div:nth-child(5) > span.contrib-number text{}'
+}
+
 # Enable rvm
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 
