@@ -6,11 +6,12 @@
 [keybindings]
 [profiles]
   [[default]]
-    palette = "#073642:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#eee8d5:#002b36:#cb4b16:#586e75:#657b83:#839496:#6c71c4:#93a1a1:#fdf6e3"
-    font = Bitstream Vera Sans Mono 12
-    use_system_font = False
-    scrollback_infinite = True
     background_image = None
+    use_system_font = False
+    palette = "#073642:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#eee8d5:#002b36:#cb4b16:#586e75:#657b83:#839496:#6c71c4:#93a1a1:#fdf6e3"
+    scroll_on_output = False
+    font = Bitstream Vera Sans Mono 12
+    scrollback_infinite = True
   [[tomorroww]]
     palette = "#2d2d2d:#f2777a:#99cc99:#ffcc66:#6699cc:#cc99cc:#66cccc:#d3d0c8:#747369:#f2777a:#99cc99:#ffcc66:#6699cc:#cc99cc:#66cccc:#f2f0ec"
     visible_bell = True
@@ -19,6 +20,7 @@
     use_system_font = False
     cursor_color = "#d3d0c8"
     foreground_color = "#d3d0c8"
+    scroll_on_output = False
     show_titlebar = False
     font = Source Code Pro Medium 10
     background_color = "#ffffff"
@@ -32,6 +34,7 @@
     use_system_font = False
     cursor_color = "#373b41"
     foreground_color = "#4d4d4c"
+    scroll_on_output = False
     show_titlebar = False
     font = Menlo 10
     background_color = "#ffffff"
