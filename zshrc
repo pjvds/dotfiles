@@ -17,7 +17,7 @@ DISABLE_CORRECTION="true"
 # COMPLETION_WAITING_DOTS="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-plugins=(git github rvm nvm extract autojump)
+plugins=(git git-prompt github rvm nvm extract autojump)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -105,4 +105,4 @@ setopt SHARE_HISTORY
 setopt HIST_IGNORE_ALL_DUPS
 
 # output exit status of last command
-#export RPROMPT='[%?]'
+#export R='[%?]'
