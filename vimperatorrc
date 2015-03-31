@@ -10,5 +10,8 @@ set focuscontent
 " remove keys mapping I press by accident
 noremap p <Nop>
 
+" open LastPass
+noremap <Leader>l :tab extoptions LastPass<CR>"
+
 " Finish
 echo ".vimperatorrc sourced"
