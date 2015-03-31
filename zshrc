@@ -16,9 +16,9 @@ DISABLE_CORRECTION="true"
 # Uncomment following line if you want red dots to be displayed while waiting for completion
 # COMPLETION_WAITING_DOTS="true"
 
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-plugins=(git git-prompt go github rvm nvm extract autojump)
 
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+plugins=(git git-prompt go rvm nvm extract autojump)
 source $ZSH/oh-my-zsh.sh
 
 alias gs="git status"
