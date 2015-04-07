@@ -1,5 +1,5 @@
 " Set GUI options
-set gui=none
+set gui=nonavigation
 
 " Use the alphabets at the hint mode
 set hintchars=ifjklasdweuocvbnm
