@@ -1,7 +1,7 @@
 " Set GUI options
 set gui=nonavigation
 
-" Use the alphabets at the hint mode
+" Use the characters at home row for the hint mode
 set hintchars=ifjklasdweuocvbnm
 
 " don't focus any input elements automaticly when open pages
