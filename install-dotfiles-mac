@@ -13,18 +13,18 @@ dotfiles="$(pwd)"
 # $1: Name of the file to link, eq. gitconfig
 # $1: Destination path, eq. $HOME/.gitconfig
 function install() {
-    echo "Installing $1 to $2"
+	echo "Installing $1 to $2"
 
-    if [ -f "$2" ] ; then
-        echo "Destination $2 already exists and will be overwritten."
-        rm -f "$2"
-    elif [ -d "$2" ] ; then
-        echo "Destination $2 already exists and will be overwritten."
-    	rm -rf "$2"
-    fi
+	if [ -f "$2" ] ; then
+		echo "Destination $2 already exists and will be overwritten."
+		rm -f "$2"
+	elif [ -d "$2" ] ; then
+		echo "Destination $2 already exists and will be overwritten."
+		rm -rf "$2"
+	fi
 
-    # symbolic: make symbolic links instead of hard links
-    ln --symbolic "$dotfiles/$1" "$2"
+	# symbolic: make symbolic links instead of hard links
+	ln -s "$dotfiles/$1" "$2"
 }
 
 # Make sure the directories exist
