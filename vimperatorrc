@@ -7,9 +7,9 @@ set hintchars=ifjklasdweuocvbnm
 " don't focus any input elements automaticly when open pages
 set focuscontent
 
-" increase line scrolling from 1 to 3 lines
-map j 3<C-e>
-map k 3<C-y>
+" increase line scrolling from 1 to 5 lines
+map j 5<C-e>
+map k 5<C-y>
 
 " remove keys mapping I press by accident
 noremap p <Nop>
