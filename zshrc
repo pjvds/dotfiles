@@ -69,6 +69,7 @@ export GOMAXPROCS=`getconf _NPROCESSORS_ONLN`
 alias gb="go build ./..."
 alias gr="go run *.go"
 alias gdg="go build -gcflags '-N -l' -o main && cgdb main"
+alias gdoc="godoc $1 | less"
 
 # Hint for pkgconfig path
 export LD_LIBRARY_PATH="/usr/local/lib"
