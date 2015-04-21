@@ -18,7 +18,7 @@ DISABLE_CORRECTION="true"
 
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-plugins=(git git-prompt go rvm nvm extract autojump)
+plugins=(git rvm nvm extract autojump)
 source $ZSH/oh-my-zsh.sh
 
 alias gs="git status"
