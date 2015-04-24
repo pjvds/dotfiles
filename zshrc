@@ -116,3 +116,4 @@ source '/home/pjvds/bin/google-cloud-sdk/path.zsh.inc'
 source '/home/pjvds/bin/google-cloud-sdk/completion.zsh.inc'
 
 export PATH="$PATH:$HOME/bin/go_appengine_sdk_linux_amd64-1.9.19/go_appengine"
+export GOPATH="$GOPATH:$HOME/bin/go_appengine_sdk_linux_amd64-1.9.19/go_appengine/goroot/"
