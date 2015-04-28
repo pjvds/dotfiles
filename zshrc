@@ -14,7 +14,6 @@ ZSH_THEME="awesomepanda"
 # Uncomment following line if you want red dots to be displayed while waiting for completion
 # COMPLETION_WAITING_DOTS="true"
 
-
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 plugins=(git rvm nvm extract autojump)
 source $ZSH/oh-my-zsh.sh
