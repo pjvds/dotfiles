@@ -105,7 +105,6 @@ setopt HIST_IGNORE_ALL_DUPS
 # output exit status of last command
 #export R='[%?]'
 
-
 # The next line updates PATH for the Google Cloud SDK.
 source '/home/pjvds/bin/google-cloud-sdk/path.zsh.inc'
  
