@@ -53,9 +53,6 @@ func streak() {
 # Customize to your needs...
 export PATH=$PATH:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$HOME/utils:$HOME/utils/cluster
 
-# Apps I like to have in my path
-export PATH=$PATH:$HOME/liteide/bin
-
 # Sublime
 alias sublp="if [ -e *.sublime-project ] ; then subl --project *.sublime-project ; else echo 'No *.sublime-project file found'; fi"
 
