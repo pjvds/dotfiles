@@ -70,6 +70,7 @@ alias gb="go build ./... 2>&1 > /dev/null | grep --color -E '^\\#(.*)$|$' -"
 alias gr="go run *.go"
 alias gdg="go build -gcflags '-N -l' -o main && cgdb main"
 alias gdoc="godoc $1 | less"
+alias gopath="cd $GOPATH/src"
 
 # Hint for pkgconfig path
 export LD_LIBRARY_PATH="/usr/local/lib"
@@ -115,5 +116,4 @@ source '/home/pjvds/bin/google-cloud-sdk/path.zsh.inc'
 # The next line enables zsh completion for gcloud.
 source '/home/pjvds/bin/google-cloud-sdk/completion.zsh.inc'
 
-export PATH="$PATH:$HOME/bin/go_appengine_sdk_linux_amd64-1.9.19/go_appengine"
-export GOPATH="$GOPATH:$HOME/bin/go_appengine_sdk_linux_amd64-1.9.19/go_appengine/goroot/"
+export PATH="$PATH:$HOME/bin/go_appengine"
