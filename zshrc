@@ -8,8 +8,6 @@ export EDITOR=vim
 #default theme: ZSH_THEME="robbyrussell"
 ZSH_THEME="awesomepanda"
 
-
-
 # Uncomment following line if you want to disable command autocorrection
 DISABLE_CORRECTION="true"
 
