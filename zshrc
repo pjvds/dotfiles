@@ -93,9 +93,6 @@ setopt SHARE_HISTORY
 # Even if there are commands inbetween commands that are the same, still only save the last one
 setopt HIST_IGNORE_ALL_DUPS
 
-# output exit status of last command
-#export R='[%?]'
-
 # The next line updates PATH for the Google Cloud SDK.
 source '/home/pjvds/bin/google-cloud-sdk/path.zsh.inc'
  
