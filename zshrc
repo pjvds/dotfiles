@@ -25,6 +25,16 @@ alias fdb="fdbcli"
 alias gdoc="godoc $1 | less"
 alias ga.="ga ."
 
+# pubsub cli
+function pubsub
+{
+    type pubsubcli &> /dev/null || {
+        go get google.golang.org/cloud/examples/pubsub/cmdline
+        go build -o $HOME/bin/pubsubcli google.golang.org/cloud/examples/pubsub/cmdline
+    }
+    pubsubcli $*
+}
+
 # Create directories in specified path and change working directory to it.
 # use: `mkcd ~/foo/bar`
 function mkcd
