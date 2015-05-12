@@ -35,6 +35,11 @@ function pubsub
     pubsubcli $*
 }
 
+function json
+{
+    python -m json.tool | pygmentize -l javascript
+}
+
 # Create directories in specified path and change working directory to it.
 # use: `mkcd ~/foo/bar`
 function mkcd
