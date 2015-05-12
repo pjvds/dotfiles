@@ -35,6 +35,8 @@ function pubsub
     pubsubcli $*
 }
 
+# Prettifies json output
+# # use: `echo '{"foo": 1}" | json`
 function json
 {
     python -m json.tool | pygmentize -l javascript
