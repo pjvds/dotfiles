@@ -42,6 +42,8 @@ function json
     python -m json.tool | pygmentize -l javascript
 }
 
+# Runs tests for current go package and prints cover results
+# use: `gocover`
 function gocover
 {
     directory=`mktemp -d`
