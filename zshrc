@@ -44,7 +44,10 @@ function json
 
 function gocover
 {
-    go test $* -coverprofile=/tmp/cover.out && go tool cover -func=/tmp/cover.out
+    directory=`mktemp -d`
+    go test $* -coverprofile=$directory/cover.out && go tool cover -func=$directory/cover.out
+
+    rm -rf $directory
 }
 
 # Create directories in specified path and change working directory to it.
