@@ -42,6 +42,11 @@ function json
     python -m json.tool | pygmentize -l javascript
 }
 
+function gocover
+{
+    go test $* -coverprofile=/tmp/cover.out && go tool cover -func=/tmp/cover.out
+}
+
 # Create directories in specified path and change working directory to it.
 # use: `mkcd ~/foo/bar`
 function mkcd
