@@ -26,6 +26,9 @@ alias gdoc="godoc $1 | less"
 alias ga.="ga ."
 
 # pubsub cli
+# export GOOGLE_APPLICATION_CREDENTIALS and GOOGLE_PROJECT_ID before use.
+#
+# use: `pubsub create_topic "profile-visited"`
 function pubsub
 {
     type pubsubcli &> /dev/null || {
