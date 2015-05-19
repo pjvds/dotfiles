@@ -29,10 +29,13 @@ alias ga.="ga ."
 function pubsub
 {
     type pubsubcli &> /dev/null || {
+        echo "missing pubsub cmd, will try to install it into the current GOPATH"
+
         go get google.golang.org/cloud/examples/pubsub/cmdline
         go build -o $HOME/bin/pubsubcli google.golang.org/cloud/examples/pubsub/cmdline
     }
-    pubsubcli $*
+
+    pubsubcli -j="$GOOGLE_APPLICATION_CREDENTIALS" -p="$GOOGLE_PROJECT_ID" $*
 }
 
 # Prettifies json output
