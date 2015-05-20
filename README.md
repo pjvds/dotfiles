@@ -13,7 +13,7 @@ It holds the configuration for the following software:
 * [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
 * [Sublime Text 3](http://www.sublimetext.com/)
 * [vimperator](http://www.vimperator.org/vimperator)
-* [awesomewm](http://awesome.naquadah.org/)
+* [i3](#)
 * [vim - spf13](http://vim.spf13.com/)
 * vmware client tools
 
