@@ -79,9 +79,6 @@ func streak() {
     curl -s https://github.com/$1 | pup '#contributions-calendar > div:nth-child(5) > span.contrib-number text{}'
 }
 
-# Enable rvm
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
-
 # Customize to your needs...
 export PATH=$PATH:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$HOME/utils:$HOME/utils/cluster
 
