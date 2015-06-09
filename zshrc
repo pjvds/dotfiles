@@ -2,7 +2,8 @@
 ZSH=$HOME/.oh-my-zsh
 
 export EDITOR=vim
-export GOOGLE_APPLICATION_CREDENTIALS="$HOME/dev/go/src/github.com/happypancake/hpc/HappyPancake-a3857edfdae9.json"
+export GOOGLE_APPLICATION_CREDENTIALS="$HOME/dev/go/src/github.com/happypancake/hpc/oauth-key.json"
+export APP_ID="sincere-apex-92211"
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
