@@ -124,11 +124,13 @@ setopt SHARE_HISTORY
 # Even if there are commands inbetween commands that are the same, still only save the last one
 setopt HIST_IGNORE_ALL_DUPS
 
-# The next line updates PATH for the Google Cloud SDK.
-source '/home/pjvds/bin/google-cloud-sdk/path.zsh.inc'
+if [ -d '/home/pjvds/bin/google-cloud-sdk/' ]; then
+	# The next line updates PATH for the Google Cloud SDK.
+	source '/home/pjvds/bin/google-cloud-sdk/path.zsh.inc'
+	# The next line enables zsh completion for gcloud.
+	source '/home/pjvds/bin/google-cloud-sdk/completion.zsh.inc'
+fi
  
-# The next line enables zsh completion for gcloud.
-source '/home/pjvds/bin/google-cloud-sdk/completion.zsh.inc'
 
 # Adds the go_appengine to the path, this adds ""goapp"".
 export PATH="$PATH:$HOME/bin/go_appengine"
