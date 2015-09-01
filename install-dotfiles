@@ -49,6 +49,7 @@ install "terminator" "$HOME/.config/terminator"
 #install "atom" "$HOME/.atom"
 #install "ctags.conf" "$HOME/.ctags.conf"
 install "i3config" "$HOME/.i3/config"
+install "tmux.conf" "$HOME/.tmux.conf"
 
 # Set timezone to Amsterdam
 #sudo ln -sf /usr/share/zoneinfo/Europe/Amsterdam /etc/localtime
