@@ -17,7 +17,7 @@ ZSH_THEME="awesomepanda"
 # COMPLETION_WAITING_DOTS="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-plugins=(git rvm nvm extract autojump)
+plugins=(git rvm nvm extract autojump copydir clipboard)
 source $ZSH/oh-my-zsh.sh
 
 alias gs="git status"
@@ -25,6 +25,14 @@ alias gd='vim +":set filetype=diff" +"set bt=nowrite" <(git diff)'
 alias gu='git stash && git pull && git stash pop'
 alias gdoc="godoc $1 | less"
 alias ga.="ga ."
+
+# serve current directory
+#
+# use: `serve`
+function serve
+{
+    python3 -m http.server
+}
 
 # pubsub cli
 # export GOOGLE_APPLICATION_CREDENTIALS and GOOGLE_PROJECT_ID before use.
@@ -91,7 +99,7 @@ export GOPATH="/home/pjvds/dev/go"
 export GOROOT="/usr/local/go"
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 export GOMAXPROCS=`getconf _NPROCESSORS_ONLN`
-alias gb="go build ./... 2>&1 > /dev/null | grep --color -E '^\\#(.*)$|$' -" 
+alias gb="go build ./... 2>&1 > /dev/null | grep --color -E '^\\#(.*)$|$' -"
 alias gr="go run *.go"
 alias gdg="go build -gcflags '-N -l' -o main && cgdb main"
 alias gdoc="godoc $1 | less"
@@ -134,3 +142,14 @@ fi
 
 # Adds the go_appengine to the path, this adds ""goapp"".
 export PATH="$PATH:$HOME/bin/go_appengine"
+# Adds the kafka gui tool
+export PATH="$PATH:$HOME/bin/kafkatool"
+
+export JAVA_HOME="/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.45.x86_64"
+export PATH="$PATH:$JAVA_HOME/bin"
+export PATH="$PATH:$HOME/bin/activator"
+
+export KAFKA_HOME="$HOME/dev/registration/deploy/kafka"
+export PATH="$PATH:$KAFKA_HOME/bin"
+
+export ZOOKEEPER="localhost:2181"
