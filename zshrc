@@ -4,6 +4,7 @@ ZSH=$HOME/.oh-my-zsh
 export EDITOR=vim
 export GOOGLE_APPLICATION_CREDENTIALS="$HOME/dev/go/src/github.com/happypancake/hpc/oauth-key.json"
 export APP_ID="hpcus-971"
+export SHELL=/bin/zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -25,6 +26,19 @@ alias gd='vim +":set filetype=diff" +"set bt=nowrite" <(git diff)'
 alias gu='git stash && git pull && git stash pop'
 alias gdoc="godoc $1 | less"
 alias ga.="ga ."
+
+# prints history from old dev machine
+#
+# use: `oldhistory`
+function oldhistory
+{
+	if [ ! -s $HOME/.oldhistory ]; then
+		echo ".oldhistory not found!"
+		return 1
+	fi
+
+	cat $HOME/.oldhistory
+}
 
 # serve current directory
 #
