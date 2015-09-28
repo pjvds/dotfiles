@@ -52,5 +52,7 @@ install "i3config" "$HOME/.i3/config"
 install "tmux.conf" "$HOME/.tmux.conf"
 install "gocode.json" "$HOME/.config/gocode/config.json"
 
+cat $dotfiles/dconf-terminal | dconf load /org/gnome/terminal/legacy/
+
 # Set timezone to Amsterdam
 #sudo ln -sf /usr/share/zoneinfo/Europe/Amsterdam /etc/localtime
