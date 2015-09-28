@@ -40,6 +40,16 @@ function oldhistory
 	cat $HOME/.oldhistory
 }
 
+function goldhistory
+{
+	if [ ! -s $HOME/.oldhistory ]; then
+		echo ".oldhistory not found!"
+		return 1
+	fi
+
+	oldhistory | grep $1	
+}
+
 # serve current directory
 #
 # use: `serve`
