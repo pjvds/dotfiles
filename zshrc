@@ -139,8 +139,7 @@ export NVM_DIR="/home/pjvds/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 # keychain
-eval `keychain --eval --agents ssh id_rsa`
-eval `keychain --eval --agents ssh google_compute_engine`
+eval `keychain --eval --agents ssh id_rsa google_compute_engine`
 
 bindkey '^[OA' history-beginning-search-backward
 bindkey '^[OB' history-beginning-search-forward
