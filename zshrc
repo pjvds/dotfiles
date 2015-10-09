@@ -23,9 +23,27 @@ source $ZSH/oh-my-zsh.sh
 
 alias gs="git status"
 alias gd='vim +":set filetype=diff" +"set bt=nowrite" <(git diff)'
-alias gu='git stash && git pull && git stash pop'
 alias gdoc="godoc $1 | less"
 alias ga.="ga ."
+
+function gu
+{
+	local stashed=false
+	if ! git diff --quiet HEAD; then
+		echo -e "\e[1mUncommitted changes detected, will stash them\e[0m"
+		git stash
+		stashed=true
+	fi
+
+	echo -e "\e[1mPulling changes\e[0m"
+	git pull --rebase
+
+	if [ stashed ]; then 
+		echo -e "\e[1mPopping stashed changes\e[0m"
+		git stash pop
+	fi
+}
+
 
 # prints history from old dev machine
 #
