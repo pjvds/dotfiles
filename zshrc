@@ -26,6 +26,8 @@ alias gd='vim +":set filetype=diff" +"set bt=nowrite" <(git diff)'
 alias gdoc="godoc $1 | less"
 alias ga.="ga ."
 
+alias gh="history | grep "
+
 function gu
 {
 	local stashed=false
