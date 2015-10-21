@@ -105,6 +105,17 @@ function pubsub
 # # use: `echo '{"foo": 1}" | json`
 function json
 {
+    type python &> /dev/null || {
+	echo "missing python"
+        return 1
+    }
+    type pygmentize &> /dev/null || {
+	echo "missing pygmentize"
+        echo
+        echo "   install with `sudo dnf install python-pygments`"
+        return 1
+    }
+
     python -m json.tool | pygmentize -l javascript
 }
 
