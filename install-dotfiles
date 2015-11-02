@@ -24,7 +24,7 @@ function install() {
     fi
 
     # symbolic: make symbolic links instead of hard links
-    ln --symbolic "$dotfiles/$1" "$2"
+    n --symbolic "$dotfiles/$1" "$2"
 }
 
 # Make sure the directories exist
@@ -51,6 +51,7 @@ install "terminator" "$HOME/.config/terminator"
 install "i3config" "$HOME/.i3/config"
 install "tmux.conf" "$HOME/.tmux.conf"
 install "gocode.json" "$HOME/.config/gocode/config.json"
+install "dmenu_run_recorded" "$HOME/bin/dmenu_run_recorded"
 install "ntp.conf" "/etc/ntp.conf"
 
 cat $dotfiles/dconf-terminal | dconf load /org/gnome/terminal/legacy/
