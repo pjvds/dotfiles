@@ -24,7 +24,7 @@ function install() {
     fi
 
     # symbolic: make symbolic links instead of hard links
-    n --symbolic "$dotfiles/$1" "$2"
+    ln --symbolic "$dotfiles/$1" "$2"
 }
 
 # Make sure the directories exist
