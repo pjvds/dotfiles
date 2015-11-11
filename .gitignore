@@ -1,4 +1,3 @@
-bin/
 *.log
 log.txt
 atom/compile-cache/
