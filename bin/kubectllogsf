@@ -1,0 +1,16 @@
+#!/bin/bash
+matches=( `kubectl get pods | tail -n +2 | grep "busy" | awk '{print $1}'` )  
+count=${#matches[@]}
+
+if [[ $count -eq 0 ]]; then
+	echo "no match!"
+	exit 1
+fi
+
+if [[ $count -gt 1 ]]; then
+	echo "multiple matches:"
+	echo "$matches"
+	exit 1
+fi
+
+kubectl logs -f "$matches"
