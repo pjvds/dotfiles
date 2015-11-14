@@ -2,8 +2,6 @@
 ZSH=$HOME/.oh-my-zsh
 
 export EDITOR=vim
-export GOOGLE_APPLICATION_CREDENTIALS="$HOME/dev/go/src/github.com/happypancake/hpc/oauth-key.json"
-export APP_ID="hpcus-971"
 export SHELL=/bin/zsh
 
 # Set name of the theme to load.
