@@ -1,5 +1,5 @@
 #!/bin/bash
-matches=( `kubectl get pods | tail -n +2 | grep "busy" | awk '{print $1}'` )  
+matches=( `kubectl get pods | tail -n +2 | grep "$1" | awk '{print $1}'` )  
 count=${#matches[@]}
 
 if [[ $count -eq 0 ]]; then
@@ -13,4 +13,4 @@ if [[ $count -gt 1 ]]; then
 	exit 1
 fi
 
-kubectl logs -f "$matches"
+kubectl logs $matches
