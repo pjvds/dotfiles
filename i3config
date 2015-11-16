@@ -9,6 +9,7 @@
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
+set $TERMINAL gnome-terminal
 set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -27,9 +28,9 @@ font pango:DejaVu Sans Mono 8
 floating_modifier $mod
 
 # start a terminal
-#bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec i3-sensible-terminal
 #bindsym $mod+Return exec ssh-agent terminator
-bindsym $mod+Return exec gnome-terminal
+#bindsym $mod+Return exec gnome-terminal
 
 
 
