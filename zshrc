@@ -26,6 +26,19 @@ alias ga.="ga ."
 
 alias gh="history | grep "
 
+alias postman="google-chrome --profile-directory=Default --app-id=fhbjgbiflinjbdggehcdp"
+alias slack="google-chrome --profile-directory=Default --app-id=jeogkiiogjbmhklcnbgkdcjoioegiknm"
+
+function repeat {
+	local n=$1
+	local cmd=${@:2}
+
+	for i in seq $n
+	do
+		($cmd) || break
+	done
+}
+
 function gu
 {
 	local stashed=false
@@ -38,7 +51,7 @@ function gu
 	echo -e "\e[1mPulling changes\e[0m"
 	git pull --rebase
 
-	if [ stashed ]; then 
+	if $stashed ; then 
 		echo -e "\e[1mPopping stashed changes\e[0m"
 		git stash pop
 	fi
@@ -151,15 +164,16 @@ func streak() {
 }
 
 # Customize to your needs...
-export PATH=$PATH:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$HOME/utils:$HOME/utils/cluster
+export PATH=$PATH:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$HOME/utils:$HOME/utils/cluster:$HOME/bin
 
 # Sublime
 alias sublp="if [ -e *.sublime-project ] ; then subl --project *.sublime-project ; else echo 'No *.sublime-project file found'; fi"
 
 # Go
+export GO15VENDOREXPERIMENT=1
 export GOPATH="/home/pjvds/dev/go"
 export GOROOT="/usr/local/go"
-export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+export PATH="$PATH:$GOROOT/bin:$GOPATH/bin"
 export GOMAXPROCS=`getconf _NPROCESSORS_ONLN`
 alias gb="go build ./... 2>&1 > /dev/null | grep --color -E '^\\#(.*)$|$' -"
 alias gr="go run *.go"
