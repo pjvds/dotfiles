@@ -213,17 +213,7 @@ setopt HIST_IGNORE_ALL_DUPS
 
 # Adds the go_appengine to the path, this adds ""goapp"".
 export PATH="$PATH:$HOME/bin/go_appengine"
-# Adds the kafka gui tool
-export PATH="$PATH:$HOME/bin/kafkatool"
-
-export JAVA_HOME="/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.45.x86_64"
 export PATH="$PATH:$JAVA_HOME/bin"
-export PATH="$PATH:$HOME/bin/activator"
-
-export KAFKA_HOME="$HOME/dev/registration/deploy/kafka"
-export PATH="$PATH:$KAFKA_HOME/bin"
-
-export ZOOKEEPER="localhost:2181"
 
 # The next line updates PATH for the Google Cloud SDK.
 source '/home/pjvds/bin/google-cloud-sdk/path.zsh.inc'
