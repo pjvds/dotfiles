@@ -13,4 +13,5 @@ if [[ $count -gt 1 ]]; then
 	exit 1
 fi
 
+>&2 echo "$matches"
 kubectl logs -f $matches
