@@ -44,6 +44,10 @@ function repeat {
 	done
 }
 
+function gup {
+	gu && git push
+}
+
 function gu
 {
 	local stashed=false
