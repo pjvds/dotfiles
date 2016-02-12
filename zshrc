@@ -30,6 +30,10 @@ alias gh="history | grep "
 alias postman="google-chrome --profile-directory=Default --app-id=fhbjgbiflinjbdggehcdp"
 alias slack="google-chrome --profile-directory=Default --app-id=jeogkiiogjbmhklcnbgkdcjoioegiknm"
 
+function whatismyip {
+	wget http://ipinfo.io/ip -qO -
+}
+
 function repeat {
 	local n=$1
 	local cmd=${@:2}
