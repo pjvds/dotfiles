@@ -23,8 +23,6 @@ alias gs="git status"
 alias gd='vim +":set filetype=diff" +"set bt=nowrite" <(git diff)'
 alias gdoc="godoc $1 | less"
 alias ga.="ga ."
-unalias gvt
-
 alias gh="history | grep "
 
 alias postman="google-chrome --profile-directory=Default --app-id=fhbjgbiflinjbdggehcdp"
