@@ -70,13 +70,16 @@ function whatismyip {
 	wget http://ipinfo.io/ip -qO -
 }
 
-function repeat {
-	local n=$1
-	local cmd=${@:2}
+function repeatn {
+	[[ $# -ge 2 ]] || { 
+		echo "invalid options, use like: $0 5 echo hi";
+		return 1;
+	}
 
-	for i in seq $n
+	local n=$1
+	for i in `seq $n`
 	do
-		($cmd) || break
+		${@:2} || break
 	done
 }
 
