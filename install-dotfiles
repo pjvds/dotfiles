@@ -54,6 +54,7 @@ install "gocode.json" "$HOME/.config/gocode/config.json"
 install "bin/dmenu_run_recorded" "$HOME/bin/dmenu_run_recorded"
 install "bin/postman" "$HOME/bin/postman"
 install "bin/kubectllogsf" "$HOME/bin/kubectllogsf"
+install "Code" "$HOME/.config/Code"
 install "ntp.conf" "/etc/ntp.conf"
 
 cat $dotfiles/dconf-terminal | dconf load /org/gnome/terminal/legacy/
