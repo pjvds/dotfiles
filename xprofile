@@ -1,7 +1,0 @@
-#!/bin/sh
-/usr/bin/vmware-user
-eval `ssh-agent`
-
-if [ type unclutter ]; then
-    unclutter &
-fi
