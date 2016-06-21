@@ -237,7 +237,7 @@ export NVM_DIR="/home/pjvds/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 # keychain
-(keychain --eval --nogui --agents ssh id_rsa google_compute_engine)
+(keychain --eval --nogui --agents ssh id_rsa)
 
 bindkey '^[OA' history-beginning-search-backward
 bindkey '^[OB' history-beginning-search-forward
@@ -257,13 +257,5 @@ setopt SHARE_HISTORY
 # Even if there are commands inbetween commands that are the same, still only save the last one
 setopt HIST_IGNORE_ALL_DUPS
 
-# Adds the go_appengine to the path, this adds ""goapp"".
-export PATH="$PATH:$HOME/bin/go_appengine"
 export PATH="$PATH:$JAVA_HOME/bin"
-
-# The next line updates PATH for the Google Cloud SDK.
-source '/home/pjvds/bin/google-cloud-sdk/path.zsh.inc'
-
-# The next line enables shell command completion for gcloud.
-source '/home/pjvds/bin/google-cloud-sdk/completion.zsh.inc'
 
