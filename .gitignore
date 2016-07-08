@@ -2,6 +2,7 @@
 log.txt
 atom/compile-cache/
 atom/storage/
+atom/packages/
 atom/.node-gyp/
 
 sublime-text-3/Backup/
