@@ -12,3 +12,5 @@ sublime-text-3/Local/
 sublime-text-3/Packages/
 
 m2/repository/
+atom/.apm/
+atom/blob-store/
