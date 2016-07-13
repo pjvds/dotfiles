@@ -42,24 +42,22 @@ install "vimperatorrc" "$HOME/.vimperatorrc"
 install "vimrc.local" "$HOME/.vimrc.local"
 install "vimrc.before.local" "$HOME/.vimrc.before.local"
 install "vimrc.bundles.local" "$HOME/.vimrc.bundles.local"
-install "xprofile" "$HOME/.xprofile"
 install "gdbinit" "$HOME/.gdbinit"
 install "colors" "$HOME/.colors"
 install "Xresources" "$HOME/.Xresources"
 install "terminator" "$HOME/.config/terminator"
-#install "atom" "$HOME/.atom"
+install "atom" "$HOME/.atom"
 #install "ctags.conf" "$HOME/.ctags.conf"
 install "i3config" "$HOME/.i3/config"
 install "tmux.conf" "$HOME/.tmux.conf"
 install "gocode.json" "$HOME/.config/gocode/config.json"
-install "bin/dmenu_run_recorded" "$HOME/bin/dmenu_run_recorded"
 install "bin/postman" "$HOME/bin/postman"
-install "bin/kubectllogsf" "$HOME/bin/kubectllogsf"
 install "bin/phploc" "$HOME/bin/phploc"
 install "Code" "$HOME/.config/Code"
-install "ntp.conf" "/etc/ntp.conf"
+install "ssh/config" "$HOME/ssh/config"
+sudo install "ntp.conf" "/etc/ntp.conf"
 
 cat $dotfiles/dconf-terminal | dconf load /org/gnome/terminal/legacy/
 
 # Set timezone to Amsterdam
-#sudo ln -sf /usr/share/zoneinfo/Europe/Amsterdam /etc/localtime
+sudo ln -sf /usr/share/zoneinfo/Europe/Amsterdam /etc/localtime
