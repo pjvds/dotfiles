@@ -70,6 +70,7 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # move container to other screen
+bindsym $mod+m focus output right
 bindsym $mod+Shift+m move container to output right; focus output right
 
 # split in horizontal orientation
