@@ -220,8 +220,6 @@ alias sublp="if [ -e *.sublime-project ] ; then subl --project *.sublime-project
 # Go
 export GO15VENDOREXPERIMENT=1
 export GOPATH="/home/pjvds/dev/go"
-export GOROOT="/usr/local/go"
-export PATH="$PATH:$GOROOT/bin:$GOPATH/bin"
 export GOMAXPROCS=`getconf _NPROCESSORS_ONLN`
 alias gdg="go build -gcflags '-N -l' -o main && cgdb main"
 alias gdoc="godoc $1 | less"
