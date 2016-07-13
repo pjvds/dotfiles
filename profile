@@ -9,8 +9,6 @@
 #umask 022
 
 export TERMINAL="gnome-terminal"
-export GOPATH="/home/pjvds/go"
-export GOROOT="/usr/local/go"
 export PATH="/usr/local/go/bin:/home/pjvds/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:"
 
 # if running bash
