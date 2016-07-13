@@ -257,3 +257,6 @@ setopt HIST_IGNORE_ALL_DUPS
 
 export PATH="$PATH:$JAVA_HOME/bin"
 
+# Docker
+alias dc="docker-compose"
+alias dcu="dc up"
