@@ -225,6 +225,9 @@ alias gdg="go build -gcflags '-N -l' -o main && cgdb main"
 alias gdoc="godoc $1 | less"
 alias gopath="cd $GOPATH/src"
 
+# Rust
+export PATH=$PATH/home/pjvds/.cargo/bin/
+
 # Hint for pkgconfig path
 export LD_LIBRARY_PATH="/usr/local/lib"
 export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig/"
