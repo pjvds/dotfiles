@@ -17,6 +17,9 @@
       "symbols-view"
       "autocomplete"
       "atom-jsfmt"
+      "linter-rust"
+      "racer"
+      "atom-ctags"
     ]
     themes: [
       "atom-light-ui"
