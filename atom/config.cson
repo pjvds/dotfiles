@@ -18,8 +18,8 @@
       "autocomplete"
       "atom-jsfmt"
       "linter-rust"
-      "racer"
       "atom-ctags"
+      "gometalinter-linter"
     ]
     themes: [
       "atom-light-ui"
