@@ -48,6 +48,9 @@
     showHighlighting: false
   metrics:
     userId: "5afe01d925f56ca54ea8945b2cce677f8755be3a"
+  racer:
+    racerBinPath: "/home/pjvds/.cargo/bin/racer"
+    rustSrcPath: "/home/pjvds/dev/rust/src/"
   "relative-numbers":
     displayTrueLineNumberOnCurrentLine: true
   "tabs-to-spaces":
@@ -60,3 +63,6 @@
     commandModeInputViewFontSize: 16
   welcome:
     showOnStartup: false
+".rust.source":
+  editor:
+    preferredLineLength: 99
