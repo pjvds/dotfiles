@@ -211,6 +211,16 @@ func streak() {
     curl -s https://github.com/$1 | pup '#contributions-calendar > div:nth-child(5) > span.contrib-number text{}'
 }
 
+func lsgit() {
+    for d in `find . -type d`
+    do
+        local git_dir="$d/.git"
+        if [ -d "$git_dir"  ]; then
+            echo "$d (`git --git-dir=$git_dir  rev-parse --abbrev-ref HEAD`)"
+        fi
+    done
+}
+
 # Customize to your needs...
 export PATH=$PATH:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$HOME/utils:$HOME/utils/cluster:$HOME/bin
 
@@ -224,6 +234,7 @@ export GOMAXPROCS=`getconf _NPROCESSORS_ONLN`
 alias gdg="go build -gcflags '-N -l' -o main && cgdb main"
 alias gdoc="godoc $1 | less"
 alias gopath="cd $GOPATH/src"
+export PATH=$PATH:$GOPATH/bin/
 
 # Rust
 export PATH=$PATH:/home/pjvds/.cargo/bin/
