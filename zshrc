@@ -216,7 +216,14 @@ func lsgit() {
     do
         local git_dir="$d/.git"
         if [ -d "$git_dir"  ]; then
-            echo "$d (`git --git-dir=$git_dir  rev-parse --abbrev-ref HEAD`)"
+            local branch_name=`git --git-dir=$git_dir  rev-parse --abbrev-ref HEAD`
+			local color="\e[32m"
+
+            if [ $branch_name != "master" ]; then
+				color="\e[31m"
+			fi
+
+            echo -e "$d (\e[1m$color$branch_name\e[0m)"
         fi
     done
 }
