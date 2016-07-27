@@ -211,7 +211,7 @@ func streak() {
     curl -s https://github.com/$1 | pup '#contributions-calendar > div:nth-child(5) > span.contrib-number text{}'
 }
 
-func lsgit() {
+func gitls() {
     for d in `find . -type d`
     do
         local git_dir="$d/.git"
