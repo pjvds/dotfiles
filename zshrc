@@ -228,6 +228,11 @@ func gitls() {
     done
 }
 
+func gpa() {
+	find ./ -mindepth 1 -maxdepth 1 -type d | \
+		parallel 'echo \"{}\" && git -C {} pull'
+}
+
 # Customize to your needs...
 export PATH=$PATH:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$HOME/utils:$HOME/utils/cluster:$HOME/bin
 
