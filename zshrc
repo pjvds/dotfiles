@@ -285,4 +285,5 @@ export PATH="$PATH:$JAVA_HOME/bin"
 
 # Docker
 alias dc="docker-compose"
+alias dci="docker-compose -f docker-infra.yml"
 alias dcu="dc up"
