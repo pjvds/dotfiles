@@ -223,7 +223,11 @@ func gitls() {
 				color="\e[31m"
 			fi
 
-            echo -e "$d (\e[1m$color$branch_name\e[0m)"
+			dirty=""
+			if ! git --work-tree="$d" --git-dir=$git_dir diff-index --quiet HEAD &> /dev/null; then
+			 	dirty="*"
+			fi
+			echo -e "$d (\e[1m$color$branch_name$dirty\e[0m)"
         fi
     done
 }
