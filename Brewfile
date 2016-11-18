@@ -6,6 +6,8 @@ brew 'grc'
 brew 'jq'
 brew 'readline'
 brew 'roundup'
+brew 'autojump'
+brew 'pjvds/tools/hookie'
 
 cask '1password'
 cask 'atom'
