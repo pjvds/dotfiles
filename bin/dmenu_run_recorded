@@ -1,2 +1,0 @@
-#!/bin/sh
-dmenu_path | dmenu_usage sort | dmenu "$@" | dmenu_usage record | ${SHELL:-"/bin/sh"} &

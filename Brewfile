@@ -1,0 +1,15 @@
+cask_args appdir: '/Applications'
+
+brew 'ack'
+brew 'go'
+brew 'grc'
+brew 'jq'
+brew 'readline'
+brew 'roundup'
+
+cask '1password'
+cask 'atom'
+cask 'firefox'
+cask 'garmin-express'
+cask 'google-chrome'
+cask 'slack'

@@ -1,5 +1,0 @@
-#!/bin/bash
-for dir in $(echo $PATH | tr ":" "\n")
-do
-	test -d $dir || echo -e "\e[91m$dir\e[0m"
-done
