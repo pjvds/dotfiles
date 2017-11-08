@@ -13,6 +13,12 @@ sudo dnf install -y i3 i3status dmenu conky
 # install terminator
 sudo dnf install -y terminator
 
+# install vim
+sudo dnf install -y vim-enhanced
+
+# install spacevim
+curl -sLf https://spacevim.org/install.sh | bash
+
 # install zsh
 sudo dnf install -y zsh
 
@@ -21,6 +27,13 @@ sudo lchsh -i pjvds
 
 # install oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+# install node version manager n
+curl -L https://git.io/n-install | bash
+
+# install watchman
+sudo dnf copr enable mkrawiec/watchman
+sudo dnf install watchman
 ```
 
 ### i3
@@ -46,3 +59,15 @@ A modern shell most closely resembles Korn shell. Despite being over 20 years ol
 ### oh-my-zsh
 
 Turns the already great zsh shell into an 10x environment.
+
+### vim
+
+How to quit this editor?
+
+### spacevim
+
+A popular community-driven vim distribution.
+
+### watchman
+
+Utility to watch file changes. This is used by many npm tasks in the node community.
