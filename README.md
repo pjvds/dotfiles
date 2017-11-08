@@ -29,6 +29,9 @@ sudo dnf install -y zsh
 # change shell interactively, path: /usr/bin/zsh
 sudo lchsh -i pjvds
 
+# install sqlite
+sudo dnf install -y sqlite
+
 # install oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
@@ -59,6 +62,10 @@ Terminal emulator with the styling support I need and extra features like the ab
 ### zsh
 
 A modern shell most closely resembles Korn shell. Despite being over 20 years old it is considered _new_. Famous for command completion, path expansion and replacement. It is a Bash drop in replacement and with `oh-my-zsh` is becomes 10x.
+
+### sqlite
+
+Self contained database. Used for multiple auto-complete scenario's in zsh, for example, completing dnf install arguments.
 
 ### oh-my-zsh
 
