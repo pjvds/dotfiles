@@ -7,6 +7,10 @@ The base of my development environment is Fedora with the tilling window manager
 I've tried to automate the installation many times, but since I don't fully recreate my environment often it was outdated everytime I needed it. So, I ended up with a poors man solution to list all the installation commands with some comments. The commands are optimized for understandability rather than installation speed.
 
 ```
+# install guest additions, first mount the disk [Devices->Insert Guest Additions CD Image...]
+sudo dnf -y install gcc automake make kernel-headers kernel-devel perl
+sudo /run/media/pjvds/VBOXADDITIONS*/VBoxLinuxAdditions.run
+
 # install i3 window manager
 sudo dnf install -y i3 i3status dmenu conky
 
