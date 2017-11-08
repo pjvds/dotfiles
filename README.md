@@ -32,6 +32,9 @@ sudo lchsh -i pjvds
 # install sqlite
 sudo dnf install -y sqlite
 
+# install autojump
+sudo dnf install -y autojump autojump-zsh
+
 # install oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
@@ -66,6 +69,10 @@ A modern shell most closely resembles Korn shell. Despite being over 20 years ol
 ### sqlite
 
 Self contained database. Used for multiple auto-complete scenario's in zsh, for example, completing dnf install arguments.
+
+### autojump
+
+Utility to jump to directies. It records all your directory changes and lets you jump to them. For example, `j evry` will jump to `/home/pjvds/Code/evry`.
 
 ### oh-my-zsh
 
