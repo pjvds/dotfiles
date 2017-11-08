@@ -38,6 +38,9 @@ sudo dnf install -y autojump autojump-zsh
 # install oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
+# install golang
+sudo dnf install -y golang
+
 # install node version manager n
 curl -L https://git.io/n-install | bash
 
