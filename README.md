@@ -50,6 +50,10 @@ curl -L https://git.io/n-install | bash
 # install watchman
 sudo dnf copr enable mkrawiec/watchman
 sudo dnf install watchman
+
+# install docker community edition
+curl -fSL get.docker.com | bash
+sudo usermod -aG docker pjvds
 ```
 
 ### i3
