@@ -54,6 +54,8 @@ sudo dnf install watchman
 # install docker community edition
 curl -fSL get.docker.com | bash
 sudo usermod -aG docker pjvds
+sudo systemctl enable docker.service
+sudo systemctl start docker.service
 ```
 
 ### i3
