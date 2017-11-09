@@ -11,6 +11,9 @@ I've tried to automate the installation many times, but since I don't fully recr
 sudo dnf -y install gcc automake make kernel-headers kernel-devel perl
 sudo /run/media/pjvds/VBOXADDITIONS*/VBoxLinuxAdditions.run
 
+# install add user to virtualbox file system group, this enabled access to shared folders.
+sudo usermod -aG vboxfs pjvds
+
 # install i3 window manager
 sudo dnf install -y i3 i3status dmenu conky
 
