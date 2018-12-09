@@ -95,6 +95,6 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 export DOTFILES_HOME="$HOME/dotfiles"
-for f in $DOTFILES_HOME/**/*.zsh; do 
+for f in $DOTFILES_HOME/**/init.zsh; do 
 	source "$f"
 done
