@@ -1,0 +1,5 @@
+#!/bin/zsh
+export DOTFILES_HOME="$HOME/dotfiles"
+for f in $DOTFILES_HOME/**/install.zsh; do 
+  "$f"
+done
