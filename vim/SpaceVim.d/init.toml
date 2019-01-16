@@ -24,7 +24,6 @@
     enable_tabline_filetype_icon = true
     enable_statusline_display_mode = false
     bootstrap_before = "myspacevim#before"
-
 #
 #
 # Enable autocomplete layer
@@ -35,6 +34,10 @@ auto-completion-tab-key-behavior = "smart"
 
 [[custom_plugins]]
 name = 'tbodt/deoplete-tabnine'
+merged = 0
+
+[[custom_plugins]]
+name = '907th/vim-auto-save'
 merged = 0
 
 

@@ -1,4 +1,5 @@
 func! myspacevim#before() abort
+    " use jj as escape to exit insert mode
     inoremap jj <Esc>
-    inoremap <Esc> NO ESCAPE FOR YOU
+    let g:auto_save = 1
   endf
