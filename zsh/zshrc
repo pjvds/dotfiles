@@ -98,3 +98,5 @@ export DOTFILES_HOME="$HOME/dotfiles"
 for f in $DOTFILES_HOME/**/init.zsh; do 
 	source "$f"
 done
+# add Pulumi to the PATH
+export PATH=$PATH:$HOME/.pulumi/bin
