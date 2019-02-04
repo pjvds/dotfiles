@@ -36,11 +36,6 @@ auto-completion-tab-key-behavior = "smart"
 name = 'tbodt/deoplete-tabnine'
 merged = 0
 
-[[custom_plugins]]
-name = '907th/vim-auto-save'
-merged = 0
-
-
 [[layers]]
 name = 'ctrlp'
 
