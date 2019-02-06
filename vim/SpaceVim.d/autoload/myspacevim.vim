@@ -5,4 +5,8 @@ func! myspacevim#before() abort
 
     " use ss in insert or normal mode to save
     noremap ss :w<CR>
+
+    " use ss in insert or normal mode to save
+    noremap qq :q<CR>
+
 endf
