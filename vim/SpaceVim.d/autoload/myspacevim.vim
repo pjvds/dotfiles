@@ -7,6 +7,9 @@ func! myspacevim#before() abort
     noremap ss :w<CR>
 
     " use ss in insert or normal mode to save
+    noremap sq :wq<CR>
+
+    " use ss in insert or normal mode to save
     noremap qq :q<CR>
 
 endf
