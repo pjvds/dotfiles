@@ -12,4 +12,10 @@ func! myspacevim#before() abort
     " use ss in insert or normal mode to save
     noremap qq :q<CR>
 
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
+endif
+
+let g:netrw_dirhistmax = 0
 endf

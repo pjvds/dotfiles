@@ -1,9 +1,3 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =7
-let g:netrw_dirhist_1='/home/pjvds/Code/frontend'
-let g:netrw_dirhist_2='/home/pjvds/Code/streamdb'
-let g:netrw_dirhist_3='/home/pjvds/go/src/github.com/pjvds/streamsdb'
-let g:netrw_dirhist_4='/home/pjvds/.SpaceVim.d/snippets'
-let g:netrw_dirhist_5='/home/pjvds/go/src/github.com/pjvds/streamsdb'
-let g:netrw_dirhist_6='/home/pjvds/go/src/github.com/pjvds/streamsdb/benchmark'
-let g:netrw_dirhist_7='/home/pjvds/go/src/github.com/pjvds/streamsdb'
+let g:netrw_dirhist_cnt =1
+let g:netrw_dirhist_1='/home/pjvds/go/src/github.com/pjvds/streamsdb'

@@ -11,7 +11,7 @@
     # set spacevim theme. by default colorscheme layer is not loaded,
     # if you want to use more colorscheme, please load the colorscheme
     # layer
-    colorscheme = "material"
+    colorscheme = "base16-default-dark"
     background = "dark"
     # Disable guicolors in basic mode, many terminal do not support 24bit
     # true colors
@@ -61,6 +61,10 @@ name = 'lang#graphql'
 
 [[layers]]
 name = "colorscheme"
+
+[[custom_plugins]]
+name = 'chriskempson/base16-vim'
+merged = 0
 
 # custom plugins {{{
 #[[custom_plugins]]
