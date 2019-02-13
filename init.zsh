@@ -2,17 +2,17 @@
 #
 export PATH="$PATH:$DOTFILES_HOME/bin"
 
-WARN_COLOR="[33m[1m"
-SUCCESS_COLOR="[32m[1m"
-ERROR_COLOR="[31m[1m"
-INFO_COLOR="[37m[1m"
-DEBUG_COLOR="[38m[1m"
-RESET_COLOR="[m"
+WARN_COLOR="\e[33m"
+SUCCESS_COLOR="\e[32m"
+ERROR_COLOR="\e[31m"
+INFO_COLOR="\e[37m"
+DEBUG_COLOR="\e[38m"
+RESET_COLOR="\e[m"
 
 _message() {
     msg=$1
     color=$2
-    printf "%b%b%b\n" "${color}" "${msg}" "${RESET_COLOR}"
+    printf '%b%b%b\n' "${color}" "${msg}" "${RESET_COLOR}"
 }
 
 success() {
