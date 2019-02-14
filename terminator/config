@@ -13,6 +13,17 @@
 [plugins]
 [profiles]
   [[default]]
-    cursor_color = "#aaaaaa"
+    background_image = None
+    copy_on_selection = True
+    allow_bold = False
+    palette = "#151515:#ac4142:#90a959:#f4bf75:#6a9fb5:#aa759f:#75b5aa:#d0d0d0:#505050:#ac4142:#90a959:#f4bf75:#6a9fb5:#aa759f:#75b5aa:#f5f5f5"
+    foreground_color = "#d0d0d0"
+    background_color = "#151515"
+    cursor_color = "#d0d0d0"
+    font = Source Code Variable Medium 12
     icon_bell = False
+    scrollback_infinite = True
+    scrollback_lines = 500003
+    scrollbar_position = hidden
     show_titlebar = False
+    use_system_font = False
