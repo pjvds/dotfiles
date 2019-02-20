@@ -94,6 +94,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 export DOTFILES_HOME="$HOME/dotfiles"
+source $DOTFILES_HOME/init.zsh
 for f in $DOTFILES_HOME/**/init.zsh; do 
 	source "$f"
 done
