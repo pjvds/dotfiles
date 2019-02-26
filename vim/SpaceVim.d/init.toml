@@ -12,7 +12,7 @@
     # if you want to use more colorscheme, please load the colorscheme
     # layer
     colorscheme = "base16-default-dark"
-    background = "dark"
+#background = "dark"
     # Disable guicolors in basic mode, many terminal do not support 24bit
     # true colors
     enable_guicolors = true
@@ -33,10 +33,6 @@ name = 'autocomplete'
 auto-completion-return-key-behavior = "complete"
 auto-completion-tab-key-behavior = "smart"
 
-[[custom_plugins]]
-name = 'tbodt/deoplete-tabnine'
-merged = 0
-
 [[layers]]
 name = 'ctrlp'
 
@@ -56,14 +52,23 @@ go_highlight_operators = 1
 go_highlight_structs = 1
 go_highlight_types = 1
 
+[[custom_plugins]]
+name = 'w0rp/ale'
+merged = 0
+
 [[layers]]
 name = 'lang#graphql'
 
-[[layers]]
-name = "colorscheme"
-
 [[custom_plugins]]
 name = 'chriskempson/base16-vim'
+merged = 0
+
+[[layers]]
+name = "colorscheme"
+merged = 0
+
+[[custom_plugins]]
+name = 'tbodt/deoplete-tabnine'
 merged = 0
 
 # custom plugins {{{

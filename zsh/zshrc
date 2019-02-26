@@ -60,7 +60,7 @@ ZSH_THEME="spaceship"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git nvm z extract kubectl)
+plugins=(git nvm z extract kubectl vi-mode)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -94,6 +94,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 export DOTFILES_HOME="$HOME/dotfiles"
+source $DOTFILES_HOME/init.zsh
 for f in $DOTFILES_HOME/**/init.zsh; do 
 	source "$f"
 done
