@@ -1,4 +1,4 @@
-bindkey "^k" up-line-or-search
-bindkey "^j" down-line-or-search
+bindkey "^k" history-beginning-search-backward
+bindkey "^j" history-beginning-search-forward
 bindkey -s '^f' 'fg^M'
 

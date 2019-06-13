@@ -42,6 +42,9 @@ auto_fix= true
 enable_flow_syntax = true
 
 [[layers]]
+name = "lang#typescript"
+
+[[layers]]
 name = 'lang#go'
 go_highlight_build_constraints = 1
 go_highlight_extra_types = 1
