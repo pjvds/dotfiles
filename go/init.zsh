@@ -7,7 +7,6 @@ export PATH="$PATH:$GOPATH/bin"
 export CGO_ENABLED=1
 
 if ! type goenv &> /dev/null; then
-  warn "missing goenv"
   return
 fi
 eval "$(goenv init -)"
