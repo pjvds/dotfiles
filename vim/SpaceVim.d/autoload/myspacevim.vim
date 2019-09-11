@@ -1,4 +1,5 @@
 func! myspacevim#before() abort
+    let base16colorspace=256
 
     " use jj as escape to exit insert mode
     inoremap jj <Esc>
@@ -26,8 +27,4 @@ func! myspacevim#before() abort
     let g:ale_completion_enabled = 1
     let g:ale_lint_on_save = 1
     let g:ale_fix_on_save = 1
-endf
-
-func! myspacevim#after() abort
-    let base16colorspace=256
 endf
