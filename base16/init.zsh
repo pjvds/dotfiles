@@ -11,4 +11,4 @@ fi
 eval "$("$BASE16_SHELL/profile_helper.sh")"
 
 # Activate theme
-base16_default-dark
+base16_material-darker
