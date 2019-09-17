@@ -116,3 +116,5 @@ alias sdbcli="docker run --env="SDB_HOST=\$SDB_HOST" \
                          --tty \
                          --rm \
                          streamsdb/sdbcli"
+
+bindkey 'jj' vi-cmd-mode
