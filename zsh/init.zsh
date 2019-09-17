@@ -4,5 +4,8 @@ bindkey -s '^f' 'fg^M'
 
 alias gapa='git add -p'
 
+alias pbcopy='xclip -selection clipboard'
+alias pbpaste='xclip -selection clipboard -o'
+
 mkcd() { mkdir -p "$1" && cd "$1"; } 
 
