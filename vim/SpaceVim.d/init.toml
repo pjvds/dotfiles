@@ -45,6 +45,12 @@ enable_flow_syntax = true
 name = "lang#typescript"
 
 [[layers]]
+name = "lang#csharp"
+
+[[layers]]
+name = "lang#fsharp"
+
+[[layers]]
 name = 'lang#go'
 go_highlight_build_constraints = 1
 go_highlight_extra_types = 1
