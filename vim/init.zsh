@@ -1,3 +1,5 @@
 export VISUAL="vim"
-export EDITIOR="$VISUAL"
+export EDITOR="$VISUAL"
+export SUDO_EDITOR=$(which vim)
+
 set clipboard=unnamedplus
