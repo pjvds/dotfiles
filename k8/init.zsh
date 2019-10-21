@@ -1,1 +1,1 @@
-alias k="kubectl --namespace env-xray-d"
+alias k="kubectl --namespace dev-namespace"
