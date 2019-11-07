@@ -1,6 +1,9 @@
 func! myspacevim#before() abort
     let base16colorspace=256
 
+    " live update of substitution
+    set inccommand=nosplit
+
     " use jj as escape to exit insert mode
     inoremap jj <Esc>
     let g:auto_save = 1
