@@ -17,6 +17,9 @@ func! myspacevim#before() abort
     " use ss in insert or normal mode to save
     noremap qq :q<CR>
 
+    nnoremap ; :
+    nnoremap : ;
+
     " disable network history
     let g:netrw_dirhistmax = 0
 
