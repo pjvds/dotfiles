@@ -1,4 +1,4 @@
-alias ga='git add'
+alias ga='git add -p'
 alias gc='git commit --verbose'
 alias gs='git status'
 alias gcm='git commit -m'
