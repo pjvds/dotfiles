@@ -76,10 +76,6 @@ merged = 0
 #name = "colorscheme"
 #merged = 0
 
-[[custom_plugins]]
-name = 'tbodt/deoplete-tabnine'
-merged = 0
-
 # custom plugins {{{
 #[[custom_plugins]]
 # name = 'zxqfl/tabnine-vim'
