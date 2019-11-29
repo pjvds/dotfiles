@@ -11,14 +11,15 @@
     # set spacevim theme. by default colorscheme layer is not loaded,
     # if you want to use more colorscheme, please load the colorscheme
     # layer
-    colorscheme = "base16-material-darker"
+    colorscheme = "molokai"
+    colorscheme_bg = "dark"
 #background = "dark"
     # Disable guicolors in basic mode, many terminal do not support 24bit
     # true colors
     enable_guicolors = true
     # Disable statusline separator, if you want to use other value, please
     # install nerd fonts
-    statusline_separator = "arrow"
+    statusline_separator = "nil"
     statusline_inactive_separator = "arrow"
     buffer_index_type = 4
     enable_tabline_filetype_icon = true
@@ -72,14 +73,7 @@ name = 'lang#graphql'
 name = 'chriskempson/base16-vim'
 merged = 0
 
-#[[layers]]
-#name = "colorscheme"
-#merged = 0
-
-# custom plugins {{{
-#[[custom_plugins]]
-# name = 'zxqfl/tabnine-vim'
-# merged = 0
-# }}}
-
+[[layers]]
+name = "colorscheme"
+merged = 0
 
