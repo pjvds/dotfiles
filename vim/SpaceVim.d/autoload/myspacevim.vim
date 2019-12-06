@@ -22,6 +22,9 @@ func! myspacevim#before() abort
     nnoremap ; :
     nnoremap : ;
 
+    " no linters for go
+    let g:g:go_metalinter_enabled=0
+
     " disable network history
     let g:netrw_dirhistmax = 0
 
