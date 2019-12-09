@@ -79,6 +79,3 @@ merged = 0
 
 [[custom_plugins]]
 name = "chrisbra/Colorizer"
-
-[[custom_plugins]]
-name = "wellle/context.vim"
