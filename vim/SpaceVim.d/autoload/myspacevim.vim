@@ -22,6 +22,8 @@ func! myspacevim#before() abort
     nnoremap ; :
     nnoremap : ;
 
+    nnoremap <Leader>j :GoDecls<CR>
+
     " no linters for go
     let g:go_metalinter_enabled=0
 
