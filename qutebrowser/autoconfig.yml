@@ -7,4 +7,4 @@ settings:
     global: abcdefghijklmnopqrstuvwxyz!@#$%^*()+{}:|?-=[];'\,./
   url.searchengines:
     global:
-      DEFAULT: https://google.com/?q={}
+      DEFAULT: https://www.google.com.ar/search?q={}
