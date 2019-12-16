@@ -1,1 +1,1 @@
-alias ag='ag --pager "less -R"'
+alias ag='ag --pager "less +F -R"'
