@@ -24,6 +24,11 @@ func! myspacevim#before() abort
 
     nnoremap <Leader>j :GoDeclsDir<CR>
 
+      " autosave
+  let g:auto_save = 1
+  let g:auto_save_no_updatetime = 1
+  let g:auto_save_in_insert_mode = 0
+
     " no linters for go
     let g:go_metalinter_enabled=0
 
