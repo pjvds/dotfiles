@@ -5,6 +5,8 @@ config_version: 2
 settings:
   hints.chars:
     global: abcdefghijklmnopqrstuvwxyz!@#$%^*()+{}:|?-=[];\,./
+  qt.highdpi:
+    global: true
   url.searchengines:
     global:
       DEFAULT: https://www.google.com/search?q={}
