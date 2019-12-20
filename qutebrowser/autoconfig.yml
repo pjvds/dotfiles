@@ -3,6 +3,10 @@
 
 config_version: 2
 settings:
+  bindings.commands:
+    global:
+      normal:
+        zz: spawn --userscript qute-lastpass
   hints.chars:
     global: abcdefghijklmnopqrstuvwxyz!@#$%^*()+{}:|?-=[];\,./
   qt.highdpi:
