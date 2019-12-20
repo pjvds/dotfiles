@@ -7,6 +7,8 @@ settings:
     global:
       normal:
         zz: spawn --userscript qute-lastpass
+        ze: spawn --userscript qute-lastpass -e
+        zw: spawn --userscript qute-lastpass -w
   hints.chars:
     global: abcdefghijklmnopqrstuvwxyz!@#$%^*()+{}:|?-=[];\,./
   qt.highdpi:
