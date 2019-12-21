@@ -20,3 +20,5 @@
     default = simple
 [branch]
 	autosetuprebase = always
+[credential]
+	helper = /usr/share/doc/git/contrib/credential/libsecret/git-credential-libsecret
