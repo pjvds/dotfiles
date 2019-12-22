@@ -18,3 +18,9 @@ settings:
       DEFAULT: https://www.google.com/search?q={}
   zoom.default:
     global: 200%
+
+
+
+  content.headers.user_agent:
+    global: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:70.0) Gecko/20100101 Firefox/70.0
+
