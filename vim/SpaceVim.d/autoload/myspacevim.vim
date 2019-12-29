@@ -3,6 +3,9 @@ func! myspacevim#before() abort
 
     " live update of substitution
     set inccommand=nosplit
+    
+    " scroll n lines before end
+    set scroll=5
 
     " use jj as escape to exit insert mode
     inoremap jj <Esc>
