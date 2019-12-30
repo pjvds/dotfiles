@@ -9,7 +9,7 @@ func! myspacevim#before() abort
 
     " use jj as escape to exit insert mode
     inoremap jj <Esc>
-    "
+
     " use jsq to save and quit from insert modjsqe
     inoremap jsq <Esc>:wq
 
