@@ -46,4 +46,7 @@ func! myspacevim#before() abort
 
     " Use the stdio version of OmniSharp-roslyn
     let g:OmniSharp_server_stdio = 1
+
+    " Start vim commit message in insert mode
+    autocmd FileType gitcommit exec 'au VimEnter * startinsert'
 endf
