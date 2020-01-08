@@ -11,7 +11,7 @@ func! myspacevim#before() abort
     inoremap jj <Esc>
 
     " use jsq to save and quit from insert modjsqe
-    inoremap jsq <Esc>:wq
+    inoremap jsq <Esc>:wq<CR>
 
     " use ss in insert or normal mode to save
     noremap ss :w<CR>
