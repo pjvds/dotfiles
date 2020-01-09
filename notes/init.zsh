@@ -4,7 +4,6 @@ sync() {
 
   if [ ${#gstatus} -ne 0 ]
   then
-
       git add --all
       git commit -m "$gstatus"
 
