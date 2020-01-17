@@ -1,5 +1,4 @@
 #!/bin/zsh
-#
 export PATH="$PATH:$DOTFILES_HOME/bin"
 
 WARN_COLOR="\e[33m"
