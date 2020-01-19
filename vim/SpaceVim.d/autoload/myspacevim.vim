@@ -49,4 +49,8 @@ func! myspacevim#before() abort
 
     " Start vim commit message in insert mode
     autocmd FileType gitcommit exec 'au VimEnter * startinsert'
+
+    " Override default ignore pattern in file tree to still
+    " show other . files
+    let g:vimfiler_ignore_pattern = '^\%(\.git\|\.DS_Store\)$'
 endf
