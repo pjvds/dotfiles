@@ -1,6 +1,6 @@
 {
   "keyboard": "planck/rev6",
-  "keymap": "planck_rev6_layout_ortho_4x12_mine",
+  "keymap": "planck_rev6_layout_ortho_4x12_programmer",
   "layout": "LAYOUT_ortho_4x12",
   "layers": [
     [
