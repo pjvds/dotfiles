@@ -70,6 +70,11 @@ merged = 0
 name = 'lang#graphql'
 
 [[custom_plugins]]
+name = 'yuttie/comfortable-motion.vim'
+merged = 0
+
+
+[[custom_plugins]]
 name = 'chriskempson/base16-vim'
 merged = 0
 
