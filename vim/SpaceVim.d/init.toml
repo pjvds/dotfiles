@@ -84,3 +84,8 @@ merged = 0
 
 [[custom_plugins]]
 name = "chrisbra/Colorizer"
+
+[[custom_plugins]]
+name = "peitalin/vim-jsx-typescript"
+[[custom_plugins]]
+name = "maxmellon/vim-jsx-pretty"
