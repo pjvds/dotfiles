@@ -1,6 +1,6 @@
 {
   "keyboard": "planck/rev6",
-  "keymap": "planck_rev6_layout_ortho_4x12_programmer",
+  "keymap": "planck_rev6_layout_ortho_4x12_mine",
   "layout": "LAYOUT_ortho_4x12",
   "layers": [
     [
@@ -40,7 +40,7 @@
       "KC_DOT",
       "KC_SLSH",
       "KC_RSFT",
-      "MO(7)",
+      "TT(7)",
       "KC_LCTL",
       "KC_LALT",
       "KC_LGUI",
@@ -358,11 +358,11 @@
       "KC_NO",
       "KC_NO",
       "KC_NO",
+      "KC_END",
       "KC_NO",
       "KC_NO",
       "KC_NO",
-      "KC_NO",
-      "KC_NO",
+      "KC_HOME",
       "KC_NO",
       "KC_NO",
       "KC_NO",
