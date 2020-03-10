@@ -27,6 +27,7 @@
     bootstrap_before = "myspacevim#before"
     enable_tabline_filetype_icon = true
     enable_vimfiler_gitstatus = true
+    filemanager = "defx"
 #
 #
 # Enable autocomplete layer
