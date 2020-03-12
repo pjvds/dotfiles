@@ -13,7 +13,6 @@
     # layer
     colorscheme = "molokai"
     colorscheme_bg = "dark"
-#background = "dark"
     # Disable guicolors in basic mode, many terminal do not support 24bit
     # true colors
     enable_guicolors = true
@@ -26,6 +25,7 @@
     enable_statusline_display_mode = false
     bootstrap_before = "myspacevim#before"
     enable_tabline_filetype_icon = true
+    enable_vimfiler_filetypeicon = false
     enable_vimfiler_gitstatus = true
     filemanager = "defx"
 #
