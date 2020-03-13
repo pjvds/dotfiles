@@ -17,13 +17,14 @@
     # true colors
     enable_guicolors = true
     # Disable statusline separator, if you want to use other value, please
-    # install nerd fonts
     statusline_separator = "nil"
+    # install nerd fonts
     statusline_inactive_separator = "arrow"
     buffer_index_type = 4
     enable_tabline_filetype_icon = true
     enable_statusline_display_mode = false
     bootstrap_before = "myspacevim#before"
+    bootstrap_after = "myspacevim#after"
     enable_tabline_filetype_icon = true
     enable_vimfiler_filetypeicon = false
     enable_vimfiler_gitstatus = true
@@ -55,18 +56,6 @@ name = "lang#fsharp"
 
 [[layers]]
 name = 'lang#go'
-go_highlight_build_constraints = 1
-go_highlight_extra_types = 1
-go_highlight_fields = 1
-go_highlight_functions = 1
-go_highlight_methods = 1
-go_highlight_operators = 1
-go_highlight_structs = 1
-go_highlight_types = 1
-
-[[custom_plugins]]
-name = 'w0rp/ale'
-merged = 0
 
 [[layers]]
 name = 'lang#graphql'
@@ -74,7 +63,6 @@ name = 'lang#graphql'
 [[custom_plugins]]
 name = 'yuttie/comfortable-motion.vim'
 merged = 0
-
 
 [[custom_plugins]]
 name = 'chriskempson/base16-vim'
@@ -85,9 +73,7 @@ name = "colorscheme"
 merged = 0
 
 [[custom_plugins]]
-name = "chrisbra/Colorizer"
-
-[[custom_plugins]]
 name = "peitalin/vim-jsx-typescript"
+
 [[custom_plugins]]
 name = "maxmellon/vim-jsx-pretty"
