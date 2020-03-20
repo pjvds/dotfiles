@@ -6,9 +6,11 @@ settings:
   bindings.commands:
     global:
       normal:
-        zz: spawn --userscript qute-lastpass
         ze: spawn --userscript qute-lastpass -e
         zw: spawn --userscript qute-lastpass -w
+        zz: spawn --userscript qute-lastpass
+  fonts.monospace:
+    global: JetbrainsMono Nerd Font
   hints.chars:
     global: abcdefghijklmnopqrstuvwxyz!@#$%^*()+{}:|?-=[];\,./
   qt.highdpi:
