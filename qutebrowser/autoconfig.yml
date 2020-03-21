@@ -13,6 +13,10 @@ settings:
     global: JetbrainsMono Nerd Font
   hints.chars:
     global: abcdefghijklmnopqrstuvwxyz!@#$%^*()+{}:|?-=[];\,./
+  qt.args:
+    global:
+    - blink-settings=darkMode=4
+    - darkModeImagePolicy=0
   qt.highdpi:
     global: true
   url.searchengines:
