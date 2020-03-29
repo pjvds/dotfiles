@@ -64,9 +64,9 @@ name = 'lang#graphql'
 name = 'yuttie/comfortable-motion.vim'
 merged = 0
 
-[[custom_plugins]]
-name = 'chriskempson/base16-vim'
-merged = 0
+#[[custom_plugins]]
+#name = 'chriskempson/base16-vim'
+#merged = 0
 
 [[layers]]
 name = "colorscheme"
