@@ -11,4 +11,4 @@ fi
 eval "$("$BASE16_SHELL/profile_helper.sh")"
 
 # Activate theme
-base16_monokai
+BASE16_SHELL_SET_BACKGROUND=false base16_monokai
