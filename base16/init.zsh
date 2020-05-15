@@ -6,10 +6,10 @@ if [ ! -d "$BASE16_SHELL" ]; then
   info "missing base-shell, cloning base-shell to config"
   git clone "https://github.com/chriskempson/base16-shell.git" "$BASE16_SHELL"
 fi
+# Activate theme
+BASE16_SHELL_SET_BACKGROUND=false
 
 # Base16 Shell
 eval "$("$BASE16_SHELL/profile_helper.sh")"
 
-# Activate theme
-export BASE16_SHELL_SET_BACKGROUND=false
 base16_monokai
