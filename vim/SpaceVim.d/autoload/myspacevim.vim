@@ -27,6 +27,9 @@ func! myspacevim#before() abort
 
     nnoremap <Leader>j :GoDeclsDir<CR>
 
+    " use ctrl-c to copy to clipboard register in visual mode
+    vnoremap <C-c> "+y
+
     " no linters for go
     let g:go_metalinter_enabled=0
     let g:syntastic_go_checkers = ['go']
