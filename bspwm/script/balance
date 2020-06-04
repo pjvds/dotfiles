@@ -1,0 +1,8 @@
+#!/bin/sh
+target=first
+# the sort is just for consistency
+for node in $(bspc query -N -n .local.window | sort); do
+    bspc node $node -n "$(bspc query -N -n @$(bspc query -D -d):/${target})"
+    [ "$target" = "first" ] && target="second" || target="first"
+done
+bspc node @/ -B
