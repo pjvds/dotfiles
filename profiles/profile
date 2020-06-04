@@ -1,6 +1,7 @@
 #export CHROMIUM_USER_FLAGS="--high-dpi-support=1 --force-device-scale-factor=1.2"
 export DOTFILES=/home/pjvds/dotfiles
 export DOTFILES_HOME=/home/pjvds/dotfiles
+export POLYBAR_HOME=$DOTFILES_HOME/polybar
 export PATH=$PATH:$DOTFILES_HOME/bin
 export GDK_DPI_SCALE=0.8
 export GDK_SCALE=1.4

@@ -5,9 +5,9 @@
 [common/bar]
 override-redirect = false
 
-width = 5104
-height = ${env:PM_BAR_HEIGHT:2%}
-offset-x = 8
+width = 5086
+height = ${env:PM_BAR_HEIGHT:40}
+offset-x = 18
 offset-y = 12
 radius = 0
 fixed-center = true
@@ -16,7 +16,7 @@ font-0 = "JetBrains Mono, Regular:weight=Regular:size=11;4"
 font-1 = "FontAwesome5Free:style=Solid:pixelsize=12;4"
 font-2 = "FontAwesome5Brands:style=Solid:pixelsize=12;4"
 
-background = #f9282936
+background = #ae282936
 foreground = #e9e9f4
 
 line-size = 2
@@ -152,40 +152,18 @@ click-left = amixer set Master toggle
 ; Top panel
 ;--------------------------------------------------------------------;
 
-[bar/top]
-inherit = common/bar
-dpi = ${env:PM_DPI:110}
-
-modules-left = apps gap news
-modules-center = clock
-modules-right = redshift gap weather gap now-playing
-
-font-3 = "Weather Icons:size=11;5"
-
 [module/apps]
 type = custom/text
 content = 
 content-foreground = #ebff87
 click-left = rofi -show drun
 
-[module/news]
-type = custom/script
-label =  %output:0:150%...
-exec = /polybar/scripts/news
-click-left = firefox https://news.ycombinator.com/
-interval = 300
-
 [module/clock]
 type = custom/script
 exec = /home/pjvds/.config/polybar/scripts/clock
-interval = 5
-click-left = /polybar/scripts/calendar
-
-[module/redshift]
-type = custom/script
-exec = /polybar/scripts/rsctl -p '#626483' '#62d6e8' '#ebff87' '#ea51b2'
-interval = 5
-click-left = /polybar/scripts/rsctl -t
+interval = 1
+click-left = $POLYBAR_HOME/scripts/calendar
+format-foreground = #ebff87
 
 [module/weather]
 type = custom/script
@@ -223,15 +201,15 @@ font-5 = "Spy Agency:pixelsize=12;4"
 font-6 = "Spy Agency Laser:pixelsize=12;4"
 font-7 = "Geforce:style=Bold:pixelsize=12;5"
 
-modules-left = bspwm gap-small title
+modules-left = bspwm gap title
 modules-center = now-playing
 #modules-right = cpu-brand gap-small cpu-usage gap-small cpu-temp gap gpu-brand gap-small gpu-usage gap-small gpu-temp gap memory gap network gap filesystem gap usb-audio gap power-menu gap
-modules-right = cpu-brand gap-small cpu-usage gap-small gap gpu-brand gap memory gap filesystem gap network gap clock gap power-menu
+modules-right = cpu-brand gap-small cpu-usage gap-small gap gpu-brand gap memory gap filesystem gap network gap clock gap-small
 
 tray-position = right
 tray-padding = 0
 tray-background = #f9282936
-tray-maxsize = 22
+tray-maxsize = 0
 
 [module/bspwm]
 inherit = common/bspwm
@@ -316,14 +294,14 @@ type = internal/network
 interface = ens33
 
 interval = 1
-ping-interval = 1
+ping-interval = 3
 accumulate-stats = false
 
 format-connected = <label-connected>
 format-disconnected = <label-disconnected>
 format-packetloss = <label-connected> <animation-packetloss>
 
-label-connected =  %downspeed%  %upspeed% %latency% %ping%
+label-connected =  %downspeed% %upspeed%
 label-signal = %signal%
 label-disconnected =  Not connected
 label-disconnected-foreground = #626483
