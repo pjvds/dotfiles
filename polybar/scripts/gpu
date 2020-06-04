@@ -1,0 +1,39 @@
+#!/bin/bash
+
+function get_usage() {
+	echo " $(hwinfo --gpu usage)"
+}
+
+function get_temp() {
+	OUTPUT_TEMPL='%{F__COLOR__}%{F-} __TEMP__'
+	COLOR=$1
+	TEMP=$(hwinfo --gpu temp)
+
+	if [ "${TEMP%??}" -ge 80 ]; then
+		COLOR=$4
+	elif [ "${TEMP%??}" -ge 60 ]; then
+		COLOR=$3
+	else
+		COLOR=$2
+	fi
+
+	WITH_COLOR=${OUTPUT_TEMPL/__COLOR__/$COLOR}
+	WITH_TEMP=${WITH_COLOR/__TEMP__/$TEMP}
+
+	echo $WITH_TEMP
+}
+
+[ "$#" -lt 1 ] && echo "Missing parameters." && exit 1
+
+case $1 in
+"--usage")
+	get_usage
+	;;
+"--temp")
+	[ "$#" -ne 5 ] && echo "Missing color codes." && exit 1
+	get_temp $2 $3 $4 $5
+	;;
+*)
+	echo "Invalid parameter." && exit 1
+	;;
+esac

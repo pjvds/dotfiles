@@ -1,0 +1,371 @@
+;--------------------------------------------------------------------;
+; Common
+;--------------------------------------------------------------------;
+
+[common/bar]
+override-redirect = false
+
+width = 5104
+height = ${env:PM_BAR_HEIGHT:2%}
+offset-x = 8
+offset-y = 12
+radius = 0
+fixed-center = true
+
+font-0 = "JetBrains Mono, Regular:weight=Regular:size=11;4"
+font-1 = "FontAwesome5Free:style=Solid:pixelsize=12;4"
+font-2 = "FontAwesome5Brands:style=Solid:pixelsize=12;4"
+
+background = #f9282936
+foreground = #e9e9f4
+
+line-size = 2
+line-color = #f9b45bcf
+
+border-size = 0
+
+padding-left = 2
+padding-right = 2
+
+module-margin-left  = 0
+module-margin-right = 0
+
+modules-left = apps news
+modules-center = clock
+modules-right = weather now-playing
+
+wm-restack = bspwm
+
+locale = en_US.UTF-8
+
+click-left =
+click-middle =
+click-right =
+scroll-up =
+scroll-down =
+double-click-left =
+double-click-middle =
+double-click-right =
+
+[common/bar-secondary]
+inherit = common/bar
+
+bottom = true
+
+modules-left = bspwm-secondary gap-small title
+modules-center =
+modules-right =
+
+[common/bspwm]
+type = internal/bspwm
+
+pin-workspaces = true
+inline-mode = false
+enable-click = true
+enable-scroll = true
+reverse-scroll = true
+fuzzy-match = true
+
+format = <label-state> <label-mode>
+
+label-dimmed-foreground = #626483
+
+label-dimmed-occupied = %icon%
+label-dimmed-occupied-foreground = #f7f7fb
+label-dimmed-occupied-padding = 2
+
+label-dimmed-empty = %icon%
+label-dimmed-empty-foreground = #626483
+label-dimmed-empty-padding = 2
+
+label-focused = %icon%
+label-focused-foreground = #f7f7fb
+label-focused-background = #f93a3c4e
+label-focused-overline = #ebff87
+label-focused-padding = 2
+
+label-occupied = %icon%
+label-occupied-foreground = #f7f7fb
+label-occupied-padding = 2
+
+label-urgent = %icon%
+label-urgent-foreground = #62d6e8
+label-urgent-background = #f9ea51b2
+label-urgent-padding = 2
+
+label-empty = %icon%
+label-empty-foreground = #626483
+label-empty-padding = 2
+
+label-monocle = 
+label-monocle-foreground = #b45bcf
+label-tiled = 
+label-tiled-foreground = #b45bcf
+label-fullscreen = 
+label-fullscreen-foreground = #b45bcf
+label-floating = 
+label-floating-foreground = #b45bcf
+label-pseudotiled = P
+label-pseudotiled-foreground = #b45bcf
+label-locked = " "
+label-locked-foreground = #b45bcf
+label-sticky = " "
+label-sticky-foreground = #b45bcf
+label-private = " "
+label-private-foreground = #b45bcf
+
+[module/title]
+type = internal/xwindow
+
+format-padding = 0
+format-foreground = #ebff87
+
+label = %title:0:140:...%
+;label-font = 0
+
+[module/gap-small]
+type = custom/text
+content = " "
+
+[module/gap]
+type = custom/text
+content = "    "
+
+[common/pulseaudio]
+type = internal/pulseaudio
+
+use-ui-max = false
+interval = 5
+
+format-volume = <ramp-volume> <label-volume>
+label-muted = 
+label-muted-foreground = #626483
+
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+
+click-right = pavucontrol
+click-left = amixer set Master toggle
+
+;--------------------------------------------------------------------;
+; Top panel
+;--------------------------------------------------------------------;
+
+[bar/top]
+inherit = common/bar
+dpi = ${env:PM_DPI:110}
+
+modules-left = apps gap news
+modules-center = clock
+modules-right = redshift gap weather gap now-playing
+
+font-3 = "Weather Icons:size=11;5"
+
+[module/apps]
+type = custom/text
+content = 
+content-foreground = #ebff87
+click-left = rofi -show drun
+
+[module/news]
+type = custom/script
+label =  %output:0:150%...
+exec = /polybar/scripts/news
+click-left = firefox https://news.ycombinator.com/
+interval = 300
+
+[module/clock]
+type = custom/script
+exec = /home/pjvds/.config/polybar/scripts/clock
+interval = 5
+click-left = /polybar/scripts/calendar
+
+[module/redshift]
+type = custom/script
+exec = /polybar/scripts/rsctl -p '#626483' '#62d6e8' '#ebff87' '#ea51b2'
+interval = 5
+click-left = /polybar/scripts/rsctl -t
+
+[module/weather]
+type = custom/script
+exec = /home/pjvds/.config/polybar/scripts/weather -p
+interval = 1800
+#click-left = /polybar/scripts/weather -o
+label-font = 4
+
+[module/now-playing]
+type = custom/script
+label = %output:0:100%
+exec = python -u -W ignore $DOTFILES/polybar/scripts/now_playing -a '#e9e9f4' -i '#626483'
+tail = true
+click-left = playerctl play-pause
+click-middle = playerctl next
+click-right = playerctl previous
+
+
+;--------------------------------------------------------------------;
+; Bottom panel
+;--------------------------------------------------------------------;
+
+[bar/bottom]
+inherit = common/bar
+
+dpi = ${env:PM_DPI:110}
+
+bottom = true
+padding-left = 0
+padding-right = 0
+
+font-3 = "Material Icons:pixelsize=17;7"
+font-4 = "icomoon:style=Regular:pixelsize=22"
+font-5 = "Spy Agency:pixelsize=12;4"
+font-6 = "Spy Agency Laser:pixelsize=12;4"
+font-7 = "Geforce:style=Bold:pixelsize=12;5"
+
+modules-left = bspwm gap-small title
+modules-center = now-playing
+#modules-right = cpu-brand gap-small cpu-usage gap-small cpu-temp gap gpu-brand gap-small gpu-usage gap-small gpu-temp gap memory gap network gap filesystem gap usb-audio gap power-menu gap
+modules-right = cpu-brand gap-small cpu-usage gap-small gap gpu-brand gap memory gap filesystem gap network gap clock gap power-menu
+
+tray-position = right
+tray-padding = 0
+tray-background = #f9282936
+tray-maxsize = 22
+
+[module/bspwm]
+inherit = common/bspwm
+
+#pin-workspaces = true
+
+ws-icon-0 = 1;
+ws-icon-1 = 2;
+ws-icon-2 = 3;
+ws-icon-3 = 4;
+ws-icon-4 = 5;
+ws-icon-5 = 6;
+ws-icon-6 = 7;
+ws-icon-default = 
+
+[module/cpu-brand]
+type = custom/text
+content = %{T6}RYZ%{T-}%{T7}E%{T-}%{T6}N%{T-}
+
+[module/cpu-usage]
+type = internal/cpu
+interval = 5
+format-prefix = " "
+label = %percentage%%
+
+[module/cpu-temp]
+type = internal/temperature
+interval = 5
+
+hwmon-path = /sys/devices/platform/nct6775.2592/hwmon/hwmon2/temp1_input
+warn-temperature = 80
+
+format = <ramp> <label>
+format-warn = <ramp> <label-warn>
+label = %temperature-c%
+label-warn = %temperature-c%
+label-warn-foreground = #ff5555
+
+ramp-0 = 
+ramp-0-foreground = #00f769
+ramp-1 = 
+ramp-1-foreground = #00f769
+ramp-2 = 
+ramp-2-foreground = #00f769
+ramp-3 =  
+ramp-3-foreground = #00f769
+ramp-4 = 
+ramp-4-foreground = #00f769
+ramp-5 = 
+ramp-5-foreground = #ebff87
+ramp-6 = 
+ramp-6-foreground = #ebff87
+ramp-7 = 
+ramp-7-foreground = #ff5555
+
+[module/gpu-brand]
+type = custom/text
+content = %{T8}RTX 2080ti %{T-} 0%
+
+[module/gpu-usage]
+type = custom/text
+content = 0%
+
+[module/memory]
+type = internal/memory
+interval = 5
+format-prefix = " "
+label = %percentage_used%%
+
+[module/filesystem]
+type = internal/fs
+interval = 30
+mount-0 = /
+
+format-mounted-prefix = %{A1:baobab:}  %{A}
+label-mounted = %{A1:baobab:}%percentage_used%%%{A}
+label-unmounted = %mountpoint% not mounted
+label-unmounted-foreground = #ff5555
+
+[module/network]
+type = internal/network
+interface = ens33
+
+interval = 1
+ping-interval = 1
+accumulate-stats = false
+
+format-connected = <label-connected>
+format-disconnected = <label-disconnected>
+format-packetloss = <label-connected> <animation-packetloss>
+
+label-connected =  %downspeed%  %upspeed% %latency% %ping%
+label-signal = %signal%
+label-disconnected =  Not connected
+label-disconnected-foreground = #626483
+
+label-packetloss-foreground = #ff5555
+animation-packetloss-0 = 
+animation-packetloss-1 = 
+animation-packetloss-framerate = 500
+
+ramp-signal-0 = %{T5}%{T-}
+ramp-signal-1 = %{T5}%{T-}
+ramp-signal-2 = %{T5}%{T-}
+ramp-signal-3 = %{T5}%{T-}
+ramp-signal-4 = %{T5}%{T-}
+
+[module/usb-audio]
+inherit = common/pulseaudio
+sink = alsa_output.usb-Focusrite_Scarlett_2i2_USB-00.analog-stereo
+
+[module/power-menu]
+type = custom/text
+content-foreground = #ff5555
+content = 
+click-right = mygtkmenu /home/pjvds/.config/mygtkmenu/power-menu
+
+;--------------------------------------------------------------------;
+; General
+;--------------------------------------------------------------------;
+
+[settings]
+throttle-output = 5
+throttle-output-for = 10
+throttle-input-for = 30
+
+screenchange-reload = true
+;compositing-background = xor
+;compositing-background = screen
+;compositing-foreground = source
+;compositing-border = over
+
+[global/wm]
+margin-top = 0
+margin-bottom = 0
+
+;vim:ft=dosini
