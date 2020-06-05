@@ -8,7 +8,11 @@ super + Return
 
 # program launcher
 super + @space
-	dmenu_run
+  rofi -show drun -m primary
+
+# cheatsheet
+super + shift + @space
+  $DOTFILES_HOME/bspwm/script/cheatsheet
 
 # make sxhkd reload its configuration files:
 super + Escape
