@@ -210,7 +210,7 @@ modules-right = cpu-brand gap-small cpu-usage gap-small gap gpu-brand gap memory
 tray-position = right
 tray-padding = 0
 tray-background = #f9282936
-tray-maxsize = 0
+tray-maxsize = 75
 
 [module/bspwm]
 inherit = common/bspwm
