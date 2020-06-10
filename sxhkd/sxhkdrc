@@ -14,7 +14,7 @@ super + shift + {comma,period}
 
 # focus or send to previous/next desktop
 super + {comma, period}
-  bspc desktop -f {prev, next}
+  bspc desktop -f {'prev.occupied', 'next.occupied'}
 
 # program launcher
 super + @space
