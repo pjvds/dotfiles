@@ -215,20 +215,47 @@ tray-maxsize = 75
 [module/bspwm]
 inherit = common/bspwm
 
-#pin-workspaces = true
+; Only show workspaces defined on the same output as the bar
+; NOTE: The bspwm and XRandR monitor names must match, which they do by default.
+; But if you rename your bspwm monitors with bspc -n this option will no longer
+; behave correctly.
+; Default: true
+pin-workspaces = true
 
-ws-icon-0 = 1;
-ws-icon-1 = 2;
-ws-icon-2 = 3;
+; Output mode flags after focused state label
+; Default: false
+inline-mode = false
+
+format = <label-state> <label-mode>
+
+; Available tokens:
+;   None
+label-monocle = 
+label-tiled = 
+label-fullscreen = 
+label-floating = 
+label-pseudotiled = P
+label-locked = 
+label-locked-foreground = #bd2c40
+label-sticky = 
+label-sticky-foreground = #fba922
+label-private = 
+label-private-foreground = #bd2c40
+label-marked = M
+
+fuzzy-match = false
+
+ws-icon-0 = 1;
+ws-icon-1 = 2;
+ws-icon-2 = 3;
 ws-icon-3 = 4;
-ws-icon-4 = 5;
-ws-icon-5 = 6;
+ws-icon-4 = 5;
+ws-icon-5 = 6;
 ws-icon-6 = 7;
-ws-icon-7 = 7;
-ws-icon-8 = 8;
-ws-icon-9 = 9;
-ws-icon-10 = 10;
-ws-icon-default = 
+ws-icon-7 = 8;
+ws-icon-8 = 9;
+ws-icon-9 = "10;"
+;ws-icon-default = 
 
 [module/cpu-brand]
 type = custom/text
