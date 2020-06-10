@@ -41,10 +41,10 @@ def init_player(name):
             color=args.inactive,
             player=name.name
         ))
-	if name.name in ['spotify', 'vlc']:
-		player = Playerctl.Player.new_from_name(name)
-		player.connect('metadata', on_metadata, manager)
-		manager.manage_player(player)
+	#if name.name in ['spotify', 'vlc']:
+        player = Playerctl.Player.new_from_name(name)
+        player.connect('metadata', on_metadata, manager)
+        manager.manage_player(player)
 
 def on_name_appeared(manager, name):
 	init_player(name)
