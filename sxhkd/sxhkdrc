@@ -6,6 +6,16 @@
 super + Return
 	kitty
 
+
+# Rotate the windows 90 degrees in any direction
+super + shift + {comma,period}
+	bspc node @/ -R {90,270}
+
+
+# focus or send to previous/next desktop
+super + {comma, period}
+  bspc desktop -f {prev, next}
+
 # program launcher
 super + @space
   rofi -show drun -m primary
