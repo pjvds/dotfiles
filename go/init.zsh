@@ -6,8 +6,8 @@ export GOPATH="$HOME/go"
 export PATH="$PATH:$GOPATH/bin"
 export CGO_ENABLED=1
 
-if ! type goenv &> /dev/null; then
-  return
-fi
-eval "$(goenv init -)"
-
+function goenv() {
+    unset -f goenv > /dev/null 2>&1
+    eval "$(command goenv init -)"
+    goenv "$@"
+}
