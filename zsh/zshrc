@@ -1,3 +1,4 @@
+#zmodload zsh/zprof
 # If you come from bash you might have to change your $PATH.
 #
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -109,8 +110,6 @@ source $DOTFILES_HOME/init.zsh
 for f in $DOTFILES_HOME/**/init.zsh; do 
 	source "$f"
 done
-# add Pulumi to the PATH
-export PATH=$PATH:$HOME/.pulumi/bin
 
 
 # The next line updates PATH for the Google Cloud SDK.
@@ -129,3 +128,5 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 #                         streamsdb/sdbcli"
 
 bindkey 'jj' vi-cmd-mode
+
+#zprof
