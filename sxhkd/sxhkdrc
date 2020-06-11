@@ -17,8 +17,8 @@ super + {comma, period}
   bspc desktop -f {'prev.occupied', 'next.occupied'}
 
 # program launcher
-super + @space
-  rofi -show drun -m primary
+super + space
+  rofi -modi drun -show drun -m primary
 
 # cheatsheet
 super + shift + @space
