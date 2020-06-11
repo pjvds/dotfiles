@@ -44,13 +44,21 @@ super + {_,shift + }w
 super + m
 	bspc desktop -l next
 
-# send the newest marked node to the newest preselected node
-super + y
-	bspc node newest.marked.local -n newest.!automatic.local
-
 # swap the current node and the biggest node
 super + g
-	bspc node -s biggest
+	bspc node -s biggest.local
+
+# adjust gap size
+super + {minus,plus}
+	bspc config -d focused window_gap $((`bspc config -d focused window_gap` {-,+} 2 ))
+
+# Focused desktop window gap
+super + button{4,5}
+	bspc config -d focused window_gap $((`bspc config -d focused window_gap` {-,+} 2 ))
+
+# balance windows
+super + e
+  $DOTFILES_HOME/bspwm/script/balance
 
 #
 # state/flags
@@ -60,7 +68,7 @@ super + g
 super + {t,shift + t,s,f}
 	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
 
-# set the node flags
+# set the node flags (marked,locked,sticky,private)
 super + ctrl + {m,x,y,z}
 	bspc node -g {marked,locked,sticky,private}
 
@@ -94,7 +102,7 @@ super + {o,i}
 	bspc node {older,newer} -f; \
 	bspc wm -h on
 
-# focus or send to the given desktop
+# focus or osend to the given desktop
 super + {_,shift + }{1-9,0}
 	bspc {desktop -f,node -d} '^{1-9,10}'
 
@@ -118,6 +126,13 @@ super + ctrl + space
 super + ctrl + shift + space
 	bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
 
+# send node to preselection
+super + ctrl + n
+
+# send the newest marked node to the newest preselected node
+super + {shift + y, y}
+	bspc node {newest.marked.local -n newest.!automatic.local,-n last.\!automatic}
+
 #
 # move/resize
 #
@@ -133,3 +148,30 @@ super + alt + shift + {h,j,k,l}
 # move a floating window
 super + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
+
+# focus mode: float, resize and center
+super + shift + f
+#bspc rule -a \* --one-shot state=floating rectangle=920x80+50+40; \
+  bspc node -t floating
+
+# sticky mode: window on top of all desktops
+super + shift + s
+  bspc node -t floating
+	bspc node -g sticky
+
+#
+# tools / apps
+#
+
+# open emoji menu
+super + semicolon
+  rofimoji
+
+#
+# receptacle
+#
+# insert receptacle, or clear receptacles on current desktop
+super + {_,shift} + r
+  insert={true,false}; \
+  $insert && bspc node -i || \
+  for win in `bspc query -N -n .leaf.!window`; do bspc node $win -k ; done;
