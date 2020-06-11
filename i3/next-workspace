@@ -1,0 +1,48 @@
+#!/bin/bash
+
+# next-workspace: a script to emulate window managers that don't cleanup
+# buffers in i3, such as bspwm
+#
+# Requires jq.
+# -m -> move window as well
+# -p -> go backwards instead of forward
+
+set -euo pipefail
+
+if ! command -v jq >/dev/null 2>&1; then
+	echo "jq is not installed!" >&2
+	exit 100
+fi
+
+while getopts "mp" opt; do
+	case "$opt" in
+		m)  move=true
+			;;
+		p)  prev=true
+			;;
+	esac
+done
+
+MAX_WORKSPACE=10
+MIN_WORKSPACE=1
+
+found_num="$(i3-msg -t get_workspaces | jq 'map(select(.focused == true)) | .[0] | .num')"
+
+if [ -z "${prev:-}" ]; then
+	let found_num++
+else
+	let found_num--
+fi
+
+# wrapping
+if [ $found_num -lt $MIN_WORKSPACE ]; then
+   found_num=$MAX_WORKSPACE
+elif [ $found_num -gt $MAX_WORKSPACE ]; then
+   found_num=$MIN_WORKSPACE
+fi
+
+if ! [ -z "${move:-}" ]; then
+	i3-msg "move container to workspace $found_num"
+fi
+i3-msg "workspace $found_num"
+
