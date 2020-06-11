@@ -1,0 +1,19 @@
+#!/bin/zsh
+IFS='x' read screenWidth screenHeight < <(xdpyinfo | grep dimensions | grep -o '[0-9x]*' | head -n1)
+
+width=$(xdotool getactivewindow getwindowgeometry --shell | head -4 | tail -1 | sed 's/[^0-9]*//')
+height=$(xdotool getactivewindow getwindowgeometry --shell | head -5 | tail -1 | sed 's/[^0-9]*//')
+
+width=2000
+height=1600
+
+echo "screen=${screenWidth}x${screenHeight}"
+echo "size=${width}x${height}"
+
+x=$((screenWidth/2-width/2))
+y=$((screenHeight/2-height/2))
+
+echo "pos=${x}x${y}"
+
+xdotool getactivewindow windowsize "${width}" "${height}"
+xdotool getactivewindow windowmove "${x}" "${y}"
