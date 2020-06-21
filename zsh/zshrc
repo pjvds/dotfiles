@@ -70,11 +70,9 @@ plugins=(
   extract
   kubectl
   vi-mode
-  ssh-agent
   fzf
 )
 
-source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
@@ -104,12 +102,13 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-
 export DOTFILES_HOME="$HOME/dotfiles"
 source $DOTFILES_HOME/init.zsh
 for f in $DOTFILES_HOME/**/init.zsh; do 
 	source "$f"
 done
+
+source $ZSH/oh-my-zsh.sh
 
 
 # The next line updates PATH for the Google Cloud SDK.
