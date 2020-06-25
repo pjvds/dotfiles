@@ -263,7 +263,7 @@ content = %{T6}RYZ%{T-}%{T7}E%{T-}%{T6}N%{T-}
 
 [module/cpu-usage]
 type = internal/cpu
-interval = 5
+interval = 1
 format-prefix = " "
 label = %percentage%%
 
@@ -307,13 +307,13 @@ content = 0%
 
 [module/memory]
 type = internal/memory
-interval = 5
+interval = 1
 format-prefix = " "
 label = %percentage_used%%
 
 [module/filesystem]
 type = internal/fs
-interval = 30
+interval = 360
 mount-0 = /
 
 format-mounted-prefix = %{A1:baobab:}  %{A}
