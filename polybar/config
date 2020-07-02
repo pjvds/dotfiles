@@ -3,11 +3,11 @@
 ;--------------------------------------------------------------------;
 
 [common/bar]
-override-redirect = false
-
-width = 5086
+width = 100%;${env:BAR_WIDTH:100%}
 height = ${env:PM_BAR_HEIGHT:40}
-offset-x = 18
+border-left-size=18
+border-right-size=18
+;offset-x = 18
 offset-y = 12
 radius = 0
 fixed-center = true
@@ -35,7 +35,7 @@ modules-left = apps news
 modules-center = clock
 modules-right = weather now-playing
 
-wm-restack = bspwm
+wm-restack = i3
 
 locale = en_US.UTF-8
 
@@ -181,6 +181,8 @@ tail = true
 click-left = playerctl play-pause
 click-middle = playerctl next
 click-right = playerctl previous
+scroll-up =
+scroll-down =
 
 
 ;--------------------------------------------------------------------;
@@ -202,15 +204,35 @@ font-5 = "Spy Agency:pixelsize=12;4"
 font-6 = "Spy Agency Laser:pixelsize=12;4"
 font-7 = "Geforce:style=Bold:pixelsize=12;5"
 
-modules-left = bspwm gap title
+modules-left = i3 bspwm gap title
 modules-center = now-playing
 #modules-right = cpu-brand gap-small cpu-usage gap-small cpu-temp gap gpu-brand gap-small gpu-usage gap-small gpu-temp gap memory gap network gap filesystem gap usb-audio gap power-menu gap
-modules-right = cpu-brand gap-small cpu-usage gap-small gap gpu-brand gap memory gap filesystem gap network gap clock gap-small
+modules-right = cpu-brand gap-small cpu-usage gap-small gap gpu-brand gap memory gap filesystem gap network gap ping gap clock gap-small
 
 tray-position = right
 tray-padding = 0
 tray-background = #f9282936
 tray-maxsize = 75
+
+[module/i3]
+type = internal/i3
+
+ws-icon-0 = 1;
+ws-icon-1 = 2;
+ws-icon-2 = 3;
+ws-icon-3 = 4;
+ws-icon-4 = 5;
+ws-icon-5 = 6;
+ws-icon-6 = 7;
+ws-icon-7 = 8;
+ws-icon-8 = 9;
+ws-icon-9 = "10;"
+
+; Available tags:
+;   <label-state> (default) - gets replaced with <label-(focused|unfocused|visible|urgent)>
+;   <label-mode> (default)
+format = <label-state> <label-mode>
+
 
 [module/bspwm]
 inherit = common/bspwm
@@ -348,6 +370,11 @@ ramp-signal-1 = %{T5}%{T-}
 ramp-signal-2 = %{T5}%{T-}
 ramp-signal-3 = %{T5}%{T-}
 ramp-signal-4 = %{T5}%{T-}
+
+[module/ping]
+type = custom/script
+exec = ~/.config/polybar/scripts/info-pingrtt
+interval = 1
 
 [module/usb-audio]
 inherit = common/pulseaudio
