@@ -16,5 +16,5 @@ else
         icon="%{F#d60606}#%{F-}"
     fi
 
-    echo "$icon $rtt ms"
+    echo " $rtt ms"
 fi
