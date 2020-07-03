@@ -21,6 +21,6 @@
 [branch]
 	autosetuprebase = always
 [credential]
-	helper = /usr/share/doc/git/contrib/credential/libsecret/git-credential-libsecret
+	helper = store
 [pull]
 	rebase = true
