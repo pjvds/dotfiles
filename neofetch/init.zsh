@@ -1,1 +1,1 @@
-neofetch --source $DOTFILES_HOME/neofetch/streamsdb
+#neofetch --source $DOTFILES_HOME/neofetch/streamsdb
