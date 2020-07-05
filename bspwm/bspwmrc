@@ -1,9 +1,4 @@
 #! /bin/sh
-if ! pgrep -x "sxhkd" &> /dev/null
-then
-  sxhkd &
-fi
-
 bspc monitor -d 1 2 3 4 5 6 7 8 9 10
 # Colors
 bspc config normal_border_color   "#626483"
@@ -25,4 +20,6 @@ bspc config focus_follows_pointer false
 bspc config click_to_focus        button1
 bspc config pointer_modifier      mod4
 
-$POLYBAR_HOME/launch &
+$HOME/.config/sxhkd/launch &
+$HOME/.config/polybar/launch &
+vmware-user &

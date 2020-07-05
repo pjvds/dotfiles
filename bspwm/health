@@ -1,0 +1,9 @@
+#!/bin/zsh
+info "checking bspwm healt"
+if ! hash bspwm 2> /dev/null; then
+	error "bspwm command not available"
+fi
+
+if [ "$(readlink -- $HOME/.config/bspwm)" != "$DOTFILES/bspwm" ]; then
+	error "$HOME/.config/bspwm doesn't point to dotfiles confif"
+fi
