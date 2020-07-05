@@ -12,4 +12,5 @@ BASE16_SHELL_SET_BACKGROUND=false
 # Base16 Shell
 eval "$("$BASE16_SHELL/profile_helper.sh")"
 
-base16_monokai
+#base16_monokai
+base16_dracula
