@@ -65,7 +65,7 @@ def blood(c, options = {}):
     c.colors.completion.item.selected.fg = palette['foreground']
 
     ## Foreground color of the matched text in the completion.
-    c.colors.completion.match.fg = palette['orange']
+    c.colors.completion.match.fg = palette['yellow']
 
     ## Color of the scrollbar in completion view
     c.colors.completion.scrollbar.bg = palette['background']
@@ -99,13 +99,13 @@ def blood(c, options = {}):
     c.colors.hints.bg = palette['background']
 
     ## Font color for hints.
-    c.colors.hints.fg = palette['purple']
+    c.colors.hints.fg = palette['yellow']
 
     ## Hints
     c.hints.border = '1px solid ' + palette['background-alt']
 
     ## Font color for the matched part of hints.
-    c.colors.hints.match.fg = palette['foreground-alt']
+    c.colors.hints.match.fg = palette['purple']
 
     ## Background color of the keyhint widget.
     c.colors.keyhint.bg = palette['background']
