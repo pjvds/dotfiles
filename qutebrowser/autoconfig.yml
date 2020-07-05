@@ -19,11 +19,11 @@ settings:
     global: true
   content.geolocation:
     https://lastnoted.com: true
- fonts.default_family:
+  fonts.default_family:
     global:
     - Jetbrains Mono
   fonts.default_size:
-    global: 7pt
+    global: 6pt
   hints.chars:
     global: abcdefghijklmnopqrstuvwxyz!@#$%^*()+{}:|?-=[];\,./
   qt.highdpi:

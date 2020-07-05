@@ -2,7 +2,15 @@
 ## Documentation:
 ##   qute://help/configuring.html
 ##   qute://help/settings.html
+import dracula.draw
 
 ## This is here so configs done via the GUI are still loaded.
 ## Remove it to not load settings done via the GUI.
 config.load_autoconfig()
+
+dracula.draw.blood(c, {
+    'spacing': {
+        'vertical': 6,
+        'horizontal': 8
+    }
+})
