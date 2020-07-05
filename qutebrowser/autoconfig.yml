@@ -10,6 +10,7 @@ settings:
     global:
       normal:
         ze: spawn --userscript qute-lastpass -e
+        zp: spawn --userscript qute-lastpass -w
         zw: spawn --userscript qute-lastpass -w
         zz: spawn --userscript qute-lastpass
   content.notifications:
