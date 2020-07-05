@@ -73,6 +73,8 @@ plugins=(
   fzf
 )
 
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+
 
 # User configuration
 
@@ -127,5 +129,4 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 #                         streamsdb/sdbcli"
 
 bindkey 'jj' vi-cmd-mode
-
 #zprof
