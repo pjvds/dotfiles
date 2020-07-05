@@ -13,18 +13,19 @@ settings:
         zp: spawn --userscript qute-lastpass -w
         zw: spawn --userscript qute-lastpass -w
         zz: spawn --userscript qute-lastpass
-  content.notifications:
-    https://www.reddit.com: true
-  fonts.default_family:
+  colors.webpage.bg:
+    global: '#1B1C24'
+  colors.webpage.darkmode.enabled:
+    global: true
+  content.geolocation:
+    https://lastnoted.com: true
+ fonts.default_family:
     global:
     - Jetbrains Mono
   fonts.default_size:
     global: 7pt
   hints.chars:
     global: abcdefghijklmnopqrstuvwxyz!@#$%^*()+{}:|?-=[];\,./
-  qt.args:
-    global:
-    - blink-settings=darkModeEnabled=true
   qt.highdpi:
     global: false
   url.searchengines:
