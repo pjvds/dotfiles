@@ -171,7 +171,7 @@ def blood(c, options = {}):
     c.colors.statusbar.command.bg = palette['background']
 
     ## Foreground color of the statusbar in command mode.
-    c.colors.statusbar.command.fg = palette['pink']
+    c.colors.statusbar.command.fg = palette['yellow']
 
     ## Background color of the statusbar in private browsing + command mode.
     c.colors.statusbar.command.private.bg = palette['background']
