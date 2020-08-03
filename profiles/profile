@@ -9,3 +9,7 @@ export QT_AUTO_SCREEN_SCALE_FACTOR=0
 export QT_SCALE_FACTOR=1.4
 #export QT_FONT_DPI=96
 export _JAVA_AWT_WM_NONREPARENTING=1
+export BROWSER=qutebrowser
+
+# turn of PC speaker
+xset -b
