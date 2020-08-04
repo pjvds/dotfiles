@@ -1,5 +1,6 @@
 alias ga='git add -p'
 alias gc='git commit --verbose'
+alias gd='git diff'
 alias gs='git status'
 alias gcm='git commit -m'
 alias gfa='git fetch --all'
