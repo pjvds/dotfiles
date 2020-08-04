@@ -1,4 +1,5 @@
 alias d='docker'
+alias dfl='docker logs -f'
 alias dc='docker-compose'
 alias dcl='docker-compose logs -f'
 alias dcu='docker-compose up -d'
