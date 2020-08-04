@@ -14,7 +14,24 @@ if [ $commands[k3d] ]; then
     # Load auto-completion
     eval $(k3d completion zsh)
 
-    # Execute 'kubectl' binary
+    # Execute binary
+    $0 "$@"
+  }
+fi
+
+
+# Check if 'argo' is a command in $PATH
+if [ $commands[argo] ]; then
+
+  # Placeholder 'argo' shell function:
+  # Will only be executed on the first call to 'argo'
+  argo() {
+    # Remove this function, subsequent calls will execute 'kubectl' directly
+    unfunction "$0"
+
+    eval $(argo completion zsh)
+
+    # Execute binary
     $0 "$@"
   }
 fi
