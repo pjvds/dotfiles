@@ -35,3 +35,8 @@ if [ $commands[argo] ]; then
     $0 "$@"
   }
 fi
+
+# print secret values decoded
+function kubeprintsec () {
+  kubectl get secrets $1 -o json | jq -r '.data | to_entries[] | "\(.key): \(.value | @base64d)"'
+}
