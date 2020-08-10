@@ -46,13 +46,17 @@ How to quit this editor?
 
 A popular community-driven vim distribution.
 
-### spaceship
+### starship
 
-A popular zsh prompt.
+A popular zsh prompt with async support.
 
 ### ncspot
 
 A commandline ncurses client for spotify. Think ncmpc but for the popular streaming service spotify.
+
+### the silver searches
+
+Searching tool with a focus on speed.
 
 ### reflex
 
