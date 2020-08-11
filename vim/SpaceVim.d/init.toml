@@ -86,3 +86,6 @@ name = "peitalin/vim-jsx-typescript"
 
 [[custom_plugins]]
 name = "maxmellon/vim-jsx-pretty"
+
+[[custom_plugins]]
+name = "lilydjwg/colorizer"
