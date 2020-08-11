@@ -3,3 +3,5 @@ export EDITOR="$VISUAL"
 export SUDO_EDITOR=$(which vim)
 
 set clipboard=unnamedplus
+alias v=nvim
+alias vim=v
