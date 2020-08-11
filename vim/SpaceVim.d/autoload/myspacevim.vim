@@ -1,6 +1,8 @@
 func! myspacevim#before() abort
     let base16colorspace=256
 
+    let g:airline_theme='dracula'
+
     " live update of substitution
     set inccommand=nosplit
     

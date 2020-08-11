@@ -11,7 +11,7 @@
     # set spacevim theme. by default colorscheme layer is not loaded,
     # if you want to use more colorscheme, please load the colorscheme
     # layer
-    colorscheme = "molokai"
+    colorscheme = "dracula"
     colorscheme_bg = "dark"
     # Disable guicolors in basic mode, many terminal do not support 24bit
     # true colors
@@ -36,6 +36,10 @@
 name = 'autocomplete'
 auto-completion-return-key-behavior = "complete"
 auto-completion-tab-key-behavior = "smart"
+
+[[layers]]
+  name = "core#statusline"
+  enable = false
 
 [[layers]]
 name = 'ctrlp'
@@ -71,6 +75,11 @@ merged = 0
 [[layers]]
 name = "colorscheme"
 merged = 0
+
+[[custom_plugins]]
+repo = "dracula/vim"
+name = "dracula"
+merged = false
 
 [[custom_plugins]]
 name = "peitalin/vim-jsx-typescript"
