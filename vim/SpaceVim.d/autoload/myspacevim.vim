@@ -88,7 +88,8 @@ func! myspacevim#before() abort
       \ 'ctagsargs' : '-sort -silent'
     \ }
 
-
+    " This instructs deoplete to use omni completion for Go files.
+    call deoplete#custom#option('omni_patterns', { 'go': '[^. *\t]\.\w*' })
 endf
 
 func! myspacevim#after() abort
