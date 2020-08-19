@@ -355,7 +355,7 @@ format-connected = <label-connected>
 format-disconnected = <label-disconnected>
 format-packetloss = <label-connected> <animation-packetloss>
 
-label-connected =  %downspeed% %upspeed%
+label-connected =  %downspeed%  %upspeed%
 label-signal = %signal%
 label-disconnected =  Not connected
 label-disconnected-foreground = #626483
