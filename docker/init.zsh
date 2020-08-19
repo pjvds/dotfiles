@@ -15,3 +15,5 @@ alias ctop='docker run \
 # see: https://docs.docker.com/compose/completion/
 plugins+=('docker')
 plugins+=('docker-compose')
+
+alias lzd='docker run --rm -it -v /var/run/docker.sock:/var/run/docker.sock -v /yourpath/config:/.config/jesseduffield/lazydocker lazyteam/lazydocker'
