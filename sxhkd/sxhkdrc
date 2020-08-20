@@ -106,6 +106,10 @@ super + bracket{left,right}
 super + {grave,Tab}
 	bspc {node,desktop} -f last
 
+# move node to last desktop
+super + shift + Tab
+	bspc node --to-desktop last --follow
+
 # focus the older or newer node in the focus history
 super + {o,i}
 	bspc wm -h off; \
