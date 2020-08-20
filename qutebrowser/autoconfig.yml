@@ -19,6 +19,8 @@ settings:
     global: true
   content.geolocation:
     https://lastnoted.com: true
+  content.notifications:
+    https://www.reddit.com: true
   fonts.default_family:
     global:
     - Jetbrains Mono
