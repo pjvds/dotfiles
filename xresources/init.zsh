@@ -1,2 +1,2 @@
 #!/bin/zsh
-xrdb $DOTFILES/xresources/themes/dracula
+xrdb -merge $DOTFILES/xresources/themes/dracula

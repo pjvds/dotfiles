@@ -5,3 +5,56 @@ Xft.hintstyle:  hintfull
 Xft.hinting: 1
 Xft.antialias: 1
 Xft.rgba: rgb
+*locale: UTF-8
+
+XTerm.*.faceName: JetBrains Mono
+XTerm.*.renderFont: true
+XTerm.*.locale: true
+XTerm.*.utf8: 2
+xterm.*.Translations: #override \
+                 Ctrl Shift <Key>V:    insert-selection(CLIPBOARD) \n\
+                 Ctrl Shift <Key>C:    copy-selection(CLIPBOARD)
+XTerm.*.selectToClipboard: true
+XTerm.*.saveLines: 10000
+
+! dracula theme
+*.foreground:  #f8f8f2
+*.background:  #1e1f29
+*.cursorColor: #bbbbbb
+!
+! Black
+*.color0:      #000000
+*.color8:      #555555
+!
+! Red
+*.color1:      #ff5555
+*.color9:      #ff5555
+!
+! Green
+*.color2:      #50fa7b
+*.color10:     #50fa7b
+!
+! Yellow
+*.color3:      #f1fa8c
+*.color11:     #f1fa8c
+!
+! Blue
+*.color4:      #bd93f9
+*.color12:     #bd93f9
+!
+! Magenta
+*.color5:      #ff79c6
+*.color13:     #ff79c6
+!
+! Cyan
+*.color6:      #8be9fd
+*.color14:     #8be9fd
+!
+! White
+*.color7:      #bbbbbb
+*.color15:     #ffffff
+!
+! Bold, Italic, Underline
+*.colorBD:     #ffffff
+!*.colorIT:
+!*.colorUL:
