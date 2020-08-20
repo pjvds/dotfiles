@@ -186,7 +186,12 @@ super + semicolon
 # receptacle
 #
 # insert receptacle, or clear receptacles on current desktop
-super + {_,shift} + r
-  insert={true,false}; \
-  $insert && bspc node -i || \
-  for win in `bspc query -N -n .leaf.!window`; do bspc node $win -k ; done;
+#super + {_,shift} + r
+#  insert={true,false}; \
+#  $insert && bspc node -i || \
+#  for win in `bspc query -N -n .leaf.!window`; do bspc node $win -k ; done;
+#
+
+# Snipping screenshot
+super + s
+  maim -s | xclip -selection clipboard -t image/png
