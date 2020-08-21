@@ -66,4 +66,4 @@ Utility to watch file changes.
 
 My daily driver is a Planck - High Profile with Gateron Silent Clear (Linear | 4.0mm travel | 35g Actuation). It's a 40% ortholiniar keyboard that allows me to move keys towards my fingers with layer keys instead of moving my fingers to the keys. With my current setup a finger never has to travel more than one key in any direction.
 
-![keyboard layout](https://github.com/pjvds/dotfiles/blob/master/qmk/keyboard-layout.jpg?raw=true)
+![keyboard layout](https://github.com/pjvds/dotfiles/blob/master/qmk/keyboard-layout.png?raw=true)
