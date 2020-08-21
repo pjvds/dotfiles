@@ -195,3 +195,15 @@ super + semicolon
 # Snipping screenshot
 super + s
   maim -s | xclip -selection clipboard -t image/png
+
+#
+# Cheetsheets
+#
+super + z
+  kill -9 $(cat "/tmp/keebsheet.pid") || \
+  (bspc rule -a \* -o state=floating layer=above && \
+  feh $DOTFILES/qmk/keyboard-layout.png &; \
+  echo "$!" > /tmp/keebsheet.pid)
+
+#super + @z
+#kill -9 $(cat "/tmp/keebsheet.pid")
