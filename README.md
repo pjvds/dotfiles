@@ -64,6 +64,13 @@ Utility to watch file changes.
 
 # Keyboard
 
-My daily driver is a Planck - High Profile with Gateron Silent Clear (Linear | 4.0mm travel | 35g Actuation). It's a 40% ortholiniar keyboard that allows me to move keys towards my fingers with layer keys instead of moving my fingers to the keys. With my current setup a finger never has to travel more than one key in any direction.
+* Olkb Plank rev6 - High Profile ([site](https://olkb.com/collections/planck))
+* [Gateron Silent Clear (Linear | 4.0mm travel | 35g Actuation)](https://candykeys.com/product/gateron-silent-clear)
+* Krytox 205g0 lube for the switches and stabalizers
+* ZealPC Stabilizers v2
+* Matt3o /dev/tty keycaps with MT3 profile ([site](https://matt3o.com/about-mt3-profile-and-devtty-set/))
+* COMING SOON: Typeau .40 Planck Edition ([site](https://typeau.com/posts/typeau-40-planck-edition-update))
+
+My daily driver is a 40% ortholiniar keyboard that allows me to move keys towards my fingers with layer keys instead of moving my fingers to the keys. With my current setup a finger never has to travel more than one key in any direction. Loving it!
 
 ![keyboard layout](https://github.com/pjvds/dotfiles/blob/master/qmk/keyboard-layout.png?raw=true)
