@@ -77,4 +77,4 @@ My daily driver is a 40% ortholiniar keyboard that allows me to move keys toward
 
 ## Keebsheet
 
-Press <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>Space</kbd> to toggle keebsheet.
+Press <kbd>Command</kbd> + <kbd>Z</kbd> to toggle keebsheet.
