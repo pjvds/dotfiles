@@ -5,6 +5,9 @@ scan_timeout = 2
 [character]      # The name of the module we are configuring is "character"
 symbol = "➜"     # The "symbol" segment is being set to "➜"
 
+[docker_context]
+disabled = false
+
 [kubernetes]
 disabled = false
 
