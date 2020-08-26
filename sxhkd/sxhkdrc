@@ -34,9 +34,10 @@ super + space
 super + shift + @space
   $DOTFILES_HOME/bspwm/script/cheatsheet
 
-# make sxhkd reload its configuration files:
+# make sxhkd and polybar reload its configuration files
 super + Escape
-	pkill -USR1 -x sxhkd
+	pkill -USR1 -x sxhkd; \
+  $DOTFILES/polybar/launch
 
 #
 # bspwm hotkeys
