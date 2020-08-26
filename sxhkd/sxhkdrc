@@ -204,3 +204,6 @@ super + z
   (bspc rule -a \* -o state=floating layer=above && \
   feh $DOTFILES/qmk/keyboard-layout.png &; \
   echo "$!" > /tmp/keebsheet.pid)
+
+super + shift + q
+  powermenu
