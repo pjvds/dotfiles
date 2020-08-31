@@ -327,6 +327,11 @@ content = %{T8}RTX 2080ti %{T-} 0%
 type = custom/text
 content = 0%
 
+[module/memory-brand]
+type = custom/text
+content = %{T8}Gskill Ripjaws %{T-}
+
+
 [module/memory]
 type = internal/memory
 interval = 1

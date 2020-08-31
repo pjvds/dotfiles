@@ -16,7 +16,6 @@ super + r : {h,j,k,l}
 super + Return
 	alacritty
 
-
 # Rotate the windows 90 degrees in any direction
 super + shift + {comma,period}
 	bspc node @/ -R {90,270}
