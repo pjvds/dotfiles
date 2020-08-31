@@ -205,5 +205,10 @@ super + z
   feh $DOTFILES/qmk/keyboard-layout.png &; \
   echo "$!" > /tmp/keebsheet.pid)
 
+# launch: powermenu
 super + shift + q
   powermenu
+
+# launch: qutebrowser-profile
+super + q
+  qutebrowser-profile
