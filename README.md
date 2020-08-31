@@ -1,6 +1,6 @@
 # dotfiles
 
-The base of my development environment is Arch Linux with the tilling window. Most applications are configured with a dark theme called monokai in combination with the purple tints of the dracula theme.
+This repostory contains 10 years of dotfile history with various configurations. Currently I'm running Arch Linux with the tilling window manager bspwm. Most applications are configured with a dark theme called monokai in combination with the purple tints of the dracula theme.
 
 ### bspwm
 
@@ -36,7 +36,7 @@ Turns the already great zsh shell into an 10x environment.
 
 ### z
 
-Utility to jump to directies. It records all your directory changes and lets you jump to them. For example, `z code` will jump to `/home/pjvds/Code`.
+Utility to jump to directies. It records all your directory changes and lets you jump to them. For example, `z code` will jump to `/home/pjvds/code`.
 
 ### vim
 
