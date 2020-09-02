@@ -64,17 +64,19 @@ Utility to watch file changes.
 
 # Keyboard
 
+My daily driver is a 40% ortholiniar keyboard that allows me to move keys towards my fingers, instead of moving my fingers to the keys. With this keyboard I never have to travel more than a single key in any direction.
+
 ## Specs
 
+* Typeau .40 Planck Edition ([site](https://typeau.com/posts/typeau-40-planck-edition-update))
 * OLKB Planck PCB Rev 6.1 ([site](https://olkb.com/products/planck-pcb))
+* Matt3o /dev/tty keycaps with MT3 profile ([site](https://matt3o.com/about-mt3-profile-and-devtty-set/))
 * Gateron Silent Clear (Linear | 4.0mm travel | 35g Actuation) ([site](https://candykeys.com/product/gateron-silent-clear))
 * Krytox 205g0 lube for the switches and stabalizers 
 * ZealPC Stabilizers v2
-* Matt3o /dev/tty keycaps with MT3 profile ([site](https://matt3o.com/about-mt3-profile-and-devtty-set/))
-* Typeau .40 Planck Edition ([site](https://typeau.com/posts/typeau-40-planck-edition-update))
-
-My daily driver is a 40% ortholiniar keyboard that allows me to move keys towards my fingers with layer keys instead of moving my fingers to the keys. With my current setup a finger never has to travel more than one key in any direction. Loving it!
 
 ## Keebsheet
 
 Press <kbd>Command</kbd> + <kbd>Z</kbd> to toggle keebsheet.
+
+![keyboard layout](https://github.com/pjvds/dotfiles/raw/master/qmk/keyboard-layout.png)
