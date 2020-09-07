@@ -2,6 +2,16 @@
 
 This repostory contains 10 years of dotfile history with various configurations. Currently I'm running Arch Linux with the tilling window manager bspwm. Most applications are configured with a dark theme called monokai in combination with the purple tints of the dracula theme.
 
+## Features
+
+### Qutebrowser profiles
+
+Press <kbd>Command</kbd> + <kbd>Q</kbd> to launch the qutebrowser profile picker. This allows you to pick a profile for the browser, comparable to Firefox Containers but at window level instead of tabs.
+
+Profiles are identified by different border colors.
+
+![keyboard layout](https://github.com/pjvds/dotfiles/raw/master/features/qutebrowser-profile-colors.png)
+
 ### bspwm
 
 Tilling window manager that rocks!
