@@ -192,9 +192,13 @@ super + semicolon
 #  for win in `bspc query -N -n .leaf.!window`; do bspc node $win -k ; done;
 #
 
-# Snipping screenshot
+# Snipping screenshot to clipboard
 super + s
   maim -s | xclip -selection clipboard -t image/png
+#
+# Snipping screenshot to file
+super + alt + s
+  maim -s ~/Pictures/screenshot-$(date +%s).png
 
 #
 # Cheetsheets
