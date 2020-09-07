@@ -1,3 +1,7 @@
+prompt {
+enabled: false;
+}
+
 * {
     background: 	rgba ( 40, 42, 54, 100 % );
     current-line: 	rgba ( 68, 71, 90, 100 % );
