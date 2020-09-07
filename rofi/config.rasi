@@ -5,7 +5,6 @@ enabled: false;
 * {
     background: 	rgba ( 40, 42, 54, 100 % );
     current-line: 	rgba ( 68, 71, 90, 100 % );
-    selection: 	rgba ( 68, 71, 90, 100 % );
     foreground: 	rgba ( 248, 248, 242, 100 % );
     comment: 	rgba ( 98, 114, 164, 100 % );
     cyan: 	rgba ( 139, 233, 253, 100 % );
@@ -17,22 +16,22 @@ enabled: false;
     yellow: 	rgba ( 241, 250, 140, 100 % );
 }
 * {
-    selected-normal-background:     @yellow;
+    selected-normal-background:     @backgroud;
     normal-background:              @background;
     normal-foreground:              @foreground;
     alternate-normal-background:    @normal-background;
     alternate-normal-foreground:    @foreground;
-    selected-normal-foreground:     @normal-background;
+    selected-normal-foreground:     @yellow;
     urgent-foreground:              @red;
     urgent-background:              @normal-background;
     alternate-urgent-background:    @urgent-background;
     alternate-urgent-foreground:    @urgent-foreground;
-    selected-active-foreground:     @foreground;
+    selected-active-foreground:     @yellow;
     selected-urgent-background:     @normal-background;
     alternate-active-background:    @normal-background;
     alternate-active-foreground:    @selected-active-foreground;
     alternate-active-background:    @selected-active-background;
-    border-color:                   @selected-normal-background;
+    border-color:                   @yellow;
     separatorcolor:                 @border-color;
     spacing: 2;
     background-color: @normal-background;
