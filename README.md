@@ -2,9 +2,15 @@
 
 This repostory contains 10 years of dotfile history with various configurations. Currently I'm running Arch Linux with the tilling window manager bspwm. Most applications are configured with a dark theme called monokai in combination with the purple tints of the dracula theme.
 
-## Features
+# Features
 
-### Qutebrowser profiles
+## Ly
+
+A display manager (or login manager) that is displayed at the end of the boot process. It allows me to switch between i3 and bspwm.
+
+![display manager Ly](https://github.com/pjvds/dotfiles/raw/master/features/Ly-display-manager.png)
+
+## Qutebrowser 
 
 Press <kbd>Command</kbd> + <kbd>Q</kbd> to launch the qutebrowser profile picker. This allows you to pick a profile for the browser, comparable to Firefox Containers but at process level instead of tabs.
 
