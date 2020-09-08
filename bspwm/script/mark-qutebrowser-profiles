@@ -5,47 +5,35 @@ command -v jq >/dev/null 2>&1 || { echo >&2 "Command jq is required to run this 
 command -v chwb >/dev/null 2>&1 || { echo >&2 "Command chwb (part of wmutils) is required to run this script and is missing.  Aborting."; exit 1; }
 command -v xprop >/dev/null 2>&1 || { echo >&2 "Command xprop (part of wmutils) is required to run this script and is missing.  Aborting."; exit 1; }
 
+declare -A profiles=(
+  [born2code]='#bd93f9'
+  [craftify]='#ff79c6'
+  [deloitte]='#50FA7B'
+)
+
 bspc subscribe node_stack | while read -r action monitor_id desktop_id node_id; do
-    echo Action: $action
-    echo Monitor: $monitor_id
-    echo Desktop: $desktop_id
+    echo action: $action
+    echo monitor: $monitor_id
+    echo desktop: $desktop_id
     echo node_id: $node_id
 
     className=$(bspc query -T -n $node_id | jq -r '.client.className')
-    echo ClassName: $className
+    echo className: $className
 
-    case "$className" in
-        "qutebrowser")
-            wm_name=$(xprop -id $node_id WM_NAME)
-            echo "WM_NAME: $wm_name"
+    if [ "$className" != "qutebrowser" ]; then
+      continue
+    fi
 
-            case "$wm_name" in
-             *\[born2code\]*)
-              #6272a4
-              #bd93f9
-              chwb -c 0x6272a4 $node_id 
-              ;;
-             *\[craftify\]*)
-              #ff79c6
-              chwb -c 0xff79c6 $node_id
-              ;;
-             *\[deloitte\]*) 
-              #50FA7B
-              chwb -c 0x50FA7B $node_id
-              ;;
-             *\[deloitte-admin\]*) 
-              #ff5555
-              chwb -c 0xff5555 $node_id
-              ;;
-              *) 
-              echo "missing profile in WM_NAME: $wm_name"
-              ;;
-            esac
+    wm_name=$(xprop -id $node_id WM_NAME)
 
-            ;;
-        *)
-            # Reset to default focused_border_color
-            # Not required if using chwb approach
-            # bspc config focused_border_color "#dfdfdf"
-        esac
+    for name in "${!profiles[@]}"; do
+      if echo "$wm_name" | grep "[$name]"; then
+        color="0x${profiles[$name]:1}"
+
+        echo "found profile $name for node $node_id: $color"
+        chwb -c "$color" $node_id
+        break
+      fi
+    done
+    echo
 done
