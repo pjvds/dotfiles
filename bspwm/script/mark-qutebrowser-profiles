@@ -9,6 +9,7 @@ declare -A profiles=(
   [born2code]='#bd93f9'
   [craftify]='#ff79c6'
   [deloitte]='#50FA7B'
+  [deloitte-admin]='#ff5555'
 )
 
 bspc subscribe node_stack | while read -r action monitor_id desktop_id node_id; do
