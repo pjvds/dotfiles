@@ -28,7 +28,8 @@ bspc subscribe node_stack | while read -r action monitor_id desktop_id node_id; 
     wm_name=$(xprop -id $node_id WM_NAME)
 
     for name in "${!profiles[@]}"; do
-      if echo "$wm_name" | grep "[$name]"; then
+      echo "checking for profile in window name: $wm_name"
+      if echo "$wm_name" | grep -F "[$name]"; then
         color="0x${profiles[$name]:1}"
 
         echo "found profile $name for node $node_id: $color"
