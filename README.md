@@ -30,6 +30,8 @@ A simple X hotkey daemon that maps input events to command executions.
 
 A utility that is used to generate the status bar at the bottom of the screen.
 
+![polybar](https://github.com/pjvds/dotfiles/raw/master/features/polybar.png)
+
 ## dmenu
 
 A utility to launch apps from the i3 desktop. [command]+[d] is bound to start it.
