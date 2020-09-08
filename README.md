@@ -18,63 +18,63 @@ Profiles are identified by different border colors. Here is an example of 3 brow
 
 ![per profile border color](https://github.com/pjvds/dotfiles/raw/master/features/qutebrowser-profile-colors.png)
 
-### bspwm
+## bspwm
 
 Tilling window manager that rocks!
 
-### sxhkd
+## sxhkd
 
 A simple X hotkey daemon that maps input events to command executions.
 
-### polybar
+## polybar
 
 A utility that is used to generate the status bar at the bottom of the screen.
 
-### dmenu
+## dmenu
 
 A utility to launch apps from the i3 desktop. [command]+[d] is bound to start it.
 
-### qutebrowser
+## qutebrowser
 
 A keyboard-focused browser with a minimal GUI that allows you to surf the web without a mouse.
 
-### alacritty
+## alacritty
 
 Fasted terminal emulator in the world.
 
-### zsh
+## zsh
 
 A modern shell most closely resembles Korn shell. Despite being over 20 years old it is considered _new_. Famous for command completion, path expansion and replacement. It is a Bash drop in replacement.
 
-### oh-my-zsh
+## oh-my-zsh
 
 Turns the already great zsh shell into an 10x environment.
 
-### z
+## z
 
 Utility to jump to directies. It records all your directory changes and lets you jump to them. For example, `z code` will jump to `/home/pjvds/code`.
 
-### vim
+## vim
 
 How to quit this editor?
 
-### spacevim
+## spacevim
 
 A popular community-driven vim distribution.
 
-### starship
+## starship
 
 A popular zsh prompt with async support.
 
-### ncspot
+## ncspot
 
 A commandline ncurses client for spotify. Think ncmpc but for the popular streaming service spotify.
 
-### the silver searches
+## the silver searches
 
 Searching tool with a focus on speed.
 
-### reflex
+## reflex
 
 Utility to watch file changes.
 
