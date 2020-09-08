@@ -6,11 +6,11 @@ This repostory contains 10 years of dotfile history with various configurations.
 
 ### Qutebrowser profiles
 
-Press <kbd>Command</kbd> + <kbd>Q</kbd> to launch the qutebrowser profile picker. This allows you to pick a profile for the browser, comparable to Firefox Containers but at window level instead of tabs.
+Press <kbd>Command</kbd> + <kbd>Q</kbd> to launch the qutebrowser profile picker. This allows you to pick a profile for the browser, comparable to Firefox Containers but at process level instead of tabs.
 
 Profiles are identified by different border colors. Here is an example of 3 browser instances each running a different profile identified by a per profile border color.
 
-![keyboard layout](https://github.com/pjvds/dotfiles/raw/master/features/qutebrowser-profile-colors.png)
+![per profile border color](https://github.com/pjvds/dotfiles/raw/master/features/qutebrowser-profile-colors.png)
 
 ### bspwm
 
