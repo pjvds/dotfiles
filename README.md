@@ -82,8 +82,9 @@ My daily driver is a 40% ortholiniar keyboard that allows me to move keys toward
 * OLKB Planck PCB Rev 6.1 ([site](https://olkb.com/products/planck-pcb))
 * Matt3o /dev/tty keycaps with MT3 profile ([site](https://matt3o.com/about-mt3-profile-and-devtty-set/))
 * Gateron Silent Clear (Linear | 4.0mm travel | 35g Actuation) ([site](https://candykeys.com/product/gateron-silent-clear))
-* Krytox 205g0 lube for the switches and stabalizers 
-* ZealPC Stabilizers v2
+* Krytox 205g0 lube for the switches and stabalizers
+* TX switch films 0.125mm ([site](https://www.us.txkeyboards.com/products/switch-films?variant=32401591959612))
+* ZealPC Stabilizers v2 ([site](https://zealpc.net/products/zealstabilizers))
 
 ## Keebsheet
 
