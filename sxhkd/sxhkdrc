@@ -195,11 +195,11 @@ super + semicolon
 
 # Snipping screenshot to clipboard
 super + s
-  maim -s | xclip -selection clipboard -t image/png
+  maim --hidecursor -s | xclip -selection clipboard -t image/png
 #
 # Snipping screenshot to file
 super + alt + s
-  maim -s ~/Pictures/screenshot-$(date +%s).png
+  maim --hidecursor -s ~/Pictures/screenshot-$(date +%s).png
 
 #
 # Cheetsheets
