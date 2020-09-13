@@ -7,7 +7,7 @@
 # - systemd, but you can replace the commands for OpenRC or anything else
 #
 
-chosen=$(echo -e "[Cancel]\nShutdown\nReboot\nSuspend\nHibernate\nHybrid-sleep\nSuspend-then-hibernate" | rofi -dmenu -i)
+chosen=$(echo -e "[Cancel]\nShutdown\nReboot\nLogout\nSuspend\nHibernate\nHybrid-sleep\nSuspend-then-hibernate" | rofi -dmenu -i)
 # Info about some states are available here:
 # https://www.freedesktop.org/software/systemd/man/systemd-sleep.conf.html#Description
 
@@ -15,6 +15,11 @@ if [[ $chosen = "Shutdown" ]]; then
 	systemctl poweroff
 elif [[ $chosen = "Reboot" ]]; then
 	systemctl reboot
+elif [[ $chosen = "Logout" ]]; then
+  for window_id in $(bspc query -W); do
+    bspc window $window_id -c
+  done
+  bspc quit
 elif [[ $chosen = "Suspend" ]]; then
 	systemctl suspend
 elif [[ $chosen = "Hibernate" ]]; then
