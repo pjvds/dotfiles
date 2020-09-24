@@ -20,6 +20,8 @@ bspc config focus_follows_pointer false
 bspc config click_to_focus        button1
 bspc config pointer_modifier      mod4
 
+source $HOME/.profile
+
 $HOME/.config/sxhkd/launch &
 $HOME/.config/polybar/launch &
 $DOTFILES/bspwm/script/mark-qutebrowser-profiles &
