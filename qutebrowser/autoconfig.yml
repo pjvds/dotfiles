@@ -6,6 +6,14 @@
 
 config_version: 2
 settings:
+  aliases:
+    global:
+      dl: open https://microsoft.com/devicelogin
+      q: close
+      qa: quit
+      w: session-save
+      wq: quit --save
+      wqa: quit --save
   bindings.commands:
     global:
       normal:
