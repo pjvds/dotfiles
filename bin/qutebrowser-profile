@@ -207,7 +207,7 @@ fi
 
 if [ -z "$dmenu" ]; then
   if which rofi >/dev/null; then
-    dmenu="rofi -dmenu"
+    dmenu="rofi -dmenu -sort"
     rofi=1
 
   elif which dmenu >/dev/null; then
