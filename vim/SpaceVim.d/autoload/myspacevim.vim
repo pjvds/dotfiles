@@ -50,6 +50,11 @@ func! myspacevim#before() abort
     let g:ale_lint_on_save = 1
     let g:ale_fix_on_save = 1
 
+    let g:go_info_mode = 'gopls'
+    let g:go_def_mode = 'gopls'
+    let g:go_info_mode = 'gopls'
+    let g:go_referrers_mode = 'gopls'
+
     " Use the stdio version of OmniSharp-roslyn
     let g:OmniSharp_server_stdio = 1
 
@@ -58,42 +63,17 @@ func! myspacevim#before() abort
 
     " Override default ignore pattern in file tree to still
     " show other . files
-    let g:vimfiler_ignore_pattern = '^\%(\.git\|\.DS_Store\)$'
-
-    let g:tagbar_type_go = {
-      \ 'ctagstype' : 'go',
-      \ 'kinds'     : [
-        \ 'p:package',
-        \ 'i:imports:1',
-        \ 'c:constants',
-        \ 'v:variables',
-        \ 't:types',
-        \ 'n:interfaces',
-        \ 'w:fields',
-        \ 'e:embedded',
-        \ 'm:methods',
-        \ 'r:constructor',
-        \ 'f:functions'
-      \ ],
-      \ 'sro' : '.',
-      \ 'kind2scope' : {
-        \ 't' : 'ctype',
-        \ 'n' : 'ntype'
-      \ },
-      \ 'scope2kind' : {
-        \ 'ctype' : 't',
-        \ 'ntype' : 'n'
-      \ },
-      \ 'ctagsbin'  : 'gotags',
-      \ 'ctagsargs' : '-sort -silent'
-    \ }
-
-    " This instructs deoplete to use omni completion for Go files.
-    call deoplete#custom#option('omni_patterns', { 'go': '[^. *\t]\.\w*' })
+    set completeopt+=noselect
 endf
 
 func! myspacevim#after() abort
     " no linters for go
     let g:go_metalinter_enabled=0
     let g:syntastic_go_checkers = ['go']
+    " use gopls instread of gocode
+    let g:go_def_mode = "gopls"
+
+    " This instructs deoplete to use omni completion for Go files.
+    call deoplete#custom#option('omni_patterns', { 'go': '[^. *\t]\.\w*' })
+
 endf

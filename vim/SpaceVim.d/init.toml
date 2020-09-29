@@ -36,10 +36,12 @@
 name = 'autocomplete'
 auto-completion-return-key-behavior = "complete"
 auto-completion-tab-key-behavior = "smart"
+autocomplete_method = "deoplete"
+
 
 [[layers]]
-  name = "core#statusline"
-  enable = false
+name = "core#statusline"
+enable = false
 
 [[layers]]
 name = 'ctrlp'
@@ -54,9 +56,6 @@ name = "lang#typescript"
 
 [[layers]]
 name = "lang#csharp"
-
-[[layers]]
-name = "lang#fsharp"
 
 [[layers]]
 name = 'lang#go'
