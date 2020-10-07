@@ -206,8 +206,8 @@ font-7 = "Geforce:style=Bold:pixelsize=12;5"
 
 modules-left = i3 bspwm gap title
 modules-center = now-playing
-#modules-right = cpu-brand gap-small cpu-usage gap-small cpu-temp gap gpu-brand gap-small gpu-usage gap-small gpu-temp gap memory gap network gap filesystem gap usb-audio gap power-menu gap
-modules-right = cpu-brand gap-small cpu-usage gap-small gap gpu-brand gap memory gap filesystem gap network gap ping gap clock gap-small
+modules-right = cpu-brand gap-small cpu-usage gap-small gpu-brand gap-small gpu-usage gap-small gpu-temp gap memory gap network gap filesystem gap usb-audio gap power-menu gap
+modules-right = cpu-brand gap-small cpu-usage gap-small gap-small gpu-brand gap-small memory gap-small filesystem gap-small network gap-small ping gap-small updates gap-small clock gap-small
 
 tray-position = right
 tray-padding = 0
@@ -347,6 +347,14 @@ format-mounted-prefix = %{A1:baobab:}  %{A}
 label-mounted = %{A1:baobab:}%percentage_used%%%{A}
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = #ff5555
+
+[module/updates]
+format = <label>
+type = custom/script
+exec = /usr/share/polybar/scripts/updates-aurhelper.sh
+tail = true
+click-left = pkill -USR1 updates-aurhelper.sh
+label =  %output%
 
 [module/network]
 type = internal/network
