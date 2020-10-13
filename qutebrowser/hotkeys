@@ -1,0 +1,3 @@
+# launch: qutebrowser-profile
+super + q
+  qutebrowser-profile

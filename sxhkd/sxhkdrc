@@ -217,7 +217,3 @@ super + z
 # launch: powermenu
 super + shift + q
   powermenu
-
-# launch: qutebrowser-profile
-super + q
-  qutebrowser-profile
