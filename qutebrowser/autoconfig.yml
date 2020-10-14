@@ -17,6 +17,7 @@ settings:
   bindings.commands:
     global:
       normal:
+        f: hint all current
         ze: spawn --userscript qute-lastpass -e
         zp: spawn --userscript qute-lastpass -w
         zw: spawn --userscript qute-lastpass -w
