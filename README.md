@@ -9,12 +9,12 @@ These dotfiles follow the Low Coupling, High Cohesion principle. An example of t
 # Components
 There's a few special files in the hierarchy.
 
-bin/: Anything in bin/ will get added to your $PATH and be made available everywhere.
-_topic_/login: Executed then the windows manager is loaded.
-_topic_/init.zsh: Sourced before any ZSH plugin or oh-my-zsh is loaded.
-_topic_/aliases.zsh: Sourced after all ZSH plugins and oh-my-zsh is loaded. 
-_topic_/hotkeys: Sourced by the hotkey daemon.
-_topic_/install.zsh: Any file named install.sh is executed when you run script/install. This script should be idempotent.
+* bin/: Anything in bin/ will get added to your $PATH and be made available everywhere.
+* _topic_/login: Executed then the windows manager is loaded.
+* _topic_/init.zsh: Sourced before any ZSH plugin or oh-my-zsh is loaded.
+* _topic_/aliases.zsh: Sourced after all ZSH plugins and oh-my-zsh is loaded. 
+* _topic_/hotkeys: Sourced by the hotkey daemon.
+* _topic_/install.zsh: Any file named install.sh is executed when you run script/install. This script should be idempotent.
 
 # Features
 
