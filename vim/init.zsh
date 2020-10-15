@@ -4,4 +4,5 @@ export SUDO_EDITOR=$(which vim)
 
 set clipboard=unnamedplus
 alias v=nvim
+alias v.='v .'
 alias vim=v
