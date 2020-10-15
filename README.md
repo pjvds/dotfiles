@@ -2,6 +2,21 @@
 
 This repostory contains 10 years of dotfile history with various configurations. Currently I'm running Arch Linux with the tilling window manager bspwm. Most applications are configured with a dark theme called monokai in combination with the purple tints of the dracula theme.
 
+# Topical
+
+These dotfiles follow the Low Coupling, High Cohesion principal. This means the hotkey daemon doesn't know all the bindings, because this would mean that the hotkey daemon configuration couples to all applications installed that want an hotkey. Instead a application can expose it's hotkey configuration that will be sources by the hotkey daemon.
+
+# Components
+There's a few special files in the hierarchy.
+
+bin/: Anything in bin/ will get added to your $PATH and be made available everywhere.
+topic/login: Executed then the windows manager is loaded.
+topic/init.zsh: Sourced before any ZSH plugin or oh-my-zsh is loaded.
+topic/aliases.zsh: Sourced after all ZSH plugins and oh-my-zsh is loaded. 
+topic/hotkeys: Sourced by the hotkey daemon.
+
+topic/install.zsh: Any file named install.sh is executed when you run script/install.
+
 # Features
 
 ## Ly
