@@ -12,15 +12,15 @@ There's a few special files in the hierarchy.
 * **bin/**: Anything in bin/ will get added to your $PATH and be made available everywhere.
 * **_topic_/login**: Executed then the windows manager is loaded.
 * **_topic_/init.zsh**: Sourced before any ZSH plugin or oh-my-zsh is loaded.
-* **_topic_/aliases.zsh**: Sourced after all ZSH plugins and oh-my-zsh is loaded. 
-* **_topic_/hotkeys**: Sourced by the hotkey daemon.
+* **_topic_/aliases.zsh**: Sourced after all ZSH plugins and oh-my-zsh is loaded.
+* **_topic_/hotkeys**: Sourced by the hotkey daemon sxhkd.
 * **_topic_/install.zsh**: Any file named install.sh is executed when you run script/install. This script should be idempotent.
 
 # Features
 
 ## Ly
 
-A display manager (or login manager) that is displayed at the end of the boot process. It allows me to switch between i3 and bspwm.
+A display manager (or login manager) that is displayed at the end of the boot process. It allows me to switch between different window managers like i3 and bspwm.
 
 ![display manager Ly](https://github.com/pjvds/dotfiles/raw/master/features/Ly-display-manager.png)
 
@@ -46,7 +46,7 @@ A utility that is used to generate the status bar at the bottom of the screen.
 
 ![polybar](https://github.com/pjvds/dotfiles/raw/master/features/polybar.png)
 
-## dmenu
+## rofi
 
 A utility to launch apps from the i3 desktop. [command]+[d] is bound to start it.
 
