@@ -10,6 +10,7 @@ declare -A profiles=(
   [craftify]='#ff79c6'
   [deloitte]='#50FA7B'
   [deloitte-admin]='#ff5555'
+  [prosim]='#8be9fd'
 )
 
 bspc subscribe node_stack | while read -r action monitor_id desktop_id node_id; do
