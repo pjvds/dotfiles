@@ -1,0 +1,2 @@
+#!/bin/zsh
+curl -s -4 https://icanhazip.com/
