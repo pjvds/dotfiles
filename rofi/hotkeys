@@ -1,0 +1,5 @@
+# program launcher
+super + space
+  rofi -modi drun -show drun -m primary
+
+

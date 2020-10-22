@@ -26,10 +26,6 @@ super + {shift + comma, comma, shift + period, period}
   bspc desktop -f {'prev', 'prev.occupied', 'next', 'next.occupied'}
 
 
-# program launcher
-super + space
-  rofi -modi drun -show drun -m primary
-
 # cheatsheet
 super + shift + @space
   $DOTFILES_HOME/bspwm/script/cheatsheet
@@ -203,7 +199,8 @@ super + s
 #
 # Snipping screenshot to file
 super + alt + s
-  maim --hidecursor -s ~/Pictures/screenshot-$(date +%s).png
+  scrot -s 
+#target="~/Pictures/screenshot-$(date +%s).png"; \
 
 #
 # Cheetsheets

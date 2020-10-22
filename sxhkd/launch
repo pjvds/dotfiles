@@ -1,10 +1,20 @@
 #!/bin/zsh
+# Trap output to also write to log
+LOG_FILE="$HOME/sxhkd.log"
+exec 3>&1 1>>${LOG_FILE} 2>&1
+
 # Terminate already running instances
 killall -q sxhkd
 
 # Wait until the processes have been shut down
-while pgrep -u $UID -x sxhkd >/dev/null; do sleep 1; done
+while pgrep -u $UID -x sxhkd >/dev/null; do sleep 1; echo "waiting for previous sxhkd to be shutdown..."; done
+
+echo "searching for hotkeys files"
 
 # Find all hotkey files and launch sxhkd
 hotkeys=($(find . -type f -name hotkeys))
-sxhkd -c $DOTFILES/sxhkd/sxhkdrc $hotkeys &
+
+echo "found ${#hotkeys[@]}"
+echo "starting sxhkdrc"
+
+sxhkd -c $DOTFILES/sxhkd/sxhkdrc $hotkeys
