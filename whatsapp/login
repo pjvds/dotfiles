@@ -1,3 +1,0 @@
-#!/bin/sh
-bspc rule -a whatsapp-nativefier-d40211 -o desktop=^10 follow=off focus=off
-whatsapp-nativefier &

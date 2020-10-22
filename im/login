@@ -1,0 +1,17 @@
+local IM_DESKTOP="^10"
+
+# slack
+bspc rule -a "Slack" desktop="$IM_DESKTOP" follow=off focus=off
+slack &
+
+# signal
+bspc rule -a "signal" desktop="$IM_DESKTOP" follow=off focus=off
+signal-desktop &
+
+# whatsapp
+bspc rule -a "whatsapp-nativefier-d40211" desktop="$IM_DESKTOP" follow=off focus=off
+whatsapp-nativefier &
+
+# teams
+bspc rule -a "microsoft teams - preview" desktop="$IM_DESKTOP" follow=off focus=off
+teams &
