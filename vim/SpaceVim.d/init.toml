@@ -41,15 +41,11 @@ autocomplete_method = "deoplete"
 
 [[layers]]
 name = "core#statusline"
-enable = false
+#enable = false
 
 [[layers]]
-name = 'ctrlp'
-
-[[layers]]
-name = 'lang#javascript'
-auto_fix= true
-enable_flow_syntax = true
+name = 'fzf'
+enable = true
 
 [[layers]]
 name = "lang#typescript"
@@ -65,7 +61,7 @@ name = 'lang#graphql'
 
 [[custom_plugins]]
 name = 'yuttie/comfortable-motion.vim'
-merged = 0
+enable = false
 
 #[[custom_plugins]]
 #name = 'chriskempson/base16-vim'
@@ -78,7 +74,7 @@ merged = 0
 [[custom_plugins]]
 repo = "dracula/vim"
 name = "dracula"
-merged = false
+merged = true
 
 [[custom_plugins]]
 name = "peitalin/vim-jsx-typescript"
