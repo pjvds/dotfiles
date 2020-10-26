@@ -86,6 +86,11 @@ A popular zsh prompt with async support.
 
 A commandline ncurses client for spotify. Think ncmpc but for the popular streaming service spotify.
 
+Press <kbd></kbd> to skip to previous track
+Press <kbd>shift</kbd> + <kbd></kbd> to seek -10 seconds
+Press <kbd></kbd> to skip to next track
+Press <kbd>shift</kbd> + <kbd></kbd> to seek +10 seconds
+
 ## the silver searches
 
 Searching tool with a focus on speed.
