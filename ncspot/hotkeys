@@ -1,2 +1,5 @@
 @XF86Audio{Stop,Prev,Next,Play}
   playerctl {stop,previous,next, play-pause}
+
+@XF86Audio{Prev,Next} + shift
+  playerctl position 10{-,+}
