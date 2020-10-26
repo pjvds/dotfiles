@@ -76,4 +76,11 @@ func! myspacevim#after() abort
     " This instructs deoplete to use omni completion for Go files.
     call deoplete#custom#option('omni_patterns', { 'go': '[^. *\t]\.\w*' })
 
+    command! -bang -nargs=* BTags
+    \  if &filetype == 'go'
+    \|   call fzf#vim#buffer_tags(<q-args>, 'gotags -silent -sort '.shellescape(expand('%')), <bang>0)
+    \| else
+    \|   call fzf#vim#buffer_tags(<q-args>, <bang>0)
+    \| endif
+
 endf
