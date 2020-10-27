@@ -5,7 +5,7 @@ bspc rule -a "Slack" desktop="$IM_DESKTOP" follow=off focus=off
 slack &
 
 # signal
-bspc rule -a "signal" desktop="$IM_DESKTOP" follow=off focus=off
+bspc rule -a "Signal" desktop="$IM_DESKTOP" follow=off focus=off
 signal-desktop &
 
 # whatsapp
@@ -13,5 +13,5 @@ bspc rule -a "whatsapp-nativefier-d40211" desktop="$IM_DESKTOP" follow=off focus
 whatsapp-nativefier &
 
 # teams
-bspc rule -a "microsoft teams - preview" desktop="$IM_DESKTOP" follow=off focus=off
+bspc rule -a "Microsoft Teams - Preview" desktop="$IM_DESKTOP" follow=off focus=off
 teams &
