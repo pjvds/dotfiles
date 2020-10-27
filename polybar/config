@@ -205,8 +205,8 @@ font-6 = "Spy Agency Laser:pixelsize=12;4"
 font-7 = "Geforce:style=Bold:pixelsize=12;5"
 
 modules-left = i3 bspwm gap title
-modules-center = now-playing
-modules-right = cpu-brand gap-small cpu-usage gap-small gpu-brand gap-small gpu-usage gap-small gpu-temp gap memory gap network gap filesystem gap usb-audio gap power-menu gap
+modules-center = now-playing gap btwiusearch
+#modules-right = cpu-brand gap-small cpu-usage gap-small gpu-brand gap-small gpu-usage gap-small gpu-temp gap memory gap network gap filesystem gap usb-audio gap power-menu gap
 modules-right = cpu-brand gap-small cpu-usage gap-small gap-small gpu-brand gap-small memory gap-small filesystem gap-small network gap-small ping gap-small updates gap-small clock gap-small
 
 tray-position = right
@@ -322,6 +322,12 @@ ramp-7-foreground = #ff5555
 [module/gpu-brand]
 type = custom/text
 content = %{T8}RTX 2080ti %{T-} 0%
+
+[module/btwiusearch]
+type = custom/text
+content = I use Arch btw
+
+
 
 [module/gpu-usage]
 type = custom/text
