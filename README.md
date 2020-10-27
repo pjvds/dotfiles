@@ -85,11 +85,11 @@ A popular zsh prompt with async support.
 ## ncspot
 
 A commandline ncurses client for spotify. Think ncmpc but for the popular streaming service spotify.
-
-* Press <kbd>&previous;</kbd> to skip to previous track
-* Press <kbd>shift</kbd> + <kbd>&previous;</kbd> to seek -10 seconds
-* Press <kbd>&next;</kbd> to skip to next track
-* Press <kbd>shift</kbd> + <kbd>&next;</kbd> to seek +10 seconds
+&previous;
+* Press <kbd>&laquo;</kbd> to skip to previous track
+* Press <kbd>shift</kbd> + <kbd>&laquo;</kbd> to seek -10 seconds
+* Press <kbd>&raquo;</kbd> to skip to next track
+* Press <kbd>shift</kbd> + <kbd>&raquo;</kbd> to seek +10 seconds
 
 ## the silver searches
 
