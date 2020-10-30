@@ -1,33 +1,56 @@
+export DOTFILES=$HOME/dotfiles
+
 if [ "$ZSH_PROFILING" = 1 ];
 then
   zmodload zsh/zprof
 fi
-# If you come from bash you might have to change your $PATH.
-#
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-export DOTFILES=$HOME/dotfiles
 
-# Path to your oh-my-zsh installation.
-export ZSH=$HOME/.oh-my-zsh
+export HISTFILE=$HOME/.zsh_history
+export HISTSIZE=10000000
+export SAVEHIST=10000000
 
-plugins=(
-  extract
-  vi-mode
-  history-substring-search
-)
+setopt BANG_HIST                 # Treat the '!' character specially during expansion.
+setopt EXTENDED_HISTORY          # Write the history file in the ":start:elapsed;command" format.
+setopt INC_APPEND_HISTORY        # Write to the history file immediately, not when the shell exits.
+setopt SHARE_HISTORY             # Share history between all sessions.
+setopt HIST_EXPIRE_DUPS_FIRST    # Expire duplicate entries first when trimming history.
+setopt HIST_IGNORE_DUPS          # Don't record an entry that was just recorded again.
+setopt HIST_IGNORE_ALL_DUPS      # Delete old recorded entry if new entry is a duplicate.
+setopt HIST_FIND_NO_DUPS         # Do not display a line previously found.
+setopt HIST_IGNORE_SPACE         # Don't record an entry starting with a space.
+setopt HIST_SAVE_NO_DUPS         # Don't write duplicate entries in the history file.
+setopt HIST_REDUCE_BLANKS        # Remove superfluous blanks before recording entry.
+setopt HIST_VERIFY               # Don't execute immediately upon history expansion.
+setopt HIST_BEEP                 # Beep when accessing nonexistent history.
 
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
+source /usr/share/zsh/scripts/zplug/init.zsh
 
-export DOTFILES_HOME="$HOME/dotfiles"
-source $DOTFILES_HOME/init.zsh
-for f in $DOTFILES_HOME/**/init.zsh; do 
+# Make sure to use double quotes
+zplug "b4b4r07/enhancd", use:init.sh
+zplug "zsh-users/zsh-history-substring-search"
+zplug "zsh-users/zsh-autosuggestions"
+#zplug "zsh-users/zsh-syntax-highlighting", defer:2
+zplug "b4b4r07/zsh-vimode-visual", defer:3
+#zplug "agkozak/zsh-z"
+
+source $DOTFILES/init.zsh
+for f in $DOTFILES/**/init.zsh; do 
 	source "$f"
 done
 
-source $ZSH/oh-my-zsh.sh
+# Install plugins if there are plugins that have not been installed
+if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    fi
+fi
 
-for f in $DOTFILES_HOME/**/aliases.zsh; do 
+# Then, source plugins and add commands to $PATH
+zplug load
+
+for f in $DOTFILES/**/aliases.zsh; do 
 	source "$f"
 done
 

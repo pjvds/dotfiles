@@ -1,1 +1,1 @@
-plugins+=('z')
+zplug "rupa/z", use:z.sh
