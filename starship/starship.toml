@@ -3,13 +3,15 @@ add_newline = false
 scan_timeout = 2
 
 [character]      # The name of the module we are configuring is "character"
-symbol = "➜"     # The "symbol" segment is being set to "➜"
+success_symbol = "[➜](bold green)"
+error_symbol   = "[➜](bold red)"
+vicmd_symbol   = "[](bold blue)"
 
 [docker_context]
-disabled = false
+#disabled = false
 
 [kubernetes]
-disabled = false
+#disabled = false
 
 [kubernetes.context_aliases]
 "aks-dypodbjktt" = "dev"
