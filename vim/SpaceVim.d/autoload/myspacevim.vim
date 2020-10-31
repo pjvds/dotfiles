@@ -1,4 +1,6 @@
 func! myspacevim#before() abort
+    let g:mapleader = "'"
+
     let base16colorspace=256
 
     let g:airline_theme='dracula'
