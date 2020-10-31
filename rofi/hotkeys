@@ -1,5 +1,11 @@
 # program launcher
 super + space
   rofi -modi drun -show drun -m primary
+#
+# open rofi calculator
+super + u
+ rofi -modi calc -show calc
+
+
 
 

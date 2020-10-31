@@ -179,10 +179,6 @@ super + shift + s
 super + semicolon
   rofimoji --rofi-args="-width 850" -s light 
 
-# open rofi calculator
-super + u
- rofi -modi calc -show calc
-
 #
 # receptacle
 #
