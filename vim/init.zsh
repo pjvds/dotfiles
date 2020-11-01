@@ -1,6 +1,12 @@
 # enable VI mode for zsh
 bindkey -v
 
+zplug "softmoth/zsh-vim-mode"
+# allow v to edit the command line (standard behaviour)
+autoload -Uz edit-command-line
+zle -N edit-command-line
+bindkey -M vicmd 'v' edit-command-line
+
 export VISUAL="vim"
 export EDITOR="$VISUAL"
 export SUDO_EDITOR=$(which vim)
