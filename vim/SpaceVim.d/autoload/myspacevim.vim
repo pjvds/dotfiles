@@ -66,6 +66,37 @@ func! myspacevim#before() abort
     " Override default ignore pattern in file tree to still
     " show other . files
     set completeopt+=noselect
+
+    let g:tagbar_type_go = {
+      \ 'ctagstype' : 'go',
+      \ 'kinds'     : [
+        \ 'p:package',
+        \ 'i:imports:1',
+        \ 'c:constants',
+        \ 'v:variables',
+        \ 't:types',
+        \ 'n:interfaces',
+        \ 'w:fields',
+        \ 'e:embedded',
+        \ 'm:methods',
+        \ 'r:constructor',
+        \ 'f:functions'
+      \ ],
+      \ 'sro' : '.',
+      \ 'kind2scope' : {
+        \ 't' : 'ctype',
+        \ 'n' : 'ntype'
+      \ },
+      \ 'scope2kind' : {
+        \ 'ctype' : 't',
+        \ 'ntype' : 'n'
+      \ },
+      \ 'ctagsbin'  : 'gotags',
+      \ 'ctagsargs' : '-sort -silent'
+    \ }
+
+    let g:ctrlp_buftag_types = { 'go' : '--language-force=go --go-types=d' }
+    "let g:fzf_tags_command = 'gotags -f tags -R .'
 endf
 
 func! myspacevim#after() abort
@@ -77,12 +108,8 @@ func! myspacevim#after() abort
 
     " This instructs deoplete to use omni completion for Go files.
     call deoplete#custom#option('omni_patterns', { 'go': '[^. *\t]\.\w*' })
+    au FileType go nmap <leader>t :FzfTags<CR>
 
-    command! -bang -nargs=* BTags
-    \  if &filetype == 'go'
-    \|   call fzf#vim#buffer_tags(<q-args>, 'gotags -silent -sort '.shellescape(expand('%')), <bang>0)
-    \| else
-    \|   call fzf#vim#buffer_tags(<q-args>, <bang>0)
-    \| endif
+    let g:spacevim_project_rooter_patterns = [".git/"]
 
 endf
