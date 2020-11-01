@@ -37,6 +37,8 @@ settings:
     global: 6pt
   hints.chars:
     global: abcdefghijklmnopqrstuvwxyz!@#$%^*()+{}:|?-=[];\,./
+  qt.force_software_rendering:
+    global: chromium
   qt.highdpi:
     global: false
   url.searchengines:
