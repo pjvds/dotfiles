@@ -1,7 +1,9 @@
 #!/bin/zsh
 # Trap output to also write to log
-LOG_FILE="$HOME/sxhkd.log"
+LOG_FILE="$HOME/.sxhkd.log"
 exec 3>&1 1>>${LOG_FILE} 2>&1
+
+echo "killing current sxhkd instance if exists"
 
 # Terminate already running instances
 killall -q sxhkd
