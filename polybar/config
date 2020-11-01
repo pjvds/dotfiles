@@ -176,10 +176,10 @@ label-font = 4
 [module/now-playing]
 type = custom/script
 label = %output:0:100%
-exec = python -u -W ignore $DOTFILES/polybar/scripts/now_playing -a '#e9e9f4' -i '#626483'
-tail = true
+exec = $DOTFILES/polybar/scripts/now_playing -a '#e9e9f4' -i '#626483'
 click-left = playerctl play-pause
 click-middle = playerctl next
+interval = 10
 click-right = playerctl previous
 scroll-up =
 scroll-down =
