@@ -5,6 +5,7 @@
 [common/bar]
 width = 100%;${env:BAR_WIDTH:100%}
 height = ${env:PM_BAR_HEIGHT:40}
+enable-ipc = true
 border-left-size=18
 border-right-size=18
 ;offset-x = 18

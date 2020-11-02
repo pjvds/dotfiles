@@ -1,10 +1,10 @@
 #!/bin/zsh
-# Terminate already running polybar instances
-killall -q polybar
+#export BAR_WIDTH="$(($(xrandr --query |awk -F '[ x+]' '/\<connected\>/{print $4}')-36))"
 
-export BAR_WIDTH="$(($(xrandr --query |awk -F '[ x+]' '/\<connected\>/{print $4}')-36))"
-
-# Wait until the processes have been shut down
-while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
-
-nohup polybar -c "$DOTFILES/polybar/config" bottom &> /dev/null &
+if pgrep -u $UID -x polybar >/dev/null;
+then 
+  # Polybar already running, send reload command
+  polybar-msg cmd reload
+else
+  nohup polybar -c "$DOTFILES/polybar/config" bottom &> /dev/null &
+fi
