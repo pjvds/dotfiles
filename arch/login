@@ -1,0 +1,2 @@
+#!/bin/zsh
+pacman -Qqe > $DOTFILES/arch/pkglist.txt
