@@ -359,7 +359,7 @@ label-unmounted-foreground = #ff5555
 format = <label>
 type = custom/script
 exec = /usr/share/polybar/scripts/updates-aurhelper.sh
-tail = true
+interval = 600
 click-left = pkill -USR1 updates-aurhelper.sh
 label =  %output%
 
