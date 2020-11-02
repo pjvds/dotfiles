@@ -6,15 +6,15 @@ This repostory contains 10 years of dotfile history with various configurations.
 
 These dotfiles follow the Low Coupling, High Cohesion principle. An example of this is that the hotkey daemon (sxhkd) doesn't know all the bindings of all applications. In other words, the hotkeys daemon configuration is not directly coupled to all applications that want a binding. Instead a application can express it's hotkey configuration in its own file (_topic_/hotkeys) that will be sources by the hotkey daemon.
 
-# Components
+# Modules
 There's a few special files in the hierarchy.
 
 * **bin/**: Anything in bin/ will get added to your $PATH and be made available everywhere.
-* **_topic_/login**: Executed then the windows manager is loaded.
-* **_topic_/init.zsh**: Sourced before any ZSH plugin or oh-my-zsh is loaded.
-* **_topic_/aliases.zsh**: Sourced after all ZSH plugins and oh-my-zsh is loaded.
-* **_topic_/hotkeys**: Sourced by the hotkey daemon sxhkd.
-* **_topic_/install.zsh**: Any file named install.sh is executed when you run script/install. This script should be idempotent.
+* **_module_/login**: Executed then the windows manager is loaded.
+* **_module_/init.zsh**: Sourced before any ZSH plugin or oh-my-zsh is loaded.
+* **_module_/aliases.zsh**: Sourced after all ZSH plugins and oh-my-zsh is loaded.
+* **_module_/hotkeys**: Sourced by the hotkey daemon sxhkd.
+* **_module_/install.zsh**: Any file named install.sh is executed when you run script/install. This script should be idempotent.
 
 # Features
 
