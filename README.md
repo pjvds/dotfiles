@@ -18,6 +18,10 @@ There's a few special files in the hierarchy.
 
 # Features
 
+## Package list backup
+
+After each login the current package list is saved to `arch/pkglist.txt` as a backup.
+
 ## Ly
 
 A display manager (or login manager) that is displayed at the end of the boot process. It allows me to switch between different window managers like i3 and bspwm.
