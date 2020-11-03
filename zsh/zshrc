@@ -24,6 +24,7 @@ setopt HIST_VERIFY                 # Don't execute immediately upon history expa
 setopt HIST_BEEP                   # Beep when accessing nonexistent history.
 setopt MENU_COMPLETE               # select first menu option automatically
 setopt NO_NOMATCH                  # stop zsh from catching ^ chars.
+setopt INTERACTIVE_COMMENTS        # allow comments in interactive shells
 
 zstyle ":completion:*" menu select # Higlight item in completion menu
 
