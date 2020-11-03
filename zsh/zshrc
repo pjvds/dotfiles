@@ -28,31 +28,18 @@ setopt INTERACTIVE_COMMENTS        # allow comments in interactive shells
 
 zstyle ":completion:*" menu select # Higlight item in completion menu
 
-source /usr/share/zsh/scripts/zplug/init.zsh
+source ~/.zinit/bin/zinit.zsh
 
 # Make sure to use double quotes
-zplug "b4b4r07/enhancd", use:init.sh
-zplug "zsh-users/zsh-history-substring-search"
-zplug "zsh-users/zsh-autosuggestions"
-#zplug "zsh-users/zsh-syntax-highlighting", defer:2
-zplug "b4b4r07/zsh-vimode-visual", defer:3
-#zplug "agkozak/zsh-z"
+zinit for \
+  light-mode zsh-users/zsh-history-substring-search\
+  light-mode zsh-users/zsh-autosuggestions \
+  load       "junegunn/fzf-bin" \
 
 source $DOTFILES/init.zsh
 for f in $DOTFILES/**/init.zsh; do 
 	source "$f"
 done
-
-# Install plugins if there are plugins that have not been installed
-if ! zplug check --verbose; then
-    printf "Install? [y/N]: "
-    if read -q; then
-        echo; zplug install
-    fi
-fi
-
-# Then, source plugins and add commands to $PATH
-zplug load
 
 for f in $DOTFILES/**/aliases.zsh; do 
 	source "$f"

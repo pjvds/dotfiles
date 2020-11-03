@@ -1,1 +1,1 @@
-zplug "rupa/z", use:z.sh
+zinit load agkozak/zsh-z
