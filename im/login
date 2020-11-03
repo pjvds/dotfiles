@@ -1,17 +1,24 @@
+#!/bin/zsh
 local IM_DESKTOP="^10"
 
+function im::open() {
+  local command=${1:?"The command must be specified"}
+  local wm_class=${2:?"The WM_CLASS must be specified"}
+
+  echo "opening: $command"
+
+  bspc rule -a "$wm_class" -o desktop="^10" follow=off focus=off
+  $command &
+}
+
 # slack
-bspc rule -a "Slack" desktop="$IM_DESKTOP" follow=off focus=off
-slack &
+im::open "slack" "Slack"
 
 # signal
-bspc rule -a "Signal" desktop="$IM_DESKTOP" follow=off focus=off
-signal-desktop &
-
+im::open "signal-desktop" "Signal"
+#
 # whatsapp
-bspc rule -a "whatsapp-nativefier-d40211" desktop="$IM_DESKTOP" follow=off focus=off
-whatsapp-nativefier &
+im::open "whatsapp-nativefier" "whatsapp-nativefier-d40211"
 
 # teams
-bspc rule -a "Microsoft Teams - Preview" desktop="$IM_DESKTOP" follow=off focus=off
-teams &
+im::open "teams" "Microsoft Teams - Preview"
