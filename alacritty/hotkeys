@@ -1,0 +1,3 @@
+# terminal emulator
+super + Return
+	alacritty
