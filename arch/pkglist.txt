@@ -1,3 +1,4 @@
+aerc
 alacritty
 alsa-utils
 argo-bin
@@ -14,15 +15,18 @@ binutils
 bison
 bitwarden-bin
 bsp-layout
-bspwm
+bspwm-rounded-corners-git
+byobu
 cargo-pkgbuild
 chromium
 cli-visualizer
 clipmenu
 cloc
 cmake
+cocogitto-bin
 code
 colorpicker
+commitizen-go
 compton-conf
 conntrack-tools
 ctags
@@ -60,6 +64,7 @@ groff
 grub
 gtkmm
 gtkmm3
+guake
 gvm
 gzip
 helm
@@ -89,6 +94,7 @@ make
 menu-calc
 minikube
 minio-client
+mop-git
 mutt
 mysql-workbench
 nautilus
@@ -136,6 +142,7 @@ screenkey
 scrot
 seahorse
 sed
+shellspec
 signal-desktop
 simian
 slack-desktop
@@ -222,6 +229,7 @@ yarn
 yay
 z
 zip
+zplug
 zsh
 zsh-autosuggestions
 zsh-completions
