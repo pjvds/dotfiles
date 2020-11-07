@@ -7,3 +7,5 @@ alias l='ls -lah'
 
 zinit light pjvds/zsh-cwd
 cwd
+
+zinit light pjvds/zsh-cd-print
