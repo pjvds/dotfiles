@@ -50,6 +50,7 @@ file
 findutils
 firefox
 flex
+flyway
 fzf
 gawk
 gcc
@@ -143,6 +144,7 @@ scrot
 seahorse
 sed
 shellspec
+shotcut
 signal-desktop
 simian
 slack-desktop
@@ -163,6 +165,7 @@ tldr++
 tree
 ttf-dejavu
 ttf-liberation
+unclutter
 unzip
 via-bin
 vim
