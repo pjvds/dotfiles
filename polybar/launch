@@ -3,8 +3,9 @@
 
 if pgrep -u $UID -x polybar >/dev/null;
 then 
-  # Polybar already running, send reload command
-  polybar-msg cmd reload
+  # Polybar already running, send restart command
+  polybar-msg cmd restart
 else
+  # Polybar not running, start it
   nohup polybar -c "$DOTFILES/polybar/config" bottom &> /dev/null &
 fi
