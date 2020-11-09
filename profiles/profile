@@ -10,6 +10,7 @@ export QT_SCALE_FACTOR=1.4
 export QT_AUTO_SCREEN_SCALE_FACTOR=1.4
 export _JAVA_AWT_WM_NONREPARENTING=1
 export BROWSER=qutebrowser
+export CHROMIUM_FLAGS="--disable-gpu --enable-threaded-compositing --disable-speech-api --create-default-gl-context --use-gl=desktop --in-process-gpu --gpu-preferences=MAAAAAAAAAAoAAAAAAAAAAAAYAAAAAAAGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAA= --use-gl=disabled"
 
 # turn of PC speaker
 xset -b
