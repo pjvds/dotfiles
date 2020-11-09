@@ -26,6 +26,8 @@ bspc config pointer_modifier      mod4
 
 bspc config ignore_ewmh_focus true
 
+source ~/.profile
+
 logins=($(find $DOTFILES -executable -type f -name login))
 for login in $logins; do
   echo "login script: $login"
