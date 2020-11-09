@@ -206,8 +206,8 @@ font-6 = "Spy Agency Laser:pixelsize=12;4"
 font-7 = "Geforce:style=Bold:pixelsize=12;5"
 
 modules-left = i3 bspwm gap title
-modules-center = now-playing gap btwiusearch
-modules-right = cpu-brand gap-small cpu-usage gap-small gap-small gpu-brand gap-small memory gap-small filesystem gap-small network gap-small ping gap-small updates gap-small clock gap-small
+modules-center = now-playing 
+modules-right = gap-small cpu-usage gap-small gap-small memory gap-small filesystem gap-small network gap-small ping gap-small updates gap-small clock gap-small
 
 #tray-position = right
 #tray-padding = 0
@@ -323,12 +323,6 @@ ramp-7-foreground = #ff5555
 type = custom/text
 content = %{T8}RTX 2080ti %{T-} 0%
 
-[module/btwiusearch]
-type = custom/text
-content = I use Arch btw
-
-
-
 [module/gpu-usage]
 type = custom/text
 content = 0%
@@ -359,7 +353,6 @@ format = <label>
 type = custom/script
 exec = /usr/share/polybar/scripts/updates-aurhelper.sh
 interval = 600
-click-left = pkill -USR1 updates-aurhelper.sh
 label =  %output%
 
 [module/network]
