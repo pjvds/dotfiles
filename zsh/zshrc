@@ -29,12 +29,12 @@ setopt INTERACTIVE_COMMENTS        # allow comments in interactive shells
 zstyle ":completion:*" menu select # Higlight item in completion menu
 
 source ~/.zinit/bin/zinit.zsh
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
 
 # Make sure to use double quotes
 zinit for \
-  light-mode zsh-users/zsh-history-substring-search\
-  light-mode zsh-users/zsh-autosuggestions \
-  load       "junegunn/fzf-bin" \
+  load       "junegunn/fzf-bin"
 
 source $DOTFILES/init.zsh
 for f in $DOTFILES/**/init.zsh; do 
@@ -56,6 +56,13 @@ bindkey "^[[B" history-beginning-search-forward
 # Enter command mode with jj
 bindkey 'jj' vi-cmd-mode
 
+zinit wait lucid light-mode for \
+  atload"_zsh_autosuggest_start" \
+    zsh-users/zsh-autosuggestions \
+  blockf atpull'zinit creinstall -q .' \
+    zsh-users/zsh-completions \
+  atinit"zicompinit; zicdreplay" \
+    Aloxaf/fzf-tab
 
 if [ "$ZSH_PROFILING" = 1 ];
 then
