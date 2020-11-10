@@ -1,5 +1,4 @@
-alias rmr='rm -r'
-alias rmrf='rm -rf'
+alias rm='rm -r'
 alias .='cd $DOTFILES'
 alias .v='cd $DOTFILES && vim .'
 alias ls='ls --color'
