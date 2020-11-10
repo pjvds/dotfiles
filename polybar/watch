@@ -1,0 +1,4 @@
+#!/bin/zsh
+randrnotify | while read -r batch; do
+  polybar-msg cmd reload
+done
