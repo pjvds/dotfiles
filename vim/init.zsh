@@ -1,7 +1,7 @@
 # enable VI mode for zsh
 bindkey -v
 
-zplug "softmoth/zsh-vim-mode"
+zinit light "softmoth/zsh-vim-mode"
 # allow v to edit the command line (standard behaviour)
 autoload -Uz edit-command-line
 zle -N edit-command-line
