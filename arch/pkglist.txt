@@ -2,6 +2,7 @@ aerc
 alacritty
 alsa-utils
 argo-bin
+asciinema
 aspnet-runtime
 aspnet-runtime-2.2
 autoconf
@@ -82,6 +83,7 @@ kitty
 kubectl
 kubectx
 lastpass-cli
+lazygit
 libtool
 linux
 linux-firmware
@@ -165,6 +167,7 @@ tldr++
 tree
 ttf-dejavu
 ttf-liberation
+turbovnc
 unclutter
 unzip
 via-bin
