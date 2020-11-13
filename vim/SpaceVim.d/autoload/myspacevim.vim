@@ -1,4 +1,5 @@
 func! myspacevim#before() abort
+    let g:spacevim_disabled_plugins = ['vim-startify']
     au VimEnter * if (@% == "") | execute ':FzfFiles' | endif
 
     filetype plugin on
