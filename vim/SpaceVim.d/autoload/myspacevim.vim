@@ -1,4 +1,6 @@
 func! myspacevim#before() abort
+    au VimEnter * if (@% == "") | execute ':FzfFiles' | endif
+
     filetype plugin on
     set omnifunc=syntaxcomplete#Complete
 
