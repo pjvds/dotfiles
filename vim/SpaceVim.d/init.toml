@@ -53,26 +53,11 @@ name = "lang#typescript"
 name = 'lang#go'
 
 [[layers]]
-name = 'lang#graphql'
-
-[[custom_plugins]]
-name = 'yuttie/comfortable-motion.vim'
-enable = false
-
-[[layers]]
 name = "colorscheme"
-merged = 0
 
 [[custom_plugins]]
 repo = "dracula/vim"
 name = "dracula"
-merged = true
-
-[[custom_plugins]]
-name = "peitalin/vim-jsx-typescript"
-
-[[custom_plugins]]
-name = "maxmellon/vim-jsx-pretty"
 
 [[custom_plugins]]
 name = "lilydjwg/colorizer"
