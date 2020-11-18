@@ -26,46 +26,6 @@ func! myspacevim#before() abort
     " This instructs deoplete to use omni completion for Go files.
     call deoplete#custom#option('omni_patterns', { 'go': '[^. *\t]\.\w*' })
 
-
-    let g:ctrlp_buftag_types = { 'go' : '--language-force=go --go-types=d' }
-
-    "autocmd FileType startify exec ':FzfFiles'
-    "autocmd! User Startified echomsg "First"
-    "
-    autocmd User Startified execute ':FzfFiles'
-    "autocmd FocusGained * execute ':FzfFiles'
-    "autocmd BufNewFile,BufRead * execute ':FzfFiles'
-    
-
-    "let g:tagbar_type_go = {
-    "\ 'ctagstype' : 'go',
-    "\ 'kinds'     : [
-    "  \ 'p:package',
-    "  \ 'i:imports:1',
-    "  \ 'c:constants',
-    "  \ 'v:variables',
-    "  \ 't:types',
-    "  \ 'n:interfaces',
-    "  \ 'w:fields',
-    "  \ 'e:embedded',
-    "  \ 'm:methods',
-    "  \ 'r:constructor',
-    "  \ 'f:functions'
-    "\ ],
-    "\ 'sro' : '.',
-    "\ 'kind2scope' : {
-    "  \ 't' : 'ctype',
-    "  \ 'n' : 'ntype'
-    "\ },
-    "\ 'scope2kind' : {
-    "  \ 'ctype' : 't',
-    "  \ 'ntype' : 'n'
-    "\ },
-    "\ 'ctagsbin'  : 'gotags',
-    "\ 'ctagsargs' : '-sort -silent'
-  \ "}
-
-
 endf
 
 func! myspacevim#after() abort
@@ -90,36 +50,11 @@ func! myspacevim#after() abort
     " use ctrl-c to copy to clipboard register in visual mode
     vnoremap <C-c> "+y
 
-    " disable network history
-    let g:netrw_dirhistmax = 0
-
-    " Override default ignore pattern in file tree to still
-    " show other . files
-    set completeopt+=noselect
-
-    " This instructs deoplete to use omni completion for Go files.
-    call deoplete#custom#option('omni_patterns', { 'go': '[^. *\t]\.\w*' })
-
-
-    let g:ctrlp_buftag_types = { 'go' : '--language-force=go --go-types=d' }
-    
-endf
-
-func! myspacevim#after() abort
     au FileType go nmap <leader>t :FzfTags<CR>
     
     " Start vim commit message in insert mode
     autocmd FileType gitcommit exec 'au VimEnter * startinsert'
 
-    :FzfFiles
-
     " This instructs deoplete to use omni completion for Go files.
     call deoplete#custom#option('omni_patterns', { 'go': '[^. *\t]\.\w*' })
-      let g:deoplete#enable_at_startup = 1
-  let g:deoplete#complete_method = "omnifunc"
-  call deoplete#custom#option('omni_patterns', {
-  \ 'go': '[^. *\t]\.\w*',
-  \})
-
-    noremap ; :
 endf
