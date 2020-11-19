@@ -64,7 +64,10 @@ zinit wait lucid light-mode for \
   atinit"zicompinit; zicdreplay" \
     Aloxaf/fzf-tab
 
-zinit snippet OMZ::plugins/extract/extract.plugin.zsh
+for plug in "extract" "thefuck"; do
+  zinit snippet OMZ::plugins/$plug/$plug.plugin.zsh
+done
+
 
 if [ "$ZSH_PROFILING" = 1 ];
 then
