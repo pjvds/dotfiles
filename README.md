@@ -103,6 +103,16 @@ Searching tool with a focus on speed.
 
 Utility to watch file changes.
 
+# AUR package maintainance
+
+I'm maintaining a few AUR packages for Arch Linux and I recently get questions on what tools I use to automate my workflow.
+
+* `aurpublish` to install githooks for package repostory.
+* `updpkgsums` to perform an in place update of the checksums.
+* `nvchecker` to check for new versions ([config]()).
+* `nvcmp` to compare version state files from nvchecker.
+* `nvtake <pkg_name>` to accept the new version.
+
 # Keyboard
 
 My daily driver is a 40% ortholiniar keyboard that allows me to move keys towards my fingers, instead of moving my fingers to the keys. With this keyboard I never have to travel more than a single key in any direction.
