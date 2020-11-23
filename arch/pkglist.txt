@@ -15,6 +15,7 @@ bc
 binutils
 bison
 bitwarden-bin
+browsh-bin
 bsp-layout
 bspwm-rounded-corners-git
 byobu
@@ -58,6 +59,7 @@ gcc
 geeqie
 gettext
 git
+gnu-netcat
 googler
 gpick
 graphql-playground-electron
@@ -107,6 +109,7 @@ neovim
 notion-app
 noto-fonts
 ntp
+nvchecker
 nvm
 obs-studio
 open-vm-tools
@@ -133,6 +136,7 @@ python-tldextract
 python2-pynvim
 qutebrowser
 rancher-k3d-bin
+randr-notify
 reflex
 remmina
 rofi
@@ -161,6 +165,7 @@ sxhkd
 teams
 texinfo
 the_silver_searcher
+thefuck
 tig
 time
 tldr++
@@ -174,6 +179,7 @@ via-bin
 vim
 whatsapp-for-linux
 whatsapp-nativefier
+whatscli
 which
 wmutils-git
 xclip
