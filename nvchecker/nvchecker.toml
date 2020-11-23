@@ -1,0 +1,19 @@
+[__config__]
+oldver = "old_ver.json"
+newver = "new_ver.json"
+http_timeout = 300
+max_concurrency = 20
+
+[whatscli]
+source = "github"
+github = "normen/whatscli"
+use_max_tag = true
+
+[xrandr-notify]
+source = "github"
+github = "pjvds/randr-notify"
+use_max_tag = true
+
+[slock-git]
+source = "cmd"
+cmd = "$DOTFILES/nvchecker/slock-version.sh"
