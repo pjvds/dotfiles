@@ -21,3 +21,8 @@ use_max_tag = true
 [slock-git]
 source = "cmd"
 cmd = "$DOTFILES/nvchecker/slock-version.sh"
+
+[naivecalendar-git]
+source = "gitlab"
+gitlab = "Daguhh/naivecalendar"
+host = "framagit.org"
