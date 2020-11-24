@@ -9,6 +9,10 @@ source = "github"
 github = "normen/whatscli"
 use_max_tag = true
 
+[whatscli-git]
+source = "github"
+github = "normen/whatscli"
+
 [xrandr-notify]
 source = "github"
 github = "pjvds/randr-notify"
