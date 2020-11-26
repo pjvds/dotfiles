@@ -5,6 +5,8 @@ argo-bin
 asciinema
 aspnet-runtime
 aspnet-runtime-2.2
+aurphan
+aurpublish
 autoconf
 automake
 azure-cli
@@ -53,6 +55,7 @@ findutils
 firefox
 flex
 flyway
+fmo
 fzf
 gawk
 gcc
@@ -100,8 +103,10 @@ menu-calc
 minikube
 minio-client
 mop-git
+mpv
 mutt
 mysql-workbench
+naivecalendar-git
 nautilus
 ncspot
 neofetch
@@ -161,6 +166,7 @@ starship
 storageexplorer
 strace
 sudo
+sway
 sxhkd
 teams
 texinfo
@@ -239,6 +245,7 @@ xorg-xwud
 xterm
 yarn
 yay
+youtube-dl
 z
 zip
 zplug
