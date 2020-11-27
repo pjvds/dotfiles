@@ -14,7 +14,7 @@ while pgrep -u $UID -x sxhkd >/dev/null; do sleep 1; echo "waiting for previous 
 echo "searching for hotkeys files"
 
 # Find all hotkey files and launch sxhkd
-hotkeys=($(find . -type f -name hotkeys))
+hotkeys=($(find $DOTFILES -type f -name hotkeys))
 
 echo "found ${#hotkeys[@]}"
 echo "starting sxhkdrc"
