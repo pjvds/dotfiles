@@ -12,6 +12,11 @@ nmap <silent><nowait> <leader>t :<C-u>CocFzfList symbols<CR>
 au FileType go nmap <leader>s <plug>(reftools#fillstruct)
 au FileType go imap <leader>s <ESC><plug>(reftools#fillstruct)
 
+let g:lightline={
+	\ 'colorscheme': 'dracula',
+	\ }
+
+Plug 'itchyny/lightline.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'antoinemadec/coc-fzf'
 Plug 'jparise/vim-graphql'
