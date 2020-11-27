@@ -6,9 +6,14 @@ call plug#begin()
 set scroll=5
 noremap ; :
 
-au FileType go nmap <leader>t :Tags<CR>
+" Search workspace symbols.
+nmap <silent><nowait> <leader>T :<C-u>CocFzfList outline<cr>
+nmap <silent><nowait> <leader>t :<C-u>CocFzfList symbols<CR>
+au FileType go nmap <leader>s <plug>(reftools#fillstruct)
+au FileType go imap <leader>s <ESC><plug>(reftools#fillstruct)
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'antoinemadec/coc-fzf'
 Plug 'jparise/vim-graphql'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'tpope/vim-vinegar'
@@ -74,7 +79,7 @@ nmap <leader><tab> <plug>(fzf-maps-n)
 xmap <leader><tab> <plug>(fzf-maps-x)
 omap <leader><tab> <plug>(fzf-maps-o)
 
-nmap <leader>p Files
+nmap <leader>p :Files<CR>
 
 "
 " buffers, windows and tabs
