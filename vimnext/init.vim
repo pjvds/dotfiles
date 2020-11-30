@@ -1,4 +1,14 @@
 let mapleader="'"
+set list
+" The width of a hard tabstop measured in "spaces" -- effectively the (maximum) width of an actual tab character.
+set tabstop=2
+set shiftwidth=2
+set softtabstop=0
+set smarttab
+
+" Hide the status bar
+set laststatus=0
+
 au VimEnter * if (@% == "") | execute ':Files' | endif
 
 call plug#begin()
