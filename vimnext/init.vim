@@ -22,19 +22,26 @@ nmap <silent><nowait> <leader>t :<C-u>CocFzfList symbols<CR>
 au FileType go nmap <leader>s <plug>(reftools#fillstruct)
 au FileType go imap <leader>s <ESC><plug>(reftools#fillstruct)
 
+nmap <Space> ^D   " Pagedown when press Space
+"nmap <S-Space> ^U " Page Up when press Shift Space
+
 let g:lightline={
 	\ 'colorscheme': 'dracula',
 	\ }
 
 Plug 'itchyny/lightline.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'mattn/vim-goimports'
 Plug 'antoinemadec/coc-fzf'
 Plug 'jparise/vim-graphql'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
+Plug 'luochen1990/rainbow'
 Plug 'tpope/vim-vinegar'
 Plug 'junegunn/fzf.vim'
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'airblade/vim-gitgutter'
+Plug 'tenfyzhong/reftools.vim'
+let g:rainbow_active = 1
 
 call plug#end()
 
