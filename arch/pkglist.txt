@@ -140,6 +140,7 @@ python-sphinx
 python-tldextract
 python2-pynvim
 qutebrowser
+qutebrowser-profile-git
 rancher-k3d-bin
 randr-notify
 reflex
