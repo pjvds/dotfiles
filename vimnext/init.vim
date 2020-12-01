@@ -22,8 +22,8 @@ nmap <silent><nowait> <leader>t :<C-u>CocFzfList symbols<CR>
 au FileType go nmap <leader>s <plug>(reftools#fillstruct)
 au FileType go imap <leader>s <ESC><plug>(reftools#fillstruct)
 
-nmap <Space> ^D   " Pagedown when press Space
-"nmap <S-Space> ^U " Page Up when press Shift Space
+let g:comfortable_motion_scroll_down_key = "j"
+let g:comfortable_motion_scroll_up_key = "k"
 
 let g:lightline={
 	\ 'colorscheme': 'dracula',
@@ -41,9 +41,11 @@ Plug 'junegunn/fzf.vim'
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'airblade/vim-gitgutter'
 Plug 'tenfyzhong/reftools.vim'
-let g:rainbow_active = 1
-
+Plug 'yuttie/comfortable-motion.vim'
 call plug#end()
+
+let g:hardtime_default_on = 1
+let g:rainbow_active = 1
 
 autocmd BufWritePre *.go :silent call CocAction('runCommand', 'editor.action.organizeImport')
 
