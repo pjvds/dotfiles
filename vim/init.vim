@@ -29,6 +29,8 @@ let g:lightline={
 	\ 'colorscheme': 'dracula',
 	\ }
 
+" Vim HardTime
+Plug 'takac/vim-hardtime'
 Plug 'itchyny/lightline.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'mattn/vim-goimports'
