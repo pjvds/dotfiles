@@ -386,7 +386,7 @@ ramp-signal-4 = %{T5}%{T-}
 [module/ping]
 type = custom/script
 exec = ~/.config/polybar/scripts/info-pingrtt
-interval = 1
+tail = true
 
 [module/usb-audio]
 inherit = common/pulseaudio
