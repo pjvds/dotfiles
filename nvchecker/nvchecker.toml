@@ -4,6 +4,11 @@ newver = "new_ver.json"
 http_timeout = 300
 max_concurrency = 20
 
+[pbgopy]
+source = "github"
+github = "nakabonne/pbgopy"
+use_max_tag = true
+
 [whatscli]
 source = "github"
 github = "normen/whatscli"
@@ -12,6 +17,10 @@ use_max_tag = true
 [whatscli-git]
 source = "github"
 github = "normen/whatscli"
+
+[bella-git]
+source = "github"
+github = "tv42/bella"
 
 [xrandr-notify]
 source = "github"
