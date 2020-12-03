@@ -18,7 +18,14 @@ There's a few special files in the hierarchy.
 
 # Features
 
-## Package list backup
+## Blazing fast shell start time
+
+``` zsh
+$ time zsh -i -c exit
+0.13s user 0.11s system 100% cpu 0.315 total
+```
+
+## Package list
 
 After each login the current package list is saved to `arch/pkglist.txt` as a backup.
 
