@@ -111,6 +111,7 @@ nautilus
 ncspot
 neofetch
 neovim
+nerd-fonts-jetbrains-mono
 notion-app
 noto-fonts
 ntp
