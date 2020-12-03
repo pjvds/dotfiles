@@ -179,6 +179,7 @@ time
 tldr++
 tree
 ttf-dejavu
+ttf-jetbrains-mono
 ttf-liberation
 turbovnc
 unclutter
