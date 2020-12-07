@@ -1,3 +1,7 @@
+source $DOTFILES/vim/plugins.vim
+source $DOTFILES/vim/coc.vim
+let loaded_netrwPlugin = 1
+
 let mapleader="'"
 set list
 " The width of a hard tabstop measured in "spaces" -- effectively the (maximum) width of an actual tab character.
@@ -28,23 +32,6 @@ let g:comfortable_motion_scroll_up_key = "k"
 let g:lightline={
 	\ 'colorscheme': 'dracula',
 	\ }
-
-" Vim HardTime
-Plug 'takac/vim-hardtime'
-Plug 'itchyny/lightline.vim'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'mattn/vim-goimports'
-Plug 'antoinemadec/coc-fzf'
-Plug 'jparise/vim-graphql'
-Plug 'jeffkreeftmeijer/vim-numbertoggle'
-Plug 'luochen1990/rainbow'
-Plug 'tpope/vim-vinegar'
-Plug 'junegunn/fzf.vim'
-Plug 'dracula/vim', { 'as': 'dracula' }
-Plug 'airblade/vim-gitgutter'
-Plug 'tenfyzhong/reftools.vim'
-Plug 'yuttie/comfortable-motion.vim'
-call plug#end()
 
 let g:hardtime_default_on = 1
 let g:rainbow_active = 1
