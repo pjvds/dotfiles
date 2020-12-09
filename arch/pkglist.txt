@@ -62,10 +62,14 @@ gcc
 geeqie
 gettext
 git
+gitsu
+glxgears
 gnu-netcat
 googler
+goreleaser-bin
 gpick
 graphql-playground-electron
+grc
 grep
 groff
 grub
@@ -112,6 +116,7 @@ ncspot
 neofetch
 neovim
 nerd-fonts-jetbrains-mono
+nerd-fonts-sf-mono
 notion-app
 noto-fonts
 ntp
@@ -123,7 +128,9 @@ openssh
 pacman
 pacman-contrib
 pamixer
+panicparse
 patch
+pbgopy
 peek
 pgadmin4
 pgmodeler
@@ -185,7 +192,7 @@ turbovnc
 unclutter
 unzip
 via-bin
-vim
+vim-plugins-profiler
 whatsapp-for-linux
 whatsapp-nativefier
 whatscli
