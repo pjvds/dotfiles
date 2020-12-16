@@ -4,6 +4,12 @@ newver = "new_ver.json"
 http_timeout = 300
 max_concurrency = 20
 
+[imgdiff]
+source = "github"
+github = "n7olkachev/imgdiff"
+use_max_tag = true
+
+
 [pbgopy]
 source = "github"
 github = "nakabonne/pbgopy"
