@@ -9,6 +9,10 @@ source = "github"
 github = "n7olkachev/imgdiff"
 use_max_tag = true
 
+[owncast]
+source = "github"
+github = "owncast/owncast"
+use_max_tag = true
 
 [pbgopy]
 source = "github"
