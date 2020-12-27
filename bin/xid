@@ -1,0 +1,27 @@
+#!/usr/bin/env gorun
+// vim: set syntax=go
+package main
+
+import (
+	"fmt"
+	"os"
+	"strings"
+
+	"flag"
+	"github.com/rs/xid"
+)
+
+var uppercase = flag.Bool("u", false, "print in uppercase")
+
+func main() {
+	flag.Parse()
+
+	id := xid.New().String()
+
+	if *uppercase {
+		id = strings.ToUpper(id)
+	}
+
+	fmt.Fprintln(os.Stdout, id)
+}
+
