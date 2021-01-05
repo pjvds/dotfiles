@@ -1,3 +1,3 @@
 #!/bin/zsh
 bspc rule -a "Alacritty" -o desktop="9" follow=off focus=off
-alacritty -e zsh -i -c ncspot &
+ZSH_NO_SSH_AGENT=1 alacritty -e zsh -i -c ncspot &
