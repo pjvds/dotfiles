@@ -2,5 +2,8 @@
 	"suggest.enablePreview": true,
 	"suggest.enablePreselect": true,
 	"suggest.noselect": false,
-	 "explorer.icon.enableNerdfont": true
+	"explorer.icon.enableNerdfont": true,
+	"coc.preferences.currentFunctionSymbolAutoUpdate": true,
+	"coc.preferences.hoverTarget": "float",
+	"codeLens.enable": true
 }
