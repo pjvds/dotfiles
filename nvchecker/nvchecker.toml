@@ -4,6 +4,11 @@ newver = "new_ver.json"
 http_timeout = 300
 max_concurrency = 20
 
+[tunl]
+source = "github"
+github = "pjvds/tunl"
+use_max_tag = true
+
 [topalias]
 source = "github"
 github = "CSRedRat/topalias"
