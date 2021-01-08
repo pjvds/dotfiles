@@ -18,6 +18,11 @@ source = "github"
 github = "CSRedRat/topalias"
 use_max_tag = true
 
+[grasp]
+source = "github"
+github = "lucasepe/grasp"
+use_max_tag = true
+
 [imgdiff]
 source = "github"
 github = "n7olkachev/imgdiff"
