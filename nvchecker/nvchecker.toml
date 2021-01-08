@@ -4,6 +4,10 @@ newver = "new_ver.json"
 http_timeout = 300
 max_concurrency = 20
 
+[theme_sh]
+source = "github"
+github = "lemnos/theme.sh"
+
 [tunl]
 source = "github"
 github = "pjvds/tunl"
