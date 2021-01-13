@@ -29,6 +29,11 @@ source = "github"
 github = "n7olkachev/imgdiff"
 use_max_tag = true
 
+[tmpsms]
+source = "github"
+github = "sdushantha/tmpsms"
+use_max_tag = true
+
 [owncast]
 source = "github"
 github = "owncast/owncast"
