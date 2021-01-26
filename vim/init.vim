@@ -18,7 +18,6 @@ au VimEnter * if (@% == "") | execute ':Files' | endif
 call plug#begin()
 
 set scroll=5
-noremap ; :
 
 " Search workspace symbols.
 nmap <silent><nowait> <leader>T :<C-u>CocFzfList outline<cr>
