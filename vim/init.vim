@@ -11,7 +11,7 @@ set softtabstop=0
 set smarttab
 
 " Hide the status bar
-set laststatus=0
+set laststatus=2
 
 au VimEnter * if (@% == "") | execute ':Files' | endif
 
