@@ -1,7 +1,8 @@
 call plug#begin()
-
 Plug 'vim-test/vim-test'
-
+Plug 'tpope/vim-fugitive'
+Plug 'mbbill/fencview'
+Plug 'sebdah/vim-delve'
 Plug 'ryanoasis/vim-devicons'
 Plug 'terryma/vim-expand-region'
 Plug 'itchyny/lightline.vim'
@@ -18,5 +19,5 @@ Plug 'airblade/vim-gitgutter'
 Plug 'tenfyzhong/reftools.vim'
 Plug 'yuttie/comfortable-motion.vim'
 Plug 'justinmk/vim-sneak'
-
+Plug 'miyakogi/conoline.vim'
 call plug#end()
