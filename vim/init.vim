@@ -5,6 +5,8 @@ source $DOTFILES/vim/coc.vim
 source $DOTFILES/vim/keymap.vim
 let loaded_netrwPlugin = 1
 
+set noswapfile
+
 set undofile " persistent undo for the win!
 set undodir=~/.vim/undo
 
