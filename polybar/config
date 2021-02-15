@@ -3,12 +3,12 @@
 ;--------------------------------------------------------------------;
 
 [common/bar]
-width = 100%;${env:BAR_WIDTH:100%}
+width = ${env:BAR_WIDTH:100%}
 height = ${env:PM_BAR_HEIGHT:40}
 enable-ipc = true
 border-left-size=18
 border-right-size=18
-;offset-x = 18
+offset-x = 18
 offset-y = 12
 radius = 0
 fixed-center = true
@@ -36,7 +36,7 @@ modules-left = apps news
 modules-center = clock
 modules-right = weather now-playing
 
-wm-restack = i3
+wm-restack = bspwm
 
 locale = en_US.UTF-8
 
@@ -101,7 +101,7 @@ label-empty-padding = 2
 
 label-monocle = 
 label-monocle-foreground = #b45bcf
-label-tiled = 
+;label-tiled = 
 label-tiled-foreground = #b45bcf
 label-fullscreen = 
 label-fullscreen-foreground = #b45bcf
@@ -209,10 +209,10 @@ modules-left = i3 bspwm gap title
 modules-center = now-playing 
 modules-right = gap-small cpu-usage gap-small gap-small memory gap-small filesystem gap-small network gap-small ping gap-small updates gap-small clock gap-small
 
-#tray-position = right
-#tray-padding = 0
-#tray-background = #f9282936
-#tray-maxsize = 1
+;tray-position = right
+;tray-padding = 0
+;tray-background = #f9282936
+;tray-maxsize = 1
 
 [module/i3]
 type = internal/i3
@@ -253,7 +253,7 @@ format = <label-state> <label-mode>
 ; Available tokens:
 ;   None
 label-monocle = 
-label-tiled = 
+;label-tiled = 
 label-fullscreen = 
 label-floating = 
 label-pseudotiled = P

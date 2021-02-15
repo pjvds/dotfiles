@@ -1,5 +1,5 @@
 #!/bin/zsh
-#export BAR_WIDTH="$(($(xrandr --query |awk -F '[ x+]' '/\<connected\>/{print $4}')-36))"
+export BAR_WIDTH="$(($(xrandr --query |awk -F '[ x+]' '/\<connected\>/{print $4}')-36))"
 
 if pgrep -u $UID -x polybar >/dev/null;
 then 
