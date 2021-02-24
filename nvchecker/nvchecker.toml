@@ -9,6 +9,10 @@ source = "github"
 github = "hasura/graphqurl"
 use_max_tag = true
 
+[openpomodoro]
+source = "github"
+github = "open-pomodoro/openpomodoro-cli"
+use_max_tag = true
 
 [theme_sh]
 source = "github"
