@@ -1,4 +1,143 @@
-[{t:"#000\n#b22626\n\n#2d63ce\n#7a2dce"},"\n~\n\n`\n\n\n\n\nTab","\n!\n\n1\n\n\n\n\nQ","\n@\n\n2\n\n\n\n\nW","\n#\n\n3\n\n\n\n\nE","\n$\n\n4\nEnd\n\n\n\nR","\n%\n\n5\n\n\n\n\nT","\n^\n\n6\n\n\n\n\nY","\n&\n\n7\nPgUp\n\n\n\nU","\n*\n\n8\n\n\n\n\nI","\n(\n\n9\n\n\n\n\nO","\n)\n\n0\nHome\n\n\n\nP","\n\n\nDel\n\n\n\n\nBksp"],
-["\nDel\n\n\n\n\n\n\nEsc","\n_\n\nF1\n\n\n\n\nA","\n-\n\nF2\n\n\n\n\nS","\n+\n\nF3\nPgDn\n\n\n\nD","\n=\n\nF4\n\n\n\n\nF","\n\"\n\nF5\n\n\n\n\nG","\n:\n\nF6\n←\n\n\n\nH","\n{\n\n\n↓\n\n\n\nJ","\n[\n\n\n↑\n\n\n\nK","\n]\n\n\n→\n\n\n\nL","\n}\n\n\n\n\n\n\n;\n:","\n|\n\n\\\n\n\n\n\n\"\n'"],
-[{t:"#000\n\n\n\n#7a2dce",a:5},"Shift",{t:"#000\n#b22626\n\n#2d63ce\n#7a2dce",a:4},"\n\n\nF7\n\n\n\n\nZ","\n\n\nF8\n\n\n\n\nX","\n\n\nF9\n\n\n\n\nC","\n\n\nF10\n\n\n\n\nV","\n\n\nF11\n\n\n\n\nB","\n\n\nF12\n\n\n\n\nN",{t:"#000\n\n\n\n#7a2dce",a:5},"M",{t:"#000\n#b22626\n\n#2d63ce\n#7a2dce",a:4,fa:[0,0,0,1]},"\n\n\n<i class='fa fa-fast-backward'></i>\n\n\n\n\n<\n,","\n\n\n<i class='fa fa-fast-forward'></i>\n\n\n\n\n>\n.","\n\n\n<i class='fa fa-play'></i>\n\n\n\n\n?\n/",{t:"#000\n\n\n\n#7a2dce",a:5},"Shift"],
-[{t:"#7a2dce\n\n\n\n#7a2dce"},"Fn",{t:"#000\n\n\n\n#7a2dce"},"Ctrl","Alt","Super",{t:"#b22626\n\n\n\n#7a2dce"},"&dArr;",{t:"#000\n\n\n\n#7a2dce",a:7,w:2},"",{t:"#2d63ce\n\n\n\n#7a2dce",a:5},"&uArr;",{t:"#000\n#b22626\n\n#2d63ce\n#7a2dce",a:4,f:3},"\n\n\n<i class='fa fa-volume-off'></i>\n\n\n\n\nCtrl",{f:3},"\n\n\n<i class='fa fa-volume-down'></i>\n\n\n\n\nSuper",{f:3},"\n\n\n<i class='fa fa-volume-up'></i>\n\n\n\n\nAlt",{t:"#000\n\n\n\n#7a2dce",a:5},"Enter"]
+[
+  {
+    "backcolor": "#44475a",
+    "css": "@font-face{\n    font-family: 'JetBrains Mono';\n    src: url('https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/fonts/webfonts/JetBrainsMono-Regular.woff2') format('woff2'),\n         url('https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/fonts/ttf/JetBrainsMono-Regular.ttf') format('truetype');\n    font-weight: normal;\n    font-style: normal;\n}\n\n* { font-family: 'JetBrains Mono'; }\n.fa { font-family: 'FontAwesome'; }\n.keylabel10 { font-style: 'italic'; }"
+  },
+  [
+    {
+      "c": "#282a36",
+      "t": "#ffffff\n#f1fa8c\n\n#50fa7b\n#6272a4"
+    },
+    "\n~\n\n`\nSleep\n\n\n\nTab",
+    {
+      "t": "#ffffff\n#f1fa8c\n\n#50fa7b"
+    },
+    "\n!\n\n1\n\n\n\n\nQ",
+    "\n@\n\n2\n\n\n\n\nW",
+    "\n#\n\n3\n\n\n\n\nE",
+    {
+      "t": "#ffffff\n#f1fa8c\n\n#50fa7b\n#6272a4"
+    },
+    "\n$\n\n4\nEnd\n\n\n\nR",
+    {
+      "t": "#ffffff\n#f1fa8c\n\n#50fa7b"
+    },
+    "\n%\n\n5\n\n\n\n\nT",
+    "\n^\n\n6\n\n\n\n\nY",
+    {
+      "t": "#ffffff\n#f1fa8c\n\n#50fa7b\n#6272a4"
+    },
+    "\n&\n\n7\nPgUp\n\n\n\nU",
+    "\n*\n\n8\nInsrt\n\n\n\nI",
+    {
+      "t": "#ffffff\n#f1fa8c\n\n#50fa7b"
+    },
+    "\n(\n\n9\n\n\n\n\nO",
+    {
+      "t": "#ffffff\n#f1fa8c\n\n#50fa7b\n#6272a4"
+    },
+    "\n)\n\n0\nHome\n\n\n\nP",
+    {
+      "t": "#ffffff\n\n\n#50fa7b\n#6272a4"
+    },
+    "\n\n\nDel\nPrtScr\n\n\n\nBksp"
+  ],
+  [
+    {
+      "t": "#ffffff\n#f1fa8c"
+    },
+    "\nDel\n\n\n\n\n\n\nEsc",
+    {
+      "t": "#ffffff\n#f1fa8c\n\n#50fa7b"
+    },
+    "\n_\n\nF1\n\n\n\n\nA",
+    "\n-\n\nF2\n\n\n\n\nS",
+    {
+      "t": "#ffffff\n#f1fa8c\n\n#50fa7b\n#6272a4"
+    },
+    "\n+\n\nF3\nPgDn\n\n\n\nD",
+    {
+      "t": "#ffffff\n#f1fa8c\n\n#50fa7b"
+    },
+    "\n=\n\nF4\n\n\n\n\nF",
+    "\n\"\n\nF5\n\n\n\n\nG",
+    {
+      "t": "#ffffff\n#f1fa8c\n\n#50fa7b\n#6272a4"
+    },
+    "\n:\n\nF6\n←\n\n\n\nH",
+    "\n{\n\n(\n↓\n\n\n\nJ",
+    "\n[\n\n<\n↑\n\n\n\nK",
+    "\n]\n\n>\n→\n\n\n\nL",
+    "\n}\n\n)\n:\n\n\n\n;\n:",
+    {
+      "t": "#ffffff\n#f1fa8c\n\n#50fa7b"
+    },
+    "\n|\n\n\\\n\n\n\n\n\"\n'"
+  ],
+  [
+    {
+      "t": "#ffffff",
+      "a": 5
+    },
+    "Shift",
+    {
+      "t": "#ffffff\n\n\n#50fa7b",
+      "a": 4
+    },
+    "\n\n\nF7\n\n\n\n\nZ",
+    {
+      "t": "#ffffff\n\n\n#50fa7b\n#6272a4"
+    },
+    "\n\n\nF8\nCut\n\n\n\nX",
+    "\n\n\nF9\nCopy\n\n\n\nC",
+    "\n\n\nF10\nPaste\n\n\n\nV",
+    {
+      "t": "#ffffff\n\n\n#50fa7b"
+    },
+    "\n\n\nF11\n\n\n\n\nB",
+    "\n\n\nF12\n\n\n\n\nN",
+    {
+      "t": "#ffffff\n\n\n\n#6272a4",
+      "a": 5
+    },
+    "M\n\n\n\n<i class='fa fa-stop'></i>",
+    ",\n\n\n\n<i class='fa fa-fast-backward'></i>",
+    ".\n\n\n\n<i class='fa fa-fast-forward'></i>",
+    "?\n\n\n\n<i class='fa fa-play'></i>\n\n/",
+    {
+      "t": "#ffffff"
+    },
+    "Shift"
+  ],
+  [
+    "Fn",
+    "Ctrl",
+    "Alt",
+    "Super",
+    {
+      "t": "#ffffff\n\n\n\n#6272a4"
+    },
+    "&dArr;\n\n\n\nTglLwr",
+    {
+      "t": "#ffffff",
+      "a": 7,
+      "w": 2
+    },
+    "",
+    {
+      "t": "#ffffff\n\n\n\n#6272a4",
+      "a": 5
+    },
+    "&uArr;\n\n\n\nTglRse",
+    "Ctrl\n\n\n\n<i class='fa fa-volume-down'></i>",
+    "Super\n\n\n\n<i class='fa fa-volume-up'></i>",
+    {
+      "t": "#ffffff"
+    },
+    "Alt",
+    {
+      "t": "#ffffff\n\n\n\n#6272a4"
+    },
+    "Enter\n\n\n\n<i class='fa fa-volume-off'></i>"
+  ]
+]
