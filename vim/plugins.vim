@@ -1,5 +1,6 @@
 call plug#begin()
 Plug 'vim-test/vim-test'
+Plug 'chriskempson/base16-vim'
 Plug 'tpope/vim-fugitive'
 Plug 'mbbill/fencview'
 Plug 'sebdah/vim-delve'
@@ -20,4 +21,7 @@ Plug 'tenfyzhong/reftools.vim'
 Plug 'yuttie/comfortable-motion.vim'
 Plug 'justinmk/vim-sneak'
 Plug 'miyakogi/conoline.vim'
+Plug 'mattn/vim-goimpl'
+Plug 'josa42/vim-lightline-coc'
+Plug 'tpope/vim-sleuth'
 call plug#end()
