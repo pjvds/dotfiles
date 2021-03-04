@@ -18,3 +18,8 @@ alias lzd='docker run --rm -it -v /var/run/docker.sock:/var/run/docker.sock -v /
 alias bcp='docker run -it --entrypoint /opt/mssql-tools/bin/bcp mcr.microsoft.com/mssql-tools'
 
 alias asciicast2gif='docker run --rm -v $PWD:/data asciinema/asciicast2gif'
+
+# print docker ip address for a container
+function dip {
+  docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' $1
+}
