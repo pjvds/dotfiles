@@ -4,7 +4,6 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 nnoremap <silent> <C-S> :split<CR>
-nnoremap <silent> <C-V> :vsplit<CR>
 map s <Plug>Sneak_s
 map S <Plug>Sneak_S
 
@@ -19,3 +18,4 @@ function! s:show_documentation()
     call CocAction('doHover')
   endif
 endfunction
+
