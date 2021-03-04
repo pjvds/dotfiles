@@ -192,7 +192,11 @@ function SetupLightlineColors() abort
 	call lightline#colorscheme()
 endfunction
 
-set termguicolors
-let g:conoline_color_normal_dark = 'guibg=#44475a'
+"set termguicolors
+let g:conoline_color_normal_dark = 'guibg=#000000 ctermbg=black'
+let g:conoline_color_normal_nr_dark = 'guibg=#000000 ctermbg=black'
 
-
+" prefix line breaks
+let &showbreak = '↳ '
+set wrap
+set cpo=n
