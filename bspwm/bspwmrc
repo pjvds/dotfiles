@@ -35,6 +35,6 @@ source ~/.profile
 
 logins=($(find $DOTFILES -executable -type f -name login))
 for login in $logins; do
-  echo "login script: $login"
+  echo "$(date -u +"%H:%M:%S") login script: $login"
   source $login
 done
