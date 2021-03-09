@@ -29,6 +29,8 @@ bspc config pointer_modifier      mod4
 
 bspc config ignore_ewmh_focus true
 
+bspc rule -a Peek state=floating layer=above center=true
+
 source ~/.profile
 
 logins=($(find $DOTFILES -executable -type f -name login))
