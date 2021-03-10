@@ -7,7 +7,7 @@ function im::open() {
 
   echo "opening: $command"
 
-  bspc rule -a "$wm_class" -o desktop="^10" follow=off focus=off
+  bspc rule -a "$wm_class" desktop="^10" follow=off focus=off
   $command &
 }
 
