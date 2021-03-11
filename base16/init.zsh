@@ -6,7 +6,8 @@ if [ ! -d "$BASE16_SHELL" ]; then
   info "missing base-shell, cloning base-shell to config"
   git clone "https://github.com/chriskempson/base16-shell.git" "$BASE16_SHELL"
 fi
-# Activate theme
+
+# Do not set background, BG color is set by terminal
 BASE16_SHELL_SET_BACKGROUND=false
 
 # Base16 Shell

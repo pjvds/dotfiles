@@ -53,6 +53,7 @@ dotnet-sdk-2.2
 dotnet-sdk-bin
 dunst
 efibootmgr
+electron9-bin
 evans-bin
 exa
 fakeroot
