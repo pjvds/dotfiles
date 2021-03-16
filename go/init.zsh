@@ -6,8 +6,11 @@ export GOPATH="$HOME/go"
 export PATH="$PATH:$GOPATH/bin"
 export CGO_ENABLED=1
 
-
-zinit load equipindustry/zsh-goenv
+function go() {
+    unset -f go > /dev/null 2>&1
+    eval "$(command goenv init -)"
+    go "$@"
+}
 
 function goenv() {
     unset -f goenv > /dev/null 2>&1
