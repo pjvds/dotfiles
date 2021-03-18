@@ -1,4 +1,5 @@
 #!/bin/zsh
 xrandr-notify | while read -r batch; do
-  polybar-msg cmd reload
+  echo "display properties changed, re-launching polybar"
+  $DOTFILES/polybar/launch
 done

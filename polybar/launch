@@ -3,9 +3,11 @@ export BAR_WIDTH="$(($(xrandr --query |awk -F '[ x+]' '/\<connected\>/{print $4}
 
 if pgrep -u $UID -x polybar >/dev/null;
 then 
-  # Polybar already running, send restart command
-  polybar-msg cmd restart
-else
-  # Polybar not running, start it
-  nohup polybar -c "$DOTFILES/polybar/config" bottom &> /dev/null &
+  # there used to be a restart command (polybar-msg cmd restart),
+  # but this doesn't respect the updated BAR_WIDTH, so kill the current
+  # instance
+  pkill polybar
 fi
+
+# Polybar not running, start it
+nohup polybar -c "$DOTFILES/polybar/config" bottom &> /dev/null &
