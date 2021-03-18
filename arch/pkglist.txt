@@ -293,6 +293,7 @@ xorg-xwayland
 xorg-xwd
 xorg-xwininfo
 xorg-xwud
+xrandr-notify
 xterm
 xxd-standalone
 yarn
