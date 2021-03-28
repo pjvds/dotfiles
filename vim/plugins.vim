@@ -1,4 +1,6 @@
 call plug#begin()
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
 Plug 'vim-test/vim-test'
 Plug 'chriskempson/base16-vim'
 Plug 'tpope/vim-fugitive'

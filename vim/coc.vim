@@ -10,4 +10,5 @@ let g:coc_global_extensions = [
   \ 'coc-highlight',
   \ 'coc-actions',
   \ 'coc-tabnine',
+  \ 'coc-tsserver',
   \ ]
