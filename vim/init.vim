@@ -24,6 +24,8 @@ set laststatus=2
 
 au VimEnter * if (@% == "") | execute ':Files' | endif
 
+" search and replace selected text
+vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
 
 set scroll=5
 
