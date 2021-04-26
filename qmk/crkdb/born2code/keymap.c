@@ -19,6 +19,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include QMK_KEYBOARD_H
 
 #define CTL_ESC LCTL_T(KC_ESC)
+#define CTL_ENT LCTL_T(KC_ENT)
 #define SHT_ENT SFT_T(KC_ENT)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -30,7 +31,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       KC_LSFT,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH,  SHT_ENT,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          KC_LGUI,   MO(1),  KC_SPC,     KC_LCTL,   MO(2), KC_RALT
+                                          KC_LGUI,   MO(1),  KC_SPC,     CTL_ENT,  MO(2), KC_RALT
                                       //`--------------------------'  `--------------------------'
 
   ),
