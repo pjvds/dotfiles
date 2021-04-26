@@ -7,7 +7,6 @@ let g:coc_global_extensions = [
   \ 'coc-omnisharp', 
   \ 'coc-prettier', 
   \ 'coc-json', 
-  \ 'coc-highlight',
   \ 'coc-actions',
   \ 'coc-tabnine',
   \ 'coc-tsserver',
