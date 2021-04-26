@@ -27,4 +27,5 @@ Plug 'miyakogi/conoline.vim'
 Plug 'mattn/vim-goimpl'
 Plug 'josa42/vim-lightline-coc'
 Plug 'tpope/vim-sleuth'
+Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 call plug#end()
