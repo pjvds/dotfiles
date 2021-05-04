@@ -1,1 +1,8 @@
-keycode 108 = Super_L
+clear mod1
+clear mod4
+
+!Make right alt look like right super
+keycode 108 = Super_R NoSymbol Super_R
+
+add mod1 = Alt_L
+add mod4 = Super_L Super_R
