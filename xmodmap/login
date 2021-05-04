@@ -1,0 +1,2 @@
+#!/bin/zsh
+xmodmap "$DOTFILES/xmodmap/xmodmap"
