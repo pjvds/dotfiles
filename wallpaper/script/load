@@ -1,0 +1,11 @@
+#!/bin/zsh
+current="$DOTFILES/wallpaper/current"
+
+if [ -f $current ];
+then
+  feh --bg-fill $current 
+
+  xrandr-notify | while read -r events; do
+    feh --bg-fill $current
+  done
+fi

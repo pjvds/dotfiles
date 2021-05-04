@@ -1,7 +1,0 @@
-#!/bin/zsh
-current="$DOTFILES/wallpaper/current"
-
-if [ -f $current ];
-then
-  feh --bg-fill $current
-fi
