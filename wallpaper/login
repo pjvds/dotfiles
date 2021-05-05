@@ -1,2 +1,27 @@
 #!/bin/zsh
-$DOTFILES/wallpaper/scripts/load
+# Trap output to also write to log
+LOG_FILE="$DOTFILES/wallpaper/login.log"
+exec 3>&1 1>${LOG_FILE} 2>&1
+
+function set_current_wallpaper {
+  current="$DOTFILES/wallpaper/current"
+  if [ ! -f $current ];
+  then
+    echo "skipping wallpaer set because current file does not exists"
+    return
+  fi
+
+  echo "setting wallpaper with feh"
+  feh --bg-fill $current 
+}
+
+function set_wallpaper_and_watch_xrandr_changes {
+  set_current_wallpaper
+
+  xrandr-notify | while read -r events; do
+    echo "resetting wallpaper because of xrandr change"
+    set_current_wallpaper
+  done
+}
+
+set_wallpaper_and_watch_xrandr_changes
