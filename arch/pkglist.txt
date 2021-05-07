@@ -6,7 +6,6 @@ argo-bin
 asciinema
 aspnet-runtime
 aspnet-runtime-2.2
-aspnet-runtime-bin
 aurphan
 aurpublish
 autoconf
@@ -14,11 +13,13 @@ automake
 azure-cli
 azuredatastudio-bin
 base
+base16-builder-go
 bat
 bc
 binutils
 bison
 bitwarden-bin
+bitwarden-cli
 browsh-bin
 bsp-layout
 bspwm-rounded-corners-git
@@ -39,6 +40,7 @@ compton-conf
 conntrack-tools
 cowsay
 ctags
+cups-pdf
 davfs2
 dbeaver
 deepin-screen-recorder
@@ -50,7 +52,6 @@ dotnet-runtime-2.1
 dotnet-sdk
 dotnet-sdk-2.1
 dotnet-sdk-2.2
-dotnet-sdk-bin
 dunst
 efibootmgr
 electron9-bin
@@ -72,7 +73,6 @@ gettext
 git
 git-interactive-rebase-tool
 gitsu
-glxgears
 gnu-netcat
 godownloader-git
 goenv
@@ -83,6 +83,7 @@ goreleaser-bin
 goreplay-bin
 gorun
 gpick
+graphql-lsp
 graphql-playground-electron
 grc
 grep
@@ -94,11 +95,13 @@ guake
 gvm
 gzip
 helm
+hexokinase-git
 hiri
 hstr-git
 htop
 httpie
 httpry
+hxd
 i3-gaps
 inkscape
 iptables-nft
@@ -107,6 +110,7 @@ jq
 k9s
 kind
 kitty
+komorebi
 kubectl
 kubectx
 lastpass-cli
@@ -123,12 +127,14 @@ maim
 make
 mariadb-clients
 menu-calc
+mesa-demos
 minikube
 minio-client
 mop-git
 mpv
 mssql-tools
 mutt
+mvnvm
 mysql-workbench
 naivecalendar-git
 namcap
@@ -139,15 +145,18 @@ neovim
 nerd-fonts-jetbrains-mono
 nerd-fonts-sf-mono
 ngrok
+nmap
 notion-app
 noto-fonts
 ntp
 nvchecker
+nvidia
 nvm
 obs-studio
 open-vm-tools
 openpomodoro
 openssh
+openvpn3-git
 packr
 pacman
 pacman-contrib
@@ -177,6 +186,7 @@ python-pynvim
 python-sphinx
 python-tldextract
 python2-pynvim
+qmk
 qutebrowser
 qutebrowser-profile-git
 rancher-k3d-bin
@@ -212,8 +222,10 @@ sudo
 sway
 sxhkd
 teams
+teams-insiders
 telepresence
 texinfo
+text2pdf
 the_silver_searcher
 thefuck
 theme.sh
@@ -222,6 +234,7 @@ time
 tldr++
 tmpmail-git
 tmpsms
+traceroute
 tree
 ttf-dejavu
 ttf-jetbrains-mono
