@@ -1,2 +1,13 @@
 #!/bin/zsh
-$DOTFILES/polybar/launch &
+function  launch {
+  $DOTFILES/polybar/launch &
+}
+
+function launch_and_watch_xrandr_changes {
+  xrandr-notify | while read -r batch; do
+    echo "display properties changed, re-launching polybar"
+    $DOTFILES/polybar/launch
+  done
+}
+
+launch_and_watch_xrandr_changes &

@@ -17,13 +17,14 @@ do
 
 	rtt=$(echo "$ping" | sed -rn 's/.*time=([0-9]{1,})\.?[0-9]{0,} ms.*/\1/p')
 
-	if [ "$rtt" -lt 11 ]; then
-		# orange
+	if [ "$rtt" -lt 25 ]; then
 		echo " ${rtt} ms"
 	elif [ "$rtt" -lt 51 ]; then
+		# orange
 		echo "%{F#f9dd04} ${rtt} ms%{F-}"
 	else
+		# red
 		echo "%{F#d60606} ${rtt} ms%{F-}"
 	fi
-	sleep 1
+	sleep 0.5
 done

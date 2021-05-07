@@ -6,17 +6,17 @@
 width = ${env:BAR_WIDTH:100%}
 height = ${env:PM_BAR_HEIGHT:40}
 enable-ipc = true
-border-left-size=18
-border-right-size=18
+border-left-size=0
+border-right-size=0
 offset-x = 18
 offset-y = 12
 radius = 0
 fixed-center = true
 
-font-0 = "JetBrainsMono, Regular:weight=Regular:size=12;4"
+font-0 = "JetBrainsMono, Regular:weight=Regular:size=10;4"
 # https://fontawesome.com/icons?d=gallery&q=date&m=free
-font-1 = "FontAwesome5Free:style=Solid:pixelsize=12;4"
-font-2 = "FontAwesome5Brands:style=Solid:pixelsize=12;4"
+font-1 = "FontAwesome5Free:style=Solid:pixelsize=10;4"
+font-2 = "FontAwesome5Brands:style=Solid:pixelsize=10;4"
 
 background = #ae282936
 foreground = #e9e9f4
@@ -264,6 +264,7 @@ label-sticky-foreground = #fba922
 label-private = 
 label-private-foreground = #bd2c40
 label-marked = M
+kkkkkkklabel-active-font = 1
 
 fuzzy-match = false
 
