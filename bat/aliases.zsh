@@ -1,2 +1,2 @@
-alias bat="bat --style=\"changes\""
-alias cat="bat"
+alias bat="bat -p --style=\"changes\""
+alias cat="bat -p --style=\"changes\""
