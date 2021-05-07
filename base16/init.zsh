@@ -8,7 +8,7 @@ if [ ! -d "$BASE16_SHELL" ]; then
 fi
 
 # Do not set background, BG color is set by terminal
-BASE16_SHELL_SET_BACKGROUND=false
+BASE16_SHELL_SET_BACKGROUND=${BASE16_SHELL_SET_BACKGROUND:-false}
 
 # Base16 Shell
 eval "$("$BASE16_SHELL/profile_helper.sh")"
