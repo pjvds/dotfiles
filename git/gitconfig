@@ -1,5 +1,5 @@
 [user]
-	name = Pieter Joost
+	name = Pieter Joost van de Sande
 	email = pj@born2code.net
 [color]
     diff = auto
@@ -26,3 +26,8 @@
 	rebase = true
 [rerere]
 	enabled = true
+
+[includeIf "gitdir/i:~/code/deloitte/"]
+	path = ~/dotfiles/git/gitconfig-deloitte
+[sequence]
+	editor = interactive-rebase-tool
