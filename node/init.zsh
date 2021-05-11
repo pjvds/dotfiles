@@ -1,3 +1,6 @@
+export NVM_LAZY_LOAD=true
+source /usr/share/nvm/init-nvm.sh
+
 # Placeholder 'nvm' shell function:
 # Will only be executed on the first call to 'nvm'
 nvm() {
@@ -10,3 +13,15 @@ nvm() {
   $0 "$@"
 }
 
+# Placeholder 'nvm' shell function:
+# Will only be executed on the first call to 'nvm'
+node() {
+  # Remove this function, subsequent calls will execute 'nvm' directly
+  unfunction "$0"
+
+  # Remove this function, subsequent calls will execute 'nvm' directly
+  source /usr/share/nvm/init-nvm.sh
+
+  # Execute binary
+  $0 "$@"
+}
