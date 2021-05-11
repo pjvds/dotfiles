@@ -24,4 +24,4 @@ function set_wallpaper_and_watch_xrandr_changes {
   done
 }
 
-set_wallpaper_and_watch_xrandr_changes
+set_wallpaper_and_watch_xrandr_changes &
