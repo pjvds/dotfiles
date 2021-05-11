@@ -23,6 +23,7 @@ bspc subscribe node_stack | while read -r action monitor_id desktop_id node_id; 
     echo className: $className
 
     if [ "$className" != "qutebrowser" ]; then
+      echo "this is not qutebrowser"
       continue
     fi
 
