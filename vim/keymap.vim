@@ -7,6 +7,15 @@ nnoremap <silent> <C-S> :split<CR>
 map s <Plug>Sneak_s
 map S <Plug>Sneak_S
 
+nmap <leader>vr :VimspectorReset<CR>
+nmap <leader>ve :VimspectorEval
+nmap <leader>vw :VimspectorWatch
+nmap <leader>vo :VimspectorShowOutput
+nmap <leader>vi <Plug>VimspectorBalloonEval
+xmap <leader>vi <Plug>VimspectorBalloonEval
+
+tnoremap <Esc> <C-\><C-n>
+
 " Use K to show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 nnoremap <silent> <leader>d :call <SID>show_documentation()<CR>

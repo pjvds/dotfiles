@@ -5,6 +5,9 @@ source $DOTFILES/vim/coc.vim
 source $DOTFILES/vim/keymap.vim
 let loaded_netrwPlugin = 1
 
+let g:vimspector_enable_mappings = 'HUMAN'
+let g:vimspector_install_gadgets = [ 'debugpy', 'vscode-go', 'CodeLLDB', 'vscode-node-debug2' ]
+
 set noswapfile
 
 set undofile " persistent undo for the win!

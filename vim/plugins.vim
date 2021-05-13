@@ -28,4 +28,5 @@ Plug 'mattn/vim-goimpl'
 Plug 'josa42/vim-lightline-coc'
 Plug 'tpope/vim-sleuth'
 Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
+Plug 'puremourning/vimspector'
 call plug#end()
