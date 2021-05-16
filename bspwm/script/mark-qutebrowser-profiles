@@ -13,12 +13,7 @@ declare -A profiles=(
   [prosim]='#8be9fd'
 )
 
-bspc subscribe node_stack | while read -r action monitor_id desktop_id node_id; do
-    echo action: $action
-    echo monitor: $monitor_id
-    echo desktop: $desktop_id
-    echo node_id: $node_id
-
+bspc subscribe node_add | while read -r action monitor_id desktop_id node_id; do
     className=$(bspc query -T -n $node_id | jq -r '.client.className')
     echo className: $className
 
