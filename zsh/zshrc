@@ -33,6 +33,7 @@ autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
 # Make sure to use double quotes
+zinit ice wait from"gh-r" as"program"
 zinit for \
   load       "junegunn/fzf-bin"
 
@@ -69,7 +70,7 @@ zinit wait lucid light-mode for \
   atinit"zicompinit; zicdreplay" \
     Aloxaf/fzf-tab
 
-for plug in "extract" "thefuck"; do
+for plug in "extract"; do
   zinit snippet OMZ::plugins/$plug/$plug.plugin.zsh
 done
 
