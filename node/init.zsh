@@ -1,5 +1,9 @@
 export NVM_LAZY_LOAD=true
-source /usr/share/nvm/init-nvm.sh
+
+# disable browser launch after npm/yarn start
+export BROWSER=none
+
+#source /usr/share/nvm/init-nvm.sh
 
 # Placeholder 'nvm' shell function:
 # Will only be executed on the first call to 'nvm'
