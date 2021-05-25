@@ -6,6 +6,7 @@ alias l='ls -lah'
 alias ..='cd ../'
 alias ...='cd ../../'
 alias ....='cd ../../../'
+alias tailf='tailf -f'
 
 zinit light pjvds/zsh-cwd
 cwd
