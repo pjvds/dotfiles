@@ -1,0 +1,2 @@
+#!/bin/zsh
+eval $DOTFILES/profiles/profile
