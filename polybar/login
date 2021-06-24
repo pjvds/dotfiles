@@ -4,9 +4,11 @@ function  launch {
 }
 
 function launch_and_watch_xrandr_changes {
+  launch
+
   xrandr-notify | while read -r batch; do
     echo "display properties changed, re-launching polybar"
-    $DOTFILES/polybar/launch
+    launch
   done
 }
 
