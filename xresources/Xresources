@@ -7,6 +7,15 @@ Xft.antialias: 1
 Xft.rgba: rgb
 *locale: UTF-8
 
+URxvt.font: xft:JetBrainsMono\ Medium\ Nerd\ Font\ Mono:style=Regular:size=8
+URxvt.scrollBar: false
+URxvt.scrollBar_right: false
+URxvt.keysym.Shift-Control-V: eval:paste_clipboard
+URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
+URxvt.keysym.Control-Meta-c: builtin-string:
+URxvt.keysym.Control-Meta-v: builtin-string:
+URxvt.internalBorder:  4
+
 XTerm.*.faceName: JetBrains Mono
 XTerm.*.renderFont: true
 XTerm.*.locale: true
