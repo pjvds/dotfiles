@@ -4,6 +4,12 @@ export NVM_LAZY_LOAD=true
 export BROWSER=none
 
 #source /usr/share/nvm/init-nvm.sh
+v() {
+  source /usr/share/nvm/init-nvm.sh
+
+  # Execute binary
+  $EDITOR "$@"
+}
 
 # Placeholder 'nvm' shell function:
 # Will only be executed on the first call to 'nvm'
