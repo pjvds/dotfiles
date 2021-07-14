@@ -85,18 +85,15 @@ Utility to jump to directies. It records all your directory changes and lets you
 
 How to quit this editor?
 
-## spacevim
-
-A popular community-driven vim distribution.
-
 ## starship
 
-A popular zsh prompt with async support.
+A popular zsh prompt with async support. 
 
 ## ncspot
 
 A commandline ncurses client for spotify. Think ncmpc but for the popular streaming service spotify.
 &previous;
+
 * Press <kbd>&laquo;</kbd> to skip to previous track
 * Press <kbd>shift</kbd> + <kbd>&laquo;</kbd> to seek -10 seconds
 * Press <kbd>&raquo;</kbd> to skip to next track
