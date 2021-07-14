@@ -109,7 +109,7 @@ Utility to watch file changes.
 
 # AUR package maintainance
 
-I'm maintaining a few AUR packages for Arch Linux and I recently get questions on what tools I use to automate my workflow.
+I'm maintaining a [few dozen AUR packages](https://aur.archlinux.org/packages/?K=pjvds&SeB=m) for Arch Linux and I recently get questions on what tools I use to automate my workflow.
 
 * `aurpublish` to install githooks for package repostory.
 * `updpkgsums` to perform an in place update of the checksums.
