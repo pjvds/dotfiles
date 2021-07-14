@@ -113,7 +113,7 @@ I'm maintaining a [few dozen AUR packages](https://aur.archlinux.org/packages/?K
 
 * `aurpublish` to install githooks for package repostory.
 * `updpkgsums` to perform an in place update of the checksums.
-* `nvchecker` to check for new versions ([config]()).
+* `nvchecker` to check for new versions ([config](https://github.com/pjvds/dotfiles/blob/master/nvchecker/nvchecker.toml)).
 * `nvcmp` to compare version state files from nvchecker.
 * `nvtake <pkg_name>` to accept the new version.
 
