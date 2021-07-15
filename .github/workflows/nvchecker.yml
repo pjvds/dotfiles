@@ -28,4 +28,4 @@ jobs:
         uses: tianhaoz95-actions/file-diff@v1.0.0
         with:
           lhs: nvchecker/old_ver.json
-          rhs: nvchecker/old_ver.json
+          rhs: nvchecker/new_ver.json
