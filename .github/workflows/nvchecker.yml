@@ -23,4 +23,4 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: nvchecker
-        run: docker run -it --rm -v $PWD/nvchecker/:/root/.config/nvchecker/ snw35/nvchecker:latest
+        run: docker run --rm -v $PWD/nvchecker/:/root/.config/nvchecker/ snw35/nvchecker:latest
