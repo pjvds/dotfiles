@@ -22,7 +22,7 @@ There's a few special files in the hierarchy.
 
 ``` zsh
 $ time zsh -i -c exit
-0.13s user 0.11s system 100% cpu 0.315 total
+0.06s user 0.13s system 101% cpu 0.186 total
 ```
 
 ## Package list
