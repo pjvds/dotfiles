@@ -24,6 +24,8 @@ jobs:
 
       - name: nvchecker
         run: docker run --rm -v $PWD/nvchecker/:/root/.config/nvchecker/ snw35/nvchecker:latest
+      - name: nvcmp
+        run: docker run --rm -v $PWD/nvchecker/:/root/.config/nvchecker/ snw35/nvchecker:latest nvcmp
       - name: version file diff
         uses: tianhaoz95-actions/file-diff@v1.0.0
         with:
