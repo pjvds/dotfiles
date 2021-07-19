@@ -26,11 +26,6 @@ jobs:
         run: docker run --rm -v $PWD/nvchecker/:/root/.config/nvchecker/ snw35/nvchecker:latest
       - name: nvcmp
         run: docker run --rm -v $PWD/nvchecker/:/root/.config/nvchecker/ snw35/nvchecker:latest nvcmp
-      - name: version file diff
-        uses: tianhaoz95-actions/file-diff@v1.0.0
-        with:
-          lhs: nvchecker/old_ver.json
-          rhs: nvchecker/new_ver.json
       - name: Add & Commit
         uses: EndBug/add-and-commit@v7.2.1
         with:
@@ -38,4 +33,9 @@ jobs:
           author_name: Pieter Joost van de Sande
           author_email: pj@born2code.net
           message: 'nvchecker: update version information'
+      - name: version file diff
+        uses: tianhaoz95-actions/file-diff@v1.0.0
+        with:
+          lhs: nvchecker/old_ver.json
+          rhs: nvchecker/new_ver.json
 
