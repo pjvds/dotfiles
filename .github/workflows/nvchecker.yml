@@ -31,3 +31,10 @@ jobs:
         with:
           lhs: nvchecker/old_ver.json
           rhs: nvchecker/new_ver.json
+      - name: Add & Commit
+        uses: EndBug/add-and-commit@v7.2.1
+        add: nvchecker/
+        author_name: Pieter Joost van de Sande
+        author_email: pj@born2code.net
+        message: 'nvchecker: update version information'
+
