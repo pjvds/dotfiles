@@ -22,17 +22,18 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define CTL_ENT LCTL_T(KC_ENT)
 #define SHT_ENT SFT_T(KC_ENT)
 
-#define A_SFT SFT_T(KC_A)
-#define S_CTL LCTL_T(KC_S)
-#define D_ALT LALT_T(KC_D)
-#define F_META MT(MOD_LGUI, KC_F)
+#define A_CTL LCTL_T(KC_A)
+#define S_ALT LALT_T(KC_S)
+#define D_GUI MT(MOD_LGUI, KC_D)
+#define F_SFT SFT_T(KC_F)
 
-#define J_META MT(MOD_LGUI, KC_J)
-#define K_ALT RALT_T(KC_K)
-#define L_CTL LCTL_T(KC_L)
-#define SCLN_SFT SFT_T(KC_SCLN)
+#define J_SFT SFT_T(KC_J)
+#define K_GUI MT(MOD_RGUI, KC_K)
+#define L_ALT RALT_T(KC_L)
+#define SCLN_CTL RCTL_T(KC_SCLN)
 
-// use in the alt layer for by passing conflicting OS hot keys that can't be disabled (win+l for lock for example)
+// use in the alt layer for by passing conflicting OS hot keys 
+// that can't be disabled (win+l, cmd+q, for example)
 #define F_META_ALT MT(MOD_RALT, KC_F)
 #define J_META_ALT MT(MOD_RALT, KC_J)
 
@@ -50,7 +51,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
       KC_TAB,    KC_Q,    KC_W,    KC_E,    KC_R,     KC_T,                         KC_Y,    KC_U,    KC_I,    KC_O,   KC_P,  KC_BSPC,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      CTL_ESC,   A_SFT,   S_CTL,  D_ALT,  F_META,   KC_G,                         KC_H,  J_META,     K_ALT,  L_CTL,SCLN_SFT, KC_QUOT,
+      CTL_ESC,   A_CTL,   S_ALT,   D_GUI,   F_SFT,    KC_G,                         KC_H,   J_SFT,   K_GUI,   L_ALT,SCLN_CTL, KC_QUOT,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       KC_LSFT,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH,  SHT_ENT,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
