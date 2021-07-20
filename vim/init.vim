@@ -1,3 +1,4 @@
+set termguicolors
 let g:conoline_auto_enable = 1
 
 source $DOTFILES/vim/plugins.vim
@@ -56,7 +57,7 @@ let g:comfortable_motion_scroll_down_key = "j"
 let g:comfortable_motion_scroll_up_key = "k"
 
 let g:lightline={
-	\ 'colorscheme': 'dracula',
+	\ 'colorscheme': 'NightRunner',
 	\ }
 
 let g:hardtime_default_on = 1
@@ -146,7 +147,7 @@ let g:netrw_browse_split = 4
 
 
 let g:dracula_colorterm = 0
-colorscheme dracula
+colorscheme NightRunner
 
 " decreate gitgutter update time
 set updatetime=100
@@ -197,7 +198,6 @@ function SetupLightlineColors() abort
 	call lightline#colorscheme()
 endfunction
 
-"set termguicolors
 let g:conoline_color_normal_dark = 'guibg=#000000 ctermbg=black'
 let g:conoline_color_normal_nr_dark = 'guibg=#000000 ctermbg=black'
 

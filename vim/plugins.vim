@@ -1,9 +1,10 @@
 call plug#begin()
+Plug 'brooth/far.vim'
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
 Plug 'vim-test/vim-test'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
-Plug 'chriskempson/base16-vim'
+"Plug 'chriskempson/base16-vim'
 Plug 'tpope/vim-fugitive'
 Plug 'mbbill/fencview'
 Plug 'sebdah/vim-delve'
@@ -15,7 +16,7 @@ Plug 'mattn/vim-goimports'
 Plug 'antoinemadec/coc-fzf'
 Plug 'jparise/vim-graphql'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
-Plug 'luochen1990/rainbow'
+"Plug 'luochen1990/rainbow'
 Plug 'tpope/vim-vinegar'
 Plug 'junegunn/fzf.vim'
 Plug 'dracula/vim', { 'as': 'dracula' }
@@ -29,4 +30,5 @@ Plug 'josa42/vim-lightline-coc'
 Plug 'tpope/vim-sleuth'
 Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 Plug 'puremourning/vimspector'
+Plug 'night-runner/nightrunner.vim'
 call plug#end()
