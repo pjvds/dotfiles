@@ -34,15 +34,17 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 // use in the alt layer for by passing conflicting OS hot keys 
 // that can't be disabled (win+l, cmd+q, for example)
-#define F_META_ALT MT(MOD_RALT, KC_F)
-#define J_META_ALT MT(MOD_RALT, KC_J)
+#define D_META_ALT MT(MOD_RALT, KC_D)
+#define K_META_ALT MT(MOD_RALT, KC_K)
 
-#define L_BASE   0
-#define L_BYPASS 1
-#define L_GAME   2
-#define L_LOWER  3
-#define L_RAISE  4
-#define L_ADJUST 5
+enum layer_number {
+  L_BASE  ,
+  L_BYPASS,
+  L_GAME  ,
+  L_LOWER ,
+  L_RAISE ,
+  L_ADJUST,
+};
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -64,7 +66,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
       _______, _______, _______, _______, _______, _______,                      _______, _______, _______, _______, _______, _______,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      _______, _______, _______, _______, _______, _______,                      _______, _______, _______, _______, _______, _______,
+      _______, _______,_______,D_META_ALT,_______, _______,                      _______,_______,K_META_ALT,_______, _______, _______,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       _______, _______, _______, _______, _______, _______,                      _______, _______, _______, _______, _______, _______,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
@@ -135,7 +137,7 @@ oled_rotation_t oled_init_user(oled_rotation_t rotation) {
 
 void oled_render_layer_state(void) {
     oled_write_P(PSTR("Layer: "), false);
-    uint8_t active_layer = biton32(layer_state);
+    uint8_t active_layer = get_highest_layer(layer_state);
 
     switch (active_layer) {
         case L_BASE:
