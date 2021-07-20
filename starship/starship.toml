@@ -16,3 +16,6 @@ vicmd_symbol   = "[](bold blue)"
 [kubernetes.context_aliases]
 "aks-dypodbjktt" = "dev"
 "minikube" = "local"
+
+[directory]
+fish_style_pwd_dir_length = 1
