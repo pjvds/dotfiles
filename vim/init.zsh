@@ -1,6 +1,7 @@
 # enable VI mode for zsh
 bindkey -v
 export ZVM_VI_ESCAPE_BINDKEY=jj
+export ZVM_LINE_INIT_MODE=i
 
 zinit ice depth=1
 zinit light "jeffreytse/zsh-vi-mode"
