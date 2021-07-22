@@ -8,11 +8,11 @@ alias ...='cd ../../'
 alias ....='cd ../../../'
 alias tailf='tailf -f'
 
-#zinit ice silent wait"1" #atload"cwd"
-#zinit light pjvds/zsh-cwd
+zinit ice atload"cwd"
+zinit light pjvds/zsh-cwd
 
-#zinit ice silent wait"2"
-#zinit light pjvds/zsh-cd-print
+zinit ice silent wait"1"
+zinit light pjvds/zsh-cd-print
 
 cf() {
 	selection=$(fzf)

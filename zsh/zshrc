@@ -32,11 +32,6 @@ source ~/.zinit/bin/zinit.zsh
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
-# Make sure to use double quotes
-#zinit ice wait from"gh-r" as"program"
-#zinit for \
-#  load       "junegunn/fzf-bin"
-
 source $DOTFILES/init.zsh
 for f in $DOTFILES/**/init.zsh; do 
 	source "$f"
