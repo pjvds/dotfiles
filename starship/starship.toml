@@ -11,7 +11,7 @@ vicmd_symbol   = "[](bold blue)"
 #disabled = false
 
 [kubernetes]
-#disabled = false
+disabled = false
 
 [kubernetes.context_aliases]
 "aks-dypodbjktt" = "dev"
