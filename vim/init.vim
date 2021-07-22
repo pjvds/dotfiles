@@ -26,7 +26,8 @@ set smarttab
 " Hide the status bar
 set laststatus=2
 
-au VimEnter * if (@% == "") | execute ':Files' | endif
+" Open files browser if VIM is opened without a specific file
+"au VimEnter * if (@% == "") | execute ':Files' | endif
 
 " search and replace selected text
 vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
