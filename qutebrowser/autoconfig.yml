@@ -8,6 +8,7 @@ config_version: 2
 settings:
   aliases:
     global:
+      l: open http://localhost:3000
       dl: open https://microsoft.com/devicelogin ;; later 2500 insert-text {clipboard}
       q: close
       qa: quit
