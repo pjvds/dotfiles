@@ -125,7 +125,7 @@ There is also a github action running that checks for new version everyday so I 
 
 # Keyboard
 
-My daily driver is a 40% ortholiniar keyboard that allows me to move keys towards my fingers, instead of moving my fingers to the keys. With this keyboard I never have to travel more than a single key in any direction.
+My daily driver is a 40% ortholiniar split keyboard that allows me to move keys towards my fingers, instead of moving my fingers to the keys. With this keyboard my fingers never travel more than a single key in any direction.
 
 ## Specs
 
