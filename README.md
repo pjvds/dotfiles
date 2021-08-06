@@ -113,13 +113,15 @@ I'm maintaining a [few dozen AUR packages](https://aur.archlinux.org/packages/?K
 [github action](https://github.com/pjvds/dotfiles/actions/workflows/nvchecker.yml) to discover out dated packages.
 
 
-I recently get questions on what tools I use to automate my workflow.
+I recently get questions on what tools I use to automate my workflow, so here is the list:
 
 * `aurpublish` to install githooks for package repostory.
 * `updpkgsums` to perform an in place update of the checksums.
 * `nvchecker` to check for new versions ([config](https://github.com/pjvds/dotfiles/blob/master/nvchecker/nvchecker.toml)).
 * `nvcmp` to compare version state files from nvchecker.
 * `nvtake <pkg_name>` to accept the new version.
+
+There is also a github action running that checks for new version everyday so I don't miss updates.
 
 # Keyboard
 
