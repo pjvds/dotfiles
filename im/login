@@ -21,4 +21,4 @@ im::open "signal-desktop" "Signal"
 im::open "whatsapp-nativefier" "whatsapp-nativefier-d40211"
 
 # teams
-im::open "teams" "Microsoft Teams - Preview"
+#im::open "teams" "Microsoft Teams - Preview"
