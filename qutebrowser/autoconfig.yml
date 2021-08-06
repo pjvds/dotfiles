@@ -30,6 +30,8 @@ settings:
   content.geolocation:
     global: false
     https://lastnoted.com: true
+  content.javascript.can_access_clipboard:
+    global: true
   content.notifications.enabled:
     global: false
     https://www.reddit.com: true
