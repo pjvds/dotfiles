@@ -188,16 +188,17 @@ let g:coc_explorer_global_presets = {
 nmap <leader>a <Plug>(coc-codeaction)
 vmap <leader>a <Plug>(coc-codeaction-selected)
 
-autocmd VimEnter * call SetupLightlineColors()
-
-function SetupLightlineColors() abort
-	let l:palette = lightline#palette()
-	let l:palette.normal.middle = [ [ 'NONE', 'NONE', 'NONE', 'NONE' ] ]
-	let l:palette.inactive.middle = l:palette.normal.middle
-	let l:palette.tabline.middle = l:palette.normal.middle
-
-	call lightline#colorscheme()
-endfunction
+"autocmd VimEnter * call SetupLightlineColors()
+"function SetupLightlineColors() abort
+"	let l:palette = lightline#palette()
+"	let l:palette.normal.middle = [ [ 'NONE', 'NONE', 'NONE', 'NONE' ] ]
+"	let l:palette.inactive.middle = l:palette.normal.middle
+"	let l:palette.tabline.middle = l:palette.normal.middle
+"
+"	call lightline#colorscheme()
+"endfunction
+"
+luafile ~/.config/nvim/myline.lua
 
 let g:conoline_color_normal_dark = 'guibg=#000000 ctermbg=black'
 let g:conoline_color_normal_nr_dark = 'guibg=#000000 ctermbg=black'
@@ -206,3 +207,19 @@ let g:conoline_color_normal_nr_dark = 'guibg=#000000 ctermbg=black'
 let &showbreak = '↳ '
 set wrap
 set cpo=n
+
+" -------------------- LSP ---------------------------------
+:lua << EOF
+  local nvim_lsp = require('lspconfig')
+
+  local servers = {'gopls'}
+  for _, lsp in ipairs(servers) do
+    nvim_lsp[lsp].setup {
+      on_attach = on_attach,
+    }
+  end
+EOF
+
+" Completion
+let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
+" -------------------- LSP ---------------------------------
