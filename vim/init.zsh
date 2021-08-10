@@ -15,6 +15,7 @@ export EDITOR="nvim"
 export SUDO_EDITOR="/usr/bin/nvim"
 
 set clipboard=unnamedplus
-alias vim=nvim
 alias v=nvim
+alias vim=nvim
+#alias v=nvim
 alias v.='v .'

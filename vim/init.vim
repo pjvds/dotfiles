@@ -208,6 +208,16 @@ let &showbreak = '↳ '
 set wrap
 set cpo=n
 
+" -------------------- TREESITTTER ---------------------------------
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  highlight = {
+    enable = true
+  },
+}
+EOF
+" -------------------- LSP ---------------------------------
+
 " -------------------- LSP ---------------------------------
 :lua << EOF
   local nvim_lsp = require('lspconfig')

@@ -33,4 +33,5 @@ Plug 'puremourning/vimspector'
 Plug 'night-runner/nightrunner.vim'
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/completion-nvim'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 call plug#end()
