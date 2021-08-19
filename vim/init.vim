@@ -110,14 +110,9 @@ inoremap <silent><expr> <Tab>
       \ <SID>check_back_space() ? "\<Tab>" :
       \ coc#refresh()
 
-"
-" searching
-"
-" The 'smartcase' option only applies to search patterns that you type; it
-" does not apply to * or # or gd. If you press * to search for a word, you can
-" make 'smartcase' apply by pressing / then up arrow then Enter (to repeat the
-" search from history).
-setglobal smartcase
+" When 'ignorecase' and 'smartcase' are both on, if a pattern contains an uppercase letter, it is case sensitive, otherwise, it is not. For example, /The would find only 'The', while /the would find 'the' or 'The' etc.
+set ignorecase
+set smartcase
 
 " Mapping selecting mappings
 nmap <leader><tab> <plug>(fzf-maps-n)
@@ -207,6 +202,12 @@ let g:conoline_color_normal_nr_dark = 'guibg=#000000 ctermbg=black'
 let &showbreak = '↳ '
 set wrap
 set cpo=n
+
+" -------------------- vim sneak   ---------------------------------
+lua <<EOF
+vim.g["sneak#use_ic_scs"] = 1
+EOF
+" -------------------- vim sneak   ---------------------------------
 
 " -------------------- TREESITTTER ---------------------------------
 lua <<EOF
