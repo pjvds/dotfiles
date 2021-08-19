@@ -57,7 +57,7 @@ exit_zsh() { exit }
 zle -N exit_zsh
 bindkey 'qq' exit_zsh
 
-zinit wait"1" lucid light-mode for \
+zinit wait"0" lucid light-mode for \
   atload"_zsh_autosuggest_start" \
     zsh-users/zsh-autosuggestions \
   blockf atpull'zinit creinstall -q .' \
