@@ -15,12 +15,14 @@ bison
 bspwm
 clessc-git
 cli-typer-git
+clipmenu
 cocogitto-bin
 code
 delve
 discord
 docker
 dotnet-sdk
+easyeda2kicad
 efibootmgr
 fakeroot
 fd

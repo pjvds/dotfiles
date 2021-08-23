@@ -2,6 +2,8 @@ local gl = require('galaxyline')
 local colors = require('nightrunner/NightRunner').colors
 local condition = require('galaxyline.condition')
 local gls = gl.section
+local lsp_status = require('lsp-status')
+
 gl.short_line_list = {'NvimTree','vista','dbui','packer'}
 
 gls.left[#gls.left+1] = {
@@ -102,7 +104,7 @@ gls.left[11] = {
 
 gls.mid[1] = {
   ShowLspClient = {
-    provider = 'GetLspClient',
+    provider = function() return print(lsp_status.status()) end,
     condition = function ()
       local tbl = {['dashboard'] = true,['']=true}
       if tbl[vim.bo.filetype] then

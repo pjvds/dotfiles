@@ -1,6 +1,7 @@
 let g:coc_global_extensions = [
   \ 'coc-explorer',
   \ 'coc-go',
+  \ 'coc-graphql',
   \ 'coc-git',
   \ 'coc-json',
   \ 'coc-phpls',

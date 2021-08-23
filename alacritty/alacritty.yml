@@ -98,6 +98,7 @@ font:
     #   - (Linux/BSD) monospace
     #   - (Windows) Consolas
     family: JetBrainsMono Medium Nerd Font Mono
+    #family: JetBrainsMono Medium Nerd Font Mono
     #family: consolas
 
     # The `style` can be specified to pick a specific face.

@@ -26,8 +26,8 @@ senv() {
 	local file=$([ -z "$1" ] && echo ".env" || echo "$1.env")
 	if [ ! -f "$file" ]
 	then
-		echo "no $file file found" 1>&2
-		exit 1
+		error "$file file not found" 1>&2
+		return 1
 	fi
 
 	local temp=$(mktemp -d)

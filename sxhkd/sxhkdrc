@@ -68,7 +68,7 @@ super + button{4,5}
 
 # balance windows
 super + e
-  $DOTFILES_HOME/bspwm/script/balance
+  #$DOTFILES_HOME/bspwm/script/balance
 
 #
 # state/flags
