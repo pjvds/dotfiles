@@ -1,0 +1,18 @@
+#!/bin/zsh
+copy="pbcopy"
+
+if ! type lpass &> /dev/null; then
+	echo "lpass not found"
+	return 1
+fi
+
+if ! type xclip &> /dev/null; then
+	echo "xclip not found"
+	return 1
+fi
+
+account=$(lpass ls | fzf | cut -f 1 -d ' ')
+
+if [[ $? -eq 0 ]]; then
+	lpass show --username "$account" | xclip -selection clipboard
+fi
