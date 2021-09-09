@@ -49,6 +49,7 @@ htop
 httpie
 i3-gaps
 intel-ucode
+iptables-nft
 jq
 k9s
 klepcbgen-git
