@@ -15,20 +15,19 @@ bison
 bspwm
 clessc-git
 cli-typer-git
-clipmenu
 cocogitto-bin
 code
 delve
 discord
 docker
 dotnet-sdk
-easyeda2kicad
 efibootmgr
 fakeroot
 fd
 feh
 figma-linux
 flex
+freedom-devicetree-tools
 fzf
 gcc
 git
@@ -37,6 +36,7 @@ gnu-netcat
 goland
 google-chrome
 gopls
+gox
 graphql-lsp
 groff
 grub
@@ -50,6 +50,7 @@ httpie
 i3-gaps
 intel-ucode
 iptables-nft
+jlink-software-and-documentation
 jq
 k9s
 klepcbgen-git
@@ -73,11 +74,16 @@ neovim
 nerd-fonts-jetbrains-mono
 notion-app
 noto-fonts-emoji
+nrf5x-command-line-tools
+nrfconnect-appimage
+nrfutil
 nvchecker
 nvm
 open-vm-tools
 openssh
+pacman-contrib
 patch
+patchelf
 picom
 pkgconf
 playerctl
@@ -89,6 +95,7 @@ python-cssselect
 python-locallib
 python-lxml
 python-tldextract
+python-west
 python-youtube-search-git
 python2
 qmk
@@ -119,6 +126,7 @@ telepresence
 texinfo
 the_silver_searcher
 tig
+tio
 tldr
 tree
 ttf-jetbrains-mono
@@ -141,4 +149,6 @@ xorg-xrandr
 xrandr-notify
 xsel
 yay
+zephyr-sdk
+zip
 zsh
