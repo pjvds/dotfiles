@@ -1,3 +1,23 @@
 Host *
   SendEnv LANG LC_*
   ForwardAgent yes
+
+Host prosim
+	HostName www.prosim-ar.com
+	User pj
+	Port 1935
+
+Host analystics
+	HostName www.prosim-ar.com
+	User pj
+	Port 1935
+
+Host kinsta-staging
+	HostName 34.141.222.42
+	User prosim
+	Port 46587
+
+Host kinsta
+	HostName 34.141.222.42
+	User prosimaviationresearch
+	Port 51981
