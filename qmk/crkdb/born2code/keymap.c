@@ -37,6 +37,15 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define D_META_ALT MT(MOD_RALT, KC_D)
 #define K_META_ALT MT(MOD_RALT, KC_K)
 
+enum custom_keycodes {
+  TO_BASE  ,
+  TO_BYPASS,
+  TO_GAME  ,
+  TO_LOWER ,
+  TO_RAISE ,
+  TO_ADJUST,
+}
+
 enum layer_number {
   L_BASE  ,
   L_BYPASS,

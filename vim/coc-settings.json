@@ -1,9 +1,10 @@
 {
-	"suggest.enablePreview": true,
-	"suggest.enablePreselect": true,
-	"suggest.noselect": false,
-	"explorer.icon.enableNerdfont": true,
-	"coc.preferences.colorSupport": true,
-	"coc.preferences.currentFunctionSymbolAutoUpdate": true,
-	"codeLens.enable": true
+  "suggest.enablePreview": true,
+  "suggest.enablePreselect": true,
+  "suggest.noselect": false,
+  "explorer.icon.enableNerdfont": true,
+  "coc.preferences.colorSupport": true,
+  "coc.preferences.currentFunctionSymbolAutoUpdate": true,
+  "coc.preferences.formatOnSaveFiletypes": ["json", "go"],
+  "codeLens.enable": true
 }
