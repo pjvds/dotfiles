@@ -37,6 +37,8 @@ settings:
   content.notifications.enabled:
     global: false
     https://www.reddit.com: true
+  downloads.location.directory:
+    global: $HOME/Downloads
   fonts.default_family:
     global:
     - Jetbrains Mono
