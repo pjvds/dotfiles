@@ -17,6 +17,11 @@ Host kinsta-staging
 	User prosim
 	Port 46587
 
+Host kinsta-live
+	HostName 34.141.222.42
+	User prosim
+	Port 44373
+
 Host kinsta
 	HostName 34.141.222.42
 	User prosimaviationresearch
