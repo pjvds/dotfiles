@@ -38,13 +38,14 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define K_META_ALT MT(MOD_RALT, KC_K)
 
 enum custom_keycodes {
+  UP_CMDS  ,
   TO_BASE  ,
   TO_BYPASS,
   TO_GAME  ,
   TO_LOWER ,
   TO_RAISE ,
   TO_ADJUST,
-}
+};
 
 enum layer_number {
   L_BASE  ,
@@ -126,7 +127,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
       RESET,TO(L_BASE),TO(L_BYPASS), TO(L_GAME), XXXXXXX, XXXXXXX,               XXXXXXX, XXXXXXX,  KC_INS, XXXXXXX, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      RGB_TOG, RGB_HUI, RGB_SAI, RGB_VAI, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, KC_LOCK, XXXXXXX, XXXXXXX,
+      RGB_TOG, RGB_HUI, RGB_SAI, RGB_VAI, XXXXXXX, XXXXXXX,                      XXXXXXX, UP_CMDS, XXXXXXX, KC_LOCK, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       RGB_MOD, RGB_HUD, RGB_SAD, RGB_VAD, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
@@ -237,6 +238,22 @@ void oled_task_user(void) {
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   if (record->event.pressed) {
     set_keylog(keycode, record);
+  }
+
+  switch(keycode) {
+    case UP_CMDS:
+      if(record->event.pressed) {
+        unregister_code(KC_LGUI);
+        unregister_code(KC_RGUI);
+        unregister_code(KC_LCTL);
+        unregister_code(KC_RCTL);
+        unregister_code(KC_LALT);
+        unregister_code(KC_RALT);
+        unregister_code(KC_LSFT);
+        unregister_code(KC_RSFT);
+      }
+
+      break;
   }
   return true;
 }
