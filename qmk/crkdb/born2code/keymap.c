@@ -38,7 +38,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define K_META_ALT MT(MOD_RALT, KC_K)
 
 enum custom_keycodes {
-  UP_CMDS  ,
+  CLEAR  ,
   TO_BASE  ,
   TO_BYPASS,
   TO_GAME  ,
@@ -127,7 +127,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
       RESET,TO(L_BASE),TO(L_BYPASS), TO(L_GAME), XXXXXXX, XXXXXXX,               XXXXXXX, XXXXXXX,  KC_INS, XXXXXXX, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      RGB_TOG, RGB_HUI, RGB_SAI, RGB_VAI, XXXXXXX, XXXXXXX,                      XXXXXXX, UP_CMDS, XXXXXXX, KC_LOCK, XXXXXXX, XXXXXXX,
+      RGB_TOG, RGB_HUI, RGB_SAI, RGB_VAI, XXXXXXX, XXXXXXX,                      XXXXXXX, CLEAR, XXXXXXX, KC_LOCK, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       RGB_MOD, RGB_HUD, RGB_SAD, RGB_VAD, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
@@ -191,6 +191,9 @@ void set_keylog(uint16_t keycode, keyrecord_t *record) {
   if (keycode < 60) {
     name = code_to_name[keycode];
   }
+  if (keycode == CLEAR) {
+    name = 'X';
+  }
 
   // update keylog
   snprintf(keylog_str, sizeof(keylog_str), "%dx%d, k%2d : %c",
@@ -241,16 +244,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   }
 
   switch(keycode) {
-    case UP_CMDS:
+    case CLEAR:
       if(record->event.pressed) {
-        unregister_code(KC_LGUI);
-        unregister_code(KC_RGUI);
-        unregister_code(KC_LCTL);
-        unregister_code(KC_RCTL);
-        unregister_code(KC_LALT);
-        unregister_code(KC_RALT);
-        unregister_code(KC_LSFT);
-        unregister_code(KC_RSFT);
+        clear_keyboard();
       }
 
       break;
