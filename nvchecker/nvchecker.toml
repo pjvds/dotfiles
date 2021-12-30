@@ -80,3 +80,7 @@ cmd = "$DOTFILES/nvchecker/slock-version.sh"
 source = "gitlab"
 gitlab = "Daguhh/naivecalendar"
 host = "framagit.org"
+
+[sttr]
+source = "github"
+github = "abhimanyu003/sttr"
