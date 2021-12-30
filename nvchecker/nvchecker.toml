@@ -27,7 +27,7 @@ use_max_tag = true
 [topalias]
 source = "github"
 github = "CSRedRat/topalias"
-use_max_tag = true
+#use_max_tag = true
 
 [grasp]
 source = "github"
