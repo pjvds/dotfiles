@@ -19,7 +19,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-        working-directory: ${GITHUB_WORKSPACE}
 
       - name: West Init
         run: west init -l config
@@ -48,7 +47,8 @@ jobs:
           name: firmware
           path: zmk/corneish_zen_left.uf2
       - name: West Build (Corne-ish Zen Right)
-        run: west build --pristine -s app -b corne-ish_zen_right -- -DZMK_CONFIG="${GITHUB_WORKSPACE}/zmk/corne-ish-zen"
+        run: west build --pristine -s zmk/app -b corne-ish_zen_right -- -DZMK_CONFIG="${GITHUB_WORKSPACE}/zmk/config"
+
       - name: Corne-ish Zen Right Kconfig file
         run: cat build/zephyr/.config | grep -v "^#" | grep -v "^$"
 
