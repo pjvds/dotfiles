@@ -29,7 +29,7 @@ jobs:
             zephyr/
             bootloader/
             zmk/
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('manifest-dir/west.yml') }}
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('manifest-dir/zmk/corne-ish-zen/west.yml') }}
           restore-keys: |
             ${{ runner.os }}-build-${{ env.cache-name }}-
             ${{ runner.os }}-build-
@@ -57,10 +57,9 @@ jobs:
         working-directory: ${{env.working_directory}}
       - name: Archive (Corne-ish Zen Left)
         uses: actions/upload-artifact@v2
-        working-directory: ${{env.working_directory}}
         with:
           name: firmware
-          path: corneish_zen_left.uf2
+          path: zmk/corneish_zen_left.uf2
       - name: West Build (Corne-ish Zen Right)
         run: west build --pristine -s zmk/app -b corne-ish_zen_right -- -DZMK_CONFIG="${GITHUB_WORKSPACE}/zmk/corne-ish-zen"
         working-directory: ${{env.working_directory}}
@@ -72,7 +71,6 @@ jobs:
         working-directory: ${{env.working_directory}}
       - name: Archive (Corne-ish Zen Right)
         uses: actions/upload-artifact@v2
-        working-directory: ${{env.working_directory}}
         with:
           name: firmware
-          path: corneish_zen_right.uf2
+          path: zmk/corneish_zen_right.uf2
