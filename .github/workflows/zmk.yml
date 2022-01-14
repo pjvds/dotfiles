@@ -47,9 +47,8 @@ jobs:
         run: west build -s zmk/app -b corne-ish_zen_left -- -DZMK_CONFIG="${GITHUB_WORKSPACE}/zmk/corne-ish-zen"
         working-directory: ${{env.working_directory}}
       - name: Corne-ish Zen DTS File
-        if: ${{ always() }}
         run: cat -n build/zephyr/corne-ish_zen_left.dts.pre.tmp
-          working-directory: ${{env.working_directory}}
+        working-directory: ${{env.working_directory}}
       - name: Corne-ish Zen Left Kconfig file
         run: cat build/zephyr/.config | grep -v "^#" | grep -v "^$"
         working-directory: ${{env.working_directory}}
