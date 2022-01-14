@@ -10,65 +10,50 @@ name: Build Cornish Zen Firmware
 jobs:
   build:
     runs-on: ubuntu-latest
-    env:
-      working_directory: ./zmk/corne-ish-zen
+    defaults:
+      run:
+        working-directory: zmk
     container:
       image: zmkfirmware/zmk-build-arm:2.5
     name: Build
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Cache west modules
-        uses: actions/cache@v2
-        env:
-          cache-name: cache-zephyr-modules
-        with:
-          path: |
-            modules/
-            tools/
-            zephyr/
-            bootloader/
-            zmk/
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('manifest-dir/zmk/corne-ish-zen/west.yml') }}
-          restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}-
-            ${{ runner.os }}-build-
-            ${{ runner.os }}-
+
       - name: West Init
-        run: west init
-        working-directory: ${{env.working_directory}}
+        run: west init -l config
+
       - name: West Update
         run: west update
-        working-directory: ${{env.working_directory}}
+
       - name: West Zephyr export
         run: west zephyr-export
-        working-directory: ${{env.working_directory}}
+
       - name: West Build (Corne-ish Zen Left)
-        run: west build -s zmk/app -b corne-ish_zen_left -- -DZMK_CONFIG="${GITHUB_WORKSPACE}/zmk/corne-ish-zen"
-        working-directory: ${{env.working_directory}}
+        run: west build -s zmk/app -b corne-ish_zen_left -- -DZMK_CONFIG="${GITHUB_WORKSPACE}/zmk/config"
+
       - name: Corne-ish Zen DTS File
         run: cat -n build/zephyr/corne-ish_zen_left.dts.pre.tmp
-        working-directory: ${{env.working_directory}}
+
       - name: Corne-ish Zen Left Kconfig file
         run: cat build/zephyr/.config | grep -v "^#" | grep -v "^$"
-        working-directory: ${{env.working_directory}}
+
       - name: Rename zmk.uf2
         run: cp build/zephyr/zmk.uf2 corneish_zen_left.uf2
-        working-directory: ${{env.working_directory}}
+
       - name: Archive (Corne-ish Zen Left)
         uses: actions/upload-artifact@v2
         with:
           name: firmware
           path: zmk/corneish_zen_left.uf2
       - name: West Build (Corne-ish Zen Right)
-        run: west build --pristine -s zmk/app -b corne-ish_zen_right -- -DZMK_CONFIG="${GITHUB_WORKSPACE}/zmk/corne-ish-zen"
-        working-directory: ${{env.working_directory}}
+        run: west build --pristine -s app -b corne-ish_zen_right -- -DZMK_CONFIG="${GITHUB_WORKSPACE}/zmk/corne-ish-zen"
       - name: Corne-ish Zen Right Kconfig file
         run: cat build/zephyr/.config | grep -v "^#" | grep -v "^$"
-        working-directory: ${{env.working_directory}}
+
       - name: Rename zmk.uf2
         run: cp build/zephyr/zmk.uf2 corneish_zen_right.uf2
-        working-directory: ${{env.working_directory}}
+
       - name: Archive (Corne-ish Zen Right)
         uses: actions/upload-artifact@v2
         with:
