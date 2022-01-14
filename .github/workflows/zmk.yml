@@ -11,7 +11,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      working_directory: ./zmk
+      working_directory: ./zmk/corne-ish-zen
     container:
       image: zmkfirmware/zmk-build-arm:2.5
     name: Build
@@ -35,16 +35,16 @@ jobs:
             ${{ runner.os }}-build-
             ${{ runner.os }}-
       - name: West Init
-        run: west init -l corne-ish-zen
+        run: west init
         working-directory: ${{env.working_directory}}
       - name: West Update
-        run: west update zmk
+        run: west update
         working-directory: ${{env.working_directory}}
       - name: West Zephyr export
         run: west zephyr-export
         working-directory: ${{env.working_directory}}
       - name: West Build (Corne-ish Zen Left)
-        run: west build -s zmk/app -b corne-ish_zen_left -- -DZMK_CONFIG="${GITHUB_WORKSPACE}/zmk/corne-ish-zen"
+        run: west build -b corne-ish_zen_left -- -DZMK_CONFIG="${GITHUB_WORKSPACE}/zmk/corne-ish-zen"
         working-directory: ${{env.working_directory}}
       - name: Corne-ish Zen DTS File
         run: cat -n build/zephyr/corne-ish_zen_left.dts.pre.tmp
