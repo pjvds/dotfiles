@@ -2,6 +2,7 @@ on:
   push:
     paths:
       - 'zmk/corne-ish-zen'
+      - '.github/zmk.yml'
   workflow_dispatch:
 
 name: Build Cornish Zen Firmware
