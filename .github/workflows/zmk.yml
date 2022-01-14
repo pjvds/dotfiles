@@ -34,7 +34,7 @@ jobs:
       - name: West Init
         run: west init -l zmk/corne-ish-zen
       - name: West Update
-        run: west update
+        run: west update zmk
       - name: West Zephyr export
         run: west zephyr-export
       - name: West Build (Corne-ish Zen Left)
