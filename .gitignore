@@ -10,3 +10,13 @@ atom.symlink/themes
 atom.symlink/blob-store
 atom.symlink/recovery
 vim/SpaceVim.d/.netrwhist
+
+# zmk
+zmk/.west
+zmk/bootloader
+zmk/modules
+zmk/tools
+zmk/zephyr
+zmk/zmk-config
+zmk/build
+zmk/__pycache__
