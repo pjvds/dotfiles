@@ -17,7 +17,7 @@
 [help]
     autocorrect = 1
 [push]
-    default = simple
+    default = current
 [branch]
 	autosetuprebase = always
 [credential]
