@@ -4,7 +4,6 @@ Plug 'ryanoasis/vim-devicons'
 " makes it easier to find and replace though multiple files
 Plug 'brooth/far.vim'
 Plug 'leafgarland/typescript-vim'
-Plug 'peitalin/vim-jsx-typescript'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'tpope/vim-fugitive'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
