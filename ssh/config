@@ -2,6 +2,16 @@ Host *
   SendEnv LANG LC_*
   ForwardAgent yes
 
+Host fenix-dev
+	HostName 157.230.103.67
+	User root
+	Port 22
+
+Host fenix-prod
+	HostName 68.183.67.53
+	User root
+	Port 22
+
 Host prosim
 	HostName www.prosim-ar.com
 	User pj
@@ -26,3 +36,8 @@ Host kinsta
 	HostName 34.141.222.42
 	User prosimaviationresearch
 	Port 51981
+
+Host aur.archlinux.org
+	HostName aur.archlinux.org
+	User pjvds
+	IdentityFile ~/.ssh/aur
