@@ -137,6 +137,8 @@ nmap <leader>b Buffers
 " highlight all matches while incremental searching
 setglobal incsearch
 
+"set signcolumn=number
+set scl=no
 set number relativenumber
 " open files in previous window (4)
 let g:netrw_browse_split = 4
@@ -146,7 +148,7 @@ let g:dracula_colorterm = 0
 colorscheme NightRunner
 
 " decreate gitgutter update time
-set updatetime=100
+set updatetime=0
 
 let g:coc_explorer_global_presets = {
 \   'tab': {
@@ -182,6 +184,8 @@ let g:coc_explorer_global_presets = {
 
 nmap <leader>a <Plug>(coc-codeaction)
 vmap <leader>a <Plug>(coc-codeaction-selected)
+
+let g:prettier#autoformat = 1
 
 "autocmd VimEnter * call SetupLightlineColors()
 "function SetupLightlineColors() abort
