@@ -1,4 +1,6 @@
 #export CHROMIUM_USER_FLAGS="--high-dpi-support=1 --force-device-scale-factor=1.2"
+export NEXT_TELEMETRY_DISABLED=1
+
 export DOTFILES=/home/pjvds/dotfiles
 export DOTFILES_HOME=/home/pjvds/dotfiles
 export POLYBAR_HOME=$DOTFILES_HOME/polybar
