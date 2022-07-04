@@ -7,7 +7,7 @@
     branch = auto
     ui = true
 [core]
-    editor = nvim
+  editor = nvim
 [apply]
     whitespace = nowarn
 [mergetool]
@@ -25,7 +25,7 @@
 [pull]
 	rebase = true
 [rerere]
-	enabled = true
+	enabled = false
 
 [includeIf "gitdir/i:~/code/deloitte/"]
 	path = ~/dotfiles/git/gitconfig-deloitte
