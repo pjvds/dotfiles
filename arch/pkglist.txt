@@ -7,7 +7,6 @@ amd-ucode
 argo-bin
 asar
 aspnet-runtime
-atom
 aurphan
 autoconf
 automake
@@ -15,6 +14,7 @@ aws-cli-v2-bin
 azure-cli
 azuredatastudio-bin
 base
+base16-builder-go
 bat
 bind
 binutils
@@ -39,6 +39,7 @@ duck
 dunst
 easyeda2kicad
 efibootmgr
+evans-bin
 fakeroot
 fd
 feh
@@ -62,6 +63,7 @@ gorun
 graphql-lsp
 grasp
 groff
+grpc-client-cli-bin
 grub
 grv
 hadolint-bin
@@ -71,7 +73,7 @@ hstr
 htop
 httpie
 hxd
-hyprland-git
+hyprland-bin
 i3-gaps
 intel-ucode
 jetbrains-toolbox
@@ -86,6 +88,7 @@ klepcbgen-git
 kompare
 kubectx
 kubefwd-bin
+kubelogin
 lastpass-cli
 lazydocker
 lazygit
@@ -155,7 +158,6 @@ reflex
 reftools-git
 remmina
 remmina-plugin-rdesktop
-rider
 ripgrep
 rofi
 rofi-emoji
@@ -177,10 +179,12 @@ sudo
 sxhkd
 taskell
 teams
+teams-for-linux
 telepresence
 texinfo
 the_silver_searcher
 theme.sh
+thunderbird
 tig
 tldr
 tree
@@ -190,6 +194,7 @@ ttf-jetbrains-mono
 ttf-joypixels
 ttf-menlo-powerline-git
 tunl
+typescript
 vaultwarden
 vim
 vscode-node-debug2
