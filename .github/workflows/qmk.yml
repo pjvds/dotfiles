@@ -4,7 +4,7 @@ on:
       - 'master'
     paths:
       - 'qmk/**'
-      - '.github/qmk.yml'
+      - '.github/workflows/qmk.yml'
   workflow_dispatch:
 
 name: Build QMK firmware
@@ -25,8 +25,8 @@ jobs:
         run: |
           mkdir build; \
           docker run \
-            -v build:/qmk_firmware/.build \
-            -v crkdb/born2code:/qmk_firmware/keyboards/crkbd/keymaps/born2code \
+            -v ${PWD}/build:/qmk_firmware/.build \
+            -v ${PWD}/crkdb/born2code:/qmk_firmware/keyboards/crkbd/keymaps/born2code \
             jonz94/qmk_firmware qmk compile -kb crkbd -km born2code
 
       - name: Archive firmware
