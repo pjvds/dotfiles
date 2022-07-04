@@ -15,13 +15,16 @@ function im::open() {
 im::open "slack" "Slack"
 
 # signal
-im::open "signal-desktop" "Signal"
+#im::open "signal-desktop" "Signal"
 #
 # whatsapp
-im::open "whatsapp-nativefier" "whatsapp-nativefier-d40211"
+#im::open "whatsapp-nativefier" "whatsapp-nativefier-d40211"
 
 # discord
-#im::open "discord" "Discord"
+im::open "discord" "Discord"
+
+# whatsapp
+im::open "whatsdesk" "whatsdesk"
 
 # teams
 #im::open "teams" "Microsoft Teams - Preview"
