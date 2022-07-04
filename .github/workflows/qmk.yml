@@ -15,8 +15,6 @@ jobs:
     defaults:
       run:
         working-directory: qmk
-    container:
-      image: zmkfirmware/zmk-build-arm:2.5
     name: Build
     steps:
       - name: Checkout
