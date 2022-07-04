@@ -23,9 +23,8 @@ jobs:
         uses: docker/setup-buildx-action@v2
       - name: Build firmware
         run: |
-          mkdir build; \
           docker run \
-            -v ${PWD}/build:/qmk_firmware/.build \
+            -v ${PWD}/build/:/qmk_firmware/.build/ \
             -v ${PWD}/crkdb/born2code:/qmk_firmware/keyboards/crkbd/keymaps/born2code \
             jonz94/qmk_firmware qmk compile -kb crkbd -km born2code
 
