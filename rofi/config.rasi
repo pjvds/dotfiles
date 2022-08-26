@@ -16,7 +16,7 @@ enabled: false;
     yellow: 	rgba ( 241, 250, 140, 100 % );
 }
 * {
-    selected-normal-background:     @backgroud;
+    selected-normal-background:     @background;
     normal-background:              @background;
     normal-foreground:              @foreground;
     alternate-normal-background:    @normal-background;
