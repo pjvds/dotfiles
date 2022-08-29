@@ -142,3 +142,4 @@ My daily driver is a 40% ortholiniar split keyboard that allows me to move keys 
 Press <kbd>Command</kbd> + <kbd>Z</kbd> to toggle keebsheet.
 
 ![keyboard layout](https://github.com/pjvds/dotfiles/raw/master/qmk/keyboard-layout.png)
+# homebridge-epex-spot

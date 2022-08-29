@@ -2,8 +2,10 @@ act-bin
 adobe-source-han-sans-cn-fonts
 adobe-source-han-serif-cn-fonts
 alacritty
+alsa-utils
 altair
 amd-ucode
+android-studio
 argo-bin
 asar
 aspnet-runtime
@@ -19,6 +21,7 @@ bat
 bind
 binutils
 bison
+bloomrpc-bin
 bspwm
 calcure
 calibre
@@ -26,6 +29,7 @@ clessc-git
 cli-typer-git
 cli53
 clipmenu
+cloc
 cocogitto
 code
 dbeaver
@@ -64,6 +68,7 @@ graphql-lsp
 grasp
 groff
 grpc-client-cli-bin
+grpcui-bin
 grub
 grv
 hadolint-bin
@@ -88,7 +93,6 @@ klepcbgen-git
 kompare
 kubectx
 kubefwd-bin
-kubelogin
 lastpass-cli
 lazydocker
 lazygit
@@ -211,6 +215,7 @@ wqy-zenhei
 xclip
 xf86-input-vmmouse
 xf86-video-vmware
+xidel
 xkeycaps
 xorg-server
 xorg-xev
@@ -220,5 +225,6 @@ xrandr-notify
 xsel
 yarn
 yay
+yq
 zip
 zsh
