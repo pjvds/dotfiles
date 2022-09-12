@@ -9,6 +9,23 @@ let loaded_netrwPlugin = 1
 let g:vimspector_enable_mappings = 'HUMAN'
 let g:vimspector_install_gadgets = [ 'debugpy', 'vscode-go', 'CodeLLDB', 'vscode-node-debug2' ]
 
+" General options
+let g:presence_auto_update         = 1
+let g:presence_neovim_image_text   = "How do I quit?"
+let g:presence_main_image          = "neovim"
+let g:presence_blacklist           = []
+let g:presence_buttons             = 0
+let g:presence_file_assets         = {}
+
+" Rich Presence text options
+let g:presence_editing_text        = "Coding"
+let g:presence_file_explorer_text  = "Searching"
+let g:presence_git_commit_text     = "Committing"
+let g:presence_plugin_manager_text = "Configuring"
+let g:presence_reading_text        = "Coding"
+let g:presence_workspace_text      = "How do I quit this?"
+let g:presence_line_number_text    = "Line"
+
 set noswapfile
 
 set undofile " persistent undo for the win!
