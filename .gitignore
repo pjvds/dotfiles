@@ -11,6 +11,9 @@ atom.symlink/blob-store
 atom.symlink/recovery
 vim/SpaceVim.d/.netrwhist
 
+# python
+__pycache__/
+
 # zmk
 zmk/.west
 zmk/bootloader
