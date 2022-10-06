@@ -8,6 +8,8 @@ config_version: 2
 settings:
   aliases:
     global:
+      ab: open https://dev.azure.com/ra-tes/DRS%20Engineering/_boards/board/t/DRS%20Engineering%20Team/Stories
+      ap: open https://dev.azure.com/ra-tes/Process%20X-ray/_build
       dl: open https://microsoft.com/devicelogin ;; later 2500 insert-text {clipboard}
       l: open http://localhost:3000
       q: close
@@ -15,8 +17,6 @@ settings:
       w: session-save
       wq: quit --save
       wqa: quit --save
-      ab: open https://dev.azure.com/ra-tes/DRS%20Engineering/_boards/board/t/DRS%20Engineering%20Team/Stories
-      ap: open https://dev.azure.com/ra-tes/Process%20X-ray/_build
   bindings.commands:
     global:
       normal:
@@ -33,6 +33,8 @@ settings:
     global: false
     https://lastnoted.com: true
   content.javascript.can_access_clipboard:
+    global: true
+  content.local_content_can_access_file_urls:
     global: true
   content.notifications.enabled:
     global: false
