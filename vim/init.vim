@@ -116,16 +116,10 @@ noremap <silent> gi <Plug>(coc-implementation)
 noremap <silent> gr <Plug>(coc-references)
 noremap <silent> <leader>h :noh<CR>
 
-"
-" Use <tab> for trigger completion and navigate to the next complete item
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~ '\s'
-endfunction
-inoremap <silent><expr> <Tab>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<Tab>" :
-      \ coc#refresh()
+" Make <CR> to accept selected completion item or notify coc.nvim to format
+" <C-g>u breaks current undo, please make your own choice.
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+                             \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 " When 'ignorecase' and 'smartcase' are both on, if a pattern contains an uppercase letter, it is case sensitive, otherwise, it is not. For example, /The would find only 'The', while /the would find 'the' or 'The' etc.
 set ignorecase
