@@ -18,6 +18,7 @@
     autocorrect = 1
 [push]
     default = current
+	autoSetupRemote = true
 [branch]
 	autosetuprebase = always
 [credential]
