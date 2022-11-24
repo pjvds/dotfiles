@@ -5,10 +5,9 @@ alacritty
 alsa-utils
 altair
 amd-ucode
-android-studio
-argo-bin
 asar
 aspnet-runtime
+aspnet-runtime-6.0
 aurphan
 autoconf
 automake
@@ -38,7 +37,9 @@ discord
 dnslookup-bin
 docker
 docker-compose
+docker-scan
 dotnet-sdk
+dotnet-sdk-6.0
 duck
 dunst
 easyeda2kicad
@@ -59,11 +60,10 @@ git
 git-credential-manager-bin
 git-interactive-rebase-tool-bin
 gnu-netcat
-goland
-goland-jre
 google-chrome
 gopls
 gorun
+gradle
 graphql-lsp
 grasp
 groff
@@ -74,6 +74,7 @@ grv
 hadolint-bin
 helm
 hexyl
+homebridge-config-ui-x
 hstr
 htop
 httpie
@@ -82,7 +83,6 @@ hyprland-bin
 i3-gaps
 intel-ucode
 jetbrains-toolbox
-jlink-software-and-documentation
 jq
 k9s
 kabmat
@@ -122,9 +122,9 @@ nodejs-npm-upgrade
 notion-app
 noto-fonts-cjk
 noto-fonts-emoji
-nrf5x-command-line-tools
 ntp
 nvchecker
+nvidia-dkms
 nvm
 open-vm-tools
 openssh
@@ -136,6 +136,7 @@ picom
 pip2arch-git
 pkgconf
 playerctl
+pnpm
 polybar
 polybar-scripts-git
 prettier
@@ -151,7 +152,6 @@ python-pynvim
 python-tldextract
 python-virtualenv
 python-youtube-search-git
-python2
 q
 qmk
 qutebrowser
@@ -172,6 +172,7 @@ scrot
 sdl12-compat
 signal-desktop
 signal-desktop-beta-bin
+skaffold
 slack-desktop
 snyk
 speedtest-cli
@@ -182,9 +183,7 @@ sttr
 sudo
 sxhkd
 taskell
-teams
-teams-for-linux
-telepresence
+telepresence2
 texinfo
 the_silver_searcher
 theme.sh
