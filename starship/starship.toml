@@ -14,7 +14,7 @@ vicmd_symbol   = "[](bold blue)"
 disabled = false
 
 [kubernetes.context_aliases]
-"aks-dypodbjktt" = "dev"
+"aks-dypodbjktt" = "xray-dev"
 "minikube" = "local"
 
 [directory]
