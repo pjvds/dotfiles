@@ -3,6 +3,23 @@ alias kd="kubectl --namespace dev-namespace"
 alias kt="kubectl --namespace test-namespace"
 
 # Check if 'minikube' is a command in $PATH
+if [ $commands[kubectl] ]; then
+
+  # Placeholder 'kubectl' shell function:
+  # Will only be executed on the first call to 'k3d'
+  kubectl() {
+    # Remove this function, subsequent calls will execute 'kubectl' directly
+    unfunction "$0"
+
+    # Source the auto-completion
+    source <(kubectl completion zsh)
+
+    # Execute binary
+    $0 "$@"
+  }
+fi
+
+# Check if 'minikube' is a command in $PATH
 if [ $commands[minikube] ]; then
 
   # Placeholder 'minikube' shell function:
