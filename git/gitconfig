@@ -32,3 +32,5 @@
 	path = ~/dotfiles/git/gitconfig-deloitte
 [sequence]
 	editor = interactive-rebase-tool
+[maintenance]
+	repo = /home/pjvds/code/deloitte/xray/backend
