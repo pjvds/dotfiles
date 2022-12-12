@@ -176,7 +176,7 @@ super + shift + s
 
 # open emoji menu
 super + semicolon
-  rofimoji --rofi-args="-width 850" -s light 
+  rofimoji --skin-tone light
 
 #
 # receptacle
