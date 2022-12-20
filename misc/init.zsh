@@ -45,3 +45,8 @@ senv() {
 
 	sdiff "$before" "$after"
 }
+
+# copy full path of given file
+cpath() {
+	echo "$(readlink -f $1)" | xclip -selection clipboard
+}
