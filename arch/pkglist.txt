@@ -25,7 +25,6 @@ bspwm
 calcure
 calibre
 clessc-git
-cli-typer-git
 cli53
 clipmenu
 cloc
@@ -40,15 +39,14 @@ docker-compose
 docker-scan
 dotnet-sdk
 dotnet-sdk-6.0
-duck
 dunst
 easyeda2kicad
 efibootmgr
+eslint
 evans-bin
 fakeroot
 fd
 feh
-figma-linux
 filezilla
 firefox
 flex
@@ -78,8 +76,9 @@ homebridge-config-ui-x
 hstr
 htop
 httpie
+httrack
 hxd
-hyprland-bin
+hyprland-git
 i3-gaps
 intel-ucode
 jetbrains-toolbox
@@ -89,10 +88,10 @@ kabmat
 kcalc
 kdiff3
 kitty
-klepcbgen-git
 kompare
 kubectx
 kubefwd-bin
+lando-bin
 lastpass-cli
 lazydocker
 lazygit
@@ -124,7 +123,6 @@ noto-fonts-cjk
 noto-fonts-emoji
 ntp
 nvchecker
-nvidia-dkms
 nvm
 open-vm-tools
 openssh
@@ -153,7 +151,6 @@ python-tldextract
 python-virtualenv
 python-youtube-search-git
 q
-qmk
 qutebrowser
 qutebrowser-profile-git
 rancher-k3d-bin
@@ -166,6 +163,7 @@ ripgrep
 rofi
 rofi-emoji
 rofimoji
+rsync
 ruby
 rxvt-unicode
 scrot
@@ -183,7 +181,7 @@ sttr
 sudo
 sxhkd
 taskell
-telepresence2
+telepresence
 texinfo
 the_silver_searcher
 theme.sh
@@ -201,6 +199,7 @@ typescript
 vaultwarden
 vim
 vscode-node-debug2
+wget
 whatscli
 whatsdesk-bin
 which
