@@ -21,7 +21,7 @@ im::open "slack" "Slack"
 #im::open "whatsapp-nativefier" "whatsapp-nativefier-d40211"
 
 # discord
-im::open "discord" "Discord"
+#im::open "discord" "Discord"
 
 # whatsapp
 im::open "whatsdesk" "whatsdesk"
