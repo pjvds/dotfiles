@@ -2,6 +2,27 @@ Host *
   SendEnv LANG LC_*
   ForwardAgent yes
 
+Host 94.228.142.145
+	HostName 94.228.142.145
+	User craftify
+	PubkeyAcceptedAlgorithms +ssh-rsa
+	HostkeyAlgorithms +ssh-rsa
+	IdentityFile ~/.ssh/id_rsa
+
+Host nob-acc @acc nob-acc20.prolocation.net
+	HostName nob-acc20.prolocation.net
+	User craftify
+	PubkeyAcceptedAlgorithms +ssh-rsa
+	HostkeyAlgorithms +ssh-rsa
+	IdentityFile ~/.ssh/id_rsa
+
+Host nob-prod @prod
+	HostName nob-web20.prolocation.net
+	User craftify
+	PubkeyAcceptedAlgorithms +ssh-rsa
+	HostkeyAlgorithms +ssh-rsa
+	IdentityFile ~/.ssh/id_rsa
+
 Host fenix-dev
 	HostName 157.230.103.67
 	User root
@@ -41,3 +62,7 @@ Host aur.archlinux.org
 	HostName aur.archlinux.org
 	User pjvds
 	IdentityFile ~/.ssh/aur
+
+Host pi
+	HostName 192.168.1.20
+	User pjvandesande
