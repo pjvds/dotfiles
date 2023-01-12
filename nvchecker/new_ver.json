@@ -1,6 +1,5 @@
 {
   "bella-git": "20201124.223257",
-  "graphqurl": "v1.0.1",
   "grasp": "v0.3.1",
   "imgdiff": "v1.0.2",
   "naivecalendar-git": "20220110",
@@ -13,6 +12,5 @@
   "topalias": "20211023.103723",
   "tunl": "0.35.1",
   "whatscli": "v1.0.11",
-  "whatscli-git": "20211102.180617",
-  "xrandr-notify": "0.2.0"
+  "whatscli-git": "20211102.180617"
 }
