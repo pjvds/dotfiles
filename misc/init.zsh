@@ -48,5 +48,10 @@ senv() {
 
 # copy full path of given file
 cpath() {
-	echo "$(readlink -f $1)" | xclip -selection clipboard
+	echo -n "$(readlink -f $1)" | xclip -selection clipboard
+}
+
+# copy full path of current dir
+cdir() {
+	pwd | xclip -selection clipboard
 }
