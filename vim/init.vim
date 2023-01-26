@@ -196,7 +196,8 @@ let g:coc_explorer_global_presets = {
 nmap <leader>a <Plug>(coc-codeaction)
 vmap <leader>a <Plug>(coc-codeaction-selected)
 
-let g:prettier#autoformat = 1
+" define prettier command
+command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
 
 "autocmd VimEnter * call SetupLightlineColors()
 "function SetupLightlineColors() abort

@@ -27,8 +27,6 @@ Plug 'ryanoasis/vim-devicons'
 "Plug 'brooth/far.vim'
 Plug 'leafgarland/typescript-vim'
 
-Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
-
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 Plug 'mattn/vim-goimports'

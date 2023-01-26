@@ -3,14 +3,9 @@
   "suggest.enablePreselect": true,
   "suggest.noselect": false,
   "explorer.icon.enableNerdfont": true,
+  "explorer.file.showHiddenFiles": true,
   "coc.preferences.currentFunctionSymbolAutoUpdate": true,
-  "coc.preferences.formatOnSaveFiletypes": ["json", "go", "tsx"],
+  "coc.preferences.formatOnSaveFiletypes": ["json", "go", "tsx", "ts", "html"],
   "codeLens.enable": true,
-  "languageserver": {
-    "csharp-ls": {
-      "command": "csharp-ls",
-      "filetypes": ["cs"],
-      "rootPatterns": ["*.csproj", ".vim/", ".git/", ".hg/"]
-    }
-  }
+  "tsserver.enable": true
 }
