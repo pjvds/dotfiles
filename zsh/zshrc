@@ -55,6 +55,10 @@ bindkey 'jj' vi-cmd-mode
 # Exit terminal with qq
 bindkey 'qq' exit
 
+go_to_code() { echo; cd "$HOME/code"; zle reset-prompt; zle redisplay }
+zle -N go_to_code
+bindkey '^h' go_to_code
+
 exit_zsh() { exit }
 zle -N exit_zsh
 bindkey 'qq' exit_zsh
