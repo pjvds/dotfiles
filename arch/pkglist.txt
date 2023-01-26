@@ -24,6 +24,7 @@ bloomrpc-bin
 bspwm
 calcure
 calibre
+cdk-dia
 clessc-git
 cli53
 clipmenu
@@ -61,8 +62,10 @@ gnu-netcat
 google-chrome
 gopls
 gorun
+gparted
 gradle
 graphql-lsp
+graphviz
 grasp
 groff
 grpc-client-cli-bin
@@ -79,7 +82,7 @@ httpie
 httrack
 hxd
 hyprland-git
-i3-gaps
+i3-wm
 intel-ucode
 jetbrains-toolbox
 jq
@@ -114,9 +117,9 @@ nautilus
 ncdu2
 ncspot
 neovim
-nerd-fonts-jetbrains-mono
 network-wait-online
 ngrok
+nodejs-live-server
 nodejs-npm-upgrade
 notion-app
 noto-fonts-cjk
@@ -191,7 +194,9 @@ tldr
 tree
 ttf-arphic-ukai
 ttf-arphic-uming
+ttf-crosextra
 ttf-jetbrains-mono
+ttf-jetbrains-mono-nerd
 ttf-joypixels
 ttf-menlo-powerline-git
 tunl
