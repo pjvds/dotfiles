@@ -4,3 +4,9 @@ for f in $DOTFILES/**/install.zsh; do
   echo "executing: $f"
   "$f"
 done
+
+os="${$(uname):l}"
+for f in $DOTFILES/**/install/$os.zsh; do 
+  echo "executing: $f"
+  "$f"
+done
