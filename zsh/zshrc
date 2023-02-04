@@ -28,17 +28,42 @@ setopt INTERACTIVE_COMMENTS        # allow comments in interactive shells
 
 zstyle ":completion:*" menu select # Higlight item in completion menu
 
-source ~/.zinit/bin/zinit.zsh
+### Added by Zinit's installer
+if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
+    print -P "%F{33} %F{220}Installing %F{33}ZDHARMA-CONTINUUM%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
+    command mkdir -p "$HOME/.local/share/zinit" && command chmod g-rwX "$HOME/.local/share/zinit"
+    command git clone https://github.com/zdharma-continuum/zinit "$HOME/.local/share/zinit/zinit.git" && \
+        print -P "%F{33} %F{34}Installation successful.%f%b" || \
+        print -P "%F{160} The clone has failed.%f%b"
+fi
+
+source "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
+### End of Zinit's installer chunk
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
 source $DOTFILES/init.zsh
+os=`uname`
 for f in $DOTFILES/**/init.zsh; do 
 	source "$f"
+  
+  # os specific init script, eq: init.darwin.zsh or init.linux.zsh
+  os_f="$(dirname $f)/init.${os:l}.zsh"
+  if [[ -f "$os_f" ]]; then
+    source "$os_f"
+  fi  
 done
 
 for f in $DOTFILES/**/aliases.zsh; do 
 	source "$f"
+
+  # os specific script, eq: init.darwin.zsh or init.linux.zsh
+  os_f="$(dirname $f)/aliasses.${os:l}.zsh"
+  if [[ -f "$os_f" ]]; then
+    source "$os_f"
+  fi  
 done
 
 # Cycle through history based on characters already typed on the line
