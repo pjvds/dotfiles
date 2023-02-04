@@ -34,3 +34,8 @@
 	editor = interactive-rebase-tool
 [maintenance]
 	repo = /home/pjvds/code/deloitte/xray/backend
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f

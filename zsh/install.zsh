@@ -1,1 +1,1 @@
-ln --symbolic $DOTFILES/zsh/zshrc $HOME/.zshrc
+ln -s $DOTFILES/zsh/zshrc $HOME/.zshrc
