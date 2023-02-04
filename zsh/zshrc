@@ -45,25 +45,21 @@ autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
 source $DOTFILES/init.zsh
-os=`uname`
 for f in $DOTFILES/**/init.zsh; do 
 	source "$f"
-  
-  # os specific init script, eq: init.darwin.zsh or init.linux.zsh
-  os_f="$(dirname $f)/init.${os:l}.zsh"
-  if [[ -f "$os_f" ]]; then
-    source "$os_f"
-  fi  
+done
+
+os="${$(uname):l}"
+for f in $DOTFILES/**/init.$os.zsh; do 
+	source "$f"
 done
 
 for f in $DOTFILES/**/aliases.zsh; do 
 	source "$f"
+done
 
-  # os specific script, eq: init.darwin.zsh or init.linux.zsh
-  os_f="$(dirname $f)/aliasses.${os:l}.zsh"
-  if [[ -f "$os_f" ]]; then
-    source "$os_f"
-  fi  
+for f in $DOTFILES/**/aliases.$os.zsh; do 
+  source "$os_f"
 done
 
 # Cycle through history based on characters already typed on the line
