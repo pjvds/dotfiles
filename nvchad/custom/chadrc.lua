@@ -1,9 +1,8 @@
 local M = {}
 
 --M.ui = {
---	theme_toggle = { "catppuccin", "catppuccin_latte" },
---	theme = "catppuccin",
---	transparency = true,
+--	theme_toggle = { "ayu-dark", "aye-light" },
+--	theme = "aye-dark",
 --}
 
 --M.plugins = require "custom.plugins"
