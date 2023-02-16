@@ -9,9 +9,3 @@ alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
 
 mkcd() { mkdir -p "$1" && cd "$1"; } 
-
-if [ "$(uname 2> /dev/null)" != "Linux" ]; then
-  open() {
-    nohub xdg-open $1 $> /dev/null &
-  }
-fi

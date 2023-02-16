@@ -14,4 +14,29 @@ return {
 		end,
 	},
 	["psliwka/vim-smoothie"] = {},
+	["mg979/vim-visual-multi"] = {
+		opt = true,
+		event = "BufReadPost",
+		setup = function()
+			--require("custom.plugins.configs.visual-multi")
+		end,
+	},
+	["nmac427/guess-indent.nvim"] = {
+		event = "InsertEnter",
+		config = function()
+			require("guess-indent").setup({
+				auto_cmd = true, -- Set to false to disable automatic execution
+				filetype_exclude = { -- A list of filetypes for which the auto command gets disabled
+					"netrw",
+					"tutor",
+				},
+				buftype_exclude = { -- A list of buffer types for which the auto command gets disabled
+					"help",
+					"nofile",
+					"terminal",
+					"prompt",
+				},
+			})
+		end,
+	},
 }
