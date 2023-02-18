@@ -1,9 +1,14 @@
 local M = {}
 
 M.general = {
-  n = {
-    [";"] = { ":", "enter command mode", opts = { nowait = true } },
-  }
+	n = {
+		[";"] = { ":", "enter command mode", opts = { nowait = true } },
+		["<ESC>"] = { "<cmd> noh <CR>", "no highlight" },
+	},
+	v = {
+		["<C-r>"] = { "hy:%s/<C-r>h//gc<left><left><left>", "find and replace current selection" },
+		["<C-c>"] = { '"+y', "copy visual selection to clipboard" },
+	},
 }
 
 M.telescope = {
