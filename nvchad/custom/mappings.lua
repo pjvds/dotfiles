@@ -13,7 +13,7 @@ M.general = {
 
 M.telescope = {
 	n = {
-		["<leader>A"] = { "<cmd> Telescope keymaps<CR>", "key mappings finder" },
+		["<C-A>"] = { "<cmd> Telescope keymaps<CR>", "key mappings finder" },
 		["<leader>f"] = { "<cmd> Telescope live_grep<CR>", "search in files" },
 		["<leader>p"] = { "<cmd> Telescope find_files<CR>", "file finder" },
 		["<leader>e"] = { "<cmd> Telescope find_files<CR>", "file finder" },
