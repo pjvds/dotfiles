@@ -16,7 +16,7 @@ M.telescope = {
 		["<C-A>"] = { "<cmd> Telescope keymaps<CR>", "key mappings finder" },
 		["<leader>f"] = { "<cmd> Telescope live_grep<CR>", "search in files" },
 		["<leader>p"] = { "<cmd> Telescope find_files<CR>", "file finder" },
-		["<leader>e"] = { "<cmd> Telescope find_files<CR>", "file finder" },
+		["<leader>e"] = { "<cmd> Telescope file_browser<CR>", "file browser" },
 		["<leader>j"] = {
 			function()
 				vim.diagnostic.goto_next({
