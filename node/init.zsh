@@ -5,3 +5,6 @@ export BROWSER=none
 
 alias vitest='npx vitest'
 alias sst='npx sst'
+
+export NVM_LAZY_LOAD=true
+zinit light lukechilds/zsh-nvm
