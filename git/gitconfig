@@ -7,6 +7,8 @@
     branch = auto
     ui = true
 [core]
+    excludesfile = ~/.gitignore
+[core]
   editor = nvim
 [apply]
     whitespace = nowarn
