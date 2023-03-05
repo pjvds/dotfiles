@@ -1,0 +1,82 @@
+{
+  "title": "CACS homerow mod",
+  "rules": [
+    {
+      "description": "Hold A for COMMAND",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": { "key_code": "a" },
+          "to_after_key_up": [{ "key_code": "a" }],
+          "to_if_held_down": [{ "key_code": "left_gui", "halt": true }]
+        }
+      ]
+    },
+    {
+      "description": "Hold S for ALT",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": { "key_code": "s" },
+          "to_after_key_up": [{ "key_code": "s" }],
+          "to_if_held_down": [{ "key_code": "left_alt", "halt": true }]
+        }
+      ]
+    },
+    {
+      "description": "Hold D for CTRL",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": { "key_code": "d" },
+          "to_after_key_up": [{ "key_code": "d" }],
+          "to_if_held_down": [{ "key_code": "left_ctrl", "halt": true }]
+        }
+      ]
+    },
+    {
+      "description": "Hold F for SHIFT",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": { "key_code": "f" },
+          "to_after_key_up": [{ "key_code": "f" }],
+          "to_if_held_down": [{ "key_code": "left_shift", "halt": true }]
+        }
+      ]
+    },
+    {
+      "description": "Hold ; for COMMAND",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": { "key_code": "semicolon" },
+          "to_after_key_up": [{ "key_code": "semicolon" }],
+          "to_if_held_down": [{ "key_code": "right_gui", "halt": true }]
+        }
+      ]
+    },
+    {
+      "description": "Hold k for CTRL",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": { "key_code": "k" },
+          "to_after_key_up": [{ "key_code": "k" }],
+          "to_if_held_down": [{ "key_code": "right_ctrl", "halt": true }]
+        }
+      ]
+    },
+    {
+      "description": "Hold J for SHIFT",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": { "key_code": "j" },
+          "to_after_key_up": [{ "key_code": "j" }],
+          "to_if_held_down": [{ "key_code": "right_shift", "halt": true }]
+        }
+      ]
+    }
+  ]
+}
