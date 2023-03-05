@@ -25,7 +25,7 @@ M.telescope = {
 					-- loop around file
 					wrap = true,
 					-- jump to at least warning level or higher
-					severity = { min = vim.diagnostic.severity.WARN },
+					severity = { min = vim.diagnostic.severity.INFO },
 				})
 			end,
 			"goto next diagnostics error",
