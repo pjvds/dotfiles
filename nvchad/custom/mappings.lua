@@ -6,7 +6,7 @@ M.general = {
 		["<ESC>"] = { "<cmd> noh <CR>", "no highlight" },
 	},
 	v = {
-		["<C-r>"] = { "hy:%s/<C-r>h//gc<left><left><left>", "find and replace current selection" },
+		["<C-r>"] = { '"hy:%s/<C-r>h//gc<left><left><left>', "find and replace current selection" },
 		["<C-c>"] = { '"+y', "copy visual selection to clipboard" },
 	},
 }
