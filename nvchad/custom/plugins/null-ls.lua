@@ -11,6 +11,10 @@ local sources = {
 	b.formatting.prettierd,
 	-- Lua formatting
 	b.formatting.stylua,
+	b.formatting.gofmt,
+	b.diagnostics.golangci_lint,
+	b.diagnostics.shellcheck,
+	b.formatting.shfmt,
 }
 
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
