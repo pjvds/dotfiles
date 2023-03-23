@@ -71,4 +71,7 @@ return {
 			})
 		end,
 	},
+	["github/copilot.vim"] = {
+		after = "nvim-lspconfig",
+	},
 }
