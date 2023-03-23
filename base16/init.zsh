@@ -9,8 +9,8 @@ fi
 
 # Do not set background, BG color is set by terminal
 #export BASE16_SHELL_SET_BACKGROUND=${BASE16_SHELL_SET_BACKGROUND:-false}
-
 # Base16 Shell
-#eval "$("$BASE16_SHELL/profile_helper.sh")"
-
-#base16_dracula
+BASE16_SHELL="$HOME/.config/base16-shell/"
+[ -n "$PS1" ] && \
+    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
+        source "$BASE16_SHELL/profile_helper.sh"
