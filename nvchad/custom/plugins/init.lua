@@ -1,35 +1,86 @@
 -- the following code tells Packer to install the neovim/nvim-lspconfig plugin using the code contained in nvim/lua/plugins/lspconfig.lua and nvim/lua/custom/plugins/lspconfig.lua respectively. For configuration, through, we need require calls.
 -- Special attention should be paid to the sequence of the calls as they use the override technique, and reversing the order could result in inconsistencies in the configuration.
 return {
-	["nvim-telescope/telescope-file-browser.nvim"] = {
-		after = "telescope.nvim",
+	{"nvim-telescope/telescope-file-browser.nvim",
 		requires = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
 		config = function()
 			local t = require("telescope")
 			t.load_extension("file_browser")
 		end,
 	},
-	["jose-elias-alvarez/null-ls.nvim"] = {
-		after = "nvim-lspconfig",
+	{"jose-elias-alvarez/null-ls.nvim",
 		config = function()
-			require("custom.plugins.null-ls")
+			local present, null_ls = pcall(require, "null-ls")
+
+			if not present then
+				return
+			end
+
+			local b = null_ls.builtins
+
+			local sources = {
+				-- format html and markdown
+				b.formatting.prettierd,
+				-- Lua formatting
+				b.formatting.stylua,
+				b.formatting.gofmt,
+				b.diagnostics.golangci_lint,
+				b.diagnostics.shellcheck,
+				b.formatting.shfmt,
+			}
+
+			local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+			local on_attach = function(client, bufnr)
+				if client.supports_method("textDocument/formatting") then
+					vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+					vim.api.nvim_create_autocmd("BufWritePre", {
+						group = augroup,
+						buffer = bufnr,
+						callback = function()
+							-- on 0.8, you should use vim.lsp.buf.format({ bufnr = bufnr }) instead
+							vim.lsp.buf.formatting_sync()
+						end,
+					})
+				end
+			end
+
+null_ls.setup({
+	debug = true,
+	sources = sources,
+	on_attach = on_attach,
+})
 		end,
 	},
-	["neovim/nvim-lspconfig"] = {
+	{"neovim/nvim-lspconfig",
 		config = function()
 			require("plugins.configs.lspconfig")
-			require("custom.plugins.lspconfig")
+			local on_attach = require("plugins.configs.lspconfig").on_attach
+			local capabilities = require("plugins.configs.lspconfig").capabilities
+
+			local lspconfig = require("lspconfig")
+
+			-- hint: all lang server names can be found here:
+			--       https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
+			-- or by: `:help lspconfig-all`
+			local servers = { "tsserver", "gopls", "lua_ls", "jsonls", "graphql", "csharp_ls" }
+
+			for _, lsp in ipairs(servers) do
+				lspconfig[lsp].setup({
+					on_attach = on_attach,
+					capabilities = capabilities,
+				})
+			end
 		end,
 	},
-	["psliwka/vim-smoothie"] = {},
-	["mg979/vim-visual-multi"] = {
+	{"psliwka/vim-smoothie"},
+	{"mg979/vim-visual-multi",
 		opt = true,
 		event = "BufReadPost",
 		setup = function()
 			--require("custom.plugins.configs.visual-multi")
 		end,
 	},
-	["nmac427/guess-indent.nvim"] = {
+	{"nmac427/guess-indent.nvim",
 		event = "InsertEnter",
 		config = function()
 			require("guess-indent").setup({
@@ -47,7 +98,7 @@ return {
 			})
 		end,
 	},
-	["andweeb/presence.nvim"] = {
+	{"andweeb/presence.nvim",
 		after = "telescope.nvim",
 		config = function()
 			require("presence").setup({
@@ -71,7 +122,7 @@ return {
 			})
 		end,
 	},
-	["github/copilot.vim"] = {
+	{"github/copilot.vim",
 		after = "nvim-lspconfig",
-	},
+	}
 }
