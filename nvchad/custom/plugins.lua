@@ -1,14 +1,16 @@
 -- the following code tells Packer to install the neovim/nvim-lspconfig plugin using the code contained in nvim/lua/plugins/lspconfig.lua and nvim/lua/custom/plugins/lspconfig.lua respectively. For configuration, through, we need require calls.
 -- Special attention should be paid to the sequence of the calls as they use the override technique, and reversing the order could result in inconsistencies in the configuration.
 return {
-	{"nvim-telescope/telescope-file-browser.nvim",
-		requires = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
+	{
+		"nvim-telescope/telescope-file-browser.nvim",
+		dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
 		config = function()
 			local t = require("telescope")
 			t.load_extension("file_browser")
 		end,
 	},
-	{"jose-elias-alvarez/null-ls.nvim",
+	{
+		"jose-elias-alvarez/null-ls.nvim",
 		config = function()
 			local present, null_ls = pcall(require, "null-ls")
 
@@ -44,43 +46,40 @@ return {
 				end
 			end
 
-null_ls.setup({
-	debug = true,
-	sources = sources,
-	on_attach = on_attach,
-})
+			null_ls.setup({
+				debug = true,
+				sources = sources,
+				on_attach = on_attach,
+			})
 		end,
 	},
-	{"neovim/nvim-lspconfig",
+	{
+		"neovim/nvim-lspconfig",
+		dependencies = {
+			-- format & linting
+			{
+				"jose-elias-alvarez/null-ls.nvim",
+				config = function()
+					require("custom.configs.null-ls")
+				end,
+			},
+		},
 		config = function()
 			require("plugins.configs.lspconfig")
-			local on_attach = require("plugins.configs.lspconfig").on_attach
-			local capabilities = require("plugins.configs.lspconfig").capabilities
-
-			local lspconfig = require("lspconfig")
-
-			-- hint: all lang server names can be found here:
-			--       https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
-			-- or by: `:help lspconfig-all`
-			local servers = { "tsserver", "gopls", "lua_ls", "jsonls", "graphql", "csharp_ls" }
-
-			for _, lsp in ipairs(servers) do
-				lspconfig[lsp].setup({
-					on_attach = on_attach,
-					capabilities = capabilities,
-				})
-			end
-		end,
+			require("custom.configs.lspconfig")
+		end, -- Override to setup mason-lspconfig
 	},
-	{"psliwka/vim-smoothie"},
-	{"mg979/vim-visual-multi",
+	{ "psliwka/vim-smoothie" },
+	{
+		"mg979/vim-visual-multi",
 		opt = true,
 		event = "BufReadPost",
 		setup = function()
 			--require("custom.plugins.configs.visual-multi")
 		end,
 	},
-	{"nmac427/guess-indent.nvim",
+	{
+		"nmac427/guess-indent.nvim",
 		event = "InsertEnter",
 		config = function()
 			require("guess-indent").setup({
@@ -98,7 +97,8 @@ null_ls.setup({
 			})
 		end,
 	},
-	{"andweeb/presence.nvim",
+	{
+		"andweeb/presence.nvim",
 		after = "telescope.nvim",
 		config = function()
 			require("presence").setup({
@@ -122,7 +122,5 @@ null_ls.setup({
 			})
 		end,
 	},
-	{"github/copilot.vim",
-		after = "nvim-lspconfig",
-	}
+	{ "github/copilot.vim", after = "nvim-lspconfig" },
 }
