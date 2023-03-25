@@ -10,8 +10,18 @@ local lspconfig = require("lspconfig")
 local servers = { "tsserver", "gopls", "lua_ls", "jsonls", "graphql", "csharp_ls" }
 
 for _, lsp in ipairs(servers) do
-	lspconfig[lsp].setup({
+	local opts = {
 		on_attach = on_attach,
 		capabilities = capabilities,
-	})
+	}
+
+	if lsp == "lua_ls" then
+		opts.settings = {
+			Lua = {
+				diagnostics = { globals = { "vim" } },
+			},
+		}
+	end
+
+	lspconfig[lsp].setup(opts)
 end
