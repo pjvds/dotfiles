@@ -1,6 +1,25 @@
--- the following code tells Packer to install the neovim/nvim-lspconfig plugin using the code contained in nvim/lua/plugins/lspconfig.lua and nvim/lua/custom/plugins/lspconfig.lua respectively. For configuration, through, we need require calls.
--- Special attention should be paid to the sequence of the calls as they use the override technique, and reversing the order could result in inconsistencies in the configuration.
-return {
+local overrides = require("custom.configs.overrides")
+
+local plugins = {
+	{
+		-- hint for cmp config debugging:
+		-- CmpStatus gives the full status of cmp
+		"hrsh7th/nvim-cmp",
+		opts = overrides.nvimcmp,
+		dependencies = {
+			"zbirenbaum/copilot-cmp",
+			dependencies = {
+				"zbirenbaum/copilot.lua",
+				cmd = "Copilot",
+				config = function()
+					require("copilot").setup({})
+				end,
+			},
+			config = function()
+				require("copilot_cmp").setup()
+			end,
+		},
+	},
 	{
 		"nvim-telescope/telescope-file-browser.nvim",
 		dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
@@ -122,18 +141,6 @@ return {
 			})
 		end,
 	},
-	{
-		"zbirenbaum/copilot-cmp",
-		dependencies = {
-			"zbirenbaum/copilot.lua",
-			cmd = "Copilot",
-			event = "InsertEnter",
-			config = function()
-				require("copilot").setup({})
-			end,
-		},
-		config = function()
-			require("copilot_cmp").setup()
-		end,
-	},
 }
+
+return plugins
