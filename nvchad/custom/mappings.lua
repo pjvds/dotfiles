@@ -23,7 +23,12 @@ M.telescope = {
 			function()
 				vim.diagnostic.goto_next({
 					-- call vim.diagnostic.open_float() after moving.
-					float = true,
+					float = {
+						show_header = true,
+						source = "if_many",
+						border = "rounded",
+						focusable = false,
+					},
 					-- loop around file
 					wrap = true,
 					-- jump to at least warning level or higher
