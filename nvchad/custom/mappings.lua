@@ -13,6 +13,12 @@ M.general = {
 	},
 }
 
+M.trouble = {
+	n = {
+		["<leader>x"] = { "<cmd>Trouble<cr>", "focus trouble" },
+	},
+}
+
 M.telescope = {
 	n = {
 		["<C-A>"] = { "<cmd> Telescope keymaps<CR>", "key mappings finder" },
