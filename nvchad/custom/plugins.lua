@@ -94,7 +94,7 @@ local plugins = {
 			require("custom.configs.lspconfig")
 		end, -- Override to setup mason-lspconfig
 	},
-	{ "psliwka/vim-smoothie" },
+	{ "psliwka/vim-smoothie", event = "BufRead" },
 	{
 		"mg979/vim-visual-multi",
 		opt = true,
