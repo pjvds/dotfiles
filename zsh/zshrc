@@ -50,6 +50,15 @@ autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
 source $DOTFILES/init.zsh
+for file in $DOTFILES/**/preinit.zsh; do 
+  [ -f $file ] && source $file
+done
+
+os="${$(uname):l}"
+for file in $DOTFILES/**/preinit.$os.zsh; do 
+  [ -f $file ] && source $file
+done
+
 for file in $DOTFILES/**/init.zsh; do 
   [ -f $file ] && source $file
 done
