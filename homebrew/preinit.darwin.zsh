@@ -1,6 +1,6 @@
-if [[ -d /opt/homebrew/ ]];
-then
-	echo "PATH BEFORE HOMEBREW: $PATH"
-	eval "$(/opt/homebrew/bin/brew shellenv)"
-	echo "PATH AFTER HOMEBREW: $PATH"
+if [[ ! -f /opt/homebrew/bin/brew ]]; then
+	error "Homebrew not found"
+  return 0
 fi
+
+eval "$(/opt/homebrew/bin/brew shellenv)"
