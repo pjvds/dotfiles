@@ -1,3 +1,5 @@
+export LANG="en_US.UTF-8"
+export LC_ALL="POSIX"
 export DOTFILES=$HOME/dotfiles
 
 if [ "$ZSH_PROFILING" = 1 ];
