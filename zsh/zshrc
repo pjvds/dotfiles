@@ -70,6 +70,17 @@ for file in $DOTFILES/**/init.$os.zsh; do
   [ -f $file ] && source $file
 done
 
+for file in $DOTFILES/**/postinit.zsh; do 
+  [ -f $file ] && source $file
+done
+
+os="${$(uname):l}"
+for file in $DOTFILES/**/postinit.$os.zsh; do 
+  [ -f $file ] && source $file
+done
+
+
+
 for file in $DOTFILES/**/aliases.zsh; do 
   [ -f $file ] && source $file
 done
