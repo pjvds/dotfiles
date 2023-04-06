@@ -11,8 +11,10 @@ There's a few special files in the hierarchy.
 
 * **bin/**: Anything in bin/ will get added to your $PATH and be made available everywhere.
 * **_module_/login**: Executed then the windows manager is loaded.
-* **_module_/init.zsh**: Sourced before any ZSH plugin or oh-my-zsh is loaded.
-* **_module_/aliases.zsh**: Sourced after all ZSH plugins and oh-my-zsh is loaded.
+* **_module_/preinit.zsh**: Sourced before any init scripts are loaded.
+* **_module_/init.zsh**: Sourced before any ZSH plugin or zinit is loaded.
+* **_module_/postinit.zsh**: Sourced after all init scripts loaded.
+* **_module_/aliases.zsh**: Sourced after all init scripts loaded.
 * **_module_/hotkeys**: Sourced by the hotkey daemon sxhkd.
 * **_module_/install.zsh**: Any file named install.sh is executed when you run script/install. This script should be idempotent.
 
@@ -23,6 +25,36 @@ There's a few special files in the hierarchy.
 ``` zsh
 $ time zsh -i -c exit
 0.06s user 0.13s system 101% cpu 0.186 total
+```
+
+## Blazing fast editor start time
+
+72ms startup time for my favorite editor.
+
+``` zsh
+$ vim --startuptime /dev/stdout +qall
+times in msec
+ clock   self+sourced   self:  sourced script
+ clock   elapsed:              other lines
+
+000.026  000.026: --- NVIM STARTING ---
+000.168  000.142: event init
+000.336  000.168: early init
+000.376  000.040: locale set
+000.422  000.046: init first window
+000.876  000.454: inits 1
+000.893  000.017: window checked
+000.898  000.005: parsing arguments
+001.392  000.078  000.078: require('vim.shared')
+001.486  000.031  000.031: require('vim._meta')
+001.492  000.093  000.062: require('vim._editor')
+001.496  000.209  000.037: require('vim._init_packages')
+001.501  000.394: init lua interpreter
+003.903  002.402: expanding arguments
+003.993  000.091: inits 2
+004.321  000.327: init highlight
+004.328  000.007: waiting for UI
+072.649  000.091  000.091: require('vim.inspect')
 ```
 
 ## Package list
