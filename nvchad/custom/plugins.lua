@@ -2,6 +2,13 @@ local overrides = require("custom.configs.overrides")
 
 local plugins = {
 	{
+		"pjvds/dynumbers.nvim",
+		event = "VeryLazy",
+		config = function()
+			require("dynumbers").setup()
+		end,
+	},
+	{
 		-- hint for cmp config debugging:
 		-- CmpStatus gives the full status of cmp
 		"hrsh7th/nvim-cmp",
