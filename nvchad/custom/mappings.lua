@@ -13,21 +13,6 @@ M.general = {
 	},
 }
 
-M.smoothie = {
-	n = {
-		["<C-j>"] = { "<cmd> lua require('smoothie').scroll_down()<CR>", "smooth scroll down" },
-		["<C-k>"] = { "<cmd> lua require('smoothie').scroll_up()<CR>", "smooth scroll up" },
-	},
-	i = {
-		["<C-j>"] = { "<cmd> lua require('smoothie').scroll_down()<CR>", "smooth scroll down" },
-		["<C-k>"] = { "<cmd> lua require('smoothie').scroll_up()<CR>", "smooth scroll up" },
-	},
-	v = {
-		["<C-j>"] = { "<cmd> lua require('smoothie').scroll_down()<CR>", "smooth scroll down" },
-		["<C-k>"] = { "<cmd> lua require('smoothie').scroll_up()<CR>", "smooth scroll up" },
-	},
-}
-
 M.telescope = {
 	n = {
 		["<C-A>"] = { "<cmd> Telescope keymaps<CR>", "key mappings finder" },
