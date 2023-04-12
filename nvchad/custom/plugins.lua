@@ -28,6 +28,17 @@ local plugins = {
 		},
 	},
 	{
+		"chikko80/error-lens.nvim",
+		event = "BufRead",
+		dependencies = {
+			"nvim-telescope/telescope.nvim",
+		},
+		opts = {
+			-- your options go here
+		},
+	},
+	{ "nvim-telescope/telescope.nvim", opts = overrides.telescope },
+	{
 		"nvim-telescope/telescope-file-browser.nvim",
 		dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
 		config = function()
