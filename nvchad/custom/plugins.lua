@@ -100,12 +100,6 @@ local plugins = {
 					require("custom.configs.null-ls")
 				end,
 			},
-			{
-				"folke/trouble.nvim",
-				config = function()
-					require("trouble").setup({ auto_open = true })
-				end,
-			},
 		},
 		config = function()
 			require("plugins.configs.lspconfig")
