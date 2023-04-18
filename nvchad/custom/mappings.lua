@@ -45,6 +45,12 @@ M.telescope = {
 			"show lsp code actions for current buffer",
 		},
 	},
+	v = {
+		["<leader>f"] = {
+			function ()
+				require('telescope.builtin').grep_string()
+			end, "search in files for highlight" },
+	}
 }
 
 return M
