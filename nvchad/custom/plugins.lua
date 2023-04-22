@@ -9,6 +9,10 @@ local plugins = {
 		end,
 	},
 	{
+		"ecthelionvi/NeoComposer.nvim",
+		dependencies = { "kkharji/sqlite.lua" },
+	},
+	{
 		-- hint for cmp config debugging:
 		-- CmpStatus gives the full status of cmp
 		"hrsh7th/nvim-cmp",
