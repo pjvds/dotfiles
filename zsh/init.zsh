@@ -5,7 +5,9 @@ alias zshrc='vim $HOME/.zshrc'
 
 alias gapa='git add -p'
 
-alias pbcopy='xclip -selection clipboard'
-alias pbpaste='xclip -selection clipboard -o'
+if ! type pbcopy > /dev/null; then
+  alias pbcopy='xclip -selection clipboard'
+  alias pbpaste='xclip -selection clipboard -o'
+fi
 
 mkcd() { mkdir -p "$1" && cd "$1"; } 
