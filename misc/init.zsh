@@ -47,11 +47,31 @@ senv() {
 }
 
 # copy full path of given file
-cpath() {
-	echo -n "$(readlink -f $1)" | xclip -selection clipboard
+function cpath() {
+	local path=${PWD}
+
+	if type xclip > /dev/null; then
+		echo -n "$path" | xclip -selection clipboard
+	else
+		echo -n "$path" | pbcopy
+	fi
+
+	info "copied $path to clipboard"
 }
 
+bindkey -s '^y' "cpath"
+
 # copy full path of current dir
-cdir() {
-	pwd | xclip -selection clipboard
+function cdir {
+	local path=$(pwd)
+
+	if type xclip > /dev/null; then
+		echo -n $path | xclip -selection clipboard
+	else
+		echo -n $path | pbcopy
+	fi
+
+	info "copied $path to clipboard"
 }
+
+bindkey -s 'yp' 'cpath'
