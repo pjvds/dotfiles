@@ -1,10 +1,10 @@
 alias d='docker'
 alias dfl='docker logs -f'
-alias dc='docker-compose'
-alias dcl='docker-compose logs -f'
-alias dcu='docker-compose up -d'
-alias dcfl='docker-compose logs -f'
-alias dcps='docker-compose ps'
+alias dc='docker compose'
+alias dcl='dc logs -f'
+alias dcu='dc up -d'
+alias dcfl='dc logs -f'
+alias dcps='dc ps'
 
 alias ctop='docker run \
   --rm -ti \
