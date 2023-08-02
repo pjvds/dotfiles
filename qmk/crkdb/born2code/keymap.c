@@ -118,7 +118,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       KC_LSFT, KC_F8,  KC_F8,  KC_F9, KC_F10, KC_F11,                     KC_F12 , KC_MPRV, KC_MPLY, KC_MNXT, KC_PIPE, _______,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          _______,   MO(L_ADJUST), _______,    _______, _______, KC_RALT
+                                          _______,   _______, _______,    _______, _______, KC_RALT
                                       //`--------------------------'  `--------------------------'
   )
 };
@@ -150,9 +150,6 @@ void oled_render_layer_state(void) {
             break;
         case L_RAISE:
             oled_write_ln_P(PSTR("Raise (4)"), false);
-            break;
-        case L_ADJUST:
-            oled_write_ln_P(PSTR("Adjust (5)"), false);
             break;
         default:
             oled_write_ln_P(PSTR("<Unknown>"), false);
