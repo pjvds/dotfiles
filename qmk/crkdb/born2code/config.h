@@ -28,6 +28,14 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // #define MASTER_RIGHT
 // #define EE_HANDS
 
+/* 
+ * Enabling this option changes the startup behavior to listen for an active USB communication to delegate which part is master and which is slave. With thi * option enabled and theres’s USB communication, then that half assumes it is the master, otherwise it assumes it is the slave.
+ *
+ * Without this option, the master is the half that can detect voltage on the physical USB connection (VBUS detection).
+*/
+#define SPLIT_USB_DETECT
+
+
 #define USE_SERIAL_PD2
 
 #define TAPPING_TERM 200
