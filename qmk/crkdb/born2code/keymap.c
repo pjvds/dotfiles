@@ -17,6 +17,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 #include QMK_KEYBOARD_H
+#define split_usb_detect
 
 #define CTL_ESC LCTL_T(KC_ESC)
 #define CTL_ENT LCTL_T(KC_ENT)
