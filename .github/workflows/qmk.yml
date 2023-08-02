@@ -24,7 +24,13 @@ jobs:
             -v ${PWD}/qmk/build/:/qmk_firmware/.build/ \
             -v ${PWD}/qmk/crkdb/born2code:/qmk_firmware/keyboards/crkbd/keymaps/born2code \
             jonz94/qmk_firmware qmk compile -kb crkbd -km born2code
-      - name: Build crkdb r2g firmware
+      - name: Build crkdb r2g born2code firmware
+        run: |
+          docker run \
+            -v ${PWD}/qmk/build/:/qmk_firmware/.build/ \
+            -v ${PWD}/qmk/crkdb/born2code:/qmk_firmware/keyboards/crkbd/keymaps/born2code \
+            jonz94/qmk_firmware qmk compile -kb crkbd/r2g -km born2code
+      - name: Build crkdb r2g default firmware
         run: |
           docker run \
             -v ${PWD}/qmk/build/:/qmk_firmware/.build/ \
