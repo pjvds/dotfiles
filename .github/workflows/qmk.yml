@@ -28,7 +28,7 @@ jobs:
         run: |
           docker run \
             -v ${PWD}/qmk/build/:/qmk_firmware/.build/ \
-            jonz94/qmk_firmware qmk compile -kb crkbd.r2g -km mb_via
+            jonz94/qmk_firmware qmk compile -kb crkbd/r2g -km mb_via
       - name: Archive firmware
         uses: actions/upload-artifact@v2
         with:
