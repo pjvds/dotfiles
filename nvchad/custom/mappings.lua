@@ -20,6 +20,7 @@ M.telescope = {
 		["<leader>p"] = { "<cmd> Telescope find_files<CR>", "file finder" },
 		["<leader>e"] = { "<cmd> Telescope file_browser<CR>", "file browser" },
 		["<leader>x"] = { "<cmd> Telescope diagnostics<CR>", "diagnostic browser" },
+		["<leader>r"] = { "<cmd> Telescope resume<CR>", "resume browser" },
 		["<leader>j"] = {
 			function()
 				vim.diagnostic.goto_next({

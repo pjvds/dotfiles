@@ -1,8 +1,8 @@
 local M = {}
 
 M.ui = {
-	theme_toggle = { "monekai", "aye-light" },
-	theme = "monekai",
+	theme_toggle = { "aquarium", "github_dark" },
+	theme = "github_dark",
 	hl_override = {
 		Visual = { -- custom highlights are also allowed
 			bg = "#fffacd",
