@@ -16,6 +16,7 @@ local plugins = {
 		-- hint for cmp config debugging:
 		-- CmpStatus gives the full status of cmp
 		"hrsh7th/nvim-cmp",
+		enabled = false,
 		opts = overrides.nvimcmp,
 		dependencies = {
 			"zbirenbaum/copilot-cmp",
