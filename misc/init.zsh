@@ -47,16 +47,20 @@ senv() {
 }
 
 # copy full path of given file
-function cpath() {
-	local path=${PWD}
+function cpath {
+	local p=${PWD}
 
-	if type xclip > /dev/null; then
-		echo -n "$path" | xclip -selection clipboard
-	else
-		echo -n "$path" | pbcopy
+	if [ ! -z "$1" ]
+	then
+		p=$(realpath "$1")
 	fi
 
-	info "copied $path to clipboard"
+	if type "xclip" &> /dev/null; then
+		echo -n "$p" | xclip -selection clipboard
+	else
+		echo -n "$p" | pbcopy
+	fi
+	info "copied $p to clipboard"
 }
 
 bindkey -s '^y' "cpath"
