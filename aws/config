@@ -1,4 +1,13 @@
 [default]
 region=eu-west-1
 
-[profile visionisers-pieterjoost]
+[profile visionisers]
+
+[profile prosim]
+sso_start_url=https://d-906783562b.awsapps.com/start/
+# SSO Region is different than our main region:
+# See: https://github.com/aws/aws-cli/issues/5058#issuecomment-623322074
+sso_region=us-east-1
+region=eu-west-1
+sso_account_id=862260739262
+sso_role_name=AdministratorAccess
