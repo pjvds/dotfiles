@@ -1,3 +1,5 @@
+Include ~/.orbstack/ssh/config
+
 # Search the following identities (keys) and add them to the agent
 AddKeysToAgent yes
 IdentityFile ~/.ssh/id_rsa
