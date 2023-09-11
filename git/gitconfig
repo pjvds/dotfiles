@@ -12,8 +12,14 @@
   editor = nvim
 [apply]
     whitespace = nowarn
-[mergetool]
-    keepBackup = false
+[merge]
+    tool = fugitive
+[mergetool "fugitive"]
+    cmd = nvim -f -c \\"Gvdiffsplit!\\" \\"$MERGED\\"
+[difftool "vimdiff"]
+    cmd = vimdiff \"$LOCAL\" \"$REMOTE\"
+[mergetool "vimdiff"]
+    cmd = vimdiff \"$LOCAL\" \"$MERGED\" \"$REMOTE\"
 [difftool]
     prompt = false
 [help]
