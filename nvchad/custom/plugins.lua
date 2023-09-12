@@ -9,6 +9,13 @@ local plugins = {
 		end,
 	},
 	{
+		"https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+		lazy = false,
+		config = function()
+			require("lsp_lines").setup()
+		end,
+	},
+	{
 		"ecthelionvi/NeoComposer.nvim",
 		dependencies = { "kkharji/sqlite.lua" },
 	},
@@ -34,6 +41,7 @@ local plugins = {
 	},
 	{
 		"chikko80/error-lens.nvim",
+		enabled = false,
 		event = "BufRead",
 		dependencies = {
 			"nvim-telescope/telescope.nvim",
