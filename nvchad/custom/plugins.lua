@@ -164,6 +164,10 @@ local plugins = {
 			})
 		end,
 	},
+	{
+		"wuelnerdotexe/vim-astro",
+		event = "BufEnter *.astro",
+	},
 }
 
 return plugins
