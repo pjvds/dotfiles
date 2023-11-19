@@ -5,14 +5,11 @@
   "imgdiff": "v1.0.2",
   "naivecalendar-git": "20220110",
   "openpomodoro": "v0.3.0",
-  "owncast": "v0.1.1",
+  "owncast": "v0.1.2",
   "pbgopy": "v0.3.0",
   "sttr": "20230413.130721",
   "theme_sh": "v1.1.5",
-  "tmpsms": "v1.0.0",
-  "topalias": "20211023.103723",
   "tunl": "0.35.1",
   "whatscli": "v1.0.11",
-  "whatscli-git": "20230717.141018",
-  "xrandr-notify": "0.2.0"
+  "whatscli-git": "20230717.141018"
 }
