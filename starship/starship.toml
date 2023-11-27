@@ -7,6 +7,9 @@ success_symbol = "[➜](bold yellow)"
 error_symbol   = "[➜](bold red)"
 vicmd_symbol   = "[](bold blue)"
 
+[aws]
+disabled = false
+
 [docker_context]
 #disabled = false
 
