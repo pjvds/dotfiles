@@ -6,6 +6,9 @@ export GOPATH="$HOME/go"
 export PATH="$PATH:$GOPATH/bin"
 export CGO_ENABLED=1
 
+export GOSUMDB="sum.golang.org"
+export GOPROXY=https://proxy.golang.org
+
 eval "$(command goenv init -)"
 
 #function go() {
