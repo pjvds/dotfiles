@@ -1,18 +1,13 @@
 {
   "bella-git": "20201124.223257",
-  "graphqurl": "v1.0.1",
-  "grasp": "v0.3.1",
   "imgdiff": "v1.0.2",
   "naivecalendar-git": "20240205",
-  "openpomodoro": "v0.3.0",
   "owncast": "v0.1.3",
   "pbgopy": "v0.3.0",
   "sttr": "20240211.111636",
   "theme_sh": "v1.1.5",
   "tmpsms": "v1.0.0",
-  "topalias": "20211023.103723",
   "tunl": "0.35.1",
   "whatscli": "v1.0.11",
-  "whatscli-git": "20230717.141018",
-  "xrandr-notify": "0.2.0"
+  "whatscli-git": "20230717.141018"
 }
