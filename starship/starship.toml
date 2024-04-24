@@ -14,11 +14,7 @@ disabled = false
 #disabled = false
 
 [kubernetes]
-disabled = false
-
-[kubernetes.context_aliases]
-"aks-dypodbjktt" = "xray-dev"
-"minikube" = "local"
+disabled = true
 
 [directory]
 fish_style_pwd_dir_length = 1
