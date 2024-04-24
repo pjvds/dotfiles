@@ -34,7 +34,7 @@
 [pull]
 	rebase = true
 [rerere]
-	enabled = false
+	enabled = true
 
 [includeIf "gitdir/i:~/code/deloitte/"]
 	path = ~/dotfiles/git/gitconfig-deloitte
