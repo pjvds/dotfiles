@@ -11,18 +11,8 @@ alias tailf='tailf -f'
 zinit ice atload"cwd"
 zinit light pjvds/zsh-cwd
 
-# add Android build tools
-export PATH="$PATH:/Users/pjvds/Library/Android/sdk/build-tools/33.0.1"
-
 zinit ice silent wait"1"
 zinit light pjvds/zsh-cd-print
-
-cf() {
-	selection=$(fzf)
-	if [ $? -eq 0 ]; then
-		cd $(dirname "$selection")
-	fi
-}
 
 # source .env file
 senv() {
