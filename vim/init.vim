@@ -28,6 +28,9 @@ let g:presence_line_number_text    = "Line"
 
 set noswapfile
 
+" Sync clipboard with global clipboard. No more Ctrl + C and you can now copy Yank/Paste across vim instances! 
+set clipboard=unnamedplus
+
 set undofile " persistent undo for the win!
 set undodir=~/.vim/undo
 
