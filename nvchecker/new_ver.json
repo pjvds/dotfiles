@@ -48,9 +48,9 @@
       "url": "https://github.com/nakabonne/pbgopy/releases/tag/v0.3.0"
     },
     "sttr": {
-      "version": "20240730.125403",
-      "revision": "38fea533943c3446ee51987053ae1022d4cf5a67",
-      "url": "https://github.com/abhimanyu003/sttr/commit/38fea533943c3446ee51987053ae1022d4cf5a67"
+      "version": "20240802.143000",
+      "revision": "cc361b31f4ec77629bf90b636b39211ff44f4bda",
+      "url": "https://github.com/abhimanyu003/sttr/commit/cc361b31f4ec77629bf90b636b39211ff44f4bda"
     },
     "theme_sh": {
       "version": "v1.1.5",
