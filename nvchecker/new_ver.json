@@ -24,11 +24,6 @@
       "revision": "3eef05cf1006158db2aab884cb3ca755dd180090",
       "url": "https://github.com/n7olkachev/imgdiff/releases/tag/v1.0.2"
     },
-    "naivecalendar-git": {
-      "version": "20240205",
-      "revision": "37f2ca468bc05fb41b130e0992d7affcc9dc9fd7",
-      "url": "https://framagit.org/Daguhh/naivecalendar/-/commit/37f2ca468bc05fb41b130e0992d7affcc9dc9fd7"
-    },
     "openpomodoro": {
       "version": "v0.3.0",
       "gitref": "refs/tags/v0.3.0",
