@@ -103,10 +103,6 @@ bindkey 'jj' vi-cmd-mode
 # Exit terminal with qq
 bindkey 'qq' exit
 
-go_to_code() { echo; cd "$HOME/code"; zle reset-prompt; zle redisplay }
-zle -N go_to_code
-bindkey '^h' go_to_code
-
 exit_zsh() { exit }
 zle -N exit_zsh
 bindkey 'qq' exit_zsh
@@ -115,7 +111,6 @@ zinit wait"0" lucid light-mode for \
   atload"_zsh_autosuggest_start" \
     zsh-users/zsh-autosuggestions \
   blockf atpull'zinit creinstall -q .' \
-    zsh-users/zsh-completions \
     atinit"zicompinit; zicdreplay; complete -C $(which aws_completer) aws" \
     Aloxaf/fzf-tab
 
@@ -123,22 +118,7 @@ for plug in "extract"; do
   zinit snippet OMZ::plugins/$plug/$plug.plugin.zsh
 done
 
-
 if [ "$ZSH_PROFILING" = 1 ];
 then
   zprof
 fi
-
-PATH="/home/pjvds/perl5/bin${PATH:+:${PATH}}"; export PATH;
-PERL5LIB="/home/pjvds/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
-PERL_LOCAL_LIB_ROOT="/home/pjvds/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
-PERL_MB_OPT="--install_base \"/home/pjvds/perl5\""; export PERL_MB_OPT;
-PERL_MM_OPT="INSTALL_BASE=/home/pjvds/perl5"; export PERL_MM_OPT;
-
-# pnpm
-export PNPM_HOME="/Users/pjvds/Library/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
