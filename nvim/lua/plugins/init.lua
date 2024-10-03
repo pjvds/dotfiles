@@ -50,6 +50,13 @@ return {
 			t.load_extension("file_browser")
 		end,
 	},
+	{
+		"neovim/nvim-lspconfig",
+		config = function()
+			require("nvchad.configs.lspconfig").defaults()
+			require("configs.lspconfig")
+		end,
+	},
 
 	-- These are some examples, uncomment them if you want to see them work!
 	-- {
