@@ -9,13 +9,11 @@ export CGO_ENABLED=1
 export GOSUMDB="sum.golang.org"
 export GOPROXY=https://proxy.golang.org
 
-eval "$(command goenv init -)"
-
-#function go() {
-#    unset -f go > /dev/null 2>&1
-#    eval "$(command goenv init -)"
-#    go "$@"
-#}
+function go() {
+    unset -f go > /dev/null 2>&1
+    eval "$(command goenv init -)"
+    go "$@"
+}
 #
 #function goenv() {
 #    unset -f goenv > /dev/null 2>&1
