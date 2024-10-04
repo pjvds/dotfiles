@@ -35,6 +35,7 @@
 	rebase = true
 [rerere]
 	enabled = true
+	autoupdate = true
 
 [includeIf "gitdir/i:~/code/deloitte/"]
 	path = ~/dotfiles/git/gitconfig-deloitte
