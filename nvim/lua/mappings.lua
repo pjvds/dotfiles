@@ -13,6 +13,7 @@ map("v", "<C-r>", '"hy:%s/<C-r>h//gc<left><left><left>', { desc = "find and repl
 map("v", "<C-c>", '"+y', { desc = "copy visual selection to clipboard" })
 
 map("n", "<C-A>", "<cmd> Telescope keymaps<CR>", { desc = "key mappings finder" })
+map("n", "<leader>b", "<cmd> Telescope buffers<CR>", { desc = "buffers browser" })
 map("n", "<leader>f", "<cmd> Telescope live_grep<CR>", { desc = "search in files" })
 map("n", "<leader>p", "<cmd> Telescope find_files<CR>", { desc = "file finder" })
 map("n", "<leader>e", "<cmd> Telescope file_browser<CR>", { desc = "file browser" })
