@@ -45,6 +45,7 @@ enum custom_keycodes {
   TO_LOWER ,
   TO_RAISE ,
   TO_ADJUST,
+  NEXT_WINDOW,
 };
 
 enum layer_number {
@@ -125,7 +126,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [L_ADJUST] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-      KC_SLEP,TO(L_BASE),TO(L_BYPASS), TO(L_GAME), XXXXXXX, XXXXXXX,               XXXXXXX, XXXXXXX,  KC_INS, XXXXXXX, XXXXXXX, XXXXXXX,
+      NEXT_WINDOW,TO(L_BASE),TO(L_BYPASS), TO(L_GAME), XXXXXXX, XXXXXXX,               XXXXXXX, XXXXXXX,  KC_INS, XXXXXXX, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       RGB_TOG, RGB_HUI, RGB_SAI, RGB_VAI, XXXXXXX, XXXXXXX,                      XXXXXXX, CLEAR, XXXXXXX, KC_CAPS, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
@@ -249,6 +250,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         clear_keyboard();
       }
 
+      break;
+    case NEXT_WINDOW:
+      if(record->event.pressed) {
+        SEND_STRING(SS_LCMD("~"));
+      }
       break;
   }
   return true;
