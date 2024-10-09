@@ -36,7 +36,7 @@ jobs:
             -v ${PWD}/qmk/build/:/qmk_firmware/.build/ \
             jonz94/qmk_firmware qmk compile -kb crkbd/r2g -km mb_via
       - name: Archive firmware
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: firmware
           path: qmk/build/*.hex
