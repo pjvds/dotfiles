@@ -147,7 +147,6 @@ oled_rotation_t oled_init_user(oled_rotation_t rotation) {
 }
 
 void oled_render_layer_state(void) {
-    oled_write_P(PSTR("Layer: "), false);
     uint8_t active_layer = get_highest_layer(layer_state);
 
     switch (active_layer) {
