@@ -147,30 +147,34 @@ oled_rotation_t oled_init_user(oled_rotation_t rotation) {
 }
 
 void oled_render_layer_state(void) {
-    uint8_t active_layer = get_highest_layer(layer_state);
+  uint8_t active_layer = get_highest_layer(layer_state);
 
-    switch (active_layer) {
-        case L_BASE:
-            oled_write_ln_P(PSTR("Default (0)"), false);
-            break;
-        case L_BYPASS:
-            oled_write_ln_P(PSTR("Bypass (1)"), false);
-            break;
-        case L_GAME:
-            oled_write_ln_P(PSTR("Game (2)"), false);
-            break;
-        case L_LOWER:
-            oled_write_ln_P(PSTR("Lower (3)"), false);
-            break;
-        case L_RAISE:
-            oled_write_ln_P(PSTR("Raise (4)"), false);
-            break;
-        case L_ADJUST:
-            oled_write_ln_P(PSTR("Adjust (5)"), false);
-            break;
-        default:
-            oled_write_ln_P(PSTR("<Unknown>"), false);
-    }
+  char buffer[12];
+  sprintf(buffer, "L:%s", active_layer);
+  oled_write_P(buffer, false);
+
+  switch (active_layer) {
+  case L_BASE:
+    oled_write_ln_P(PSTR("Base"), false);
+    break;
+  case L_BYPASS:
+    oled_write_ln_P(PSTR("Bypass (1)"), false);
+    break;
+  case L_GAME:
+    oled_write_ln_P(PSTR("Game (2)"), false);
+    break;
+  case L_LOWER:
+    oled_write_ln_P(PSTR("Lower"), false);
+    break;
+  case L_RAISE:
+    oled_write_ln_P(PSTR("Raise (4)"), false);
+    break;
+  case L_ADJUST:
+    oled_write_ln_P(PSTR("Adjust (5)"), false);
+    break;
+  default:
+    oled_write_ln_P(PSTR("<Unknown>"), false);
+  }
 }
 
 
