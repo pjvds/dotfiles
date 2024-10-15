@@ -1,4 +1,11 @@
 return {
+	-- guess the indentation setting (tab vs spaces, indation level)
+	{
+		"nmac427/guess-indent.nvim",
+		config = function()
+			require("guess-indent").setup({})
+		end,
+	},
 	-- relative line numbers in insert mode
 	{
 		"pjvds/dynumbers.nvim",
