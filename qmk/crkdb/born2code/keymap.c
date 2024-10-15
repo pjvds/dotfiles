@@ -177,7 +177,6 @@ void oled_render_layer_state(void) {
   }
 }
 
-
 char keylog_str[24] = {};
 
 const char code_to_name[60] = {
