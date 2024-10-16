@@ -24,7 +24,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 /* Select hand configuration */
 
-#define MASTER_LEFT
+//define MASTER_LEFT
 // #define MASTER_RIGHT
 // #define EE_HANDS
 
@@ -37,7 +37,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 // Increase VIA layer support
 #define DYNAMIC_KEYMAP_LAYER_COUNT 4
-
 
 #define USE_SERIAL_PD2
 
