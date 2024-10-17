@@ -13,4 +13,10 @@ M.base46 = {
 	-- },
 }
 
+-- Send SIGUSR1 signal to kitty after config file changed to reload the configuration
+vim.api.nvim_create_autocmd("BufWritePost", {
+	pattern = "*/kitty.conf",
+	command = "!killall -SIGUSR1 kitty",
+})
+
 return M
