@@ -90,7 +90,25 @@ return {
 			})
 		end,
 	},
-	--
+	{
+		"nvim-telescope/telescope.nvim",
+		opts = function(_, conf)
+			conf.defaults.path_display = {
+				filename_first = {
+					reverse_directories = false,
+				},
+			}
+
+			-- conf.defaults.mappings.i = {
+			--   ["<C-j>"] = require("telescope.actions").move_selection_next,
+			--   ["<Esc>"] = require("telescope.actions").close,
+			-- }
+
+			-- or
+			-- table.insert(conf.defaults.mappings.i, your table)
+			return conf
+		end,
+	},
 	{
 		"nvim-telescope/telescope-file-browser.nvim",
 		dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
