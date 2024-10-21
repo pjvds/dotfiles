@@ -111,7 +111,7 @@ zinit wait"0" lucid light-mode for \
   atload"_zsh_autosuggest_start" \
     zsh-users/zsh-autosuggestions \
   blockf atpull'zinit creinstall -q .' \
-    atinit"zicompinit; zicdreplay; complete -C $(which aws_completer) aws" \
+    atinit"zicompinit; zicdreplay;" \
     Aloxaf/fzf-tab
 
 for plug in "extract"; do
