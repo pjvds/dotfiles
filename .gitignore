@@ -23,3 +23,6 @@ zmk/zephyr
 zmk/zmk-config
 zmk/build
 zmk/__pycache__
+
+# qml build dir
+qml/build
