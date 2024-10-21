@@ -44,4 +44,9 @@ map("n", "<leader>a", function()
 	vim.lsp.buf.code_action()
 end, { desc = "show lsp code actions for current buffer" })
 
+map("i", "<C-l>", function()
+	vim.fn.feedkeys(vim.fn["copilot#Accept"](), "")
+end, {
+	desc = "Copilot Accept",
+})
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")

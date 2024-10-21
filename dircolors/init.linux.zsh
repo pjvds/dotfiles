@@ -1,1 +1,1 @@
-eval "$(dircolors $DOTFILES/dircolors/dracula)"
+#eval "$(dircolors $DOTFILES/dircolors/dracula)"
