@@ -124,7 +124,15 @@ return {
 			require("configs.lspconfig")
 		end,
 	},
-
+	{
+		"nvim-tree/nvim-tree.lua",
+		opts = {
+			view = {
+				side = "left",
+				adaptive_size = true,
+			},
+		},
+	},
 	-- These are some examples, uncomment them if you want to see them work!
 	-- {
 	--   "neovim/nvim-lspconfig",
