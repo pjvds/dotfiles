@@ -1,2 +1,0 @@
-export ZEPHYR_TOOLCHAIN_VARIANT=gnuarmemb
-export GNUARMEMB_TOOLCHAIN_PATH=/home/pjvds/Downloads/gcc-arm-none-eabi-10.3-2021.07
