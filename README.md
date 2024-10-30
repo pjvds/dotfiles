@@ -29,32 +29,31 @@ $ time zsh -i -c exit
 
 ## Blazing fast editor start time
 
-72ms startup time for my favorite editor.
+3.38ms startup time for my favorite editor.
 
 ``` zsh
 $ vim --startuptime /dev/stdout +qall
+--- Startup times for process: Primary/TUI ---
+
 times in msec
  clock   self+sourced   self:  sourced script
  clock   elapsed:              other lines
 
-000.026  000.026: --- NVIM STARTING ---
-000.168  000.142: event init
-000.336  000.168: early init
-000.376  000.040: locale set
-000.422  000.046: init first window
-000.876  000.454: inits 1
-000.893  000.017: window checked
-000.898  000.005: parsing arguments
-001.392  000.078  000.078: require('vim.shared')
-001.486  000.031  000.031: require('vim._meta')
-001.492  000.093  000.062: require('vim._editor')
-001.496  000.209  000.037: require('vim._init_packages')
-001.501  000.394: init lua interpreter
-003.903  002.402: expanding arguments
-003.993  000.091: inits 2
-004.321  000.327: init highlight
-004.328  000.007: waiting for UI
-072.649  000.091  000.091: require('vim.inspect')
+000.000  000.000: --- NVIM STARTING ---
+000.153  000.152: event init
+000.440  000.287: early init
+000.473  000.034: locale set
+000.536  000.063: init first window
+001.556  001.020: inits 1
+001.576  000.019: window checked
+001.582  000.006: parsing arguments
+002.473  000.046  000.046: require('vim.shared')
+002.578  000.055  000.055: require('vim.inspect')
+002.636  000.044  000.044: require('vim._options')
+002.638  000.161  000.063: require('vim._editor')
+002.640  000.305  000.097: require('vim._init_packages')
+002.643  000.756: init lua interpreter
+003.386  000.744: --- NVIM STARTED ---
 ```
 
 ## Package list
