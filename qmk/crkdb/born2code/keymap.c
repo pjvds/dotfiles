@@ -248,6 +248,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case NEXT_WINDOW:
       if(record->event.pressed) {
         SEND_STRING(SS_LCMD("~"));
+        // Skip all further processing of this key
+        return false;
       }
       break;
   }
