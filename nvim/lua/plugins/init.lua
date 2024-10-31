@@ -142,6 +142,9 @@ return {
 	{
 		"nvim-tree/nvim-tree.lua",
 		opts = {
+			renderer = {
+				group_empty = true,
+			},
 			view = {
 				side = "left",
 				adaptive_size = true,
