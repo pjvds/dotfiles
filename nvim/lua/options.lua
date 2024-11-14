@@ -1,6 +1,7 @@
-require "nvchad.options"
+require("nvchad.options")
 
--- add yours here!
+local o = vim.o
 
--- local o = vim.o
--- o.cursorlineopt ='both' -- to enable cursorline!
+-- don't use the system clipboard
+-- ctrl+c will copy to the clipboard in visual mode
+o.clipboard = ""

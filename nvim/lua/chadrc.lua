@@ -5,6 +5,7 @@
 local M = {}
 
 M.base46 = {
+	-- my favorite colorschemes
 	theme = "palenight",
 
 	-- hl_override = {
