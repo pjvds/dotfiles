@@ -40,7 +40,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 enum custom_keycodes {
   CLEAR  ,
   TO_BASE  ,
-  TO_GAME  ,
   TO_LOWER ,
   TO_RAISE ,
   TO_ADJUST,
@@ -49,7 +48,6 @@ enum custom_keycodes {
 
 enum layer_number {
   L_BASE  ,
-  L_GAME  ,
   L_LOWER ,
   L_RAISE ,
   L_ADJUST,
@@ -67,20 +65,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       _______,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH,  KC_ENT,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                           KC_QUOT,   MO(L_LOWER),  KC_SPC,     CTL_ENT,  MO(L_RAISE), KC_QUOT
-                                      //`--------------------------'  `--------------------------'
-
-  ),
-
-
-  [L_GAME] = LAYOUT_split_3x6_3(
-  //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-      _______, _______, _______, _______, _______, _______,                      _______, _______, _______, _______, _______, _______,
-  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      _______,    KC_A,    KC_S,    KC_D,     KC_F,_______,                     _______,     KC_J, _______, KC_L, _______, _______,
-  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_LSFT, _______, _______, _______, _______, _______,                      _______, _______, _______, _______, _______, _______,
-  //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          _______, _______, _______,    _______, _______, _______
                                       //`--------------------------'  `--------------------------'
 
   ),
@@ -111,7 +95,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [L_ADJUST] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-      NEXT_WINDOW,TO(L_BASE),XXXXXXX, TO(L_GAME), XXXXXXX, XXXXXXX,         XXXXXXX, CW_TOGG,  KC_INS, XXXXXXX, XXXXXXX, XXXXXXX,
+      NEXT_WINDOW,TO(L_BASE),XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,         XXXXXXX, CW_TOGG,  KC_INS, XXXXXXX, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       RGB_TOG, RGB_HUI, RGB_SAI, RGB_VAI, XXXXXXX, XXXXXXX,                      KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
@@ -141,9 +125,6 @@ void oled_render_layer_state(void) {
   switch (active_layer) {
   case L_BASE:
     oled_write_ln_P(PSTR("Base"), false);
-    break;
-  case L_GAME:
-    oled_write_ln_P(PSTR("Game (2)"), false);
     break;
   case L_LOWER:
     oled_write_ln_P(PSTR("Lower"), false);
