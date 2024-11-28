@@ -7,10 +7,10 @@
       "url": "https://github.com/tv42/bella/commit/42d81584a247a38647c3ccc63e58b50e1c00e444"
     },
     "graphqurl": {
-      "version": "v1.0.3",
-      "gitref": "refs/tags/v1.0.3",
-      "revision": "3f0a490ed8f5a5b2333c4ccde17ffa5f1da574a0",
-      "url": "https://github.com/hasura/graphqurl/releases/tag/v1.0.3"
+      "version": "v2.0.0",
+      "gitref": "refs/tags/v2.0.0",
+      "revision": "b34a2cdddaddd890da53e0786183ff269c81735f",
+      "url": "https://github.com/hasura/graphqurl/releases/tag/v2.0.0"
     },
     "grasp": {
       "version": "v0.3.1",
