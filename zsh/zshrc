@@ -113,6 +113,8 @@ for plug in "extract"; do
   zinit snippet OMZ::plugins/$plug/$plug.plugin.zsh
 done
 
+zinit load atuinsh/atuin
+
 if [ "$ZSH_PROFILING" = 1 ];
 then
   zprof
