@@ -107,12 +107,7 @@ exit_zsh() { exit }
 zle -N exit_zsh
 bindkey 'qq' exit_zsh
 
-zinit wait"0" lucid light-mode for \
-  atload"_zsh_autosuggest_start" \
-    zsh-users/zsh-autosuggestions \
-  blockf atpull'zinit creinstall -q .' \
-    atinit"zicompinit; zicdreplay;" \
-    Aloxaf/fzf-tab
+zinit light Aloxaf/fzf-tab
 
 for plug in "extract"; do
   zinit snippet OMZ::plugins/$plug/$plug.plugin.zsh
