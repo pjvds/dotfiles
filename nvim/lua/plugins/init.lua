@@ -1,5 +1,11 @@
 return {
 	{
+		-- show bookmarks in the gutter
+		"chentoast/marks.nvim",
+		event = "VeryLazy",
+		opts = {},
+	},
+	{
 		"github/copilot.vim",
 		lazy = false,
 		config = function()
