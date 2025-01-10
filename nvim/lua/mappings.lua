@@ -39,7 +39,7 @@ map("n", "<leader>j", function()
 		-- loop around file
 		wrap = true,
 		-- jump to at least warning level or higher
-		severity = { min = vim.diagnostic.severity.INFO },
+		severity = { min = vim.diagnostic.severity.HINT },
 	})
 end, { desc = "goto next diagnostics error" })
 map("n", "<leader>a", function()
