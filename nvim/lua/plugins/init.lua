@@ -163,6 +163,64 @@ return {
 			},
 		},
 	},
+	{
+		"folke/trouble.nvim",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		opts = {
+			-- your configuration comes here
+			-- or leave it empty to use the default settings
+		},
+	},
+	{
+		"nvim-pack/nvim-spectre",
+		event = { "VeryLazy" },
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+		},
+		config = function()
+			require("spectre").setup({
+				find_engine = {
+					["rg"] = {
+						cmd = "rg",
+						args = {
+							"--color=never",
+							"--no-heading",
+							"--with-filename",
+							"--line-number",
+							"--column",
+							"--no-ignore",
+							"--hidden",
+							"-g",
+							"!node_modules/*",
+							"-g",
+							"!.yarn",
+							"-g",
+							"!.git/logs",
+							"-g",
+							"!type-docs",
+							"-g",
+							"!build",
+							"-g",
+							"!local-build",
+							"-g",
+							"!storybook-static",
+							"-g",
+							"!coverage/*",
+						},
+					},
+				},
+			})
+			vim.keymap.set("n", "<leader>S", '<cmd>lua require("spectre").toggle()<CR>', {
+				desc = "Toggle Spectre",
+			})
+			vim.keymap.set("n", "<leader>sw", '<cmd>lua require("spectre").open_visual({select_word=true})<CR>', {
+				desc = "Search current word",
+			})
+			vim.keymap.set("n", "<leader>sp", '<cmd>lua require("spectre").open_file_search({select_word=true})<CR>', {
+				desc = "Search on current file",
+			})
+		end,
+	},
 	-- These are some examples, uncomment them if you want to see them work!
 	-- {
 	--   "neovim/nvim-lspconfig",
