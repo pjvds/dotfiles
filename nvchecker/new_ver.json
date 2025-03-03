@@ -85,12 +85,6 @@
       "version": "20230717.141018",
       "revision": "9854f579b759be50d3d2188d46a2deff87d6be6c",
       "url": "https://github.com/normen/whatscli/commit/9854f579b759be50d3d2188d46a2deff87d6be6c"
-    },
-    "xrandr-notify": {
-      "version": "0.2.0",
-      "gitref": "refs/tags/0.2.0",
-      "revision": "62d60b8a7c6ac08d6bae29c8cfce0bce20c0de4c",
-      "url": "https://github.com/pjvds/randr-notify/releases/tag/0.2.0"
     }
   }
 }
