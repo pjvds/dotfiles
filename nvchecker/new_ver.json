@@ -82,9 +82,9 @@
       "url": "https://github.com/normen/whatscli/releases/tag/v1.0.11"
     },
     "whatscli-git": {
-      "version": "20230717.141018",
-      "revision": "9854f579b759be50d3d2188d46a2deff87d6be6c",
-      "url": "https://github.com/normen/whatscli/commit/9854f579b759be50d3d2188d46a2deff87d6be6c"
+      "version": "20250319.083520",
+      "revision": "cf0558a16328627913d004be258b2ac5acbbd081",
+      "url": "https://github.com/normen/whatscli/commit/cf0558a16328627913d004be258b2ac5acbbd081"
     },
     "xrandr-notify": {
       "version": "0.2.0",
