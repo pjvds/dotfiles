@@ -3,4 +3,6 @@ if [[ ! -f /opt/homebrew/bin/brew ]]; then
   return 0
 fi
 
+# install casks in user application directory
+export HOMEBREW_CASK_OPTS="--appdir=~/Applications"
 eval "$(/opt/homebrew/bin/brew shellenv)"
