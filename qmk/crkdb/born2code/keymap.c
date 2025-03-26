@@ -38,7 +38,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define K_META_ALT MT(MOD_RALT, KC_K)
 
 enum custom_keycodes {
-  CLEAR  ,
+  CLEAR  = SAFE_RANGE,
   TO_BASE  ,
   TO_LOWER ,
   TO_RAISE ,
