@@ -44,6 +44,9 @@ enum custom_keycodes {
   TO_RAISE ,
   TO_ADJUST,
   NEXT_WINDOW,
+  EML_B2C,
+  EML_CFTFY,
+  SCREENSHOT,
 };
 
 enum layer_number {
@@ -97,7 +100,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
       NEXT_WINDOW,TO(L_BASE),XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,         XXXXXXX, CW_TOGG,  KC_INS, XXXXXXX, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      RGB_TOG, RGB_HUI, RGB_SAI, RGB_VAI, XXXXXXX, XXXXXXX,                      KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT, XXXXXXX, XXXXXXX,
+      EML_CFTFY, EML_B2C, RGB_SAI, RGB_VAI, XXXXXXX, XXXXXXX,                      KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       RGB_MOD, RGB_HUD, RGB_SAD, KC_CAPS, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX,KC_VOLD,KC_VOLU, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
@@ -211,6 +214,28 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case NEXT_WINDOW:
       if(record->event.pressed) {
         SEND_STRING(SS_LCMD("~"));
+        // Skip all further processing of this key
+        return false;
+      }
+      break;
+    case SCREENSHOT:
+      if(record->event.pressed) {
+        SEND_STRING(SS_LCMD(SS_LSFT("1")));
+        // Skip all further processing of this key
+        return false;
+      }
+      break;
+
+    case EML_B2C:
+      if(record->event.pressed) {
+        SEND_STRING("pj@born2code.net");
+        // Skip all further processing of this key
+        return false;
+      }
+      break;
+    case EML_CFTFY:
+      if(record->event.pressed) {
+        SEND_STRING("pj@craftify.nl");
         // Skip all further processing of this key
         return false;
       }
