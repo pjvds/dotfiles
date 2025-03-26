@@ -98,9 +98,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [L_ADJUST] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-      NEXT_WINDOW,TO(L_BASE),XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,         XXXXXXX, CW_TOGG,  KC_INS, XXXXXXX, XXXXXXX, XXXXXXX,
+      NEXT_WINDOW,SCREENSHOT,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,         XXXXXXX, CW_TOGG,  KC_INS, XXXXXXX, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      EML_CFTFY, EML_B2C, RGB_SAI, RGB_VAI, XXXXXXX, XXXXXXX,                      KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT, XXXXXXX, XXXXXXX,
+      XXXXXXX, EML_B2C, EML_CFTFY, RGB_VAI, XXXXXXX, XXXXXXX,                      KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       RGB_MOD, RGB_HUD, RGB_SAD, KC_CAPS, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX,KC_VOLD,KC_VOLU, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
