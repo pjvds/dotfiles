@@ -58,56 +58,37 @@ enum layer_number {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
+    [L_BASE] = LAYOUT_split_3x6_3(
+        //,-----------------------------------------------------.                    ,-----------------------------------------------------.
+        KC_TAB,    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                        KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC,
+        //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
+        KC_ESC,    A_CTL,   S_ALT,   D_GUI,   F_SFT,   KC_G,                        KC_H,    J_SFT,   K_GUI,   L_ALT,   SCLN_CTL, KC_QUOT,
+        //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
+        _______,   KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                        KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH,  KC_ENT,
+        //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
+                                        KC_QUOT, MO(L_LOWER), KC_SPC,        CTL_ENT, MO(L_RAISE), KC_QUOT
+    ),
 
-  [L_BASE] = LAYOUT_split_3x6_3(
-  //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-      KC_TAB,    KC_Q,    KC_W,    KC_E,    KC_R,     KC_T,                         KC_Y,    KC_U,    KC_I,    KC_O,   KC_P,  KC_BSPC,
-  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_ESC,    A_CTL,   S_ALT,   D_GUI,   F_SFT,    KC_G,                         KC_H,   J_SFT,   K_GUI,   L_ALT,SCLN_CTL, KC_QUOT,
-  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      _______,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH,  KC_ENT,
-  //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          KC_QUOT,   MO(L_LOWER),  KC_SPC,     CTL_ENT,  MO(L_RAISE), KC_QUOT
-                                      //`--------------------------'  `--------------------------'
+    [L_LOWER] = LAYOUT_split_3x6_3(
+        KC_TILD,   KC_EXLM,  KC_AT,    KC_HASH,  KC_DLR,   KC_PERC,                      KC_CIRC,  KC_AMPR,  KC_ASTR,  KC_LPRN,  KC_RPRN,  KC_BSPC,
+        KC_DEL,    KC_UNDS,  KC_MINS,  KC_PPLS,  KC_EQL,   XXXXXXX,                      KC_LEFT,  KC_DOWN,  KC_UP,    KC_RIGHT, XXXXXXX,  KC_PIPE,
+        KC_LSFT,   XXXXXXX,  XXXXXXX,  CW_TOGG,  XXXXXXX,  KC_HOME,                      KC_END,   KC_LCBR,  KC_LBRC,  KC_RBRC,  KC_RCBR,  _______,
+                                        _______,  _______,  _______,         _______,  MO(L_ADJUST), _______
+    ),
 
-  ),
+    [L_RAISE] = LAYOUT_split_3x6_3(
+        KC_GRAVE,  KC_1,     KC_2,     KC_3,     KC_4,     KC_5,                         KC_6,     KC_7,     KC_8,     KC_9,     KC_0,     KC_DEL,
+        KC_LCTL,   KC_F2,    KC_F2,    KC_F3,    KC_F4,    KC_F5,                        KC_F6,    KC_LCBR,  KC_LBRC,  KC_RBRC,  KC_RCBR,  KC_BSLS,
+        KC_LSFT,   KC_F8,    KC_F8,    KC_F9,    KC_F10,   KC_F11,                       KC_F12,   KC_MPRV,  KC_MPLY,  KC_MNXT,  KC_PIPE,  _______,
+                                        _______,  MO(L_ADJUST), _______,     _______,  _______,  _______
+    ),
 
-  [L_LOWER] = LAYOUT_split_3x6_3(
-  //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-      KC_TILD, KC_EXLM,   KC_AT, KC_HASH,  KC_DLR, KC_PERC,                     KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_BSPC,
-  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_DEL, KC_UNDS, KC_MINS, KC_PPLS, KC_EQL, XXXXXXX,                        KC_LEFT, KC_DOWN,   KC_UP,KC_RIGHT, XXXXXXX, KC_PIPE,
-  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_LSFT, XXXXXXX, XXXXXXX, CW_TOGG, XXXXXXX, KC_HOME,                      KC_END, KC_LCBR, KC_LBRC, KC_RBRC, KC_RCBR, _______,
-  //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          _______, _______, _______,    _______,   MO(L_ADJUST), _______
-  //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-  ),
-
-  [L_RAISE] = LAYOUT_split_3x6_3(
-  //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-     KC_GRAVE,    KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                    KC_6   ,    KC_7,    KC_8,    KC_9,    KC_0, KC_DEL,
-  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_LCTL, KC_F2,  KC_F2,    KC_F3,   KC_F4,   KC_F5,                        KC_F6  , KC_LCBR, KC_LBRC, KC_RBRC, KC_RCBR, KC_BSLS,
-  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_LSFT, KC_F8,  KC_F8,  KC_F9, KC_F10, KC_F11,                     KC_F12 , KC_MPRV, KC_MPLY, KC_MNXT, KC_PIPE, _______,
-  //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          _______,   MO(L_ADJUST), _______,    _______, _______, _______
-                                      //`--------------------------'  `--------------------------'
-  ),
-
-  [L_ADJUST] = LAYOUT_split_3x6_3(
-  //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-      NEXT_WINDOW,SCREENSHOT,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,         XXXXXXX, CW_TOGG,  KC_INS, XXXXXXX, XXXXXXX, XXXXXXX,
-  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      XXXXXXX, EML_B2C, EML_CFTFY, RGB_VAI, XXXXXXX, XXXXXXX,                      KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT, XXXXXXX, XXXXXXX,
-  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      RGB_MOD, RGB_HUD, RGB_SAD, KC_CAPS, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX,KC_VOLD,KC_VOLU, XXXXXXX, XXXXXXX,
-  //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          _______, _______, _______,    _______, _______, _______
-                                      //`--------------------------'  `--------------------------'
-  )
-
+    [L_ADJUST] = LAYOUT_split_3x6_3(
+        NEXT_WINDOW, XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,             XXXXXXX,  CW_TOGG,  KC_INS,   XXXXXXX, SCREENSHOT, XXXXXXX,
+        XXXXXXX,     EML_B2C,  EML_CFTFY, RGB_VAI,  XXXXXXX,  XXXXXXX,             KC_MPRV,  KC_VOLD,  KC_VOLU,  KC_MNXT,  XXXXXXX,    XXXXXXX,
+        RGB_MOD,     RGB_HUD,  RGB_SAD,   KC_CAPS,  XXXXXXX,  XXXXXXX,             XXXXXXX,  XXXXXXX,  KC_VOLD,  KC_VOLU,  XXXXXXX,    XXXXXXX,
+                                        _______,  _______,  _______,     _______,  _______,  _______
+    )
 };
 
 #ifdef OLED_ENABLE
