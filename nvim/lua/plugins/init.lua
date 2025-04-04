@@ -48,12 +48,6 @@ return {
 		end,
 	},
 	{
-		"ggandor/leap.nvim",
-		config = function()
-			require("leap").create_default_mappings()
-		end,
-	},
-	{
 		"nvim-java/nvim-java",
 		lazy = false,
 		dependencies = {
