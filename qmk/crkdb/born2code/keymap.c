@@ -45,7 +45,8 @@ enum custom_keycodes {
   TO_ADJUST,
   NEXT_WINDOW,
   EML_B2C,
-  EML_CFTFY,
+  EML_CFT,
+  EML_DLT,
   SCREENSHOT,
 };
 
@@ -85,7 +86,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [L_ADJUST] = LAYOUT_split_3x6_3(
         NEXT_WINDOW, XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,             XXXXXXX,  CW_TOGG,  KC_INS,   XXXXXXX, SCREENSHOT, XXXXXXX,
-        XXXXXXX,     EML_B2C,  EML_CFTFY, RGB_VAI,  XXXXXXX,  XXXXXXX,             KC_MPRV,  KC_VOLD,  KC_VOLU,  KC_MNXT,  XXXXXXX,    XXXXXXX,
+        XXXXXXX,     EML_B2C,  EML_CFT, EML_DLT,  XXXXXXX,  XXXXXXX,             KC_MPRV,  KC_VOLD,  KC_VOLU,  KC_MNXT,  XXXXXXX,    XXXXXXX,
         RGB_MOD,     RGB_HUD,  RGB_SAD,   KC_CAPS,  XXXXXXX,  XXXXXXX,             XXXXXXX,  XXXXXXX,  KC_VOLD,  KC_VOLU,  XXXXXXX,    XXXXXXX,
                                         _______,  _______,  _______,     _______,  _______,  _______
     )
@@ -210,17 +211,22 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case EML_B2C:
       if(record->event.pressed) {
         SEND_STRING("pj@born2code.net");
-        // Skip all further processing of this key
         return false;
       }
       break;
-    case EML_CFTFY:
+    case EML_CFT:
       if(record->event.pressed) {
         SEND_STRING("pj@craftify.nl");
-        // Skip all further processing of this key
         return false;
       }
       break;
+    case EML_DLT:
+      if(record->event.pressed) {
+        SEND_STRING("pvandesande@deloitte.nl");
+        return false;
+      }
+      break;
+
   }
   return true;
 }
