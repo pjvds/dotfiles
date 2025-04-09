@@ -202,8 +202,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       break;
     case SCREENSHOT:
       if(record->event.pressed) {
-        SEND_STRING(SS_LCMD(SS_LSFT("1")));
-        // Skip all further processing of this key
+        tap_code16(LGUI(LSFT(KC_1)));
         return false;
       }
       break;
