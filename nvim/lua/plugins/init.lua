@@ -1,4 +1,17 @@
 return {
+	import = "nvchad.blink.lazyspec",
+	{ "vuciv/golf", event = "VeryLazy" },
+	{
+		"dmmulroy/ts-error-translator.nvim",
+		event = "LspAttach",
+		config = function()
+			require("ts-error-translator").setup()
+		end,
+	},
+	{
+		"mg979/vim-visual-multi",
+		event = "VeryLazy",
+	},
 	{
 		-- show bookmarks in the gutter
 		"chentoast/marks.nvim",
@@ -49,6 +62,7 @@ return {
 	},
 	{
 		"nvim-java/nvim-java",
+		enabled = false,
 		lazy = false,
 		dependencies = {
 			"nvim-java/lua-async-await",
@@ -171,6 +185,12 @@ return {
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 		},
+		keys = {
+			{ "s", mode = { "n", "x", "o" }, desc = "Leap forward to" },
+			{ "S", mode = { "n", "x", "o" }, desc = "Leap backward to" },
+			{ "gs", mode = { "n", "x", "o" }, desc = "Leap from windows" },
+		},
+
 		config = function()
 			require("spectre").setup({
 				find_engine = {
@@ -204,7 +224,8 @@ return {
 					},
 				},
 			})
-			vim.keymap.set("n", "<leader>S", '<cmd>lua require("spectre").toggle()<CR>', {
+
+			vim.keymap.set("n", "<leader>h", '<cmd>lua require("spectre").toggle()<CR>', {
 				desc = "Toggle Spectre",
 			})
 			vim.keymap.set("n", "<leader>sw", '<cmd>lua require("spectre").open_visual({select_word=true})<CR>', {
