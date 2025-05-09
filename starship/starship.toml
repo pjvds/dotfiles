@@ -1,6 +1,11 @@
 # Don't print a new line at the start of the prompt
 add_newline = false
 scan_timeout = 2
+# A continuation prompt that displays two filled-in arrows
+continuation_prompt = '▶▶ '
+
+[line_break]
+disabled = true
 
 [character]      # The name of the module we are configuring is "character"
 success_symbol = "[➜](bold yellow)"
@@ -16,3 +21,10 @@ disabled = true
 [directory]
 fish_style_pwd_dir_length = 1
 style = 'cyan'
+
+[time]
+disabled = false
+format = 'at [ $time ]($style) '
+time_format = '%T'
+
+
