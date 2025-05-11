@@ -36,10 +36,10 @@
       "url": "https://github.com/open-pomodoro/openpomodoro-cli/releases/tag/v0.3.0"
     },
     "owncast": {
-      "version": "v0.2.2",
-      "gitref": "refs/tags/v0.2.2",
-      "revision": "a585918621c046320a303dcb0c90036f532e4a1f",
-      "url": "https://github.com/owncast/owncast/releases/tag/v0.2.2"
+      "version": "v0.2.3",
+      "gitref": "refs/tags/v0.2.3",
+      "revision": "1d439a6430377fd792595fae265eede55ed79563",
+      "url": "https://github.com/owncast/owncast/releases/tag/v0.2.3"
     },
     "pbgopy": {
       "version": "v0.3.0",
