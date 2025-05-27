@@ -1,6 +1,11 @@
 {
   "version": 2,
   "data": {
+    "bella-git": {
+      "version": "20201124.223257",
+      "revision": "42d81584a247a38647c3ccc63e58b50e1c00e444",
+      "url": "https://github.com/tv42/bella/commit/42d81584a247a38647c3ccc63e58b50e1c00e444"
+    },
     "graphqurl": {
       "version": "v2.0.0",
       "gitref": "refs/tags/v2.0.0",
@@ -24,11 +29,28 @@
       "revision": "37f2ca468bc05fb41b130e0992d7affcc9dc9fd7",
       "url": "https://framagit.org/Daguhh/naivecalendar/-/commit/37f2ca468bc05fb41b130e0992d7affcc9dc9fd7"
     },
+    "openpomodoro": {
+      "version": "v0.3.0",
+      "gitref": "refs/tags/v0.3.0",
+      "revision": "b8192c461791052d1dfc238ffe726ba13fb6bbc5",
+      "url": "https://github.com/open-pomodoro/openpomodoro-cli/releases/tag/v0.3.0"
+    },
     "owncast": {
       "version": "v0.2.3",
       "gitref": "refs/tags/v0.2.3",
       "revision": "1d439a6430377fd792595fae265eede55ed79563",
       "url": "https://github.com/owncast/owncast/releases/tag/v0.2.3"
+    },
+    "pbgopy": {
+      "version": "v0.3.0",
+      "gitref": "refs/tags/v0.3.0",
+      "revision": "2d9659ac180c95edb081e5d5cd4649094be5a198",
+      "url": "https://github.com/nakabonne/pbgopy/releases/tag/v0.3.0"
+    },
+    "sttr": {
+      "version": "20250507.155440",
+      "revision": "7093b08b55b09dc12b1cbf0a0d340c94a2b48aa2",
+      "url": "https://github.com/abhimanyu003/sttr/commit/7093b08b55b09dc12b1cbf0a0d340c94a2b48aa2"
     },
     "theme_sh": {
       "version": "v1.1.5",
@@ -42,11 +64,27 @@
       "revision": "499eec473fef98a25763950223774174635811b0",
       "url": "https://github.com/sdushantha/tmpsms/releases/tag/v1.0.0"
     },
+    "topalias": {
+      "version": "20211023.103723",
+      "revision": "0d29a7bca636f458f34e2d3769aaf6e7609798d9",
+      "url": "https://github.com/meteoritt/topalias/commit/0d29a7bca636f458f34e2d3769aaf6e7609798d9"
+    },
+    "tunl": {
+      "version": "0.35.1",
+      "gitref": "refs/tags/0.35.1",
+      "revision": "2f6d661f4bef431153d2442101c585b243923b4f",
+      "url": "https://github.com/pjvds/tunl/releases/tag/0.35.1"
+    },
     "whatscli": {
       "version": "v1.0.11",
       "gitref": "refs/tags/v1.0.11",
       "revision": "ae25296b9d47087af72e561ce80a8382e9dbf7cc",
       "url": "https://github.com/normen/whatscli/releases/tag/v1.0.11"
+    },
+    "whatscli-git": {
+      "version": "20250319.083520",
+      "revision": "cf0558a16328627913d004be258b2ac5acbbd081",
+      "url": "https://github.com/normen/whatscli/commit/cf0558a16328627913d004be258b2ac5acbbd081"
     },
     "xrandr-notify": {
       "version": "0.2.0",
