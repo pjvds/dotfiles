@@ -12,12 +12,6 @@
       "revision": "b34a2cdddaddd890da53e0786183ff269c81735f",
       "url": "https://github.com/hasura/graphqurl/releases/tag/v2.0.0"
     },
-    "grasp": {
-      "version": "v0.3.1",
-      "gitref": "refs/tags/v0.3.1",
-      "revision": "c05ccb14a12401dac8f577f3c555e45c5ab05b2a",
-      "url": "https://github.com/lucasepe/grasp/releases/tag/v0.3.1"
-    },
     "imgdiff": {
       "version": "v1.0.2",
       "gitref": "refs/tags/v1.0.2",
@@ -47,27 +41,11 @@
       "revision": "2d9659ac180c95edb081e5d5cd4649094be5a198",
       "url": "https://github.com/nakabonne/pbgopy/releases/tag/v0.3.0"
     },
-    "sttr": {
-      "version": "20250529.104552",
-      "revision": "71ada0c4654388254b30fdf04471b4dd1474999e",
-      "url": "https://github.com/abhimanyu003/sttr/commit/71ada0c4654388254b30fdf04471b4dd1474999e"
-    },
     "theme_sh": {
       "version": "v1.1.5",
       "gitref": "refs/tags/v1.1.5",
       "revision": "cadd5c0133f3b3007f007736c8dffb1471580c8e",
       "url": "https://github.com/lemnos/theme.sh/releases/tag/v1.1.5"
-    },
-    "tmpsms": {
-      "version": "v1.0.0",
-      "gitref": "refs/tags/v1.0.0",
-      "revision": "499eec473fef98a25763950223774174635811b0",
-      "url": "https://github.com/sdushantha/tmpsms/releases/tag/v1.0.0"
-    },
-    "topalias": {
-      "version": "20250615.114404",
-      "revision": "3165c49dbf5c6c460f8564278d529bd72d7bb273",
-      "url": "https://github.com/meteoritt/topalias/commit/3165c49dbf5c6c460f8564278d529bd72d7bb273"
     },
     "tunl": {
       "version": "0.35.1",
