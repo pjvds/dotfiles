@@ -1,6 +1,6 @@
 #!/bin/zsh
-export FZF_DEFAULT_OPTS="--bind 'btab:toggle-up,tab:toggle-down' --cycle"
-export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
+export FZF_DEFAULT_OPTS="-i --bind 'btab:toggle-up,tab:toggle-down' --cycle"
+#export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
 
 zinit ice silent depth=1 wait"1"
 
