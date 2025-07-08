@@ -143,7 +143,7 @@
       "KC_NO",
       "KC_NO",
       "KC_LGUI",
-      "KC_TRNS",
+      "LT(1,KC_BSPC)",
       "KC_SPC",
       "KC_DEL",
       "KC_0",
