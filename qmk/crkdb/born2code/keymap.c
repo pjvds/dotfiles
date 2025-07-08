@@ -47,6 +47,7 @@ enum custom_keycodes {
   EML_B2C,
   EML_CFT,
   EML_DLT,
+
   SCREENSHOT,
 };
 
@@ -85,9 +86,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     [L_ADJUST] = LAYOUT_split_3x6_3(
-        NEXT_WINDOW, XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,             XXXXXXX,  CW_TOGG,  KC_INS,   XXXXXXX, SCREENSHOT, XXXXXXX,
+        NEXT_WINDOW, XXXXXXX,  XXXXXXX, XXXXXXX,  XXXXXXX,  XXXXXXX,             XXXXXXX,  CW_TOGG,  KC_INS,   XXXXXXX, SCREENSHOT, XXXXXXX,
         XXXXXXX,     EML_B2C,  EML_CFT, EML_DLT,  XXXXXXX,  XXXXXXX,             KC_MPRV,  KC_VOLD,  KC_VOLU,  KC_MNXT,  KC_MPLY,    XXXXXXX,
-        RGB_MOD,     RGB_HUD,  RGB_SAD,   KC_CAPS,  XXXXXXX,  XXXXXXX,             XXXXXXX,  XXXXXXX,  KC_VOLD,  KC_VOLU,  XXXXXXX,    XXXXXXX,
+        RGB_MOD,     RGB_HUD,  RGB_SAD, KC_CAPS,  XXXXXXX,  XXXXXXX,             XXXXXXX,  XXXXXXX,  KC_VOLD,  KC_VOLU,  XXXXXXX,    XXXXXXX,
                                         _______,  _______,  _______,     _______,  _______,  _______
     )
 };
