@@ -1,11 +1,6 @@
 {
   "version": 2,
   "data": {
-    "bella-git": {
-      "version": "20201124.223257",
-      "revision": "42d81584a247a38647c3ccc63e58b50e1c00e444",
-      "url": "https://github.com/tv42/bella/commit/42d81584a247a38647c3ccc63e58b50e1c00e444"
-    },
     "graphqurl": {
       "version": "v2.0.0",
       "gitref": "refs/tags/v2.0.0",
@@ -74,12 +69,6 @@
       "gitref": "refs/tags/0.35.1",
       "revision": "2f6d661f4bef431153d2442101c585b243923b4f",
       "url": "https://github.com/pjvds/tunl/releases/tag/0.35.1"
-    },
-    "whatscli": {
-      "version": "v1.0.11",
-      "gitref": "refs/tags/v1.0.11",
-      "revision": "ae25296b9d47087af72e561ce80a8382e9dbf7cc",
-      "url": "https://github.com/normen/whatscli/releases/tag/v1.0.11"
     },
     "whatscli-git": {
       "version": "20250319.083520",
