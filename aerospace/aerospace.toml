@@ -139,7 +139,6 @@ automatically-unhide-macos-hidden-apps = false
     alt-o = 'workspace O'
     alt-p = 'workspace P'
     alt-q = 'workspace Q'
-    alt-r = 'workspace R'
     alt-s = 'workspace S'
     alt-t = 'workspace T'
     alt-u = 'workspace U'
@@ -172,7 +171,6 @@ automatically-unhide-macos-hidden-apps = false
     alt-shift-o = 'move-node-to-workspace O'
     alt-shift-p = 'move-node-to-workspace P'
     alt-shift-q = 'move-node-to-workspace Q'
-    alt-shift-r = 'move-node-to-workspace R'
     alt-shift-s = 'move-node-to-workspace S'
     alt-shift-t = 'move-node-to-workspace T'
     alt-shift-u = 'move-node-to-workspace U'
@@ -188,7 +186,17 @@ automatically-unhide-macos-hidden-apps = false
     alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#mode
+    alt-r = 'mode resize'
     alt-shift-semicolon = 'mode service'
+
+[mode.resize.binding]
+    esc = ['mode main']
+    enter = ['mode main']
+
+    h = ['resize width -50']
+    j = ['resize height -50']
+    k = ['resize height -50']
+    l = ['resize width +50']
 
 # 'service' binding mode declaration.
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
