@@ -152,7 +152,24 @@ automatically-unhide-macos-hidden-apps = false
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#mode
     alt-r = 'mode resize'
+    alt-m = 'mode join'
     alt-shift-semicolon = 'mode service'
+ 
+    alt-ctrl-h = 'join-with left'
+    alt-ctrl-j = 'join-with down'
+    alt-ctrl-k = 'join-with up'
+    alt-ctrl-l = 'join-with right'
+
+
+[mode.join.binding]
+    esc = ['mode main']
+    enter = ['mode main']
+
+    h = ['join-with left', 'mode main']
+    j = ['join-with down', 'mode main']
+    k = ['join-with up', 'mode main']
+    l = ['join-with right', 'mode main']
+
 
 [mode.resize.binding]
     esc = ['mode main']
