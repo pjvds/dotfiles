@@ -35,18 +35,27 @@ sketchybar --default "${default[@]}"
 
 sketchybar --add event aerospace_workspace_change
 
+ACTIVE_WORKSPACES=$(aerospace list-workspaces --monitor focused --empty no)
+
 for sid in $(aerospace list-workspaces --all); do
     sketchybar --add item space.$sid left \
         --subscribe space.$sid aerospace_workspace_change \
         --set space.$sid \
-        background.color=0x44ffffff \
-        background.corner_radius=5 \
-        background.height=20 \
-        background.drawing=off \
-        label="$sid" \
-        click_script="aerospace workspace $sid" \
-        script="$CONFIG_DIR/plugins/aerospace.sh $sid"
+              icon.padding_left=0 \
+              icon.padding_right=0 \
+              label.padding_left=4 \
+              label.padding_right=5 \
+              background.padding_left=0 \
+              background.padding_right=0 \
+              background.color=0x44ffffff \
+              background.corner_radius=3 \
+              background.height=15 \
+              background.drawing=off \
+              label="$sid" \
+              click_script="aerospace workspace $sid" \
+              script="$PLUGIN_DIR/workspaces.sh $sid"
 done
+
 
 ##### Adding Left Items #####
 # We add some regular items to the left side of the bar, where
@@ -77,6 +86,9 @@ sketchybar --add item clock right \
            --add item battery right \
            --set battery update_freq=120 script="$PLUGIN_DIR/battery.sh" \
            --subscribe battery system_woke power_source_change
+
+# Enable hot reloading
+sketchybar --hotload on
 
 ##### Force all scripts to run the first time (never do this in a script) #####
 sketchybar --update
