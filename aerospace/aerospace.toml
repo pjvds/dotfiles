@@ -70,6 +70,13 @@ automatically-unhide-macos-hidden-apps = false
     outer.top =        [{ monitor."built-in" = 20 }, 50]
     outer.right =      12
 
+# See https://nikitabobko.github.io/AeroSpace/guide#exec-env-vars
+[exec] # Again, you don't need to copy all config sections to your config.
+    inherit-env-vars = true # If you don't touch "exec" section,
+
+[exec.env-vars] # it will fallback to "default-config.toml"
+    PATH = '/opt/homebrew/bin:/opt/homebrew/sbin:${PATH}'
+
 # 'main' binding mode declaration
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
 # 'main' binding mode must be always presented
@@ -161,7 +168,7 @@ automatically-unhide-macos-hidden-apps = false
     # See: https://nikitabobko.github.io/AeroSpace/commands#mode
     alt-r = 'mode resize'
     alt-m = 'mode join'
-    alt-shift-semicolon = 'mode service'
+    alt-esc = 'mode service'
  
     alt-ctrl-h = 'join-with left'
     alt-ctrl-j = 'join-with down'
