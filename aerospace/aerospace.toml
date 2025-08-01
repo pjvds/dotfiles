@@ -112,8 +112,8 @@ automatically-unhide-macos-hidden-apps = false
     alt-enter = '''exec-and-forget kitty'''
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#layout
-    alt-slash = 'layout tiles horizontal vertical'
-    alt-comma = 'layout accordion horizontal vertical'
+    #alt-slash = 'layout tiles horizontal vertical'
+    #alt-comma = 'layout accordion horizontal vertical'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#focus
     alt-h = 'focus --boundaries all-monitors-outer-frame --boundaries-action wrap-around-all-monitors left'
@@ -132,33 +132,46 @@ automatically-unhide-macos-hidden-apps = false
     alt-equal = 'resize smart +50'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#workspace
-    alt-1 = 'workspace 1'
-    alt-2 = 'workspace 2'
-    alt-3 = 'workspace 3'
-    alt-4 = 'workspace 4'
-    alt-5 = 'workspace 5'
-    alt-6 = 'workspace 6'
-    alt-7 = 'workspace 7'
-    alt-8 = 'workspace 8'
-    alt-9 = 'workspace 9'
-    alt-0 = 'workspace 10'
+    #alt-1 = 'workspace 1'
+    #alt-2 = 'workspace 2'
+    #alt-3 = 'workspace 3'
+    #alt-4 = 'workspace 4'
+    #alt-5 = 'workspace 5'
+    #alt-6 = 'workspace 6'
+    #alt-7 = 'workspace 7'
+    #alt-8 = 'workspace 8'
+    #alt-9 = 'workspace 9'
+    alt-a = 'workspace 1'
+    alt-s = 'workspace 2'
+    alt-d = 'workspace 3'
+    alt-f = 'workspace 4'
 
+    alt-comma = 'exec-and-forget /Users/pvandesande/dotfiles/aerospace/plugins/to_non_empty_workspace.sh prev'
+    alt-period = 'exec-and-forget /Users/pvandesande/dotfiles/aerospace/plugins/to_non_empty_workspace.sh next'
+
+    alt-shift-comma = 'workspace prev'
+    alt-shift-period = 'workspace next'
     # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
-    alt-shift-1 = 'move-node-to-workspace 1'
-    alt-shift-2 = 'move-node-to-workspace 2'
-    alt-shift-3 = 'move-node-to-workspace 3'
-    alt-shift-4 = 'move-node-to-workspace 4'
-    alt-shift-5 = 'move-node-to-workspace 5'
-    alt-shift-6 = 'move-node-to-workspace 6'
-    alt-shift-7 = 'move-node-to-workspace 7'
-    alt-shift-8 = 'move-node-to-workspace 8'
-    alt-shift-9 = 'move-node-to-workspace 9'
-    alt-shift-0 = 'move-node-to-workspace 10'
+    #alt-shift-1 = 'move-node-to-workspace 1'
+    #alt-shift-2 = 'move-node-to-workspace 2'
+    #alt-shift-3 = 'move-node-to-workspace 3'
+    #alt-shift-4 = 'move-node-to-workspace 4'
+    #alt-shift-5 = 'move-node-to-workspace 5'
+    #alt-shift-6 = 'move-node-to-workspace 6'
+    #alt-shift-7 = 'move-node-to-workspace 7'
+    #alt-shift-8 = 'move-node-to-workspace 8'
+    #alt-shift-9 = 'move-node-to-workspace 9'
+    #alt-shift-0 = 'move-node-to-workspace 10'
+    alt-shift-a = 'move-node-to-workspace 1'
+    alt-shift-s = 'move-node-to-workspace 2'
+    alt-shift-d = 'move-node-to-workspace 3'
+    alt-shift-f = 'move-node-to-workspace 4'
+
 
     # Toggle the fullscreen mode for the focused window
     #
     # Switching to a different tiling window within the same workspace while the current focused window is in fullscreen mode results in the fullscreen window exiting fullscreen mode.
-    alt-f = 'fullscreen'
+    alt-t = 'fullscreen'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
     alt-tab = 'workspace-back-and-forth'
