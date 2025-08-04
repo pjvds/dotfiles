@@ -172,6 +172,8 @@ automatically-unhide-macos-hidden-apps = false
     #
     # Switching to a different tiling window within the same workspace while the current focused window is in fullscreen mode results in the fullscreen window exiting fullscreen mode.
     alt-t = 'fullscreen'
+    alt-w = 'close'
+    alt-q = 'close'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
     alt-tab = 'workspace-back-and-forth'
