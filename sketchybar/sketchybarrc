@@ -16,10 +16,10 @@ sketchybar --bar position=top height=40 blur_radius=30 color=0x40000000
 
 number_to_icon() {
   case "$1" in
-    1) echo "A" ;;
-    2) echo "S" ;;
-    3) echo "D" ;;
-    4) echo "F" ;;
+    1) echo "a" ;;
+    2) echo "s" ;;
+    3) echo "d" ;;
+    4) echo "f" ;;
     *) echo "$1" ;; # fallback
   esac
 }
