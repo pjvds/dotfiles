@@ -162,10 +162,10 @@ automatically-unhide-macos-hidden-apps = true
     #alt-shift-8 = 'move-node-to-workspace 8'
     #alt-shift-9 = 'move-node-to-workspace 9'
     #alt-shift-0 = 'move-node-to-workspace 10'
-    alt-shift-a = 'move-node-to-workspace 1'
-    alt-shift-s = 'move-node-to-workspace 2'
-    alt-shift-d = 'move-node-to-workspace 3'
-    alt-shift-f = 'move-node-to-workspace 4'
+    alt-shift-a = ['move-node-to-workspace 1', 'workspace 1']
+    alt-shift-s = ['move-node-to-workspace 2', 'workspace 2']
+    alt-shift-d = ['move-node-to-workspace 3', 'workspace 3']
+    alt-shift-f = ['move-node-to-workspace 4', 'workspace 4']
 
 
     # Toggle the fullscreen mode for the focused window
