@@ -14,6 +14,16 @@ PLUGIN_DIR="$CONFIG_DIR/plugins"
 
 sketchybar --bar position=top height=40 blur_radius=30 color=0x40000000
 
+number_to_icon() {
+  case "$1" in
+    1) echo "A" ;;
+    2) echo "S" ;;
+    3) echo "D" ;;
+    4) echo "F" ;;
+    *) echo "$1" ;; # fallback
+  esac
+}
+
 ##### Changing Defaults #####
 # We now change some default values, which are applied to all further items.
 # For a full list of all available item properties see:
@@ -57,7 +67,7 @@ for sid in $(aerospace list-workspaces --all); do
               background.corner_radius=3 \
               background.height=15 \
               background.drawing=off \
-              label="$sid" \
+              label=$(number_to_icon "$sid") \
               click_script="aerospace workspace $sid" \
               script="$PLUGIN_DIR/workspaces.sh $sid"
 done
