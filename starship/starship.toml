@@ -1,3 +1,4 @@
+format = '$all$character$line_break'
 # Don't print a new line at the start of the prompt
 add_newline = false
 scan_timeout = 2
@@ -5,7 +6,7 @@ scan_timeout = 2
 continuation_prompt = '▶▶ '
 
 [line_break]
-disabled = true
+disabled = false
 
 [character]      # The name of the module we are configuring is "character"
 success_symbol = "[➜](bold yellow)"
@@ -24,7 +25,5 @@ style = 'cyan'
 
 [time]
 disabled = false
-format = 'at [ $time ]($style) '
+format = ' [ $time ]($style) '
 time_format = '%T'
-
-
