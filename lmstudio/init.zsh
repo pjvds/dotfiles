@@ -1,1 +1,1 @@
-export PATH="$PATH:/Users/pvandesande/.lmstudio/bin"
+export PATH="$PATH:$HOME/.lmstudio/bin"
