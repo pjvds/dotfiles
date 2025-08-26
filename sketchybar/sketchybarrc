@@ -20,6 +20,10 @@ number_to_icon() {
     2) echo "s" ;;
     3) echo "d" ;;
     4) echo "f" ;;
+    5) echo "z" ;;
+    6) echo "x" ;;
+    7) echo "c" ;;
+    8) echo "v" ;;
     *) echo "$1" ;; # fallback
   esac
 }
