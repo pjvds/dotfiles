@@ -215,7 +215,7 @@ automatically-unhide-macos-hidden-apps = true
 
     h = ['resize width -50']
     j = ['resize height -50']
-    k = ['resize height -50']
+    k = ['resize height +50']
     l = ['resize width +50']
 
 # 'service' binding mode declaration.
