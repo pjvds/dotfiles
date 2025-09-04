@@ -114,6 +114,7 @@ automatically-unhide-macos-hidden-apps = true
     # See: https://nikitabobko.github.io/AeroSpace/commands#layout
     alt-leftSquareBracket = 'layout tiles horizontal vertical'
     alt-rightSquareBracket = 'layout accordion horizontal vertical'
+    alt-slash = 'layout tiles accordion'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#focus
     alt-h = 'focus --boundaries all-monitors-outer-frame --boundaries-action wrap-around-all-monitors left'
