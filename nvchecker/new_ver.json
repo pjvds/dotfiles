@@ -65,9 +65,9 @@
       "url": "https://github.com/sdushantha/tmpsms/releases/tag/v1.0.0"
     },
     "topalias": {
-      "version": "20250615.114404",
-      "revision": "3165c49dbf5c6c460f8564278d529bd72d7bb273",
-      "url": "https://github.com/meteoritt/topalias/commit/3165c49dbf5c6c460f8564278d529bd72d7bb273"
+      "version": "20250904.034624",
+      "revision": "3feb3ce4bdb9d33a985f936d5cc58cb314a8443b",
+      "url": "https://github.com/meteoritt/topalias/commit/3feb3ce4bdb9d33a985f936d5cc58cb314a8443b"
     },
     "tunl": {
       "version": "0.35.1",
