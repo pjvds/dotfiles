@@ -112,8 +112,8 @@ automatically-unhide-macos-hidden-apps = true
     alt-enter = '''exec-and-forget kitty'''
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#layout
-    #alt-slash = 'layout tiles horizontal vertical'
-    #alt-comma = 'layout accordion horizontal vertical'
+    alt-leftSquareBracket = 'layout tiles horizontal vertical'
+    alt-rightSquareBracket = 'layout accordion horizontal vertical'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#focus
     alt-h = 'focus --boundaries all-monitors-outer-frame --boundaries-action wrap-around-all-monitors left'
