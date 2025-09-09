@@ -24,6 +24,9 @@ vim.lsp.enable(servers)
 vim.lsp.config("yamlls", {
 	settings = {
 		yaml = {
+			schemaStore = {
+				enable = true,
+			},
 			schemas = {
 				["https://json.schemastore.org/github-workflow.json"] = "/.github/workflows/*",
 				["https://raw.githubusercontent.com/argoproj/argo-workflows/main/api/jsonschema/schema.json"] = "**/*.argo.yaml",
