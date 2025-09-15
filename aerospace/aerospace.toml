@@ -62,6 +62,16 @@ automatically-unhide-macos-hidden-apps = true
 #                 Monitor pattern is the same as for 'workspace-to-monitor-force-assignment'.
 #                 See:
 #                 https://nikitabobko.github.io/AeroSpace/guide#assign-workspaces-to-monitors
+[workspace-to-monitor-force-assignment]
+    1 = 'main'                #a
+    2 = 'main'                #s
+    3 = 'main'                #d
+    4 = 'main'                #f
+    5 = ['secondary', 'main'] #z
+    6 = ['secondary', 'main'] #x
+    7 = ['secondary', 'main'] #c
+    8 = ['secondary', 'main'] #v
+
 [gaps]
     inner.horizontal = 12
     inner.vertical =   12
