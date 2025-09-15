@@ -4,6 +4,11 @@ require("nvchad.mappings")
 
 local map = vim.keymap.set
 
+vim.keymap.set("n", "YY", function()
+	vim.cmd("%yank +")
+	vim.cmd('echo "Buffer copied to clipboard"')
+end, { noremap = true, silent = true, desc = "Copy buffer to system clipboard" })
+
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
 
