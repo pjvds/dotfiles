@@ -1,2 +1,6 @@
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
-export PATH="$PATH:$HOME/.dotnet"
+
+export DOTNET_ROOT="$HOME/.dotnet"
+export DOTNET_TOOLS="$DOTNET_ROOT/tools"
+
+export PATH="$PATH:$DOTNET_ROOT:$DOTNET_TOOLS"
