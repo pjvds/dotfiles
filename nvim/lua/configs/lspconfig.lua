@@ -15,8 +15,8 @@ local servers = {
 	"yamlls",
 	"terraform-ls",
 	"vue_ls",
+	"python-lsp-server",
 }
-local nvlsp = require("nvchad.configs.lspconfig")
 
 -- lsps with default config
 vim.lsp.enable(servers)

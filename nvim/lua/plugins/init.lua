@@ -2,30 +2,38 @@ return {
 	import = "nvchad.blink.lazyspec",
 	{ "vuciv/golf", event = "VeryLazy" },
 	{
-		"ramilito/winbar.nvim",
-		event = "VimEnter", -- Alternatively, BufReadPre if we don't care about the empty file when starting with 'nvim'
-		dependencies = { "nvim-tree/nvim-web-devicons" },
+		"wellle/context.vim",
+		event = "LspAttach",
 		config = function()
-			require("winbar").setup({
-				-- your configuration comes here, for example:
-				icons = true,
-				diagnostics = true,
-				buf_modified = true,
-				buf_modified_symbol = "M",
-				-- or use an icon
-				-- buf_modified_symbol = "●"
-				dim_inactive = {
-					enabled = false,
-					highlight = "WinBarNC",
-					icons = true, -- whether to dim the icons
-					name = true, -- whether to dim the name
-				},
-			})
+			vim.g.context_enabled = true
+			vim.g.context_exclude_filetypes = { "toggleterm", "TelescopePrompt", "alpha", "NvimTree" }
+			vim.keymap.set("n", "<Leader>uc", ":ContextToggle<CR>", { desc = "Toggle context" })
 		end,
 	},
 	{
 		"Bekaboo/dropbar.nvim",
 		event = "LspAttach",
+		opts = {
+			-- configuration
+			symbols = {
+				separator = " > ",
+				-- limit = 3, -- limit number of symbols in winbar
+				ellipsis = "...", -- when limit is exceeded
+				-- show_file = true, -- whether to show file name in winbar
+				-- file_formatter = function(filename) -- function to format filename in winbar
+				--   return filename
+				-- end,
+			},
+			winbar = {
+				enable = true,
+				show_file = true,
+			},
+			mappings = {
+				["<Leader>;"] = "pick",
+				["[;"] = "goto_context_start",
+				["];"] = "select_next_context",
+			},
+		},
 		-- optional, but required for fuzzy finder support
 		dependencies = {
 			"nvim-telescope/telescope-fzf-native.nvim",
@@ -48,12 +56,6 @@ return {
 	{
 		"mg979/vim-visual-multi",
 		event = "VeryLazy",
-	},
-	{
-		-- show bookmarks in the gutter
-		"chentoast/marks.nvim",
-		event = "VeryLazy",
-		opts = {},
 	},
 	{
 		"github/copilot.vim",
@@ -80,13 +82,6 @@ return {
 				leap.opts[k] = v
 			end
 			leap.add_default_mappings(true)
-		end,
-	},
-	-- guess the indentation setting (tab vs spaces, indation level)
-	{
-		"nmac427/guess-indent.nvim",
-		config = function()
-			require("guess-indent").setup({})
 		end,
 	},
 	-- relative line numbers in insert mode
@@ -192,7 +187,6 @@ return {
 	{
 		"neovim/nvim-lspconfig",
 		config = function()
-			require("nvchad.configs.lspconfig").defaults()
 			require("configs.lspconfig")
 		end,
 	},
