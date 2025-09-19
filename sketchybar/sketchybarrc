@@ -4,6 +4,7 @@
 # https://github.com/FelixKratz/dotfiles
 
 PLUGIN_DIR="$CONFIG_DIR/plugins"
+source "$PLUGIN_DIR/style.sh"
 
 ##### Bar Appearance #####
 # Configuring the general appearance of the bar.
@@ -36,8 +37,8 @@ number_to_icon() {
 default=(
   padding_left=5
   padding_right=5
-  icon.font="Hack Nerd Font:Bold:17.0"
-  label.font="Hack Nerd Font:Bold:14.0"
+  icon.font="$ICON_FONT"
+  label.font="$LABEL_FONT"
   icon.color=0xffffffff
   label.color=0xffffffff
   icon.padding_left=4
@@ -83,7 +84,12 @@ done
 sketchybar --add item chevron left \
            --set chevron icon= label.drawing=off \
            --add item front_app left \
-           --set front_app icon.drawing=off script="$PLUGIN_DIR/front_app.sh" \
+           --set front_app \
+                 icon.color=0xffffffff \
+                 icon.drawing=on \
+                 icon.font="sketchybar-app-font:Regular:16.0" \
+                 label.drawing=on \
+                 script="$PLUGIN_DIR/front_app.sh" \
            --subscribe front_app front_app_switched
 
 ##### Adding Right Items #####
