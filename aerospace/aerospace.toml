@@ -250,3 +250,13 @@ automatically-unhide-macos-hidden-apps = true
     down = 'volume down'
     up = 'volume up'
     shift-down = ['volume set 0', 'mode main']
+
+[[on-window-detected]]
+    if.app-id = 'com.microsoft.Outlook'
+    check-further-callbacks = true
+    run = ['move-node-to-workspace 8']
+
+[[on-window-detected]]
+    if.app-id = 'com.microsoft.teams2'
+    check-further-callbacks = true
+    run = ['move-node-to-workspace 5']
