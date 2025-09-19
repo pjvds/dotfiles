@@ -13,7 +13,7 @@ source "$PLUGIN_DIR/style.sh"
 # If you are looking for other colors, see the color picker:
 # https://felixkratz.github.io/SketchyBar/config/tricks#color-picker
 
-sketchybar --bar position=top height=40 blur_radius=30 color=0x40000000
+sketchybar --bar position=top height=40 blur_radius=30 color=$BAR_COLOR
 
 number_to_icon() {
   case "$1" in
@@ -39,8 +39,8 @@ default=(
   padding_right=5
   icon.font="$ICON_FONT"
   label.font="$LABEL_FONT"
-  icon.color=0xffffffff
-  label.color=0xffffffff
+  icon.color=$WHITE_COLOR
+  label.color=$WHITE_COLOR
   icon.padding_left=4
   icon.padding_right=4
   label.padding_left=4
@@ -85,7 +85,7 @@ sketchybar --add item chevron left \
            --set chevron icon= label.drawing=off \
            --add item front_app left \
            --set front_app \
-                 icon.color=0xffffffff \
+                 icon.color=$WHITE_COLOR \
                  icon.drawing=on \
                  icon.font="sketchybar-app-font:Regular:16.0" \
                  label.drawing=on \
