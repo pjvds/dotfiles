@@ -120,6 +120,7 @@ automatically-unhide-macos-hidden-apps = true
     # end tell'
     # '''
     alt-enter = '''exec-and-forget kitty'''
+    alt-shift-enter = '''exec-and-forget $HOME/Applications/Zen.app/Contents/MacOS/zen'''
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#layout
     alt-leftSquareBracket = 'layout tiles horizontal vertical'
