@@ -52,7 +52,7 @@
       "KC_U",
       "KC_Y",
       "KC_QUOT",
-      "KC_SCLN",
+      "MT(MOD_LCTL | MOD_RCTL,KC_SCLN)",
       "MT(MOD_LALT | MOD_RALT,KC_L)",
       "MT(MOD_LGUI | MOD_RGUI,KC_K)",
       "MT(MOD_LSFT | MOD_RSFT,KC_J)",
