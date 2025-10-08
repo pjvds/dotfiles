@@ -261,3 +261,23 @@ automatically-unhide-macos-hidden-apps = true
     if.app-id = 'com.microsoft.teams2'
     check-further-callbacks = true
     run = ['move-node-to-workspace 5']
+
+[[on-window-detected]]
+    if.app-id = 'me.proton.pass.electron'
+    check-further-callbacks = true
+    run = ['layout floating']
+
+[[on-window-detected]]
+    if.app-id = 'com.apple.calculator'
+    check-further-callbacks = true
+    run = ['layout floating']
+
+[[on-window-detected]]
+    if.app-id = 'com.apple.iCal'
+    check-further-callbacks = true
+    run = ['layout floating']
+
+[[on-window-detected]]
+    if.app-id = 'com.apple.FaceTime'
+    check-further-callbacks = true
+    run = ['layout floating']
