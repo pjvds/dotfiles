@@ -1,4 +1,9 @@
-format = '$all$character$line_break'
+format = '''
+$all
+$character
+$line_break
+$line_break'''
+
 # Don't print a new line at the start of the prompt
 add_newline = false
 scan_timeout = 2
