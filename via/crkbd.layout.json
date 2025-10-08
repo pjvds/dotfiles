@@ -27,7 +27,7 @@
       "KC_E",
       "KC_R",
       "KC_T",
-      "KC_ESC",
+      "KC_NO",
       "MT(MOD_LCTL,KC_A)",
       "MT(MOD_LALT,KC_S)",
       "MT(MOD_LGUI,KC_D)",
