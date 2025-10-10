@@ -1,3 +1,11 @@
+# Description: A collection of useful zsh aliases and functions
+
+# Aliases
+alias jd="cd ~/Downloads"
+alias jdf="cd $DOTFILES"
+alias jc="cd ~/Code"
+alias jcd="cd ~/Code/deloitte"
+
 #cwd
 homerow() {
 	echo " A  ,  S ,  D ,   F       J  ,  K ,  L ,  ;"
