@@ -2,6 +2,19 @@ return {
 	import = "nvchad.blink.lazyspec",
 	{ "vuciv/golf", event = "VeryLazy" },
 	{
+		"kawre/leetcode.nvim",
+		build = ":TSUpdate html", -- if you have `nvim-treesitter` installed
+		cmd = "Leet",
+		dependencies = {
+			-- include a picker of your choice, see picker section for more details
+			"nvim-lua/plenary.nvim",
+			"MunifTanjim/nui.nvim",
+		},
+		opts = {
+			-- configuration goes here
+		},
+	},
+	{
 		"wellle/context.vim",
 		event = "LspAttach",
 		config = function()
