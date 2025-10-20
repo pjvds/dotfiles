@@ -22,9 +22,12 @@ map("n", "<leader>t", function()
 end, { desc = "key mappings finder" })
 map("n", "<C-A>", "<cmd> Telescope keymaps<CR>", { desc = "key mappings finder" })
 map("n", "<leader>b", "<cmd> Telescope buffers<CR>", { desc = "buffers browser" })
-map("n", "<leader>f", "<cmd> Telescope live_grep<CR>", { desc = "search in files" })
+map("n", "<leader>f", "<cmd> Telescope live_grep hidden=true no_ignore=true<CR>", { desc = "search in files" })
 map("n", "<leader>p", function()
-	require("telescope.builtin").find_files({ hidden = true })
+	require("telescope.builtin").find_files({
+		hidden = true,
+		no_ignore = true,
+	})
 end, { desc = "file finder" })
 map("n", "<leader>e", "<cmd> Telescope file_browser<CR>", { desc = "file browser" })
 map("n", "<leader>x", "<cmd> Telescope diagnostics<CR>", { desc = "diagnostic browser" })
@@ -56,4 +59,16 @@ map("i", "<C-l>", function()
 end, {
 	desc = "Copilot Accept",
 })
--- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
+
+-- Context plugin
+map("n", "<Leader>uc", ":ContextToggle<CR>", { desc = "Toggle context" })
+
+-- Dropbar plugin
+map("n", "<Leader>;", function() require("dropbar.api").pick() end, { desc = "Pick symbols in winbar" })
+map("n", "[;", function() require("dropbar.api").goto_context_start() end, { desc = "Go to start of current context" })
+map("n", "];", function() require("dropbar.api").select_next_context() end, { desc = "Select next context" })
+
+-- Spectre plugin
+map("n", "<leader>h", '<cmd>lua require("spectre").toggle()<CR>', { desc = "Toggle Spectre" })
+map("n", "<leader>sw", '<cmd>lua require("spectre").open_visual({select_word=true})<CR>', { desc = "Search current word" })
+map("n", "<leader>sp", '<cmd>lua require("spectre").open_file_search({select_word=true})<CR>', { desc = "Search on current file" })

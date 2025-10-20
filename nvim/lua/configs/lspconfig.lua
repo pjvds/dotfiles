@@ -5,7 +5,6 @@ require("nvchad.configs.lspconfig").defaults()
 local servers = {
 	"html",
 	"cssls",
-	"ts_ls",
 	"gopls",
 	"jsonls",
 	"graphql",
@@ -14,7 +13,6 @@ local servers = {
 	"angularls",
 	"yamlls",
 	"terraform-ls",
-	"vue_ls",
 	"python-lsp-server",
 }
 
@@ -74,7 +72,7 @@ local vue_ls_config = {
 			local param = unpack(result)
 			local id, command, payload = unpack(param)
 			ts_client:exec_cmd({
-				title = "vue_request_forward", -- You can give title anything as it's used to represent a command in the UI, `:h Client:exec_cmd`
+				title = "vue_request_forward",
 				command = "typescript.tsserverRequest",
 				arguments = {
 					command,
@@ -82,7 +80,6 @@ local vue_ls_config = {
 				},
 			}, { bufnr = context.bufnr }, function(_, r)
 				local response_data = { { id, r.body } }
-				---@diagnostic disable-next-line: param-type-mismatch
 				client:notify("tsserver/response", response_data)
 			end)
 		end
