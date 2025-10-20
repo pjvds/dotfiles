@@ -1,2 +1,5 @@
-ln -s $DOTFILES/git/gitconfig $HOME/.gitconfig
-ln -s $DOTFILES/git/gitignore $HOME/.gitignore
+#!/bin/zsh
+source $DOTFILES/lib/install.zsh
+
+symlink git/gitconfig $HOME/.gitconfig
+symlink git/gitignore $HOME/.gitignore

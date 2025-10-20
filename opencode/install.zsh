@@ -1,4 +1,4 @@
 #!/bin/zsh
-source $DOTFILES/init.zsh
+source $DOTFILES/lib/install.zsh
 
-link "$DOTFILES/opencode" "$HOME/.config/opencode"
+symlink opencode $HOME/.config/opencode true

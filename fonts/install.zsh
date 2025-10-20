@@ -1,3 +1,5 @@
-mkdir -p "$HOME/.local/share"
-ln -s $DOTFILES/fonts "$HOME/.local/share/fonts"
-fc-cache -f -v
+#!/bin/zsh
+source $DOTFILES/lib/install.zsh
+
+symlink fonts $HOME/.local/share/fonts
+post_install "fc-cache -f -v"

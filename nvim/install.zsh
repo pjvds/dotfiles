@@ -1,1 +1,4 @@
-ln -f -s $DOTFILES/nvim $HOME/.config/nvim
+#!/bin/zsh
+source $DOTFILES/lib/install.zsh
+
+symlink nvim $HOME/.config/nvim

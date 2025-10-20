@@ -1,2 +1,4 @@
 #!/bin/zsh
-ln -f -s $DOTFILES/profiles/Xresources $HOME/.Xresources
+source $DOTFILES/lib/install.zsh
+
+symlink profiles/Xresources $HOME/.Xresources

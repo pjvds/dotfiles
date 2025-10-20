@@ -1,2 +1,4 @@
-mkdir -p $HOME/.config/terminator
-ln -s $DOTFILES/terminator/config $HOME/.config/terminator/config
+#!/bin/zsh
+source $DOTFILES/lib/install.zsh
+
+symlink terminator/config $HOME/.config/terminator/config

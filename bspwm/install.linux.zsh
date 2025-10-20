@@ -1,3 +1,4 @@
 #!/bin/zsh
-mkdir -p $HOME/.config
-ln -f -s $DOTFILES/bspwm $HOME/.config/bspwm
+source $DOTFILES/lib/install.zsh
+
+symlink bspwm $HOME/.config/bspwm

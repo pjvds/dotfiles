@@ -1,3 +1,4 @@
 #!/bin/zsh
-mkdir -p $HOME/.config
-ln -f -s $DOTFILES/qutebrowser $HOME/.config/qutebrowser
+source $DOTFILES/lib/install.zsh
+
+symlink qutebrowser $HOME/.config/qutebrowser

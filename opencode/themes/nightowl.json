@@ -1,5 +1,5 @@
 {
-  "$schema": "https:opencode.ai/theme.json",
+  "$schema": "https://opencode.ai/theme.json",
   "defs": {
     "base": "#011627",
     "surface": "#0c2132",
@@ -59,10 +59,7 @@
       "dark": "foam",
       "light": "foam"
     },
-    "text": {
-      "dark": "text",
-      "light": "text"
-    },
+    "text": "#ced6e3",
     "textMuted": {
       "dark": "muted",
       "light": "muted"
@@ -140,8 +137,8 @@
       "light": "#1b3041"
     },
     "markdownText": {
-      "dark": "text",
-      "light": "text"
+      "dark": "#ced6e3",
+      "light": "#ced6e3"
     },
     "markdownHeading": {
       "dark": "iris",
@@ -192,8 +189,8 @@
       "light": "rose"
     },
     "markdownCodeBlock": {
-      "dark": "text",
-      "light": "subtle"
+      "dark": "#ced6e3",
+      "light": "#34495a"
     },
     "syntaxComment": {
       "dark": "muted",
@@ -208,8 +205,8 @@
       "light": "rose"
     },
     "syntaxVariable": {
-      "dark": "text",
-      "light": "text"
+      "dark": "#ced6e3",
+      "light": "#ced6e3"
     },
     "syntaxString": {
       "dark": "gold",

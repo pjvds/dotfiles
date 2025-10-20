@@ -1,4 +1,5 @@
-HTTPIE_CONFIG_DIR="$HOME/.config/httpie"
-mkdir -p "$HTTPIE_CONFIG_DIR"
+#!/bin/zsh
+source $DOTFILES/lib/install.zsh
 
-ln -s "$DOTFILES/httpie/config.json" "$HTTPIE_CONFIG_DIR/config.json"
+HTTPIE_CONFIG_DIR="$HOME/.config/httpie"
+symlink httpie/config.json $HTTPIE_CONFIG_DIR/config.json

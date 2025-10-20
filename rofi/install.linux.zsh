@@ -1,2 +1,4 @@
-mkdir -p $HOME/.config/rofi
-ln -s $DOTFILES/rofi $HOME/.config/rofi
+#!/bin/zsh
+source $DOTFILES/lib/install.zsh
+
+symlink rofi $HOME/.config/rofi

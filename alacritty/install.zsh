@@ -1,3 +1,4 @@
 #!/bin/zsh
-mkdir -p $HOME/.config
-ln -f -s $DOTFILES/alacritty $HOME/.config/alacritty
+source $DOTFILES/lib/install.zsh
+
+symlink alacritty $HOME/.config/alacritty

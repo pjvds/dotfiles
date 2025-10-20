@@ -1,3 +1,4 @@
 #!/bin/zsh
-mkdir -p $HOME/.config
-ln -f -s $DOTFILES/sxhkd $HOME/.config/sxhkd
+source $DOTFILES/lib/install.zsh
+
+symlink sxhkd $HOME/.config/sxhkd

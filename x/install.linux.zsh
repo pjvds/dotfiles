@@ -1,2 +1,4 @@
 #!/bin/zsh
-ln -f -s $DOTFILES/x/xinitrc $HOME/.xinitrc
+source $DOTFILES/lib/install.zsh
+
+symlink x/xinitrc $HOME/.xinitrc

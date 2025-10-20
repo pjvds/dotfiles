@@ -1,2 +1,4 @@
-mkdir -p $DOTFILES/.config/
-ln -f -s $DOTFILES/picom/picom.conf $HOME/.config/picom.conf
+#!/bin/zsh
+source $DOTFILES/lib/install.zsh
+
+symlink picom/picom.conf $HOME/.config/picom.conf

@@ -1,1 +1,4 @@
-ln -s $DOTFILES/zsh/zshrc $HOME/.zshrc
+#!/bin/zsh
+source $DOTFILES/lib/install.zsh
+
+symlink zsh/zshrc $HOME/.zshrc

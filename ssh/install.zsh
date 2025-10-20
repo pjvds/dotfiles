@@ -1,2 +1,4 @@
-mkdir -p $HOME/.ssh
-ln -f -s $DOTFILES/ssh/config $HOME/.ssh/config
+#!/bin/zsh
+source $DOTFILES/lib/install.zsh
+
+symlink ssh/config $HOME/.ssh/config

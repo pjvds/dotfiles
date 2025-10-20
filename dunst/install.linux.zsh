@@ -1,3 +1,4 @@
 #!/bin/zsh
-mkdir -p $HOME/.config/dunst
-ln -f -s $DOTFILES/dunst/dunstrc $HOME/.config/dunst/dunstrc
+source $DOTFILES/lib/install.zsh
+
+symlink dunst/dunstrc $HOME/.config/dunst/dunstrc
