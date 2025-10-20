@@ -12,7 +12,6 @@ source "$PLUGIN_DIR/style.sh"
 # https://felixkratz.github.io/SketchyBar/config/bar
 # If you are looking for other colors, see the color picker:
 # https://felixkratz.github.io/SketchyBar/config/tricks#color-picker
-
 sketchybar --bar position=top height=40 blur_radius=30 color=$BAR_COLOR
 
 number_to_icon() {
@@ -50,45 +49,45 @@ sketchybar --default "${default[@]}"
 
 sketchybar --add event aerospace_workspace_change
 
-ACTIVE_WORKSPACES=$(aerospace list-workspaces --monitor focused --empty no)
+for monitor in $(aerospace list-monitors --json | jq -r '.[]."monitor-id"'); do
+  ACTIVE_WORKSPACES=$(aerospace list-workspaces --monitor $monitor --empty no)
+ 
+  for sid in $(aerospace list-workspaces --monitor $monitor); do	
+      DRAWING=on
+      if ! printf "%s\n" "${ACTIVE_WORKSPACES[@]}" | grep -Fxq -- "$sid"; then
+        DRAWING=off
+      fi
 
-for sid in $(aerospace list-workspaces --all); do	
-    DRAWING=on
-    if ! printf "%s\n" "${ACTIVE_WORKSPACES[@]}" | grep -Fxq -- "$sid"; then
-      DRAWING=off
-    fi
-
-    sketchybar --add item space.$sid left \
-        --subscribe space.$sid aerospace_workspace_change \
-        --set space.$sid \
-              drawing=$DRAWING \
-              icon.padding_left=0 \
-              icon.padding_right=0 \
-              label.padding_left=4 \
-              label.padding_right=5 \
-              background.padding_left=0 \
-              background.padding_right=0 \
-              background.color=0x44ffffff \
-              background.corner_radius=3 \
-              background.height=15 \
-              background.drawing=off \
-              label=$(number_to_icon "$sid") \
-              click_script="aerospace workspace $sid" \
-              script="$PLUGIN_DIR/workspaces.sh $sid"
+      sketchybar --add item space.$sid left \
+          --subscribe space.$sid aerospace_workspace_change \
+          --set space.$sid \
+                drawing=$DRAWING \
+                display=$monitor \
+                icon.padding_left=0 \
+                icon.padding_right=0 \
+                label.padding_left=4 \
+                label.padding_right=5 \
+                background.padding_left=0 \
+                background.padding_right=0 \
+                background.color=0x44ffffff \
+                background.corner_radius=3 \
+                background.height=15 \
+                background.drawing=off \
+                label=$(number_to_icon "$sid") \
+                click_script="aerospace workspace $sid" \
+                script="$PLUGIN_DIR/workspaces.sh $sid"
+  done
 done
 
 ##### Adding Left Items #####
 # We add some regular items to the left side of the bar, where
 # only the properties deviating from the current defaults need to be set
-
-sketchybar --add item chevron left \
-           --set chevron icon= label.drawing=off \
-           --add item front_app left \
+sketchybar --add item front_app left \
            --set front_app \
+                 display=active \
                  icon.color=$WHITE_COLOR \
                  icon.drawing=on \
                  icon.font="sketchybar-app-font:Regular:16.0" \
-                 label.drawing=on \
                  script="$PLUGIN_DIR/front_app.sh" \
            --subscribe front_app front_app_switched
 
