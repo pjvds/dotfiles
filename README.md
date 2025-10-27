@@ -1,10 +1,10 @@
 # dotfiles
 
-This repostory contains 10 years of dotfile history with various configurations. Currently I'm running Arch Linux with the tilling window manager bspwm. Most applications are configured with a dark theme called monokai in combination with the purple tints of the dracula theme.
+This repository contains 10 years of dotfile history with various configurations. Currently I'm running Arch Linux with the tiling window manager bspwm. Most applications are configured with a dark theme called monokai in combination with the purple tints of the dracula theme.
 
 # Topical
 
-These dotfiles follow the Low Coupling, High Cohesion principle. An example of this is that the hotkey daemon (sxhkd) doesn't know all the bindings of all applications. In other words, the hotkeys daemon configuration is not directly coupled to all applications that want a binding. Instead a application can express it's hotkey configuration in its own file (_topic_/hotkeys) that will be sources by the hotkey daemon.
+These dotfiles follow the Low Coupling, High Cohesion principle. An example of this is that the hotkey daemon (sxhkd) doesn't know all the bindings of all applications. In other words, the hotkeys daemon configuration is not directly coupled to all applications that want a binding. Instead a application can express it's hotkey configuration in its own file (_topic_/hotkeys) that will be sourced by the hotkey daemon.
 
 # Modules
 There's a few special files in the hierarchy.
@@ -106,11 +106,11 @@ A modern shell most closely resembles Korn shell. Despite being over 20 years ol
 
 ## oh-my-zsh
 
-Turns the already great zsh shell into an 10x environment.
+Turns the already great zsh shell into a 10x environment.
 
 ## z
 
-Utility to jump to directies. It records all your directory changes and lets you jump to them. For example, `z code` will jump to `/home/pjvds/code`.
+Utility to jump to directories. It records all your directory changes and lets you jump to them. For example, `z code` will jump to `/home/pjvds/code`.
 
 ## vim
 
@@ -146,7 +146,7 @@ I'm maintaining a [few dozen AUR packages](https://aur.archlinux.org/packages/?K
 
 I recently get questions on what tools I use to automate my workflow, so here is the list:
 
-* `aurpublish` to install githooks for package repostory.
+* `aurpublish` to install githooks for package repository.
 * `updpkgsums` to perform an in place update of the checksums.
 * `nvchecker` to check for new versions ([config](https://github.com/pjvds/dotfiles/blob/master/nvchecker/nvchecker.toml)).
 * `nvcmp` to compare version state files from nvchecker.
@@ -173,4 +173,3 @@ My daily driver is a 40% ortholiniar split keyboard that allows me to move keys 
 Press <kbd>Command</kbd> + <kbd>Z</kbd> to toggle keebsheet.
 
 ![keyboard layout](https://github.com/pjvds/dotfiles/raw/master/qmk/keyboard-layout.png)
-# homebridge-epex-spot
