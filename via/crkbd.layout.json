@@ -43,7 +43,7 @@
       "KC_NO",
       "KC_NO",
       "KC_F23",
-      "LT(1,KC_TAB)",
+      "LT(1,KC_ESC)",
       "KC_SPC",
       "KC_BSPC",
       "KC_P",
@@ -67,7 +67,7 @@
       "KC_NO",
       "KC_NO",
       "KC_F18",
-      "LT(2,KC_ESC)",
+      "LT(2,KC_TAB)",
       "KC_ENT"
     ],
     [
