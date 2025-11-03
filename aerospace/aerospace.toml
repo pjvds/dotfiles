@@ -280,3 +280,8 @@ automatically-unhide-macos-hidden-apps = true
     if.app-id = 'com.apple.FaceTime'
     check-further-callbacks = true
     run = ['layout floating']
+
+[[on-window-detected]]
+    if.app-id = 'com.apple.Home'
+    check-further-callbacks = true
+    run = ['layout floating']
