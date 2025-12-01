@@ -1,6 +1,8 @@
 alias ga='git add -p'
 alias gc='git commit --verbose'
 alias gc!='git commit --amend --verbose'
+alias gcne!='git commit --amend --no-edit'
+alias gp!='git push --force'
 alias gd='git diff'
 alias gs='git status'
 alias gcm='git commit -m'
