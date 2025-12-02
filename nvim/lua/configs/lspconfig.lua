@@ -15,7 +15,7 @@ local servers = {
 	"angularls",
 	"yamlls",
 	"terraform-ls",
-	"python-lsp-server",
+	"pyright",
 }
 
 -- lsps with default config
