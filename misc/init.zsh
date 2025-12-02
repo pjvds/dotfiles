@@ -2,7 +2,6 @@ alias rm='rm -r'
 alias .='cd $DOTFILES'
 alias .v='cd $DOTFILES && vim .'
 alias ls='ls --color'
-alias l='ls -lah'
 alias ..='cd ../'
 alias ...='cd ../../'
 alias ....='cd ../../../'
@@ -13,6 +12,16 @@ zinit light pjvds/zsh-cwd
 
 zinit ice silent wait"1"
 zinit light pjvds/zsh-cd-print
+
+# enhanced ls
+l() {
+  if [[ "$PWD" == "$HOME/Downloads" ]]; then
+    # Reverse creation-date sort
+    ls -lAh -Utr
+  else
+    ls -lah
+  fi
+}
 
 # source .env file
 senv() {
