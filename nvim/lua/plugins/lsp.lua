@@ -1,5 +1,11 @@
 return {
 	{
+		"neovim/nvim-lspconfig",
+		config = function()
+			require("configs.lspconfig")
+		end,
+	},
+	{
 		"dmmulroy/ts-error-translator.nvim",
 		event = "LspAttach",
 		config = function()
@@ -37,10 +43,5 @@ return {
 			})
 		end,
 	},
-	{
-		"neovim/nvim-lspconfig",
-		config = function()
-			require("configs.lspconfig")
-		end,
-	},
 }
+

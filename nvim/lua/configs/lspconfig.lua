@@ -3,6 +3,8 @@ require("nvchad.configs.lspconfig").defaults()
 
 -- EXAMPLE
 local servers = {
+	"astro-language-server",
+	"ts_ls",
 	"html",
 	"cssls",
 	"gopls",
