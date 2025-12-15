@@ -119,7 +119,9 @@ automatically-unhide-macos-hidden-apps = true
     #     activate
     # end tell'
     # '''
-    alt-enter = '''exec-and-forget kitty'''
+    # Use single-instance mode for faster window creation
+    # If no kitty is running, this will start one. Otherwise it creates a new OS window instantly.
+    alt-enter = '''exec-and-forget kitty --single-instance'''
     alt-shift-enter = '''exec-and-forget $HOME/Applications/Zen.app/Contents/MacOS/zen'''
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#layout
