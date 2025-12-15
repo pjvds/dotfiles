@@ -1,10 +1,32 @@
 # Description: A collection of useful zsh aliases and functions
 
 # Aliases
+alias rm='rm -r'
+alias .='cd $DOTFILES'
+alias .v='cd $DOTFILES && vim .'
+alias ..='cd ../'
+alias ...='cd ../../'
+alias ....='cd ../../../'
+alias tailf='tailf -f'
+
 alias jd="cd ~/Downloads"
 alias jdf="cd $DOTFILES"
 alias jc="cd ~/Code"
 alias jcd="cd ~/Code/deloitte"
+
+# enhanced ls - use 'll' as function name to avoid conflict with zim's 'll' alias
+# Unalias ll from zim utility module first
+unalias ll 2>/dev/null
+ll() {
+  if [[ "$PWD" == "$HOME/Downloads" ]]; then
+    # Reverse creation-date sort
+    ls -lAh -Utr
+  else
+    ls -lah
+  fi
+}
+# Keep 'l' as shorthand alias
+alias l=ll
 
 #cwd
 homerow() {
