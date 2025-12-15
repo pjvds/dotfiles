@@ -95,6 +95,7 @@ fi
 if [[ ! ${ZIM_HOME}/init.zsh -nt ${ZIM_CONFIG_FILE:-${ZDOTDIR:-${HOME}}/.zimrc} ]]; then
   source ${ZIM_HOME}/zimfw.zsh init
 fi
+
 # Initialize modules.
 source ${ZIM_HOME}/init.zsh
 # }}} End configuration added by Zim Framework install
@@ -181,13 +182,9 @@ exit_zsh() { exit }
 zle -N exit_zsh
 bindkey 'qq' exit_zsh
 
-# Atuin history replacement
-# Note: Loaded manually here instead of via zimfw
-# Atuin will handle up/down arrows for history search
-# Use Ctrl+R for interactive atuin search
-if command -v atuin &> /dev/null; then
-  eval "$(atuin init zsh)"
-fi
+# Note: Atuin must be initialized AFTER zsh-vi-mode to preserve keybindings
+# zsh-vi-mode resets all keybindings during initialization
+# So we initialize atuin at the very end of zshrc
 
 # Cycle through history based on characters already typed on the line
 # These will override atuin's up/down if you prefer substring search
@@ -198,6 +195,11 @@ fi
 # zle -N down-line-or-beginning-search
 # bindkey "^[[A" history-beginning-search-backward
 # bindkey "^[[B" history-beginning-search-forward
+
+# Initialize atuin NOW (after all plugins and vi-mode are loaded)
+if command -v atuin &> /dev/null; then
+  eval "$(atuin init zsh)"
+fi
 
 if [ "$ZSH_PROFILING" = 1 ];
 then
