@@ -10,7 +10,8 @@ alias tailf='tailf -f'
 zinit ice atload"cwd"
 zinit light pjvds/zsh-cwd
 
-zinit ice silent wait"1"
+# Load immediately to avoid ZLE issues
+zinit ice silent
 zinit light pjvds/zsh-cd-print
 
 # enhanced ls

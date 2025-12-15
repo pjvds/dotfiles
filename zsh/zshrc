@@ -107,15 +107,36 @@ exit_zsh() { exit }
 zle -N exit_zsh
 bindkey 'qq' exit_zsh
 
+# Use turbo mode (wait) to defer non-critical plugin loading
+# Note: "(eval):1: can't change option: zle" warnings are cosmetic and can be ignored
+zinit ice lucid wait
 zinit light Aloxaf/fzf-tab
 
 for plug in "extract"; do
+  zinit ice lucid wait
   zinit snippet OMZ::plugins/$plug/$plug.plugin.zsh
 done
 
+# Atuin history replacement
+zinit ice lucid wait'0' nocd atload'eval "$(atuin init zsh --disable-up-arrow)"' 
 zinit load atuinsh/atuin
 
 if [ "$ZSH_PROFILING" = 1 ];
 then
   zprof
 fi
+# The following lines have been added by Docker Desktop to enable Docker CLI completions.
+fpath=(/Users/pvandesande/.docker/completions $fpath)
+
+# Optimize compinit by caching and only regenerating once per day
+# This speeds up shell startup from ~6s to under 1s
+autoload -Uz compinit
+zcompdump="${ZDOTDIR:-$HOME}/.zcompdump"
+if [[ -n $zcompdump(#qN.mh+24) ]]; then
+  # Regenerate compdump if older than 24 hours
+  compinit
+else
+  # Use cached version (skip security check with -C flag)
+  compinit -C
+fi
+# End of Docker CLI completions
