@@ -1,4 +1,6 @@
 if [ ! $ZSH_NO_SSH_AGENT ]
 then
-	#zinit snippet OMZ::plugins/ssh-agent/ssh-agent.plugin.zsh
+	# SSH agent plugin disabled
+	# To enable, add to ~/.zimrc:
+	# zmodule ohmyzsh/ohmyzsh --root plugins/ssh-agent --source ssh-agent.plugin.zsh
 fi
