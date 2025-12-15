@@ -173,14 +173,6 @@ for file in $DOTFILES/**/aliases.$os.zsh; do
   [ -f $file ] && source $file
 done
 
-# Cycle through history based on characters already typed on the line
-autoload -U up-line-or-beginning-search
-autoload -U down-line-or-beginning-search
-zle -N up-line-or-beginning-search
-zle -N down-line-or-beginning-search
-bindkey "^[[A" history-beginning-search-backward
-bindkey "^[[B" history-beginning-search-forward
-
 # Enter command mode with jj
 bindkey 'jj' vi-cmd-mode
 
@@ -190,10 +182,22 @@ zle -N exit_zsh
 bindkey 'qq' exit_zsh
 
 # Atuin history replacement
-# Note: Loaded manually here instead of via zimfw to use custom options
+# Note: Loaded manually here instead of via zimfw
+# Atuin will handle up/down arrows for history search
+# Use Ctrl+R for interactive atuin search
 if command -v atuin &> /dev/null; then
-  eval "$(atuin init zsh --disable-up-arrow)"
+  eval "$(atuin init zsh)"
 fi
+
+# Cycle through history based on characters already typed on the line
+# These will override atuin's up/down if you prefer substring search
+# Uncomment if you want traditional zsh history search instead of atuin:
+# autoload -U up-line-or-beginning-search
+# autoload -U down-line-or-beginning-search
+# zle -N up-line-or-beginning-search
+# zle -N down-line-or-beginning-search
+# bindkey "^[[A" history-beginning-search-backward
+# bindkey "^[[B" history-beginning-search-forward
 
 if [ "$ZSH_PROFILING" = 1 ];
 then
