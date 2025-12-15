@@ -31,14 +31,20 @@ local function single_or_multi_select(prompt_bufnr)
 end
 
 return function(_, conf)
-	conf.defaults.path_display = {
-		filename_first = {
-			reverse_directories = false,
+	conf.defaults = {
+		path_display = {
+			filename_first = {
+				reverse_directories = false,
+			},
 		},
-	}
-
-	conf.defaults.mappings.i = {
-		["<cr>"] = single_or_multi_select,
+		file_ignore_patterns = {
+			"node_modules",
+		},
+		mappings = {
+			i = {
+				["<cr>"] = single_or_multi_select,
+			},
+		},
 	}
 
 	return conf

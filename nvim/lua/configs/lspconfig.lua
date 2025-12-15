@@ -12,7 +12,7 @@ local servers = {
 	"graphql",
 	"csharp_ls",
 	"rust_analyzer",
-	"angularls",
+	--"angularls",
 	"yamlls",
 	"terraform-ls",
 	"pyright",
