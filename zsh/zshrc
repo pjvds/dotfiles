@@ -32,32 +32,24 @@ WORDCHARS=${WORDCHARS//[\/]}
 # zsh-vi-mode
 #
 
+# Initialize immediately during sourcing instead of on first prompt
+# This ensures proper plugin load order with fzf-tab and atuin
+ZVM_INIT_MODE=sourcing
+
 # Disable lazy keybindings to prevent overriding atuin
 # We'll set atuin bindings in the after_lazy_keybindings hook instead
 ZVM_LAZY_KEYBINDINGS=false
 
-#
-# git
-#
-
-# Set a custom prefix for the generated aliases. The default prefix is 'G'.
-#zstyle ':zim:git' aliases-prefix 'g'
-
-#
-# input
-#
-
-# Append `../` to your input for each `.` you type after an initial `..`
-#zstyle ':zim:input' double-dot-expand yes
-
-#
-# termtitle
-#
-
-# Set a custom terminal title format using prompt expansion escape sequences.
-# See http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html#Simple-Prompt-Escapes
-# If none is provided, the default '%n@%m: %~' is used.
-#zstyle ':zim:termtitle' format '%1~'
+# Re-enable fzf-tab after zsh-vi-mode initializes
+# zsh-vi-mode overwrites keybindings, breaking fzf-tab's Tab binding
+function zvm_after_init() {
+  # fzf-tab is loaded via zimfw before zsh-vi-mode runs
+  # But zsh-vi-mode overwrites the Tab binding
+  # We need to call enable-fzf-tab again to restore proper bindings
+  if (( ${+functions[enable-fzf-tab]} )); then
+    enable-fzf-tab
+  fi
+}
 
 #
 # zsh-autosuggestions
@@ -66,23 +58,6 @@ ZVM_LAZY_KEYBINDINGS=false
 # Disable automatic widget re-binding on each precmd. This can be set when
 # zsh-users/zsh-autosuggestions is the last module in your ~/.zimrc.
 ZSH_AUTOSUGGEST_MANUAL_REBIND=1
-
-# Customize the style that the suggestions are shown with.
-# See https://github.com/zsh-users/zsh-autosuggestions/blob/master/README.md#suggestion-highlight-style
-#ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=242'
-
-#
-# zsh-syntax-highlighting
-#
-
-# Set what highlighters will be used.
-# See https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/docs/highlighters.md
-ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
-
-# Customize the main highlighter styles.
-# See https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/docs/highlighters/main.md#how-to-tweak-it
-#typeset -A ZSH_HIGHLIGHT_STYLES
-#ZSH_HIGHLIGHT_STYLES[comment]='fg=242'
 
 # ------------------
 # Initialize modules
@@ -108,10 +83,8 @@ fi
 source ${ZIM_HOME}/init.zsh
 # }}} End configuration added by Zim Framework install
 
-# Initialize zsh-cwd plugin (requires calling cwd function after loading)
-if (( ${+functions[cwd]} )); then
-  cwd
-fi
+# Override Zimfw completion module's menu select (conflicts with fzf-tab)
+zstyle ':completion:*' menu no
 
 export LANG="en_US.UTF-8"
 export LC_ALL="POSIX"
@@ -139,11 +112,9 @@ setopt HIST_SAVE_NO_DUPS           # Don't write duplicate entries in the histor
 setopt HIST_REDUCE_BLANKS          # Remove superfluous blanks before recording entry.
 setopt HIST_VERIFY                 # Don't execute immediately upon history expansion.
 setopt HIST_BEEP                   # Beep when accessing nonexistent history.
-setopt MENU_COMPLETE               # select first menu option automatically
+# setopt MENU_COMPLETE             # Disabled - conflicts with fzf-tab completion
 setopt NO_NOMATCH                  # stop zsh from catching ^ chars.
 setopt INTERACTIVE_COMMENTS        # allow comments in interactive shells
-
-zstyle ":completion:*" menu select # Higlight item in completion menu
 
 # Load custom dotfiles framework
 source $DOTFILES/init.zsh
