@@ -1,28 +1,6 @@
-alias rm='rm -r'
-alias .='cd $DOTFILES'
-alias .v='cd $DOTFILES && vim .'
-alias ls='ls --color'
-alias ..='cd ../'
-alias ...='cd ../../'
-alias ....='cd ../../../'
-alias tailf='tailf -f'
-
-zinit ice atload"cwd"
-zinit light pjvds/zsh-cwd
-
-# Load immediately to avoid ZLE issues
-zinit ice silent
-zinit light pjvds/zsh-cd-print
-
-# enhanced ls
-l() {
-  if [[ "$PWD" == "$HOME/Downloads" ]]; then
-    # Reverse creation-date sort
-    ls -lAh -Utr
-  else
-    ls -lah
-  fi
-}
+# Custom plugins loaded via zimfw:
+# - pjvds/zsh-cwd (with cwd command initialization)
+# - pjvds/zsh-cd-print
 
 # source .env file
 senv() {

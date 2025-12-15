@@ -1,3 +1,109 @@
+# Start configuration added by Zim Framework install {{{
+#
+# User configuration sourced by interactive shells
+#
+
+# -----------------
+# Zsh configuration
+# -----------------
+
+#
+# History
+#
+
+# Remove older command from the history if a duplicate is to be added.
+setopt HIST_IGNORE_ALL_DUPS
+
+#
+# Input/output
+#
+
+# Set editor default keymap to vi (`-v`)
+bindkey -v
+
+# Remove path separator from WORDCHARS.
+WORDCHARS=${WORDCHARS//[\/]}
+
+# --------------------
+# Module configuration
+# --------------------
+
+#
+# git
+#
+
+# Set a custom prefix for the generated aliases. The default prefix is 'G'.
+#zstyle ':zim:git' aliases-prefix 'g'
+
+#
+# input
+#
+
+# Append `../` to your input for each `.` you type after an initial `..`
+#zstyle ':zim:input' double-dot-expand yes
+
+#
+# termtitle
+#
+
+# Set a custom terminal title format using prompt expansion escape sequences.
+# See http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html#Simple-Prompt-Escapes
+# If none is provided, the default '%n@%m: %~' is used.
+#zstyle ':zim:termtitle' format '%1~'
+
+#
+# zsh-autosuggestions
+#
+
+# Disable automatic widget re-binding on each precmd. This can be set when
+# zsh-users/zsh-autosuggestions is the last module in your ~/.zimrc.
+ZSH_AUTOSUGGEST_MANUAL_REBIND=1
+
+# Customize the style that the suggestions are shown with.
+# See https://github.com/zsh-users/zsh-autosuggestions/blob/master/README.md#suggestion-highlight-style
+#ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=242'
+
+#
+# zsh-syntax-highlighting
+#
+
+# Set what highlighters will be used.
+# See https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/docs/highlighters.md
+ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
+
+# Customize the main highlighter styles.
+# See https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/docs/highlighters/main.md#how-to-tweak-it
+#typeset -A ZSH_HIGHLIGHT_STYLES
+#ZSH_HIGHLIGHT_STYLES[comment]='fg=242'
+
+# ------------------
+# Initialize modules
+# ------------------
+
+ZIM_HOME=${ZDOTDIR:-${HOME}}/.zim
+# Download zimfw plugin manager if missing.
+if [[ ! -e ${ZIM_HOME}/zimfw.zsh ]]; then
+  if (( ${+commands[curl]} )); then
+    curl -fsSL --create-dirs -o ${ZIM_HOME}/zimfw.zsh \
+        https://github.com/zimfw/zimfw/releases/latest/download/zimfw.zsh
+  else
+    mkdir -p ${ZIM_HOME} && wget -nv -O ${ZIM_HOME}/zimfw.zsh \
+        https://github.com/zimfw/zimfw/releases/latest/download/zimfw.zsh
+  fi
+fi
+# Install missing modules, and update ${ZIM_HOME}/init.zsh if missing or outdated.
+if [[ ! ${ZIM_HOME}/init.zsh -nt ${ZIM_CONFIG_FILE:-${ZDOTDIR:-${HOME}}/.zimrc} ]]; then
+  source ${ZIM_HOME}/zimfw.zsh init
+fi
+# Initialize modules.
+source ${ZIM_HOME}/init.zsh
+# }}} End configuration added by Zim Framework install
+
+# Initialize zsh-cwd plugin (requires calling cwd function after loading)
+if (( ${+functions[cwd]} )); then
+  cwd
+fi
+
 export LANG="en_US.UTF-8"
 export LC_ALL="POSIX"
 export DOTFILES=$HOME/dotfiles
@@ -30,34 +136,7 @@ setopt INTERACTIVE_COMMENTS        # allow comments in interactive shells
 
 zstyle ":completion:*" menu select # Higlight item in completion menu
 
-### Added by Zinit's installer
-if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
-    print -P "%F{33} %F{220}Installing %F{33}ZDHARMA-CONTINUUM%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
-    command mkdir -p "$HOME/.local/share/zinit" && command chmod g-rwX "$HOME/.local/share/zinit"
-    command git clone https://github.com/zdharma-continuum/zinit "$HOME/.local/share/zinit/zinit.git" && \
-        print -P "%F{33} %F{34}Installation successful.%f%b" || \
-        print -P "%F{160} The clone has failed.%f%b"
-fi
-
-source "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
-autoload -Uz _zinit
-(( ${+_comps} )) && _comps[zinit]=_zinit
-### End of Zinit's installer chunk
-autoload -Uz _zinit
-(( ${+_comps} )) && _comps[zinit]=_zinit
-
-# Optimize compinit by caching and only regenerating once per day
-# Move this BEFORE loading dotfiles for maximum benefit
-autoload -Uz compinit
-zcompdump="${ZDOTDIR:-$HOME}/.zcompdump"
-if [[ -n $zcompdump(#qN.mh+24) ]]; then
-  # Regenerate compdump if older than 24 hours
-  compinit
-else
-  # Use cached version (skip security check with -C flag)
-  compinit -C
-fi
-
+# Load custom dotfiles framework
 source $DOTFILES/init.zsh
 for file in $DOTFILES/**/preinit.zsh; do 
   [ -f $file ] && source $file
@@ -86,8 +165,6 @@ for file in $DOTFILES/**/postinit.$os.zsh; do
   [ -f $file ] && source $file
 done
 
-
-
 for file in $DOTFILES/**/aliases.zsh; do 
   [ -f $file ] && source $file
 done
@@ -108,30 +185,21 @@ bindkey "^[[B" history-beginning-search-forward
 bindkey 'jj' vi-cmd-mode
 
 # Exit terminal with qq
-bindkey 'qq' exit
-
 exit_zsh() { exit }
 zle -N exit_zsh
 bindkey 'qq' exit_zsh
 
-# Use turbo mode (wait) to defer non-critical plugin loading
-# Note: "(eval):1: can't change option: zle" warnings are cosmetic and can be ignored
-zinit ice lucid wait
-zinit light Aloxaf/fzf-tab
-
-for plug in "extract"; do
-  zinit ice lucid wait
-  zinit snippet OMZ::plugins/$plug/$plug.plugin.zsh
-done
-
 # Atuin history replacement
-zinit ice lucid wait'0' nocd atload'eval "$(atuin init zsh --disable-up-arrow)"' 
-zinit load atuinsh/atuin
+# Note: Loaded manually here instead of via zimfw to use custom options
+if command -v atuin &> /dev/null; then
+  eval "$(atuin init zsh --disable-up-arrow)"
+fi
 
 if [ "$ZSH_PROFILING" = 1 ];
 then
   zprof
 fi
+
 # The following lines have been added by Docker Desktop to enable Docker CLI completions.
 fpath=(/Users/pvandesande/.docker/completions $fpath)
 # End of Docker CLI completions
