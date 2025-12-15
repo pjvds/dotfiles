@@ -29,6 +29,14 @@ WORDCHARS=${WORDCHARS//[\/]}
 # --------------------
 
 #
+# zsh-vi-mode
+#
+
+# Disable lazy keybindings to prevent overriding atuin
+# We'll set atuin bindings in the after_lazy_keybindings hook instead
+ZVM_LAZY_KEYBINDINGS=false
+
+#
 # git
 #
 
