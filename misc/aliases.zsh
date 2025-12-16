@@ -14,6 +14,8 @@ alias jdf="cd $DOTFILES"
 alias jc="cd ~/Code"
 alias jcd="cd ~/Code/deloitte"
 
+alias rclone="docker run --volume ~/.config/rclone:/config/rclone --rm rclone/rclone:latest"
+
 # enhanced ls - use 'll' as function name to avoid conflict with zim's 'll' alias
 # Unalias ll from zim utility module first
 unalias ll 2>/dev/null
