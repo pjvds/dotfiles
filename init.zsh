@@ -50,7 +50,7 @@ link() {
     info "Linking $SOURCE to $TARGET"
 
     # Check if source exists, if so, backup
-    if [ -d $TARGET ]; then
+    if [ -d "$TARGET" ]; then
         mv "$TARGET" "${TARGET}.bak"
         warn "Existing file/directory at $TARGET moved to ${TARGET}.bak"
     fi
