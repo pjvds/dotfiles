@@ -2,22 +2,33 @@
 
 ## Critical Rules (NEVER VIOLATE)
 
-### 🚫 Git Operations - EXPLICIT PERMISSION REQUIRED
-* **NEVER** run git commands (`git add`, `git commit`, `git push`, `git reset`, `git pull`, `git rebase`, etc.) without EXPLICIT user instruction
-* **ALWAYS** provide git commands for the user to review and execute themselves
+### 🚫 Git Operations - NEVER RUN COMMANDS WITH SIDE EFFECTS
+* **NEVER** run git commands that have side effects in the repository
+* **Side-effect commands include:** `git add`, `git rm`, `git commit`, `git push`, `git reset`, `git pull`, `git rebase`, `git merge`, `git checkout`, `git switch`, `git stash`, `git cherry-pick`, `git revert`, `git tag`, `git branch -d`, etc.
+* **Read-only commands are OK:** `git status`, `git log`, `git diff`, `git show`, `git branch` (list only), `git remote -v`, etc.
+* **ALWAYS** provide side-effect git commands for the user to review and execute themselves
 * If the user says "commit this" or "add and commit" - you may proceed
 * If uncertain - ASK first, provide the command, and wait for confirmation
 
-**Why:** Git operations are permanent and can destroy work. Users must have full control.
+**Why:** Git operations with side effects are permanent and can destroy work. Users must have full control.
 
 **Examples:**
 ```
+❌ BAD:  Running `git add .` automatically after making changes
+✅ GOOD: "I've made the changes. Here's the command to stage them: `git add .`"
+
+❌ BAD:  Running `git rm file.txt` to remove a file
+✅ GOOD: "To remove this file from git, run: `git rm file.txt`"
+
 ❌ BAD:  Running `git commit -m "fix bug"` automatically
 ✅ GOOD: "Here's the command to commit: `git commit -m "fix bug"`. Would you like me to run it?"
 
 ❌ BAD:  Running `git reset --hard` to "help" undo something
 ✅ GOOD: "I see the issue. Here's a command to reset: `git reset --hard HEAD`. 
          WARNING: This will discard all uncommitted changes. Should I run it?"
+
+✅ GOOD: Running `git status` to check current state (read-only, no side effects)
+✅ GOOD: Running `git diff` to show changes (read-only, no side effects)
 ```
 
 ---
