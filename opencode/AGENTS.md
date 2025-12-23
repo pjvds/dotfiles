@@ -120,16 +120,16 @@ Which would you prefer?"
 ## When to Ask vs When to Act
 
 ### Always Ask First:
-- Git operations (add, commit, push, reset, rebase, etc.)
+- Git operations (add, rm, commit, push, reset, rebase, etc.)
 - Creating new documentation files
 - Deleting files
-- Large refactoring (>100 lines changed)
+- Large refactoring (>20 lines changed)
 - Changing configuration files (.gitignore, package.json, requirements.txt, etc.)
 - Installing new dependencies
 
 ### Generally Safe to Act:
 - Fixing bugs in existing code
-- Adding small features (<50 lines)
+- Adding small features (<10 lines)
 - Adding inline code comments
 - Running tests
 - Reading files to understand code
