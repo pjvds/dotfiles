@@ -118,11 +118,14 @@ setopt INTERACTIVE_COMMENTS        # allow comments in interactive shells
 
 # Load custom dotfiles framework
 source $DOTFILES/init.zsh
+
+# Detect OS once for all platform-specific files
+os="${$(uname):l}"
+
 for file in $DOTFILES/**/preinit.zsh; do 
   [ -f $file ] && source $file
 done
 
-os="${$(uname):l}"
 for file in $DOTFILES/**/preinit.$os.zsh; do 
   [ -f $file ] && source $file
 done
@@ -131,7 +134,6 @@ for file in $DOTFILES/**/init.zsh; do
   [ -f $file ] && source $file
 done
 
-os="${$(uname):l}"
 for file in $DOTFILES/**/init.$os.zsh; do 
   [ -f $file ] && source $file
 done
@@ -140,7 +142,6 @@ for file in $DOTFILES/**/postinit.zsh; do
   [ -f $file ] && source $file
 done
 
-os="${$(uname):l}"
 for file in $DOTFILES/**/postinit.$os.zsh; do 
   [ -f $file ] && source $file
 done
