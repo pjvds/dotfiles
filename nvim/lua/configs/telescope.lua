@@ -32,6 +32,16 @@ end
 
 return function(_, conf)
 	conf.defaults = {
+		vimgrep_arguments = {
+			"rg",
+			"--color=never",
+			"--no-heading",
+			"--with-filename",
+			"--line-number",
+			"--column",
+			"--smart-case",
+			"--hidden",
+		},
 		path_display = {
 			filename_first = {
 				reverse_directories = false,
@@ -39,6 +49,7 @@ return function(_, conf)
 		},
 		file_ignore_patterns = {
 			"node_modules",
+			".git/",
 		},
 		mappings = {
 			i = {

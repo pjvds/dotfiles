@@ -22,12 +22,9 @@ map("n", "<leader>t", function()
 end, { desc = "key mappings finder" })
 map("n", "<C-A>", "<cmd> Telescope keymaps<CR>", { desc = "key mappings finder" })
 map("n", "<leader>b", "<cmd> Telescope buffers<CR>", { desc = "buffers browser" })
-map("n", "<leader>f", "<cmd> Telescope live_grep hidden=true no_ignore=true<CR>", { desc = "search in files" })
+map("n", "<leader>f", "<cmd> Telescope live_grep<CR>", { desc = "search in files" })
 map("n", "<leader>p", function()
-	require("telescope.builtin").find_files({
-		hidden = true,
-		-- no_ignore = false,
-	})
+	require("telescope.builtin").find_files()
 end, { desc = "file finder" })
 map("n", "<leader>e", "<cmd> Telescope file_browser<CR>", { desc = "file browser" })
 map("n", "<leader>x", "<cmd> Telescope diagnostics<CR>", { desc = "diagnostic browser" })
