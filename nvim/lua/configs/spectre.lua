@@ -31,4 +31,17 @@ return function()
 			},
 		},
 	})
+
+	-- Map :w to trigger find and replace in Spectre buffers
+	vim.api.nvim_create_autocmd("FileType", {
+		pattern = "spectre_panel",
+		callback = function()
+			-- Override :w command to trigger replace
+			vim.api.nvim_buf_create_user_command(0, "Write", function()
+				require("spectre.actions").run_replace()
+			end, {})
+
+			vim.cmd([[cnoreabbrev <buffer> w Write]])
+		end,
+	})
 end
