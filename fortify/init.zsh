@@ -1,6 +1,6 @@
-#local fortify_bin="/Users/pvandesande/Applications/Fortify/Fortify_Apps_and_Tools_24.4.0/bin"
-local fortify_bin="/Users/pvandesande/Applications/Fortify/Fortify_SCA_24.4.1/bin"
-if [ ! -d $fortify_bin ]; then
+#local fortify_bin="$HOME/Applications/Fortify/Fortify_Apps_and_Tools_24.4.0/bin"
+local fortify_bin="$HOME/Applications/Fortify/Fortify_SCA_24.4.1/bin"
+if [ ! -d "$fortify_bin" ]; then
   warn "Fortify not found at $fortify_bin"
 fi
 
