@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # Start configuration added by Zim Framework install {{{
 #
 # User configuration sourced by interactive shells
@@ -39,17 +46,6 @@ ZVM_INIT_MODE=sourcing
 # Disable lazy keybindings to prevent overriding atuin
 # We'll set atuin bindings in the after_lazy_keybindings hook instead
 ZVM_LAZY_KEYBINDINGS=false
-
-# Re-enable fzf-tab after zsh-vi-mode initializes
-# zsh-vi-mode overwrites keybindings, breaking fzf-tab's Tab binding
-function zvm_after_init() {
-  # fzf-tab is loaded via zimfw before zsh-vi-mode runs
-  # But zsh-vi-mode overwrites the Tab binding
-  # We need to call enable-fzf-tab again to restore proper bindings
-  if (( ${+functions[enable-fzf-tab]} )); then
-    enable-fzf-tab
-  fi
-}
 
 #
 # zsh-autosuggestions
@@ -189,3 +185,6 @@ fi
 # The following lines have been added by Docker Desktop to enable Docker CLI completions.
 fpath=(/Users/pvandesande/.docker/completions $fpath)
 # End of Docker CLI completions
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

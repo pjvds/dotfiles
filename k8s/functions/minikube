@@ -1,0 +1,11 @@
+# Lazy-load minikube completion on first use
+# This function will be replaced by the real minikube after first invocation
+
+# Load completion
+source <(command minikube completion zsh | sed --expression='s/aliashash\["\([a-z]*\)"\]/aliashash[\1]/g')
+
+# Remove this function so subsequent calls use real minikube
+unfunction minikube
+
+# Execute the real minikube
+command minikube "$@"

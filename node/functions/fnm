@@ -1,0 +1,11 @@
+# Lazy-load fnm on first use
+# This function will be replaced after first invocation
+
+# Initialize fnm
+eval "$(command fnm env --use-on-cd --shell zsh)"
+
+# Remove this function so subsequent calls use real fnm
+unfunction fnm
+
+# Execute the real fnm
+command fnm "$@"

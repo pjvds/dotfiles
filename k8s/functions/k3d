@@ -1,0 +1,11 @@
+# Lazy-load k3d completion on first use
+# This function will be replaced by the real k3d after first invocation
+
+# Load completion
+eval "$(command k3d completion zsh)"
+
+# Remove this function so subsequent calls use real k3d
+unfunction k3d
+
+# Execute the real k3d
+command k3d "$@"

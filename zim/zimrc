@@ -68,3 +68,13 @@ zmodule ohmyzsh/ohmyzsh --root plugins/extract --source extract.plugin.zsh
 # Fish-like autosuggestions for Zsh.
 # Set ZSH_AUTOSUGGEST_MANUAL_REBIND=1 in .zshrc for performance boost.
 #zmodule zsh-users/zsh-autosuggestions
+
+#
+# Custom dotfiles modules (local)
+#
+
+# Kubernetes tools with lazy-loaded completions
+zmodule ${DOTFILES:-$HOME/dotfiles}/k8s --fpath functions --source init.zsh --autoload kubectl --autoload minikube --autoload k3d --autoload argo --autoload kubeprintsec
+
+# Node.js environment with lazy-loaded fnm
+zmodule ${DOTFILES:-$HOME/dotfiles}/node --fpath functions --source init.zsh --autoload fnm

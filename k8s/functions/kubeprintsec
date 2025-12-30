@@ -1,0 +1,2 @@
+# Print secret values decoded
+kubectl get secrets "$1" -o json | jq -r '.data | to_entries[] | "\(.key): \(.value | @base64d)"'
