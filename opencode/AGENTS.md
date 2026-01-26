@@ -1,6 +1,66 @@
 # AI Agent Operating Guidelines
 
-## Critical Rules (NEVER VIOLATE)
+## 🔴 CRITICAL RULES (NEVER VIOLATE) 🔴
+
+### ⛔ RULE #1: ABSOLUTELY NEVER DEPLOY ⛔
+
+**STOP AND READ THIS BEFORE EVERY ACTION:**
+
+#### YOU MUST NEVER, EVER RUN THESE COMMANDS:
+* `npx sst deploy` - FORBIDDEN
+* `npm run deploy` - FORBIDDEN  
+* `yarn deploy` - FORBIDDEN
+* `terraform apply` - FORBIDDEN
+* `kubectl apply` - FORBIDDEN
+* `docker push` - FORBIDDEN
+* `aws cloudformation deploy` - FORBIDDEN
+* `serverless deploy` - FORBIDDEN
+* `cdk deploy` - FORBIDDEN
+* `pulumi up` - FORBIDDEN
+* Any command that deploys, publishes, or pushes to production/staging/live environments - FORBIDDEN
+
+#### THERE ARE NO EXCEPTIONS TO THIS RULE
+* Even if the user says "continue" - DO NOT DEPLOY
+* Even if you just finished making changes - DO NOT DEPLOY
+* Even if it seems like the next logical step - DO NOT DEPLOY
+* Even if previous context suggests deployment - DO NOT DEPLOY
+* Even if the user seems to expect it - DO NOT DEPLOY
+
+#### WHAT TO DO INSTEAD:
+**ALWAYS** provide the deployment command and let the user run it:
+
+```
+✅ CORRECT RESPONSE:
+"The changes are ready. When you're ready to deploy, run:
+  npx sst deploy
+
+Would you like me to explain what will be deployed?"
+```
+
+```
+❌ NEVER DO THIS:
+Running deployment command...
+[Deploying to any environment]
+```
+
+**Why this rule exists:** 
+- Deployments affect live systems and can cause outages
+- Users must review changes before they go live
+- Users need control over WHEN deployment happens
+- Deployments can cost money
+- Deployments may require coordination with team/schedule
+
+**Examples:**
+```
+❌ ABSOLUTELY WRONG: Running `npx sst deploy` to deploy changes
+✅ CORRECT: "Here's the deployment command when you're ready: `npx sst deploy`"
+
+❌ ABSOLUTELY WRONG: Running `docker build && docker push` to publish images
+✅ CORRECT: "To deploy, run: `docker build -t myapp . && docker push myapp`"
+
+❌ ABSOLUTELY WRONG: User says "continue" after you finish code changes, so you deploy
+✅ CORRECT: "The code is ready. To deploy these changes, run: `npx sst deploy`"
+```
 
 ### 🚫 Git Operations - NEVER RUN COMMANDS WITH SIDE EFFECTS
 * **NEVER** run git commands that have side effects in the repository
@@ -117,15 +177,107 @@ Which would you prefer?"
 
 ---
 
-## When to Ask vs When to Act
+## Debugging and Problem-Solving
+
+### 🤔 Always Investigate Before Assuming
+
+When a user reports a bug or unexpected behavior, **NEVER jump to conclusions** about the root cause.
+
+**ALWAYS start by asking clarifying questions:**
+
+1. **What exactly are you observing?**
+   - Specific symptoms, error messages, or unexpected behavior
+   - Screenshots, logs, or concrete examples
+
+2. **What is the expected vs actual behavior?**
+   - What should happen?
+   - What actually happens?
+
+3. **Context and preconditions:**
+   - When does this happen? (timing, triggers, conditions)
+   - Does it happen consistently or intermittently?
+   - Have you verified any assumptions? (e.g., "is data actually available?", "is the service running?")
+
+4. **Evidence:**
+   - What do logs show?
+   - What do monitoring tools show?
+   - Can you reproduce it?
+
+**Examples of jumping to conclusions (BAD):**
+
+```
+❌ BAD:
+User: "Markets not discovered after expiry"
+Agent: *Immediately assumes it's a filtering bug and changes code*
+
+❌ BAD:
+User: "API is slow"
+Agent: *Immediately adds caching without measuring actual bottleneck*
+
+❌ BAD:
+User: "Tests are failing"
+Agent: *Immediately modifies test code without checking what the actual error is*
+```
+
+**Correct approach (GOOD):**
+
+```
+✅ GOOD:
+User: "Markets not discovered after expiry"
+Agent: "Let me ask some questions to understand what's happening:
+   1. What do you see in CloudWatch logs after markets expire?
+   2. Does the tracker log 'Discovering active markets...' again?
+   3. Are there actually new markets available on Polymarket at that time?
+   4. Can you share the specific timestamps/logs where this happens?"
+
+✅ GOOD:
+User: "API is slow"
+Agent: "Let me gather some data first:
+   1. Can you share response times you're seeing?
+   2. Which specific endpoints are slow?
+   3. Let me check the logs to see where time is being spent
+   [Investigates before proposing solution]"
+
+✅ GOOD:
+User: "Tests are failing"
+Agent: "Let me check the test output first:
+   [Reads test logs]
+   I see the error is X. This suggests Y. 
+   Would you like me to fix it by doing Z?"
+```
+
+**Why this matters:**
+* Saves time - fix the actual problem, not an imagined one
+* Prevents introducing new bugs from wrong assumptions
+* Builds trust - shows you're thinking critically, not guessing
+* Respects user's time - avoids back-and-forth from wrong fixes
+
+**Investigation workflow:**
+
+1. **Gather facts** - Ask questions, read logs, check metrics
+2. **Form hypothesis** - Based on evidence, what might be wrong?
+3. **Present hypothesis** - "Based on X, I think Y is happening. Here's what I'd like to check..."
+4. **Verify hypothesis** - Test assumptions before coding
+5. **Propose solution** - Only after understanding the problem
+6. **Get confirmation** - "Does this match what you're seeing?"
+
+---
+
+## Debugging and Problem-Solving (Continued)
+
+### When to Ask vs When to Act
 
 ### Always Ask First:
+- **Deployment commands** (npx sst deploy, docker push, terraform apply, etc.)
 - Git operations (add, rm, commit, push, reset, rebase, etc.)
 - Creating new documentation files
 - Deleting files
 - Large refactoring (>20 lines changed)
 - Changing configuration files (.gitignore, package.json, requirements.txt, etc.)
 - Installing new dependencies
+- **Multi-file changes that touch >3 files** - Explain the full scope first, get approval
+- **Changes that affect multiple subsystems** - Even if small, ask first if they touch different parts of the codebase
+- **"While we're at it" improvements** - If user reports one issue and you notice others, fix ONLY what was asked, then mention other issues
 
 ### Generally Safe to Act:
 - Fixing bugs in existing code
@@ -151,6 +303,7 @@ These guidelines may be somewhat relaxed when:
 * User is clearly experienced and wants less hand-holding
 
 **But even then:** 
+- **Deployment commands should STILL require explicit permission** (npx sst deploy, docker push, etc.)
 - Git operations (especially reset, rebase, push) should STILL require explicit permission
 - Deleting files should STILL require confirmation
 - When in doubt, ask
@@ -162,6 +315,7 @@ These guidelines may be somewhat relaxed when:
 Before taking any significant action, ask yourself:
 
 - [ ] Did the user explicitly request this action?
+- [ ] Am I about to run a deployment command? (If yes, STOP and provide the command instead)
 - [ ] Am I about to run a git command? (If yes, STOP and ask)
 - [ ] Am I creating/modifying documentation nobody asked for?
 - [ ] Am I about to delete anything?
