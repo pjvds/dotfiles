@@ -24,7 +24,20 @@ map("n", "<C-A>", "<cmd> Telescope keymaps<CR>", { desc = "key mappings finder" 
 map("n", "<leader>b", "<cmd> Telescope buffers<CR>", { desc = "buffers browser" })
 map("n", "<leader>f", "<cmd> Telescope live_grep<CR>", { desc = "search in files" })
 map("n", "<leader>p", function()
-	require("telescope.builtin").find_files()
+	-- First get normal files respecting .gitignore
+	local finders = require("telescope.finders")
+	local make_entry = require("telescope.make_entry")
+	local pickers = require("telescope.pickers")
+	local conf = require("telescope.config").values
+	
+	require("telescope.builtin").find_files({
+		hidden = true,
+		-- Override to include .env files by adding --unrestricted for .env pattern
+		find_command = {
+			"sh", "-c",
+			"rg --files --hidden --glob '!.git/' --glob '!node_modules/'; rg --files --hidden --no-ignore -g '.env*'"
+		},
+	})
 end, { desc = "file finder" })
 map("n", "<leader>e", "<cmd> Telescope file_browser<CR>", { desc = "file browser" })
 map("n", "<leader>x", "<cmd> Telescope diagnostics<CR>", { desc = "diagnostic browser" })
