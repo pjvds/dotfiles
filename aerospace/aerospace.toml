@@ -156,8 +156,8 @@ automatically-unhide-macos-hidden-apps = true
     alt-c = 'workspace 7'
     alt-v = 'workspace 8'
 
-    alt-comma = 'exec-and-forget /Users/pvandesande/dotfiles/aerospace/plugins/to_non_empty_workspace.sh prev'
-    alt-period = 'exec-and-forget /Users/pvandesande/dotfiles/aerospace/plugins/to_non_empty_workspace.sh next'
+    alt-comma = 'exec-and-forget $DOTFILES/aerospace/plugins/to_non_empty_workspace.sh prev'
+    alt-period = 'exec-and-forget $DOTFILES/aerospace/plugins/to_non_empty_workspace.sh next'
 
     alt-shift-comma = 'workspace prev'
     alt-shift-period = 'workspace next'
