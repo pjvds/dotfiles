@@ -5,7 +5,7 @@
     "pj@born2code.net",
     "pj@craftify.nl",
     "pvandesande@deloitte.nl",
-    "",
+    "ack{KC_ENT}",
     "",
     "",
     "",
@@ -116,7 +116,7 @@
       "KC_NO",
       "KC_NO",
       "KC_NO",
-      "KC_RALT",
+      "MACRO(3)",
       "LT(3,KC_ESC)",
       "KC_ENT"
     ],
