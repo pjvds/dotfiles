@@ -103,7 +103,10 @@ sketchybar --add item front_app left \
 # https://felixkratz.github.io/SketchyBar/config/events
 
 sketchybar --add item clock right \
-           --set clock update_freq=10 icon=  script="$PLUGIN_DIR/clock.sh" \
+           --set clock update_freq=10 icon=  script="$PLUGIN_DIR/clock.sh" \
+           --add item audio_output right \
+           --set audio_output script="$PLUGIN_DIR/audio_output.sh" \
+           --subscribe audio_output volume_change com.bluetooth.status.updates \
            --add item volume right \
            --set volume script="$PLUGIN_DIR/volume.sh" \
            --subscribe volume volume_change \
