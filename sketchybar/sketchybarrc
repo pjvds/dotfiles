@@ -104,6 +104,8 @@ sketchybar --add item front_app left \
 
 sketchybar --add item clock right \
            --set clock update_freq=10 icon=  script="$PLUGIN_DIR/clock.sh" \
+           --add item network right \
+           --set network update_freq=2 script="$PLUGIN_DIR/network.sh" \
            --add item audio_output right \
            --set audio_output \
                  script="$PLUGIN_DIR/audio_output.sh" \
