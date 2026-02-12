@@ -1,0 +1,5 @@
+export CURL_CA_BUNDLE="/opt/homebrew/etc/ca-certificates/cert.pem"
+export NODE_EXTRA_CA_CERTS="/Library/Application Support/Netskope/STAgent/data/nscacert.pem"
+export NODE_USE_SYSTEM_CA="1"
+export REQUESTS_CA_BUNDLE="/opt/homebrew/etc/ca-certificates/cert.pem"
+export SSL_CERT_FILE="/opt/homebrew/etc/ca-certificates/cert.pem"
