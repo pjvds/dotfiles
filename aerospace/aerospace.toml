@@ -122,7 +122,12 @@ automatically-unhide-macos-hidden-apps = true
     # Use single-instance mode for faster window creation
     # If no kitty is running, this will start one. Otherwise it creates a new OS window instantly.
     alt-enter = '''exec-and-forget kitty --single-instance'''
-    alt-shift-enter = '''exec-and-forget open -na "$HOME/Applications/Arc.app"'''
+    alt-shift-enter = '''exec-and-forget osascript -e '
+      tell application "Arc"
+         make new window
+         activate
+      end tell'
+    '''
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#layout
     alt-leftSquareBracket = 'layout tiles horizontal vertical'
