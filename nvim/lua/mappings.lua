@@ -99,3 +99,16 @@ map(
 	{ desc = "Search on current file" }
 )
 
+-- Slint live preview - smart keybinding
+-- In .slint files: opens live preview
+-- In other files: shows code actions
+map("n", "<leader>lp", function()
+	if vim.bo.filetype == "slint" then
+		-- In slint files, trigger code action which will show "Show Preview"
+		vim.lsp.buf.code_action()
+	else
+		-- In other files, just show regular code actions
+		vim.lsp.buf.code_action()
+	end
+end, { desc = "Slint: Live Preview (or code actions)" })
+

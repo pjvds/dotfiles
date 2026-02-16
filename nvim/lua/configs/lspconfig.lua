@@ -16,6 +16,7 @@ local servers = {
 	"yamlls",
 	"terraform-ls",
 	"pyright",
+	"slint_lsp", -- Slint UI language server
 }
 
 -- lsps with default config
