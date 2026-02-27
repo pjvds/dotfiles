@@ -125,7 +125,8 @@ automatically-unhide-macos-hidden-apps = true
 
     alt-shift-enter = '''exec-and-forget $HOME/Applications/Zen.app/Contents/MacOS/zen --new-window'''
 
-    alt-ctrl-enter = '''exec-and-forget $DOTFILES/aerospace/plugins/open_centered_finder.sh'''
+    alt-b = '''exec-and-forget $HOME/Applications/Zen.app/Contents/MacOS/zen --new-window'''
+    alt-o = 'exec-and-forget $DOTFILES/aerospace/plugins/open_centered_finder.sh'
     
     # Open new browser window in Arc
     #alt-shift-enter = '''exec-and-forget osascript -e '
