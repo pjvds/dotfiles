@@ -47,7 +47,24 @@
           "/private/tmp": "allow",
           "/private/tmp/*": "allow",
           "env:$TMPDIR": "allow",
-          "env:$TMPDIR/*": "allow"
+          "env:$TMPDIR/*": "allow",
+          "$HOME/code": "allow"
+        }
+      }
+    },
+    "build": {
+      "plan": {
+        "permission": {
+          "external_directory": {
+            "*": "ask",
+            "/tmp": "allow",
+            "/tmp/*": "allow",
+            "/private/tmp": "allow",
+            "/private/tmp/*": "allow",
+            "env:$TMPDIR": "allow",
+            "env:$TMPDIR/*": "allow",
+            "$HOME/code": "allow"
+          }
         }
       }
     }
