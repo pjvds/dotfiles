@@ -1,5 +1,39 @@
 {
   "$schema": "https://opencode.ai/config.json",
+  "mcp": {
+    "ado-dttnl-tax-ita": {
+      "type": "local",
+      "command": [
+        "bunx",
+        "-y",
+        "@azure-devops/mcp",
+        "dttnl-tax-ita",
+        "-d",
+        "core",
+        "work",
+        "work-items",
+        "repositories",
+        "pipelines"
+      ],
+      "enabled": false
+    },
+    "ado-ra-tes": {
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "@azure-devops/mcp",
+        "ra-tes",
+        "-d",
+        "core",
+        "work",
+        "work-items",
+        "repositories",
+        "pipelines"
+      ],
+      "enabled": false
+    }
+  },
   "agent": {
     "plan": {
       "permission": {
