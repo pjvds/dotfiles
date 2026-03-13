@@ -1,0 +1,7 @@
+=== Baseline shell startup ===
+zsh -i -c exit  0.11s user 0.39s system 51% cpu 0.982 total
+=== Current tool versions ===
+git version 2.53.0
+NVIM v0.11.6
+v25.8.1
+Python 3.14.3
