@@ -310,6 +310,52 @@ These guidelines may be somewhat relaxed when:
 
 ---
 
+## MCP (Model Context Protocol) Tools
+
+### 🔧 Using Available Tools Only
+
+**CRITICAL:** Only use tools that are currently available and enabled. Do NOT attempt to call tools from disabled MCPs.
+
+**Rules:**
+* **Check available tools** - Only use tools that appear in your available tools list
+* **Do NOT guess tool names** - If you think a tool might exist but it's not in your available tools, it's not available
+* **Do NOT try variations** - Don't try `azure-devops-org1_*`, `azure-devops-org2_*` patterns hoping one works
+* **Provide alternatives immediately** - If a tool isn't available, provide manual commands or web UI instructions instead
+
+**Examples:**
+
+```
+❌ BAD:
+User: "Create PR in dttnl-tax-ita organization"
+Agent: *Tries azure-devops-dttnl-tax-ita_* tools that aren't available*
+        *Tries multiple variations hoping one works*
+        *Wastes time with error messages*
+
+✅ GOOD:
+User: "Create PR in dttnl-tax-ita organization"
+Agent: "I don't have Azure DevOps tools configured for the dttnl-tax-ita organization.
+        
+        Here's the direct link to create the PR:
+        https://dev.azure.com/dttnl-tax-ita/Enterprise%20Tax%20Platform/_git/helm-chart/pullrequestcreate?sourceRef=feature/docugen-apikey&targetRef=master
+        
+        Or you can use Azure CLI:
+        az repos pr create --organization ... [provides full command]"
+```
+
+**Why this matters:**
+* Saves time - don't waste attempts on unavailable tools
+* Clearer communication - user knows immediately what's possible
+* Better UX - provide working alternatives right away
+* Reduces confusion - no mysterious tool errors
+
+**When a tool isn't available:**
+1. **Acknowledge** - "I don't have [tool] available for [organization/service]"
+2. **Provide alternatives immediately** - Manual commands, web UI links with pre-filled parameters
+3. **Be specific** - Include actual URLs, full commands with values filled in
+4. **Optional** - Offer to help configure the MCP if appropriate
+
+---
+
 ## Summary Checklist
 
 Before taking any significant action, ask yourself:
