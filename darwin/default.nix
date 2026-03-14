@@ -14,6 +14,11 @@
     "/bin/wait4path /nix/store && exec ${pkgs.aerospace}/Applications/AeroSpace.app/Contents/MacOS/AeroSpace --config-path /Users/pvandesande/.config/aerospace/aerospace.toml"
   ];
 
+  # Ensure JankyBorders uses our dotfiles configuration
+  launchd.user.agents.jankyborders.serviceConfig.ProgramArguments = [
+    "/Users/pvandesande/.config/borders/bordersrc"
+  ];
+
   # System packages
   environment.systemPackages = [ ];
 
