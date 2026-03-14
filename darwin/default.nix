@@ -21,6 +21,13 @@
     "PATH=/run/current-system/sw/bin:/usr/bin:/bin:/usr/sbin:/sbin exec /Users/pvandesande/.config/borders/bordersrc"
   ];
 
+  # Ensure SketchyBar has the correct PATH to find aerospace and jq
+  launchd.user.agents.sketchybar.serviceConfig.ProgramArguments = lib.mkForce [
+    "/bin/sh"
+    "-c"
+    "PATH=/run/current-system/sw/bin:/usr/bin:/bin:/usr/sbin:/sbin exec ${pkgs.sketchybar}/bin/sketchybar"
+  ];
+
   # System packages
   environment.systemPackages = [ ];
 
