@@ -9,7 +9,7 @@
     jq
     ncdu
     ripgrep
-    the_silver_searcher
+    silver-searcher
     tig
     tldr
     tree
@@ -44,10 +44,9 @@
     google-cloud-sdk
     kubectl
     kubectx
-    kubens
     k9s
-    helm
+    kubernetes-helm
     k3d
-    argo
+    argo-workflows
   ];
 }
