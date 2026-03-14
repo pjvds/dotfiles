@@ -13,20 +13,23 @@ if [ "$EUID" -eq 0 ]; then
     exit 1
 fi
 
-# Check if nix-darwin is installed
-if ! command -v darwin-rebuild &> /dev/null; then
-    echo "❌ Error: nix-darwin is not installed. Please run './bootstrap.sh' first."
+# Check if home-manager is installed
+if ! command -v home-manager &> /dev/null; then
+    echo "❌ Error: home-manager is not installed."
+    echo "    Please run './update-system.sh' first to install home-manager."
     exit 1
 fi
 
-# Get the current machine's hostname dynamically for the flake configuration
-MACHINE_HOSTNAME=$(hostname -s)
+# Get configuration name
+USERNAME=$(whoami)
+HOSTNAME=$(hostname -s)
 
-echo "🔄 Applying Nix configuration changes..."
+echo "🔄 Applying user configuration changes (dotfiles & packages)..."
+echo "💡 No sudo required - this only updates your user-level configs."
 
-# darwin-rebuild always requires sudo for system activation on recent versions
-# So we just request it upfront to avoid failed attempts
-echo "🔑 Requesting sudo for system activation..."
-sudo darwin-rebuild switch --flake "${DOTFILES_DIR}#${MACHINE_HOSTNAME}"
+# Run home-manager switch (no sudo needed!)
+home-manager switch --flake "${DOTFILES_DIR}#${USERNAME}@${HOSTNAME}"
 
-echo "✅ Configuration applied successfully!"
+echo "✅ User configuration applied successfully!"
+echo ""
+echo "💡 If you changed system settings (darwin/default.nix), run './update-system.sh' instead."
