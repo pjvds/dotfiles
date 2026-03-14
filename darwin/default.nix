@@ -97,8 +97,6 @@
 
     # GUI Applications (Casks)
     casks = [
-      "alt-tab"
-      "android-studio"
       "arc"
       "aws-vault-binary"
       "cursorcerer"
