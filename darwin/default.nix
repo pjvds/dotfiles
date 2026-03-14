@@ -2,17 +2,20 @@
   # System packages
   environment.systemPackages = [ ];
 
-  # Enable Touch ID for sudo
-  security.pam.enableSudoTouchIdAuth = true;
+  # Enable Touch ID for sudo (new syntax)
+  security.pam.services.sudo_local.touchIdAuth = true;
 
-  # Auto upgrade nix package and the daemon service
-  services.nix-daemon.enable = true;
+  # Enable nix
+  nix.enable = true;
   
   # Nix settings
   nix.settings = {
     experimental-features = "nix-command flakes";
     trusted-users = [ "@admin" ];
   };
+
+  # Set primary user for system defaults to apply correctly
+  system.primaryUser = "pvandesande";
 
   # macOS system defaults
   system.defaults = {
