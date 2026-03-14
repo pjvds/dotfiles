@@ -22,8 +22,40 @@
 
   # macOS system defaults
   system.defaults = {
-    dock.autohide = true;
-    finder.AppleShowAllExtensions = true;
+    # Dock (Application Bar)
+    dock = {
+      autohide = true;
+      tilesize = 16;
+      show-recents = false;
+      magnification = true;
+      largesize = 64;  # Magnified icon size
+    };
+
+    # Finder
+    finder = {
+      AppleShowAllExtensions = true;
+      FXPreferredViewStyle = "Nlsv";  # List view
+      ShowPathbar = true;
+      FXDefaultSearchScope = "SCcf";  # Search current folder by default
+      FXEnableExtensionChangeWarning = false;  # Disable extension change warning
+    };
+
+    # Global macOS settings
+    NSGlobalDomain = {
+      # Menu Bar (Top Bar)
+      _HIHideMenuBar = true;
+      
+      # Keyboard - Enable key repeat for Vim
+      ApplePressAndHoldEnabled = false;
+      
+      # Appearance
+      AppleInterfaceStyle = "Dark";  # Force Dark Mode
+    };
+
+    # Trackpad
+    trackpad = {
+      Clicking = true;  # Tap to click
+    };
   };
 
   # Set system state version
