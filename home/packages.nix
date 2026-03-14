@@ -48,5 +48,9 @@
     kubernetes-helm
     k3d
     argo-workflows
+    # Window Management & UI
+    aerospace
+    sketchybar
+    jankyborders
   ];
 }
