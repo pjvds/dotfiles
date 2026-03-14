@@ -10,10 +10,17 @@
     homeDirectory = "/Users/pvandesande";
     stateVersion = "24.11";
     
-    # Empty packages for now
-    packages = [ ];
+    # Packages to install
+    packages = with pkgs; [
+      opencode
+    ];
   };
 
   # Let Home Manager install and manage itself
   programs.home-manager.enable = true;
+
+  # Disable manual/documentation generation to speed up rebuilds
+  manual.manpages.enable = false;
+  manual.html.enable = false;
+  manual.json.enable = false;
 }
