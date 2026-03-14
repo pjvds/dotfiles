@@ -26,3 +26,4 @@ zmk/__pycache__
 
 # qml build dir
 qmk/build
+result
