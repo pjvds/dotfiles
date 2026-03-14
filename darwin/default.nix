@@ -29,6 +29,9 @@
   # Set system state version
   system.stateVersion = 5;
 
+  # Disable documentation builds to speed up rebuilds
+  documentation.enable = false;
+
   # User configuration
   users.users.pvandesande = {
     name = "pvandesande";
