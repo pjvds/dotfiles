@@ -1,4 +1,9 @@
 { config, pkgs, ... }: {
+  # Import program-specific configurations
+  imports = [
+    ./programs/opencode.nix
+  ];
+
   # Home Manager needs a bit of information about you and the paths it should manage
   home = {
     username = "pvandesande";
