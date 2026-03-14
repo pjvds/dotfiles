@@ -1,6 +1,7 @@
 { config, pkgs, ... }: {
   # Import program-specific configurations
   imports = [
+    ./packages.nix
     ./programs/opencode.nix
     ./programs/zsh.nix
     ./programs/git.nix

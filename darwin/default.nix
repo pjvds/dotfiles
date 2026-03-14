@@ -58,6 +58,83 @@
     };
   };
 
+  # Enable Homebrew management
+  homebrew = {
+    enable = true;
+    onActivation = {
+      autoUpdate = true;
+      cleanup = "zap"; # Removes unlisted formulas and casks
+      upgrade = true;
+    };
+
+    taps = [
+      "felixkratz/formulae"
+      "nikitabobko/tap"
+    ];
+
+    # GUI Applications (Casks)
+    casks = [
+      "adobe-acrobat-reader"
+      "aerospace"
+      "alt-tab"
+      "android-studio"
+      "arc"
+      "aws-vault-binary"
+      "beekeeper-studio"
+      "brave-browser"
+      "caffeine"
+      "commander-one"
+      "cursorcerer"
+      "cyberduck"
+      "datagrip"
+      "deckset"
+      "discord"
+      "evernote"
+      "firefox"
+      "forklift"
+      "ghostty"
+      "github"
+      "google-chrome"
+      "hiddenbar"
+      "intellij-idea"
+      "iterm2"
+      "keepingyouawake"
+      "kitty"
+      "lm-studio"
+      "maccy"
+      "menumeters"
+      "microsoft-azure-storage-explorer"
+      "microsoft-edge"
+      "obs"
+      "obsidian"
+      "philips-hue-sync"
+      "proton-mail"
+      "proton-pass"
+      "protonvpn"
+      "qmk-toolbox"
+      "qutebrowser"
+      "raycast"
+      "rider"
+      "shortcat"
+      "shottr"
+      "sonos"
+      "visual-studio-code"
+      "zen"
+      "zwift"
+      
+      # Fonts
+      "font-fira-code-nerd-font"
+      "font-hack-nerd-font"
+      "font-inconsolata"
+      "font-iosevka-nerd-font"
+      "font-jetbrains-mono-nerd-font"
+      "font-monaspace"
+      "font-monaspice-nerd-font"
+      "font-sf-pro"
+      "font-sketchybar-app-font"
+    ];
+  };
+
   # Set system state version
   system.stateVersion = 5;
 
