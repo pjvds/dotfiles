@@ -1,4 +1,12 @@
 { config, pkgs, ... }: {
+  # Time Zone
+  time.timeZone = "Europe/Amsterdam";
+
+  # Window Management Services
+  services.aerospace.enable = true;
+  services.sketchybar.enable = true;
+  services.jankyborders.enable = true;
+
   # System packages
   environment.systemPackages = [ ];
 
@@ -38,6 +46,7 @@
       ShowPathbar = true;
       FXDefaultSearchScope = "SCcf";  # Search current folder by default
       FXEnableExtensionChangeWarning = false;  # Disable extension change warning
+      _FXSortFoldersFirst = true;
     };
 
     # Global macOS settings
@@ -74,19 +83,12 @@
 
     # GUI Applications (Casks)
     casks = [
-      "adobe-acrobat-reader"
-      "aerospace"
       "alt-tab"
       "android-studio"
       "arc"
       "aws-vault-binary"
-      "beekeeper-studio"
-      "brave-browser"
-      "caffeine"
-      "commander-one"
       "cursorcerer"
       "cyberduck"
-      "datagrip"
       "deckset"
       "discord"
       "evernote"
@@ -98,7 +100,6 @@
       "hiddenbar"
       "intellij-idea"
       "iterm2"
-      "keepingyouawake"
       "kitty"
       "lm-studio"
       "maccy"
@@ -112,7 +113,6 @@
       "proton-pass"
       "protonvpn"
       "qmk-toolbox"
-      "qutebrowser"
       "raycast"
       "rider"
       "shortcat"
