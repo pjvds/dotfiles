@@ -10,18 +10,21 @@ fi
 # Check if we're running as root (not recommended)
 if [ "$EUID" -eq 0 ]; then
     echo "⚠️  Warning: This script should not be run as root. Please run as your normal user."
-    echo "    The script will request sudo only when needed for system activation."
+    echo "    The script will request sudo when needed for system activation."
     exit 1
 fi
 
 echo "🚀 Starting Nix & nix-darwin bootstrap process..."
+echo ""
+echo "ℹ️  This script is for initial setup only. Once bootstrapped, use './update.sh' for applying config changes."
+echo ""
 
 # 1. Install Nix package manager if not present
 if ! command -v nix &> /dev/null; then
-    echo "📦 Nix is not installed. Installing via Determinate Systems..."
+    echo "📦 Installing Nix via Determinate Systems..."
     curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install --no-confirm
 else
-    echo "✅ Nix is already installed. Skipping installation."
+    echo "✅ Nix is already installed."
 fi
 
 # 2. Source the Nix profile to make the `nix` command available in the current shell session
@@ -42,33 +45,24 @@ fi
 # 3. Get the current machine's hostname dynamically for the flake configuration
 MACHINE_HOSTNAME=$(hostname -s)
 
-echo "💻 Target machine configuration: ${MACHINE_HOSTNAME}"
+echo "💻 Target machine: ${MACHINE_HOSTNAME}"
 
-# Pre-authenticate sudo to avoid multiple password prompts during system activation
-echo "🔑 System activation requires sudo privileges. Authenticating now..."
-sudo -v
-
-# Keep sudo alive in background while script runs
-( while true; do sudo -n true; sleep 50; kill -0 "$$" || exit; done 2>/dev/null ) &
-SUDO_KEEPALIVE_PID=$!
-
-# Cleanup function to kill the sudo keepalive background process
-cleanup() {
-    kill "$SUDO_KEEPALIVE_PID" 2>/dev/null || true
-}
-trap cleanup EXIT
-
-# 4. Bootstrap or Rebuild nix-darwin
+# 4. Bootstrap nix-darwin (only runs if not already installed)
 if ! command -v darwin-rebuild &> /dev/null; then
-    echo "🍏 nix-darwin not detected. Bootstrapping for the first time..."
+    echo "🍏 Bootstrapping nix-darwin for the first time..."
+    echo "🔑 Requesting sudo for system activation (Touch ID, system defaults, etc.)"
     
     # Run the bootstrap command as root (required by nix-darwin)
     sudo $(which nix) run nix-darwin -- switch --flake "${DOTFILES_DIR}#${MACHINE_HOSTNAME}"
-else
-    echo "🍏 nix-darwin is already installed. Rebuilding system..."
     
-    # darwin-rebuild requires root for system activation
-    sudo darwin-rebuild switch --flake "${DOTFILES_DIR}#${MACHINE_HOSTNAME}"
+    echo ""
+    echo "🎉 Bootstrap complete!"
+    echo ""
+    echo "Next steps:"
+    echo "  1. Restart your terminal to load the new environment"
+    echo "  2. Use './update.sh' to apply future configuration changes"
+else
+    echo "✅ nix-darwin is already installed."
+    echo ""
+    echo "💡 Use './update.sh' to apply configuration changes instead."
 fi
-
-echo "🎉 Bootstrap complete!"
