@@ -97,6 +97,7 @@
 
     # GUI Applications (Casks)
     casks = [
+      "alt-tab"
       "arc"
       "aws-vault-binary"
       "cursorcerer"
