@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, lib, ... }: {
   # Time Zone
   time.timeZone = "Europe/Amsterdam";
 
@@ -8,14 +8,14 @@
   services.jankyborders.enable = true;
 
   # Ensure AeroSpace uses our dotfiles configuration
-  launchd.user.agents.aerospace.serviceConfig.ProgramArguments = [
+  launchd.user.agents.aerospace.serviceConfig.ProgramArguments = lib.mkForce [
     "/bin/sh"
     "-c"
     "/bin/wait4path /nix/store && exec ${pkgs.aerospace}/Applications/AeroSpace.app/Contents/MacOS/AeroSpace --config-path /Users/pvandesande/.config/aerospace/aerospace.toml"
   ];
 
   # Ensure JankyBorders uses our dotfiles configuration
-  launchd.user.agents.jankyborders.serviceConfig.ProgramArguments = [
+  launchd.user.agents.jankyborders.serviceConfig.ProgramArguments = lib.mkForce [
     "/Users/pvandesande/.config/borders/bordersrc"
   ];
 
