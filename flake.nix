@@ -15,21 +15,27 @@
     };
   };
 
-  outputs = inputs@{ self, nixpkgs, nix-darwin, home-manager }: {
-    # macOS configuration
-    darwinConfigurations."NL-F2T6KVCQ3G" = nix-darwin.lib.darwinSystem {
+  outputs = inputs@{ self, nixpkgs, nix-darwin, home-manager }: 
+    let
+      username = "pvandesande";
+      hostname = "NL-F2T6KVCQ3G";
       system = "aarch64-darwin";
-      modules = [
-        ./darwin
-        home-manager.darwinModules.home-manager
-        {
-          home-manager = {
-            useGlobalPkgs = true;
-            useUserPackages = true;
-            users.pvandesande = import ./home;
-          };
-        }
-      ];
+    in
+    {
+      # macOS system configuration (requires sudo)
+      darwinConfigurations.${hostname} = nix-darwin.lib.darwinSystem {
+        inherit system;
+        modules = [
+          ./darwin
+        ];
+      };
+
+      # Home Manager user configuration (no sudo required)
+      homeConfigurations."${username}@${hostname}" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.${system};
+        modules = [
+          ./home
+        ];
+      };
     };
-  };
 }
