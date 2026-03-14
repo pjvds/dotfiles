@@ -85,7 +85,7 @@ automatically-unhide-macos-hidden-apps = true
     inherit-env-vars = true # If you don't touch "exec" section,
 
 [exec.env-vars] # it will fallback to "default-config.toml"
-    PATH = '/opt/homebrew/bin:/opt/homebrew/sbin:${PATH}'
+    PATH = '/run/current-system/sw/bin:/opt/homebrew/bin:/opt/homebrew/sbin:${PATH}'
 
 # 'main' binding mode declaration
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
