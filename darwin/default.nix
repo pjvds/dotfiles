@@ -16,7 +16,9 @@
 
   # Ensure JankyBorders uses our dotfiles configuration
   launchd.user.agents.jankyborders.serviceConfig.ProgramArguments = lib.mkForce [
-    "/Users/pvandesande/.config/borders/bordersrc"
+    "/bin/sh"
+    "-c"
+    "PATH=/run/current-system/sw/bin:/usr/bin:/bin:/usr/sbin:/sbin exec /Users/pvandesande/.config/borders/bordersrc"
   ];
 
   # System packages
