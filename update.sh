@@ -28,7 +28,8 @@ echo "🔄 Applying user configuration changes (dotfiles & packages)..."
 echo "💡 No sudo required - this only updates your user-level configs."
 
 # Run home-manager switch (no sudo needed!)
-home-manager switch --flake "${DOTFILES_DIR}#${USERNAME}@${HOSTNAME}"
+# Added -b backup to handle existing files (like .zshrc) by backing them up
+home-manager switch -b backup --flake "${DOTFILES_DIR}#${USERNAME}@${HOSTNAME}"
 
 echo "✅ User configuration applied successfully!"
 echo ""
