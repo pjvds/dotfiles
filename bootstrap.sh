@@ -47,7 +47,8 @@ if ! command -v darwin-rebuild &> /dev/null; then
 else
     echo "🍏 nix-darwin is already installed. Rebuilding system..."
     # If it's already installed, darwin-rebuild switch is sufficient
-    darwin-rebuild switch --flake "${DOTFILES_DIR}#${MACHINE_HOSTNAME}"
+    # (still requires sudo due to recent nix-darwin changes)
+    sudo darwin-rebuild switch --flake "${DOTFILES_DIR}#${MACHINE_HOSTNAME}"
 fi
 
 echo "🎉 Bootstrap complete!"
