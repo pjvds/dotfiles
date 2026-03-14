@@ -20,6 +20,10 @@ fi
 # 2. Source the Nix profile to make the `nix` command available in the current shell session
 if [ -e "/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh" ]; then
     . "/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh"
+else
+    echo "❌ Error: Nix profile script not found at /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh"
+    echo "    This usually means the Nix installation failed or is incomplete."
+    exit 1
 fi
 
 # Ensure nix is actually in PATH now
