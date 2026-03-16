@@ -1,4 +1,50 @@
-{ config, pkgs, lib, ... }: {
+{ config, pkgs, lib, ... }: 
+let
+  dotfiles = "${config.home.homeDirectory}/dotfiles";
+  
+  # Blacklist of files that cause P10k warnings or are redundant in Nix
+  blacklist = [
+    "p10k/init.zsh"
+    "fzf/init.darwin.zsh"
+    "psql/init.darwin.zsh"
+    "homebrew/preinit.darwin.zsh"
+    "nix/postinit.darwin.zsh"
+    "fzf/init.zsh"
+    "node/init.zsh" # We'll manage node environment explicitly
+    "k8s/init.zsh"  # We'll manage k8s environment explicitly
+  ];
+
+  # Helper to find all relevant .zsh files in the dotfiles directory
+  # while respecting platform-specific logic and excluding the blacklist.
+  findZshFiles = pattern: let
+    # We use builtins.readDir and recursive search starting from ./../../
+    # This allows Nix to see the files within the flake's context.
+    dotfilesRoot = ./../..;
+    
+    # Recursively list all files in the dotfiles directory
+    allFiles = lib.filesystem.listFilesRecursive dotfilesRoot;
+    
+    # Filter for files matching the pattern (e.g., "init.zsh" or "init.darwin.zsh")
+    matches = file: let 
+      relPath = lib.removePrefix "${toString dotfilesRoot}/" (toString file);
+      baseName = builtins.baseNameOf (toString file);
+    in 
+      (lib.hasSuffix "${pattern}.zsh" baseName || lib.hasSuffix "${pattern}.darwin.zsh" baseName)
+      && !(lib.hasInfix ".linux.zsh" baseName)
+      && !(builtins.elem relPath blacklist)
+      && !(lib.hasInfix "/home/" relPath) # Don't source nix-managed home files
+      && !(lib.hasPrefix "." relPath);   # Don't source hidden directories
+  in
+    builtins.filter matches allFiles;
+
+  # Create the source commands for a specific module type (init, aliases, etc.)
+  # We use the absolute path in the resulting shell script so it works at runtime.
+  mkSourceCommands = type: lib.concatMapStringsSep "\n" (file: let
+    relPath = lib.removePrefix "${toString ./../..}/" (toString file);
+  in "source ${dotfiles}/${relPath}") (findZshFiles type);
+
+
+in {
   programs.zsh = {
     enable = true;
     enableCompletion = true;
@@ -14,116 +60,93 @@
     };
 
     shellAliases = {
-      # Add your core aliases here - we can migrate others later
-      # ll = "ls -l"; # Removed to allow legacy function to take precedence
       ".." = "cd ..";
     };
 
-    initContent = lib.mkMerge [
-      (lib.mkBefore ''
-        # Powerlevel10k instant prompt
-        if [[ -r "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh" ]]; then
-          source "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh"
-        fi
-      '')
-      (lib.mkAfter ''
-        # Post-plugin configuration (including atuin)
-        
-        # Ensure atuin is initialized after all other plugins (especially zsh-vi-mode)
-        if [[ $options[zle] = on ]]; then
-          eval "$(atuin init zsh)"
-        fi
+    initExtraFirst = ''
+      # Powerlevel10k instant prompt
+      if [[ -r "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh" ]]; then
+        source "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh"
+      fi
 
-        # Final p10k source to ensure prompt is correct
-        [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-        
-        # bun completions
-        [ -s "/Users/pvandesande/.bun/_bun" ] && source "/Users/pvandesande/.bun/_bun"
-      '')
-      ''
-        # Set DOTFILES variable
-        export DOTFILES=$HOME/dotfiles
-        export DOTFILES_HOME=$DOTFILES
+      # Fix for gitstatus initialization (sometimes required in Nix)
+      typeset -g POWERLEVEL9K_GITSTATUS_DIR="${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/gitstatus"
+    '';
 
-        # Environment settings from old zshrc
-        export LANG="en_US.UTF-8"
-        export LC_ALL="POSIX"
-        WORDCHARS=''${WORDCHARS//[\/]}
+    initExtra = ''
+      # Set DOTFILES variable
+      export DOTFILES=$HOME/dotfiles
+      export DOTFILES_HOME=$DOTFILES
 
-        # Powerlevel10k config (sourced here and in mkAfter for safety)
-        [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+      # Environment settings from old zshrc
+      export LANG="en_US.UTF-8"
+      export LC_ALL="POSIX"
+      
+      # Vi mode configuration
+      bindkey -v
+      bindkey 'jj' vi-cmd-mode
+      
+      # Additional settings
+      setopt INTERACTIVE_COMMENTS
+      setopt NO_NOMATCH
+      setopt BANG_HIST
+      
+      # fzf-tab configuration
+      zstyle ':completion:*' menu no
+      zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls -1 --color=always $realpath'
+      zstyle ':fzf-tab:*' fzf-command fzf
+      
+      # History settings
+      setopt EXTENDED_HISTORY
+      setopt INC_APPEND_HISTORY
+      setopt SHARE_HISTORY
+      setopt HIST_EXPIRE_DUPS_FIRST
+      setopt HIST_IGNORE_DUPS
+      setopt HIST_IGNORE_ALL_DUPS
+      setopt HIST_FIND_NO_DUPS
+      setopt HIST_IGNORE_SPACE
+      setopt HIST_SAVE_NO_DUPS
+      setopt HIST_REDUCE_BLANKS
+      setopt HIST_VERIFY
+      setopt HIST_BEEP
 
-        # Vi mode configuration
-        bindkey -v
-        bindkey 'jj' vi-cmd-mode
-        
-        # Additional settings
-        setopt INTERACTIVE_COMMENTS
-        setopt NO_NOMATCH
-        setopt BANG_HIST
-        
-        # Override completion menu for fzf-tab
-        zstyle ':completion:*' menu no
-        zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls -1 --color=always $realpath'
-        zstyle ':fzf-tab:*' fzf-command fzf
-        setopt EXTENDED_HISTORY
-        setopt INC_APPEND_HISTORY
-        setopt SHARE_HISTORY
-        setopt HIST_EXPIRE_DUPS_FIRST
-        setopt HIST_IGNORE_DUPS
-        setopt HIST_IGNORE_ALL_DUPS
-        setopt HIST_FIND_NO_DUPS
-        setopt HIST_IGNORE_SPACE
-        setopt HIST_SAVE_NO_DUPS
-        setopt HIST_REDUCE_BLANKS
-        setopt HIST_VERIFY
-        setopt HIST_BEEP
+      # --- Automated Cohesive Modules (Discovered at build time) ---
+      ${mkSourceCommands "preinit"}
+      ${mkSourceCommands "init"}
+      ${mkSourceCommands "postinit"}
+      ${mkSourceCommands "aliases"}
 
-        # --- Legacy Dotfiles Loader ---
-        # This replicates the logic from the old zshrc to support existing modules
-        
-        # Load custom dotfiles framework
-        source $DOTFILES/init.zsh
+      # --- Manual Overrides & Integrations ---
+      
+      # Manual Alias definitions to restore Zim Utility functionality
+      if [[ -z ''${NO_COLOR} ]]; then
+        export CLICOLOR=1
+        export LSCOLORS="ExfxcxdxbxGxDxabagacad" 
+        alias grep='grep --color=auto'
+      fi
 
-        # Modules managed by Nix (previously Zim)
-        # We skip these in the glob loader to avoid double-loading or conflicts
-        NIX_MANAGED_MODULES=(k8s node)
-
-        _is_nix_managed() {
-          local file=$1
-          for mod in $NIX_MANAGED_MODULES; do
-            [[ "$file" == *"/$mod/"* ]] && return 0
-          done
-          return 1
-        }
-
-        # Detect OS once for all platform-specific files
-        os="''${$(uname):l}"
-
-        # Sourcing loop for legacy modules (restored from backup)
-        for file in $DOTFILES/**/preinit.zsh; do _is_nix_managed "$file" || { [ -f $file ] && source $file }; done
-        for file in $DOTFILES/**/preinit.$os.zsh; do _is_nix_managed "$file" || { [ -f $file ] && source $file }; done
-        for file in $DOTFILES/**/init.zsh; do _is_nix_managed "$file" || { [ -f $file ] && source $file }; done
-        for file in $DOTFILES/**/init.$os.zsh; do _is_nix_managed "$file" || { [ -f $file ] && source $file }; done
-        for file in $DOTFILES/**/postinit.zsh; do _is_nix_managed "$file" || { [ -f $file ] && source $file }; done
-        for file in $DOTFILES/**/postinit.$os.zsh; do _is_nix_managed "$file" || { [ -f $file ] && source $file }; done
-        for file in $DOTFILES/**/aliases.zsh; do _is_nix_managed "$file" || { [ -f $file ] && source $file }; done
-        for file in $DOTFILES/**/aliases.$os.zsh; do _is_nix_managed "$file" || { [ -f $file ] && source $file }; done
-
-        # Exit terminal with qq
-        exit_zsh() { exit }
+      # Exit terminal with qq
+      exit_zsh() { exit }
+      if [[ $options[zle] = on ]]; then
         zle -N exit_zsh
         bindkey 'qq' exit_zsh
+      fi
 
-        # Manual Alias definitions to restore Zim Utility functionality
-        if [[ -z ''${NO_COLOR} ]]; then
-          export CLICOLOR=1
-          export LSCOLORS="ExfxcxdxbxGxDxabagacad" # Restored from Zim Utility BSD section
-          alias grep='grep --color=auto'
-        fi
-      ''
-    ];
+      # Ensure atuin is initialized after all other plugins (especially zsh-vi-mode)
+      if [[ $options[zle] = on ]]; then
+        eval "$(atuin init zsh)"
+      fi
 
+      # Final p10k source to ensure prompt is correct
+      [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+      
+      # Fix for zsh-cwd error: NO_STATE is already readonly in some environments
+      # We ensure it's not set before the plugin loads
+      unset NO_STATE 2>/dev/null
+      
+      # bun completions
+      [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
+    '';
 
     plugins = [
       {
@@ -174,7 +197,7 @@
 
   programs.atuin = {
     enable = true;
-    enableZshIntegration = false; # We'll manage this manually in mkAfter
+    enableZshIntegration = false; # We'll manage this manually in initExtra
   };
 
   programs.fzf = {
