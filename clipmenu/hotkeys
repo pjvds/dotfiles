@@ -1,3 +1,0 @@
-# launch: clipmenu clipboard history
-super + v
-  CM_LAUNCHER=rofi clipmenu

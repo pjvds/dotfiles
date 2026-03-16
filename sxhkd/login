@@ -1,2 +1,0 @@
-#!/bin/zsh
-nice -n -20 $DOTFILES/sxhkd/launch &
