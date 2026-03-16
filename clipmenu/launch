@@ -1,8 +1,0 @@
-#!/bin/zsh
-# Terminate already running instances
-killall -q clipmenud
-
-# Wait until the processes have been shut down
-while pgrep -u $UID -x clipmenud >/dev/null; do sleep 1; done
-
-clipmenud

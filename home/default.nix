@@ -1,10 +1,11 @@
 { config, pkgs, ... }: {
-  # Import program-specific configurations
   imports = [
-    ./packages.nix
-    ./programs/opencode.nix
-    ./programs/zsh.nix
-    ./programs/git.nix
+    ../modules/home/core.nix
+    ../modules/home/languages.nix
+    ../modules/home/cloud-k8s.nix
+    ../modules/home/zsh.nix
+    ../modules/home/git.nix
+    ../modules/home/opencode.nix
   ];
 
   # Home Manager needs a bit of information about you and the paths it should manage

@@ -1,5 +1,0 @@
-#Super_L
-#  xdo show -N Polybar
-#
-#@Super_L
-#  xdo hide -N Polybar && bspc config bottom_padding 0
