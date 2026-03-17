@@ -120,10 +120,6 @@ in {
         # Fix for zsh-cwd error: NO_STATE is already readonly in some environments
         # We ensure it's not set before the plugin loads
         unset NO_STATE 2>/dev/null
-        
-        # Autoload k8s helper functions
-        fpath=($DOTFILES/k8s/functions $fpath)
-        autoload -U argo k3d kubectl kubeprintsec minikube
       '')
     ];
 
