@@ -9,6 +9,7 @@
     ../modules/home/ui-config.nix
     ../modules/home/editor.nix
     ../modules/home/terminal.nix
+    ../modules/home/maccy.nix
   ];
 
   # Home Manager needs a bit of information about you and the paths it should manage
