@@ -128,9 +128,6 @@ in {
         # We ensure it's not set before the plugin loads
         unset NO_STATE 2>/dev/null
         
-        # bun completions (also sourced via bun/init.zsh if it exists)
-        # [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
-
         # Autoload k8s helper functions
         fpath=($DOTFILES/k8s/functions $fpath)
         autoload -U argo k3d kubectl kubeprintsec minikube
