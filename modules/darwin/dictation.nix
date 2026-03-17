@@ -4,12 +4,11 @@
       "Dictation Enabled" = true;
       "Voice Control Enabled" = false;
     };
+    "com.apple.Accessibility" = {
+      CommandAndControlEnabled = false;
+    };
     "com.apple.speech.recognition.AppleSpeechRecognition.prefs" = {
-      DictationIMHasHandledEnablingDictation = true;
-      DictationShortcuts = [ "Press Either Command Key Twice" ];
-      DictationIMUseOnlyOfflineDictation = true;
-      CACPersistentSleepState = false;
-      VoiceControlEnabled = false;
+      DictationIMShortcutType = 2;
     };
     "com.apple.speech.voicecontrol.prefs" = {
       Enabled = false;
