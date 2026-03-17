@@ -1,7 +1,7 @@
 { pkgs, config, lib, ... }: {
   home.packages = with pkgs; [
     python3
-    miniconda3
+    conda
   ];
 
   # Session variables for Conda
