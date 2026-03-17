@@ -7,6 +7,7 @@
       DictationIMHasHandledEnablingDictation = true;
       DictationShortcuts = [ "Press Either Command Key Twice" ];
       DictationIMUseOnlyOfflineDictation = true;
+      CACPersistentSleepState = false;
     };
     "com.apple.symbolichotkeys" = {
       AppleSymbolicHotKeys = {
