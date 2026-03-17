@@ -110,13 +110,6 @@ in {
 
         # --- Manual Overrides & Integrations ---
         
-        # Manual Alias definitions to restore Zim Utility functionality
-        if [[ -z ''${NO_COLOR} ]]; then
-          export CLICOLOR=1
-          export LSCOLORS="ExfxcxdxbxGxDxabagacad" 
-          alias grep='grep --color=auto'
-        fi
-
         # Exit terminal with qq
         exit_zsh() { exit }
         if [[ $options[zle] = on ]]; then
