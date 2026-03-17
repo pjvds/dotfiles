@@ -11,7 +11,6 @@ let
     "nix/postinit.darwin.zsh"
     "fzf/init.zsh"
     "node/init.zsh" # We'll manage node environment explicitly
-    "k8s/init.zsh"  # We'll manage k8s environment explicitly
   ];
 
   # Helper to find all relevant .zsh files in the dotfiles directory
@@ -137,15 +136,19 @@ in {
           eval "$(atuin init zsh)"
         fi
 
-        # Final p10k source to ensure prompt is correct
-        [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-        
         # Fix for zsh-cwd error: NO_STATE is already readonly in some environments
         # We ensure it's not set before the plugin loads
         unset NO_STATE 2>/dev/null
         
         # bun completions
         [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
+
+        # Autoload k8s helper functions
+        fpath=($DOTFILES/k8s/functions $fpath)
+        autoload -U argo k3d kubectl kubeprintsec minikube
+
+        # Final p10k source to ensure prompt is correct
+        [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
       ''
     ];
 
@@ -195,6 +198,8 @@ in {
       }
     ];
   };
+
+  home.file.".p10k.zsh".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/p10k/p10k.zsh";
 
   programs.atuin = {
     enable = true;
