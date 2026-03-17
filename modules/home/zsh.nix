@@ -63,90 +63,91 @@ in {
       ".." = "cd ..";
     };
 
-    initExtraFirst = ''
-      # Powerlevel10k instant prompt
-      if [[ -r "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh" ]]; then
-        source "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh"
-      fi
+    initContent = lib.mkMerge [
+      (lib.mkBefore ''
+        # Powerlevel10k instant prompt
+        if [[ -r "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh" ]]; then
+          source "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh"
+        fi
 
-      # Fix for gitstatus initialization (sometimes required in Nix)
-      typeset -g POWERLEVEL9K_GITSTATUS_DIR="${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/gitstatus"
-    '';
+        # Fix for gitstatus initialization (sometimes required in Nix)
+        typeset -g POWERLEVEL9K_GITSTATUS_DIR="${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/gitstatus"
+      '')
+      ''
+        # Set DOTFILES variable
+        export DOTFILES=$HOME/dotfiles
+        export DOTFILES_HOME=$DOTFILES
 
-    initExtra = ''
-      # Set DOTFILES variable
-      export DOTFILES=$HOME/dotfiles
-      export DOTFILES_HOME=$DOTFILES
+        # Environment settings from old zshrc
+        export LANG="en_US.UTF-8"
+        export LC_ALL="POSIX"
+        
+        # Vi mode configuration
+        bindkey -v
+        bindkey 'jj' vi-cmd-mode
+        
+        # Additional settings
+        setopt INTERACTIVE_COMMENTS
+        setopt NO_NOMATCH
+        setopt BANG_HIST
+        
+        # fzf-tab configuration
+        zstyle ':completion:*' menu no
+        zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls -1 --color=always $realpath'
+        zstyle ':fzf-tab:*' fzf-command fzf
+        
+        # History settings
+        setopt EXTENDED_HISTORY
+        setopt INC_APPEND_HISTORY
+        setopt SHARE_HISTORY
+        setopt HIST_EXPIRE_DUPS_FIRST
+        setopt HIST_IGNORE_DUPS
+        setopt HIST_IGNORE_ALL_DUPS
+        setopt HIST_FIND_NO_DUPS
+        setopt HIST_IGNORE_SPACE
+        setopt HIST_SAVE_NO_DUPS
+        setopt HIST_REDUCE_BLANKS
+        setopt HIST_VERIFY
+        setopt HIST_BEEP
 
-      # Environment settings from old zshrc
-      export LANG="en_US.UTF-8"
-      export LC_ALL="POSIX"
-      
-      # Vi mode configuration
-      bindkey -v
-      bindkey 'jj' vi-cmd-mode
-      
-      # Additional settings
-      setopt INTERACTIVE_COMMENTS
-      setopt NO_NOMATCH
-      setopt BANG_HIST
-      
-      # fzf-tab configuration
-      zstyle ':completion:*' menu no
-      zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls -1 --color=always $realpath'
-      zstyle ':fzf-tab:*' fzf-command fzf
-      
-      # History settings
-      setopt EXTENDED_HISTORY
-      setopt INC_APPEND_HISTORY
-      setopt SHARE_HISTORY
-      setopt HIST_EXPIRE_DUPS_FIRST
-      setopt HIST_IGNORE_DUPS
-      setopt HIST_IGNORE_ALL_DUPS
-      setopt HIST_FIND_NO_DUPS
-      setopt HIST_IGNORE_SPACE
-      setopt HIST_SAVE_NO_DUPS
-      setopt HIST_REDUCE_BLANKS
-      setopt HIST_VERIFY
-      setopt HIST_BEEP
+        # --- Automated Cohesive Modules (Discovered at build time) ---
+        ${mkSourceCommands "preinit"}
+        ${mkSourceCommands "init"}
+        ${mkSourceCommands "postinit"}
+        ${mkSourceCommands "aliases"}
 
-      # --- Automated Cohesive Modules (Discovered at build time) ---
-      ${mkSourceCommands "preinit"}
-      ${mkSourceCommands "init"}
-      ${mkSourceCommands "postinit"}
-      ${mkSourceCommands "aliases"}
+        # --- Manual Overrides & Integrations ---
+        
+        # Manual Alias definitions to restore Zim Utility functionality
+        if [[ -z ''${NO_COLOR} ]]; then
+          export CLICOLOR=1
+          export LSCOLORS="ExfxcxdxbxGxDxabagacad" 
+          alias grep='grep --color=auto'
+        fi
 
-      # --- Manual Overrides & Integrations ---
-      
-      # Manual Alias definitions to restore Zim Utility functionality
-      if [[ -z ''${NO_COLOR} ]]; then
-        export CLICOLOR=1
-        export LSCOLORS="ExfxcxdxbxGxDxabagacad" 
-        alias grep='grep --color=auto'
-      fi
+        # Exit terminal with qq
+        exit_zsh() { exit }
+        if [[ $options[zle] = on ]]; then
+          zle -N exit_zsh
+          bindkey 'qq' exit_zsh
+        fi
 
-      # Exit terminal with qq
-      exit_zsh() { exit }
-      if [[ $options[zle] = on ]]; then
-        zle -N exit_zsh
-        bindkey 'qq' exit_zsh
-      fi
+        # Ensure atuin is initialized after all other plugins (especially zsh-vi-mode)
+        if [[ $options[zle] = on ]]; then
+          eval "$(atuin init zsh)"
+        fi
 
-      # Ensure atuin is initialized after all other plugins (especially zsh-vi-mode)
-      if [[ $options[zle] = on ]]; then
-        eval "$(atuin init zsh)"
-      fi
-
-      # Final p10k source to ensure prompt is correct
-      [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-      
-      # Fix for zsh-cwd error: NO_STATE is already readonly in some environments
-      # We ensure it's not set before the plugin loads
-      unset NO_STATE 2>/dev/null
-      
-      # bun completions
-      [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
-    '';
+        # Final p10k source to ensure prompt is correct
+        [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+        
+        # Fix for zsh-cwd error: NO_STATE is already readonly in some environments
+        # We ensure it's not set before the plugin loads
+        unset NO_STATE 2>/dev/null
+        
+        # bun completions
+        [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
+      ''
+    ];
 
     plugins = [
       {
