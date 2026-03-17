@@ -24,6 +24,7 @@
       "discord"
       "github"
       "intellij-idea"
+      "karabiner-elements"
       "kitty"
       "lm-studio"
       "maccy"
