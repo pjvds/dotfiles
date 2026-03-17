@@ -28,7 +28,7 @@
   # };
 
   # Set primary user for system defaults to apply correctly
-  system.primaryUser = if config.networking.hostName == "Pieters-MacBook-Pro.local" then "pjvds" else "pvandesande";
+  system.primaryUser = if config.networking.hostName == "Pieters-MacBook-Pro" then "pjvds" else "pvandesande";
 
   # macOS system defaults
   system.defaults = {
