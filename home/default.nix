@@ -6,6 +6,9 @@
     ../modules/home/zsh.nix
     ../modules/home/git.nix
     ../modules/home/opencode.nix
+    ../modules/home/ui-config.nix
+    ../modules/home/editor.nix
+    ../modules/home/terminal.nix
   ];
 
   # Home Manager needs a bit of information about you and the paths it should manage
@@ -18,10 +21,6 @@
     packages = with pkgs; [
       opencode
     ];
-
-    file.".config/sketchybar".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/sketchybar";
-    file.".config/aerospace".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/aerospace";
-    file.".config/borders".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/borders";
   };
 
   # Let Home Manager install and manage itself
