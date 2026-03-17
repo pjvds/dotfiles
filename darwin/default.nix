@@ -70,6 +70,7 @@
       "com.apple.speech.recognition.AppleSpeechRecognition.prefs" = {
         DictationIMHasHandledEnablingDictation = true;
         DictationShortcuts = [ "Press Command Key Twice" ];
+        DictationIMUseOnlyOfflineDictation = true;
       };
       "com.apple.symbolichotkeys" = {
         AppleSymbolicHotKeys = {
