@@ -1,19 +1,20 @@
 { pkgs, config, lib, ... }: {
   home.packages = with pkgs; [
     python3
-    conda
+    micromamba
   ];
 
-  # Session variables for Conda
+  # Session variables for Micromamba
   home.sessionVariables = {
-    CONDA_AUTO_ACTIVATE_BASE = "false";
+    MAMBA_NO_LOW_SPEED_LIMIT = "1";
   };
 
-  # Declarative Conda initialization
+  # Declarative Micromamba initialization
   programs.zsh.initContent = ''
-    # Enable Conda shell hook if installed
-    if [ -f "${config.home.homeDirectory}/miniconda3/etc/profile.d/conda.sh" ]; then
-      source "${config.home.homeDirectory}/miniconda3/etc/profile.d/conda.sh"
+    # Enable Micromamba shell hook
+    if command -v micromamba &>/dev/null; then
+      export MAMBA_ROOT_PREFIX="$HOME/.micromamba"
+      eval "$(micromamba shell hook --shell zsh)"
     fi
   '';
 }
