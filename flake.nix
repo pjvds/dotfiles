@@ -17,24 +17,33 @@
 
   outputs = inputs@{ self, nixpkgs, nix-darwin, home-manager }: 
     let
-      username = "pvandesande";
-      hostname = "NL-F2T6KVCQ3G";
       system = "aarch64-darwin";
     in
     {
       # macOS system configuration (requires sudo)
-      darwinConfigurations.${hostname} = nix-darwin.lib.darwinSystem {
+      darwinConfigurations."NL-F2T6KVCQ3G" = nix-darwin.lib.darwinSystem {
         inherit system;
-        modules = [
-          ./darwin
-        ];
+        modules = [ ./darwin ];
       };
 
-      # Home Manager user configuration (no sudo required)
-      homeConfigurations."${username}@${hostname}" = home-manager.lib.homeManagerConfiguration {
+      darwinConfigurations."Pieters-MacBook-Pro.local" = nix-darwin.lib.darwinSystem {
+        inherit system;
+        modules = [ ./darwin ];
+      };
+
+      homeConfigurations."pvandesande@NL-F2T6KVCQ3G" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.${system};
-        modules = [
+        modules = [ ./home ];
+      };
+
+      homeConfigurations."pjvds@Pieters-MacBook-Pro.local" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.${system};
+        modules = [ 
           ./home
+          {
+            home.username = "pjvds";
+            home.homeDirectory = "/Users/pjvds";
+          }
         ];
       };
     };
