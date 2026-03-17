@@ -2,6 +2,7 @@
   imports = [
     ../modules/darwin/ui.nix
     ../modules/darwin/homebrew.nix
+    ../modules/darwin/dictation.nix
   ];
 
   # Time Zone
@@ -60,29 +61,6 @@
       
       # Appearance
       AppleInterfaceStyle = "Dark";  # Force Dark Mode
-    };
-
-    # Custom User Preferences (Dictation)
-    CustomUserPreferences = {
-      "com.apple.assistant.support" = {
-        "Dictation Enabled" = true;
-      };
-      "com.apple.speech.recognition.AppleSpeechRecognition.prefs" = {
-        DictationIMHasHandledEnablingDictation = true;
-        DictationShortcuts = [ "Press Command Key Twice" ];
-        DictationIMUseOnlyOfflineDictation = true;
-      };
-      "com.apple.symbolichotkeys" = {
-        AppleSymbolicHotKeys = {
-          "63" = {
-            enabled = true;
-            value = {
-              parameters = [ 65535 63 1048576 ];
-              type = "standard";
-            };
-          };
-        };
-      };
     };
 
     # Trackpad
