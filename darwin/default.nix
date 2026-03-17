@@ -62,6 +62,28 @@
       AppleInterfaceStyle = "Dark";  # Force Dark Mode
     };
 
+    # Custom User Preferences (Dictation)
+    CustomUserPreferences = {
+      "com.apple.assistant.support" = {
+        "Dictation Enabled" = true;
+      };
+      "com.apple.speech.recognition.AppleSpeechRecognition.prefs" = {
+        DictationIMHasHandledEnablingDictation = true;
+        DictationShortcuts = [ "Press Command Key Twice" ];
+      };
+      "com.apple.symbolichotkeys" = {
+        AppleSymbolicHotKeys = {
+          "63" = {
+            enabled = true;
+            value = {
+              parameters = [ 65535 63 1048576 ];
+              type = "standard";
+            };
+          };
+        };
+      };
+    };
+
     # Trackpad
     trackpad = {
       Clicking = true;  # Tap to click
