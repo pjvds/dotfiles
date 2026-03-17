@@ -60,9 +60,4 @@
       "switchaudio-osx"
     ];
   };
-
-  system.activationScripts.postActivation.text = ''
-    echo "Setting up Maccy login item..."
-    osascript -e 'tell application "System Events" to make login item at end with properties {path:"/Applications/Maccy.app", hidden:false}' 2>/dev/null || true
-  '';
 }
