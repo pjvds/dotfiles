@@ -24,11 +24,13 @@
       darwinConfigurations = {
         "NL-F2T6KVCQ3G" = nix-darwin.lib.darwinSystem {
           inherit system;
+          specialArgs = { hostname = "NL-F2T6KVCQ3G"; };
           modules = [ ./darwin ];
         };
 
         "Pieters-MacBook-Pro" = nix-darwin.lib.darwinSystem {
           inherit system;
+          specialArgs = { hostname = "Pieters-MacBook-Pro"; };
           modules = [ ./darwin ];
         };
       };

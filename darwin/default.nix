@@ -1,9 +1,12 @@
-{ config, pkgs, lib, ... }: {
+{ config, pkgs, lib, hostname, ... }: {
   imports = [
     ../modules/darwin/ui.nix
     ../modules/darwin/homebrew.nix
     ../modules/darwin/dictation.nix
   ];
+
+  # Networking
+  networking.hostName = hostname;
 
   # Time Zone
   time.timeZone = "Europe/Amsterdam";
@@ -28,7 +31,7 @@
   # };
 
   # Set primary user for system defaults to apply correctly
-  system.primaryUser = if config.networking.hostName == "Pieters-MacBook-Pro" then "pjvds" else "pvandesande";
+  system.primaryUser = if hostname == "Pieters-MacBook-Pro" then "pjvds" else "pvandesande";
 
   # macOS system defaults
   system.defaults = {
