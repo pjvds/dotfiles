@@ -19,8 +19,11 @@
     delta # better git diffs
     helix
     tmux
-    starship
     atuin
-    direnv
   ];
+
+  programs.direnv = {
+    enable = true;
+    nix-direnv.enable = true;
+  };
 }
