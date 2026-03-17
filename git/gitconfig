@@ -1,3 +1,4 @@
+# LEGACY: This file is no longer used and is superseded by modules/home/git.nix
 [user]
 	name = Pieter Joost van de Sande
 	email = pj@born2code.net
