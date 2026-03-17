@@ -18,7 +18,6 @@
     pv
     delta # better git diffs
     helix
-    neovim
     tmux
     starship
     atuin
