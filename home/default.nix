@@ -10,6 +10,7 @@
     ../modules/home/editor.nix
     ../modules/home/terminal.nix
     ../modules/home/maccy.nix
+    ../modules/home/python.nix
   ];
 
   # Home Manager needs a bit of information about you and the paths it should manage
