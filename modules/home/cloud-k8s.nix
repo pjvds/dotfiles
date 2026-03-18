@@ -9,6 +9,7 @@
     kubernetes-helm
     k3d
     argo-workflows
+    kubelogin
   ];
 
   home.file = {
