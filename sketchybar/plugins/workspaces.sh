@@ -19,8 +19,8 @@ if [ -n "$WORKSPACE_MONITOR" ]; then
   sketchybar --set "$NAME" display="$WORKSPACE_MONITOR"
 fi
 
-# Get the list of active workspaces on the focused monitor
-ACTIVE_WORKSPACES=$(aerospace list-workspaces --monitor focused --empty no)
+# Get the list of active workspaces on the monitor this workspace belongs to
+ACTIVE_WORKSPACES=$(aerospace list-workspaces --monitor "$WORKSPACE_MONITOR" --empty no)
 
 # If this workspace is focused -> always show + highlight it
 if [ "$1" = "$AEROSPACE_FOCUSED_WORKSPACE" ]; then
