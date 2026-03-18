@@ -1,0 +1,56 @@
+# ─── Focus window ─────────────────────────────────────────────────────────────
+alt - h : yabai -m window --focus west  || yabai -m display --focus west
+alt - j : yabai -m window --focus south || yabai -m display --focus south
+alt - k : yabai -m window --focus north || yabai -m display --focus north
+alt - l : yabai -m window --focus east  || yabai -m display --focus east
+
+# ─── Warp (move) window ───────────────────────────────────────────────────────
+shift + alt - h : yabai -m window --warp west
+shift + alt - j : yabai -m window --warp south
+shift + alt - k : yabai -m window --warp north
+shift + alt - l : yabai -m window --warp east
+
+# ─── Resize window ────────────────────────────────────────────────────────────
+alt - 0x1B : yabai -m window --ratio rel:-0.05
+alt - 0x18 : yabai -m window --ratio rel:+0.05
+
+# ─── Toggle window state ──────────────────────────────────────────────────────
+alt - t : yabai -m window --toggle zoom-fullscreen
+alt - f : yabai -m window --toggle float; yabai -m window --grid 4:4:1:1:2:2
+alt - w : yabai -m window --close
+alt - q : yabai -m window --close
+
+# ─── Focus space ──────────────────────────────────────────────────────────────
+alt - a : yabai -m space --focus a
+alt - s : yabai -m space --focus s
+alt - d : yabai -m space --focus d
+alt - z : yabai -m space --focus z
+alt - x : yabai -m space --focus x
+alt - c : yabai -m space --focus c
+alt - v : yabai -m space --focus v
+
+# ─── Move window to space + follow ────────────────────────────────────────────
+shift + alt - a : yabai -m window --space a; yabai -m space --focus a
+shift + alt - s : yabai -m window --space s; yabai -m space --focus s
+shift + alt - d : yabai -m window --space d; yabai -m space --focus d
+shift + alt - z : yabai -m window --space z; yabai -m space --focus z
+shift + alt - x : yabai -m window --space x; yabai -m space --focus x
+shift + alt - c : yabai -m window --space c; yabai -m space --focus c
+shift + alt - v : yabai -m window --space v; yabai -m space --focus v
+
+# ─── Move window to space (no follow) ────────────────────────────────────────
+ctrl + shift + alt - a : yabai -m window --space a
+ctrl + shift + alt - s : yabai -m window --space s
+ctrl + shift + alt - d : yabai -m window --space d
+ctrl + shift + alt - z : yabai -m window --space z
+ctrl + shift + alt - x : yabai -m window --space x
+ctrl + shift + alt - c : yabai -m window --space c
+ctrl + shift + alt - v : yabai -m window --space v
+
+# ─── Launch apps ──────────────────────────────────────────────────────────────
+alt - return : /Applications/kitty.app/Contents/MacOS/kitty --single-instance
+alt - b      : $HOME/Applications/Zen.app/Contents/MacOS/zen --new-window
+alt - o      : $DOTFILES/aerospace/plugins/open_centered_finder.sh
+
+# ─── Reload yabai config ──────────────────────────────────────────────────────
+shift + alt - r : launchctl kickstart -k "gui/${UID}/org.nixos.yabai"

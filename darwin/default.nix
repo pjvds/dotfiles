@@ -1,8 +1,15 @@
 { config, pkgs, lib, hostname, ... }: {
   imports = [
-    ../modules/darwin/ui.nix
     ../modules/darwin/homebrew.nix
     ../modules/darwin/dictation.nix
+    # Per-app modules (each owns its service + launchd config)
+    ../modules/darwin/aerospace.nix
+    ../modules/darwin/sketchybar.nix
+    ../modules/darwin/borders.nix
+    ../modules/darwin/karabiner.nix
+    ../modules/darwin/kitty.nix
+    ../modules/darwin/yabai.nix
+    ../modules/darwin/skhd.nix
   ];
 
   # Networking

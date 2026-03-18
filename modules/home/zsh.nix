@@ -172,11 +172,6 @@ in {
 
   home.file.".p10k.zsh".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/p10k/p10k.zsh";
 
-  programs.atuin = {
-    enable = true;
-    enableZshIntegration = true;
-  };
-
   programs.fzf = {
     enable = true;
     enableZshIntegration = true;
