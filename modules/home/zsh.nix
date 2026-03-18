@@ -4,7 +4,6 @@ let
   
   # Blacklist of files that cause P10k warnings or are redundant in Nix
   blacklist = [
-    "p10k/init.zsh"
     "fzf/init.darwin.zsh"
     "psql/init.darwin.zsh"
     "homebrew/preinit.darwin.zsh"
