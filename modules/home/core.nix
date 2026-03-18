@@ -18,8 +18,6 @@
     pv
     delta # better git diffs
     helix
-    tmux
-    atuin
   ];
 
   programs.direnv = {

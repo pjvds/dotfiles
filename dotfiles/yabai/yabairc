@@ -1,0 +1,65 @@
+#!/usr/bin/env sh
+
+# ─── Layout ───────────────────────────────────────────────────────────────────
+yabai -m config layout bsp
+
+# ─── Gaps (matches AeroSpace config) ──────────────────────────────────────────
+yabai -m config top_padding    50
+yabai -m config bottom_padding 12
+yabai -m config left_padding   12
+yabai -m config right_padding  12
+yabai -m config window_gap     12
+
+# ─── Mouse ────────────────────────────────────────────────────────────────────
+yabai -m config mouse_follows_focus autoraise
+yabai -m config focus_follows_mouse off
+
+# ─── Window appearance ────────────────────────────────────────────────────────
+yabai -m config window_placement        second_child
+yabai -m config window_topmost          off
+yabai -m config window_shadow           float
+yabai -m config window_opacity          off
+yabai -m config active_window_opacity   1.0
+yabai -m config normal_window_opacity   0.9
+
+# ─── Split ratios ─────────────────────────────────────────────────────────────
+yabai -m config split_ratio             0.50
+yabai -m config auto_balance            off
+
+# ─── Space labels (maps to skhd bindings: a s d f z x c v) ───────────────────
+yabai -m space 1 --label a
+yabai -m space 2 --label s
+yabai -m space 3 --label d
+yabai -m space 4 --label f
+yabai -m space 5 --label z
+yabai -m space 6 --label x
+yabai -m space 7 --label c
+yabai -m space 8 --label v
+
+# ─── Float rules ──────────────────────────────────────────────────────────────
+# Float by app
+yabai -m rule --add app="Calculator"   manage=off
+yabai -m rule --add app="Calendar"     manage=off
+yabai -m rule --add app="FaceTime"     manage=off
+yabai -m rule --add app="Home"         manage=off
+yabai -m rule --add app="Proton Pass"  manage=off
+yabai -m rule --add app="Finder"       manage=off
+yabai -m rule --add app="Docker Desktop" manage=off
+yabai -m rule --add app="Zwift"        manage=off
+
+# Float by window title
+yabai -m rule --add title="Settings"   manage=off
+yabai -m rule --add title="Install"    manage=off
+yabai -m rule --add title="Preferences" manage=off
+
+# ─── Space assignments ────────────────────────────────────────────────────────
+yabai -m rule --add app="Microsoft Outlook" space=8
+yabai -m rule --add app="Microsoft Teams"   space=5
+
+# ─── Sketchybar integration ───────────────────────────────────────────────────
+yabai -m signal --add event=window_focused \
+    action="sketchybar --trigger window_focus"
+yabai -m signal --add event=space_changed \
+    action="sketchybar --trigger aerospace_workspace_change AEROSPACE_FOCUSED_WORKSPACE=\$YABAI_SPACE_INDEX AEROSPACE_PREV_WORKSPACE=\$YABAI_RECENT_SPACE_INDEX"
+
+echo "yabai configuration loaded"
