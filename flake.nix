@@ -18,6 +18,12 @@
   outputs = inputs@{ self, nixpkgs, nix-darwin, home-manager }: 
     let
       system = "aarch64-darwin";
+      pkgs = import nixpkgs {
+        inherit system;
+        config.allowUnfreePredicate = pkg: builtins.elem (nixpkgs.lib.getName pkg) [
+          "proton-pass-cli"
+        ];
+      };
     in
     {
       # macOS system configuration (requires sudo)
@@ -38,12 +44,12 @@
       # Home Manager user configuration (no sudo required)
       homeConfigurations = {
         "pvandesande@NL-F2T6KVCQ3G" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.${system};
+          inherit pkgs;
           modules = [ ./home ];
         };
 
         "pjvds@Pieters-MacBook-Pro" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.${system};
+          inherit pkgs;
           modules = [ 
             ./home
             {
