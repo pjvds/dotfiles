@@ -1,0 +1,3 @@
+[submodule "opencode/skills/obsidian-skills"]
+	path = opencode/skills/obsidian-skills
+	url = https://github.com/kepano/obsidian-skills.git

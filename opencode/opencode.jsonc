@@ -36,6 +36,18 @@
     "github": {
       "type": "remote",
       "url": "https://api.githubcopilot.com/mcp/"
+    },
+    "context7": {
+      "type": "remote",
+      "url": "https://mcp.context7.com/mcp"
+    },
+    "playwright": {
+      "type": "local",
+      "command": [
+        "npx",
+        "@playwright/mcp@latest"
+      ],
+      "enabled": true
     }
   },
   "agent": {
