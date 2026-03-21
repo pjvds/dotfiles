@@ -22,6 +22,7 @@
     ../modules/home/httpie.nix
     ../modules/home/yabai.nix
     ../modules/home/skhd.nix
+    ../modules/home/netskope.nix
   ];
 
   # Home Manager needs a bit of information about you and the paths it should manage
