@@ -1,13 +1,14 @@
-{ pkgs, config, ... }: {
+{ pkgs, ... }: {
   home.packages = [ pkgs.atuin ];
 
   programs.atuin = {
     enable = true;
     enableZshIntegration = true;
+    forceOverwriteSettings = true;
+    settings = {
+      style        = "full";
+      enter_accept = true;
+      sync.records = true;
+    };
   };
-
-  # Live-editable atuin config without rebuild
-  home.file.".config/atuin".source =
-    config.lib.file.mkOutOfStoreSymlink
-      "${config.home.homeDirectory}/dotfiles/atuin";
 }
