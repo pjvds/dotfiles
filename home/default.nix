@@ -23,6 +23,7 @@
     ../modules/home/yabai.nix
     ../modules/home/skhd.nix
     ../modules/home/netskope.nix
+    ../modules/home/ncspot.nix
   ];
 
   # Home Manager needs a bit of information about you and the paths it should manage
