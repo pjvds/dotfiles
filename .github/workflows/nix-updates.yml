@@ -1,0 +1,94 @@
+name: nix-update-check
+
+on:
+  schedule:
+    - cron: '0 7 * * *'  # 07:00 UTC = 08:00 CET / 09:00 CEST
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write  # needed to create/edit/close issues
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Nix
+        uses: cachix/install-nix-action@v27
+        with:
+          nix_path: nixpkgs=channel:nixpkgs-unstable
+          extra_nix_config: |
+            experimental-features = nix-command flakes
+
+      - name: Derive locked nixpkgs URL from flake.lock
+        id: locked
+        run: |
+          REV=$(python3 -c "
+          import json
+          with open('flake.lock') as f:
+              d = json.load(f)
+          print(d['nodes']['nixpkgs']['locked']['rev'])
+          ")
+          echo "url=https://github.com/NixOS/nixpkgs/archive/${REV}.tar.gz" >> "$GITHUB_OUTPUT"
+
+      - name: Check for package updates
+        id: check
+        env:
+          LOCKED_NIXPKGS_URL: ${{ steps.locked.outputs.url }}
+          FRESH_NIXPKGS_URL: "channel:nixpkgs-unstable"
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python3 .github/scripts/nix-update-check.py > report.md
+        continue-on-error: true  # exit 1 means "no updates" — not a failure
+
+      - name: Create or update issue with updates
+        if: steps.check.outcome == 'success'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          ISSUE_TITLE="Nix package updates available"
+          BODY=$(cat report.md)
+
+          # Look for an existing open issue with this title
+          ISSUE_NUMBER=$(gh issue list \
+            --label "nix-updates" \
+            --state open \
+            --json number,title \
+            --jq ".[] | select(.title == \"${ISSUE_TITLE}\") | .number" \
+            | head -1)
+
+          if [ -n "$ISSUE_NUMBER" ]; then
+            # Update the existing issue body
+            gh issue edit "$ISSUE_NUMBER" --body "$BODY"
+            echo "Updated existing issue #${ISSUE_NUMBER}"
+          else
+            # Create a new issue (also creates the label if missing)
+            gh label create "nix-updates" --color "0075ca" --description "Nix package update reports" 2>/dev/null || true
+            gh issue create \
+              --title "$ISSUE_TITLE" \
+              --label "nix-updates" \
+              --body "$BODY"
+            echo "Created new issue"
+          fi
+
+      - name: Close issue if all packages are up to date
+        if: steps.check.outcome != 'success'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          ISSUE_TITLE="Nix package updates available"
+
+          ISSUE_NUMBER=$(gh issue list \
+            --label "nix-updates" \
+            --state open \
+            --json number,title \
+            --jq ".[] | select(.title == \"${ISSUE_TITLE}\") | .number" \
+            | head -1)
+
+          if [ -n "$ISSUE_NUMBER" ]; then
+            gh issue close "$ISSUE_NUMBER" --comment "All Nix packages are now up to date. Closing."
+            echo "Closed issue #${ISSUE_NUMBER}"
+          else
+            echo "All packages are up to date. No issue to close."
+          fi
