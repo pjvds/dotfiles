@@ -138,6 +138,48 @@ Searching tool with a focus on speed.
 
 Utility to watch file changes.
 
+# Git
+
+## Submodule visibility
+
+This repository uses Git submodules (e.g. `opencode/skills/obsidian-skills`).
+By default, `git status` only shows a vague `(modified content)` message when a
+submodule has uncommitted changes, giving no indication of what actually changed
+inside it.
+
+`diff.submodule = log` is configured in `modules/home/git.nix` to make `git
+status` embed a diff summary directly in the output so you can see exactly which
+files changed inside the submodule without having to `cd` into it.
+
+### Example output
+
+```
+$ git status
+On branch nix-migration
+
+Changes not staged for commit:
+
+	modified:   opencode/skills/obsidian-skills (modified content)
+
+Submodule opencode/skills/obsidian-skills contains modified content
+--- a/opencode/skills/obsidian-skills
++++ b/opencode/skills/obsidian-skills
+@@ -1 +1 @@
+-Subproject commit 243259970868a2599486c859d040f295b986e24b
++Subproject commit 243259970868a2599486c859d040f295b986e24b-dirty
+Submodule opencode/skills/obsidian-skills/skills/obsidian-cli is dirty
+diff --git a/skills/obsidian-cli/SKILL.md b/skills/obsidian-cli/SKILL.md
+index ec4a683..d5e6837 100644
+--- a/skills/obsidian-cli/SKILL.md
++++ b/skills/obsidian-cli/SKILL.md
+@@ -1,5 +1,5 @@
+ # Obsidian CLI Skill
+
+-This skill enables interactions with Obsidian vaults via the Obsidian CLI (`obs`).
++This skill enables extended interactions with Obsidian vaults via the Obsidian CLI (`obs`).
+ It provides tools to read, create, search, and manage notes, tasks, and more.
+```
+
 # AUR package maintainance
 
 I'm maintaining a [few dozen AUR packages](https://aur.archlinux.org/packages/?K=pjvds&SeB=m) for Arch Linux. A daily CRON job runs on 
