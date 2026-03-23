@@ -36,6 +36,12 @@
         enabled = true;
         autoupdate = true;
       };
+      diff = {
+        submodule = "log";
+      };
+      status = {
+        submoduleSummary = true;
+      };
       maintenance = {
         repo = "~/code/deloitte/xray/backend";
       };
