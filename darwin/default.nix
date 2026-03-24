@@ -17,8 +17,8 @@
   time.timeZone = "Europe/Amsterdam";
 
   # System packages
-  environment.systemPackages = [ 
-    pkgs.home-manager
+  environment.systemPackages = with pkgs; [ 
+    home-manager
   ];
 
   # Enable Touch ID for sudo (new syntax)
@@ -74,6 +74,14 @@
 
   # Disable documentation builds to speed up rebuilds
   documentation.enable = false;
+
+  # Set environment variables for GUI applications and login shells
+  environment.extraInit = ''
+    # Make Homebrew packages available to all applications
+    if [ -x "/opt/homebrew/bin/brew" ]; then
+      eval "$(/opt/homebrew/bin/brew shellenv)"
+    fi
+  '';
 
   # User configuration (only create the relevant user for the machine)
   users.users = if hostname == "Pieters-MacBook-Pro" then {

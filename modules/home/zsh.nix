@@ -6,7 +6,6 @@ let
   blacklist = [
     "fzf/init.darwin.zsh"
     "psql/init.darwin.zsh"
-    "homebrew/preinit.darwin.zsh"
     "nix/postinit.darwin.zsh"
     "fzf/init.zsh"
     "node/init.zsh" # We'll manage node environment explicitly

@@ -1,6 +1,8 @@
-{ ... }: {
+{ config, ... }: {
   homebrew = {
     enable = true;
+    user = config.system.primaryUser;
+    prefix = "/opt/homebrew";
     onActivation = {
       autoUpdate = true;
       cleanup = "zap"; # Removes unlisted formulas and casks
