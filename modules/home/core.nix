@@ -14,6 +14,7 @@
     tldr
     tree
     wget
+    httpie
     yq
     pv
     delta # better git diffs

@@ -23,6 +23,7 @@
     ../modules/home/netskope.nix
     ../modules/home/ncspot.nix
     ../modules/home/dotnet.nix
+    ../modules/home/apps.nix
    ];
 
   # Home Manager needs a bit of information about you and the paths it should manage
