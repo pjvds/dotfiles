@@ -22,6 +22,15 @@
         inherit system;
         config.allowUnfreePredicate = pkg: builtins.elem (nixpkgs.lib.getName pkg) [
           "proton-pass-cli"
+          "android-studio"
+          "discord"
+          "idea"
+          "obsidian"
+          "raycast"
+          "rider"
+          "shortcat"
+          "shottr"
+          "vscode"
         ];
       };
     in
@@ -52,6 +61,7 @@
           inherit pkgs;
           modules = [ 
             ./home
+            ./modules/home/pjvds.nix
             {
               home.username = "pjvds";
               home.homeDirectory = "/Users/pjvds";

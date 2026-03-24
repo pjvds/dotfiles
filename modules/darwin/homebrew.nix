@@ -16,32 +16,15 @@
 
     # GUI Applications (Casks)
     casks = [
-      "alt-tab"
-      "android-studio"
       "arc"
-      "aws-vault-binary"
       "cursorcerer"
-      "cyberduck"
       "deckset"
-      "discord"
-      "github"
-      "intellij-idea"
       "lm-studio"
-      "maccy"
       "microsoft-azure-storage-explorer"
-      "microsoft-edge"
-      "obsidian"
       "philips-hue-sync"
-      "proton-mail"
-      "proton-pass"
       "protonvpn"
       "qmk-toolbox"
-      "raycast"
-      "rider"
-      "shortcat"
-      "shottr"
       "sonos"
-      "visual-studio-code"
       "zen"
       "zwift"
       
@@ -60,5 +43,9 @@
     brews = [
       "switchaudio-osx"
     ];
+
+    masApps = {
+      "Amphetamine" = 937984704;
+    };
   };
 }
