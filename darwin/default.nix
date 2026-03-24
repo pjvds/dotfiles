@@ -8,8 +8,6 @@
     ../modules/darwin/borders.nix
     ../modules/darwin/karabiner.nix
     ../modules/darwin/kitty.nix
-    ../modules/darwin/yabai.nix
-    ../modules/darwin/skhd.nix
   ];
 
   # Networking

@@ -20,12 +20,10 @@
     ../modules/home/borders.nix
     ../modules/home/ssh.nix
     ../modules/home/httpie.nix
-    ../modules/home/yabai.nix
-    ../modules/home/skhd.nix
     ../modules/home/netskope.nix
     ../modules/home/ncspot.nix
     ../modules/home/dotnet.nix
-  ];
+   ];
 
   # Home Manager needs a bit of information about you and the paths it should manage
   home = {
