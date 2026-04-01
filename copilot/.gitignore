@@ -1,0 +1,6 @@
+config.json
+command-history-state.json
+logs/
+session-state/
+pkg/
+ide/
