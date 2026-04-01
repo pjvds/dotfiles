@@ -11,5 +11,9 @@ let cfg = config.my.copilot; in
     # NOTE: Remove ~/.copilot before the first darwin-rebuild switch to allow the symlink:
     #   rm -rf ~/.copilot && darwin-rebuild switch --flake .#workstation
     home.file.".copilot".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/copilot";
+
+    programs.zsh.shellAliases = {
+      c = "copilot";
+    };
   };
 }
