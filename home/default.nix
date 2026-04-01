@@ -24,14 +24,39 @@
     ../modules/home/ncspot.nix
     ../modules/home/dotnet.nix
     ../modules/home/apps.nix
-   ];
+  ];
+
+  # Enable all modules (preserves current behaviour; disable per-host in Step 2)
+  my.core.enable      = true;
+  my.zsh.enable       = true;
+  my.git.enable       = true;
+  my.languages.enable = true;
+  my.cloudK8s.enable  = true;
+  my.editor.enable    = true;
+  my.python.enable    = true;
+  my.dotnet.enable    = true;
+  my.opencode.enable  = true;
+  my.tmux.enable      = true;
+  my.atuin.enable     = true;
+  my.kitty.enable     = true;
+  my.alacritty.enable = true;
+  my.karabiner.enable = true;
+  my.sketchybar.enable = true;
+  my.aerospace.enable = true;
+  my.borders.enable   = true;
+  my.ssh.enable       = true;
+  my.httpie.enable    = true;
+  my.netskope.enable  = true;
+  my.ncspot.enable    = true;
+  my.apps.enable      = true;
+  my.maccy.enable     = true;
 
   # Home Manager needs a bit of information about you and the paths it should manage
   home = {
     username = lib.mkDefault "pvandesande";
     homeDirectory = lib.mkDefault "/Users/pvandesande";
     stateVersion = "24.11";
-    
+
     # Packages to install
     packages = with pkgs; [
       opencode
