@@ -3,4 +3,6 @@
     android-studio
     discord
   ];
+
+  my.flutter.enable = true;
 }
