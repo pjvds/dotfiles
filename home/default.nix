@@ -49,7 +49,6 @@
   my.borders.enable   = true;
   my.ssh.enable       = true;
   my.httpie.enable    = true;
-  my.netskope.enable  = true;
   my.ncspot.enable    = true;
   my.apps.enable      = true;
   my.maccy.enable     = false;
