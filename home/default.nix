@@ -24,6 +24,7 @@
     ../modules/home/ncspot.nix
     ../modules/home/dotnet.nix
     ../modules/home/apps.nix
+    ../modules/home/raycast.nix
     ../modules/home/copilot.nix
   ];
 
@@ -50,7 +51,8 @@
   my.netskope.enable  = true;
   my.ncspot.enable    = true;
   my.apps.enable      = true;
-  my.maccy.enable     = true;
+  my.maccy.enable     = false;
+  my.raycast.enable   = true;
   my.copilot.enable   = true;
 
   # Home Manager needs a bit of information about you and the paths it should manage

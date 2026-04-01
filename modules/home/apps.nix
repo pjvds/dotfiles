@@ -9,10 +9,10 @@ let cfg = config.my.apps; in
       aws-vault
       cyberduck
       jetbrains.idea
-      maccy
+
       protonmail-desktop
       proton-pass
-      raycast
+
       jetbrains.rider
       shortcat
       shottr
