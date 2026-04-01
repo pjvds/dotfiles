@@ -2,6 +2,7 @@
   imports = [
     ../modules/darwin/homebrew.nix
     ../modules/darwin/dictation.nix
+    ../modules/darwin/copilot.nix
     # Per-app modules (each owns its service + launchd config)
     ../modules/darwin/aerospace.nix
     ../modules/darwin/sketchybar.nix

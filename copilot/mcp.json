@@ -1,0 +1,45 @@
+{
+  "mcpServers": {
+    "ado-dttnl-tax-ita": {
+      "type": "stdio",
+      "command": "bunx",
+      "args": [
+        "-y",
+        "@azure-devops/mcp",
+        "dttnl-tax-ita",
+        "-d",
+        "core",
+        "work",
+        "work-items",
+        "repositories",
+        "pipelines"
+      ],
+      "disabled": true
+    },
+    "ado-ra-tes": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@azure-devops/mcp",
+        "ra-tes",
+        "-d",
+        "core",
+        "work",
+        "work-items",
+        "repositories",
+        "pipelines"
+      ],
+      "disabled": true
+    },
+    "context7": {
+      "type": "http",
+      "url": "https://mcp.context7.com/mcp"
+    },
+    "playwright": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["@playwright/mcp@latest"]
+    }
+  }
+}
