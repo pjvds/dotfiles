@@ -26,6 +26,7 @@
     ../modules/home/apps.nix
     ../modules/home/raycast.nix
     ../modules/home/copilot.nix
+    ../modules/home/flutter.nix
   ];
 
   # Enable all modules (preserves current behaviour; disable per-host in Step 2)
