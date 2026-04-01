@@ -4,7 +4,7 @@ return {
 		opts = function(_, opts)
 			-- Ensure slint parser is installed
 			if type(opts.ensure_installed) == "table" then
-				vim.list_extend(opts.ensure_installed, { "fsharp", "c_sharp" })
+				vim.list_extend(opts.ensure_installed, { "fsharp", "c_sharp", "dart" })
 			end
 		end,
 		config = function(_, opts)
