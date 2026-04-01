@@ -24,6 +24,7 @@
     ../modules/home/ncspot.nix
     ../modules/home/dotnet.nix
     ../modules/home/apps.nix
+    ../modules/home/copilot.nix
   ];
 
   # Enable all modules (preserves current behaviour; disable per-host in Step 2)
@@ -50,6 +51,7 @@
   my.ncspot.enable    = true;
   my.apps.enable      = true;
   my.maccy.enable     = true;
+  my.copilot.enable   = true;
 
   # Home Manager needs a bit of information about you and the paths it should manage
   home = {
