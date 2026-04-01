@@ -22,8 +22,12 @@ fi
 # Get the list of active workspaces on the monitor this workspace belongs to
 ACTIVE_WORKSPACES=$(aerospace list-workspaces --monitor "$WORKSPACE_MONITOR" --empty no)
 
+# AEROSPACE_FOCUSED_WORKSPACE is only set when triggered by the aerospace_workspace_change
+# event. When triggered by --update (e.g. on startup/reload), fall back to querying directly.
+FOCUSED_WORKSPACE="${AEROSPACE_FOCUSED_WORKSPACE:-$(aerospace list-workspaces --focused)}"
+
 # If this workspace is focused -> always show + highlight it
-if [ "$1" = "$AEROSPACE_FOCUSED_WORKSPACE" ]; then
+if [ "$1" = "$FOCUSED_WORKSPACE" ]; then
   sketchybar --set "$NAME" drawing=on
   sketchybar --set "$NAME" background.drawing=on
   exit 0
