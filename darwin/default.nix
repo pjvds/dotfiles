@@ -70,6 +70,13 @@
     };
   };
 
+  # Accept Xcode license automatically (runs as root during activation)
+  system.activationScripts.xcodeAcceptLicense.text = ''
+    if /usr/bin/xcodebuild -license check 2>/dev/null | /usr/bin/grep -q "not yet accepted"; then
+      /usr/bin/xcodebuild -license accept
+    fi
+  '';
+
   # Set system state version
   system.stateVersion = 5;
 
