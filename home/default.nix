@@ -70,6 +70,9 @@
   # Let Home Manager install and manage itself
   programs.home-manager.enable = true;
 
+  # Link apps into ~/Applications so Spotlight can index them
+  targets.darwin.linkApps.enable = true;
+
   # Disable manual/documentation generation to speed up rebuilds
   manual.manpages.enable = false;
   manual.html.enable = false;
