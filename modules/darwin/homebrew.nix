@@ -16,6 +16,7 @@
 
     # GUI Applications (Casks)
     casks = [
+      "android-studio"
       "arc"
       "cursorcerer"
       "deckset"
