@@ -22,7 +22,6 @@
         inherit system;
         config.allowUnfreePredicate = pkg: builtins.elem (nixpkgs.lib.getName pkg) [
           "proton-pass-cli"
-          "android-studio"
           "discord"
           "idea"
           "obsidian"
@@ -54,7 +53,12 @@
       homeConfigurations = {
         "pvandesande@NL-F2T6KVCQ3G" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
-          modules = [ ./home ];
+          modules = [ 
+            ./home
+            {
+              my.netskope.enable = true;
+            }
+          ];
         };
 
         "pjvds@Pieters-MacBook-Pro" = home-manager.lib.homeManagerConfiguration {
