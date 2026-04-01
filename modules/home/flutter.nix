@@ -12,5 +12,9 @@ let cfg = config.my.flutter; in
     home.sessionVariables = {
       FLUTTER_ROOT = "${pkgs.flutter}";
     };
+
+    home.activation.disableFlutterAnalytics = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+      ${pkgs.flutter}/bin/flutter --disable-analytics
+    '';
   };
 }
