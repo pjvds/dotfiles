@@ -49,12 +49,14 @@ sketchybar --default "${default[@]}"
 
 sketchybar --add event aerospace_workspace_change
 
+FOCUSED_WORKSPACE=$(aerospace list-workspaces --focused)
+
 for monitor in $(aerospace list-monitors --json | jq -r '.[]."monitor-id"'); do
   ACTIVE_WORKSPACES=$(aerospace list-workspaces --monitor $monitor --empty no)
  
   for sid in $(aerospace list-workspaces --monitor $monitor); do	
       DRAWING=on
-      if ! printf "%s\n" "${ACTIVE_WORKSPACES[@]}" | grep -Fxq -- "$sid"; then
+      if [ "$sid" != "$FOCUSED_WORKSPACE" ] && ! printf "%s\n" "${ACTIVE_WORKSPACES[@]}" | grep -Fxq -- "$sid"; then
         DRAWING=off
       fi
 
