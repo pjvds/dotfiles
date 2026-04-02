@@ -14,6 +14,8 @@ let cfg = config.my.copilot; in
 
     programs.zsh.shellAliases = {
       c = "copilot";
+      # Copilot with prompts, e.g. `c -p "Write a function that adds two numbers in Python"`
+      cp = "c -p ";
     };
   };
 }
