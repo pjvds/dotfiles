@@ -1,4 +1,4 @@
-{ config, ... }: {
+{ config, hostname, ... }: {
   homebrew = {
     enable = true;
     user = config.system.primaryUser;
@@ -47,6 +47,8 @@
 
     masApps = {
       "Amphetamine" = 937984704;
-    };
+    } // (if hostname == "Pieters-MacBook-Pro" then {
+      "WhatsApp" = 310633997;
+    } else {});
   };
 }
