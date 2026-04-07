@@ -12,5 +12,50 @@ let cfg = config.my.languages; in
       rustup
       nil # nix lsp
     ];
+
+    programs.zsh = {
+      shellAliases = {
+        vitest = "pnpx vitest";
+        sst    = "pnpx sst";
+      };
+      initContent = ''
+        # Disable browser launch from npm/yarn/pnpx
+        export BROWSER=none
+
+        # Cargo
+        export PATH="$PATH:$HOME/.cargo/bin"
+
+        # Yarn
+        if [ -d "$HOME/.yarn" ]; then
+          export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+        fi
+
+        # Bun
+        export BUN_INSTALL="$HOME/.bun"
+        export PATH="$BUN_INSTALL/bin:$PATH"
+        [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
+
+        # LM Studio CLI
+        export PATH="$PATH:$HOME/.lmstudio/bin"
+
+        # nvm bash completion (if installed via homebrew)
+        [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
+
+        # Go — lazy-init goenv on first use
+        export GOENV_DISABLE_GOPATH=1
+        export GOENV_ROOT="$HOME/.goenv"
+        export PATH="$GOENV_ROOT/bin:$PATH"
+        export GOPATH="$HOME/go"
+        export PATH="$PATH:$GOPATH/bin"
+        export CGO_ENABLED=1
+        export GOSUMDB="sum.golang.org"
+        export GOPROXY="https://proxy.golang.org"
+        function go() {
+          unset -f go > /dev/null 2>&1
+          eval "$(command goenv init -)"
+          go "$@"
+        }
+      '';
+    };
   };
 }
