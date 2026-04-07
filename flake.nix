@@ -18,58 +18,23 @@
   outputs = inputs@{ self, nixpkgs, nix-darwin, home-manager }: 
     let
       system = "aarch64-darwin";
-      pkgs = import nixpkgs {
-        inherit system;
-        config.allowUnfreePredicate = pkg: builtins.elem (nixpkgs.lib.getName pkg) [
-          "proton-pass-cli"
-          "discord"
-          "idea"
-          "obsidian"
-          "raycast"
-          "rider"
-          "shortcat"
-          "shottr"
-          "vscode"
-        ];
-      };
     in
     {
       # macOS system configuration (requires sudo)
       darwinConfigurations = {
         "NL-F2T6KVCQ3G" = nix-darwin.lib.darwinSystem {
           inherit system;
-          specialArgs = { hostname = "NL-F2T6KVCQ3G"; };
-          modules = [ ./darwin ];
+          modules = [
+            home-manager.darwinModules.home-manager
+            ./hosts/workstation
+          ];
         };
 
         "Pieters-MacBook-Pro" = nix-darwin.lib.darwinSystem {
           inherit system;
-          specialArgs = { hostname = "Pieters-MacBook-Pro"; };
-          modules = [ ./darwin ];
-        };
-      };
-
-      # Home Manager user configuration (no sudo required)
-      homeConfigurations = {
-        "pvandesande@NL-F2T6KVCQ3G" = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          modules = [ 
-            ./home
-            {
-              my.netskope.enable = true;
-            }
-          ];
-        };
-
-        "pjvds@Pieters-MacBook-Pro" = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          modules = [ 
-            ./home
-            ./modules/home/pjvds.nix
-            {
-              home.username = "pjvds";
-              home.homeDirectory = "/Users/pjvds";
-            }
+          modules = [
+            home-manager.darwinModules.home-manager
+            ./hosts/homelab
           ];
         };
       };

@@ -28,5 +28,3 @@ echo "🔑 Requesting sudo for system activation (Touch ID, Dock settings, etc.)
 sudo darwin-rebuild switch --flake "${DOTFILES_DIR}#${MACHINE_HOSTNAME}"
 
 echo "✅ System configuration applied successfully!"
-echo ""
-echo "💡 For user-level changes (dotfiles, packages), use './update.sh' instead (no sudo required)."

@@ -1,1 +1,0 @@
-alias sudoedit='sudo -e'

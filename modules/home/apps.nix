@@ -11,7 +11,6 @@ let cfg = config.my.apps; in
       jetbrains.idea
 
       protonmail-desktop
-      proton-pass
 
       jetbrains.rider
       shortcat

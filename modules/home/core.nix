@@ -30,5 +30,16 @@ let cfg = config.my.core; in
       enable = true;
       nix-direnv.enable = true;
     };
+
+    programs.zsh = {
+      shellAliases = {
+        ag  = ''ag --pager "less +F -R"'';
+        bat = ''bat -p --style="changes"'';
+        cat = "bat -p";
+      };
+      initContent = ''
+        export BAT_PAGER="less -RF"
+      '';
+    };
   };
 }

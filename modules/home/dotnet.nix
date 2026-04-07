@@ -17,5 +17,11 @@ in
     home.sessionVariables = {
       DOTNET_CLI_TELEMETRY_OPTOUT = "1";
     };
+
+    programs.zsh.initContent = ''
+      export DOTNET_ROOT="$HOME/.dotnet"
+      export DOTNET_TOOLS="$DOTNET_ROOT/tools"
+      export PATH="$PATH:$DOTNET_ROOT:$DOTNET_TOOLS"
+    '';
   };
 }
