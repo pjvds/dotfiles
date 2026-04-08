@@ -2,7 +2,7 @@
 let
   cfg = config.my.karabiner;
   user = config.system.primaryUser;
-  homeDir = "/Users/${user}";
+  homeDir = config.home-manager.users.${user}.home.homeDirectory;
 in {
   options.my.karabiner.enable = lib.mkEnableOption "Karabiner keyboard configuration";
 
@@ -11,7 +11,7 @@ in {
 
     home-manager.users.${user} = { config, ... }: {
       home.file.".config/karabiner".source =
-        config.lib.file.mkOutOfStoreSymlink "${homeDir}/dotfiles/modules/programs/karabiner/config";
+        config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/modules/programs/karabiner/config";
     };
   };
 }
