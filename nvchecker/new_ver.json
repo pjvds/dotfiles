@@ -76,15 +76,15 @@
       "url": "https://github.com/pjvds/tunl/releases/tag/0.35.1"
     },
     "whatscli": {
-      "version": "v1.0.11",
-      "gitref": "refs/tags/v1.0.11",
-      "revision": "ae25296b9d47087af72e561ce80a8382e9dbf7cc",
-      "url": "https://github.com/normen/whatscli/releases/tag/v1.0.11"
+      "version": "v1.1.3",
+      "gitref": "refs/tags/v1.1.3",
+      "revision": "2f1729960fe67a698144524825091f5114ea65e2",
+      "url": "https://github.com/normen/whatscli/releases/tag/v1.1.3"
     },
     "whatscli-git": {
-      "version": "20250319.083520",
-      "revision": "cf0558a16328627913d004be258b2ac5acbbd081",
-      "url": "https://github.com/normen/whatscli/commit/cf0558a16328627913d004be258b2ac5acbbd081"
+      "version": "20260407.210215",
+      "revision": "9bcf7fff1df8ca7347ea345661bfbecbb3b5c7b9",
+      "url": "https://github.com/normen/whatscli/commit/9bcf7fff1df8ca7347ea345661bfbecbb3b5c7b9"
     },
     "xrandr-notify": {
       "version": "0.2.0",
