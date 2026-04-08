@@ -128,5 +128,28 @@ sketchybar --add item clock right \
 # Enable hot reloading
 sketchybar --hotload on
 
+##### Center: anonymous nudge (just right of notch) #####
+# A hidden spacer pushes the nudge past the ~185pt notch offset on MBP 16".
+# Appears randomly (~15% chance per minute) for ~5 minutes, then hides itself.
+sketchybar --add item nudge_spacer center \
+           --set nudge_spacer \
+                 width=200 \
+                 label.drawing=off \
+                 icon.drawing=off \
+                 background.drawing=off \
+                 associated_display=1 \
+           --add item nudge center \
+           --set nudge \
+                 update_freq=60 \
+                 drawing=off \
+                 associated_display=1 \
+                 label.font="Hack Nerd Font:Bold:18.0" \
+                 label.color=$ACCENT_COLOR \
+                 label.padding_left=4 \
+                 label.padding_right=4 \
+                 background.drawing=off \
+                 click_script="$PLUGIN_DIR/nudge.sh --ack" \
+                 script="$PLUGIN_DIR/nudge.sh"
+
 ##### Force all scripts to run the first time (never do this in a script) #####
 sketchybar --update
