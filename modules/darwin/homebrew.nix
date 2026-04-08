@@ -1,4 +1,4 @@
-{ config, hostname, ... }: {
+{ config, ... }: {
   homebrew = {
     enable = true;
     user = config.system.primaryUser;
@@ -14,9 +14,8 @@
       "nikitabobko/tap"
     ];
 
-    # GUI Applications (Casks)
+    # GUI Applications (Casks) - shared across all hosts
     casks = [
-      "android-studio"
       "arc"
       "cursorcerer"
       "deckset"
@@ -48,7 +47,7 @@
 
     masApps = {
       "Amphetamine" = 937984704;
-    } // (if hostname == "Pieters-MacBook-Pro" then {
+    } // (if config.networking.hostName == "Pieters-MacBook-Pro" then {
       "WhatsApp" = 310633997;
     } else {});
   };

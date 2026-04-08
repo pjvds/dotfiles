@@ -7,6 +7,8 @@ let cfg = config.my.git; in
     programs.git = {
       enable = true;
 
+      signing.format = null;
+
       settings = {
         user = {
           name = "Pieter Joost van de Sande";
