@@ -16,4 +16,7 @@
   };
 
   my.obsidian.enable = true;
+
+  # Homelab-specific casks
+  homebrew.casks = [ "android-studio" ];
 }
