@@ -6,7 +6,6 @@ let cfg = config.my.languages; in
   config = lib.mkIf cfg.enable {
     home.packages = with pkgs; [
       go
-      nodejs_22
       pnpm
       yarn
       rustup
@@ -16,7 +15,6 @@ let cfg = config.my.languages; in
     programs.zsh = {
       shellAliases = {
         vitest = "pnpx vitest";
-        sst    = "pnpx sst";
       };
       initContent = ''
         # Disable browser launch from npm/yarn/pnpx
@@ -37,9 +35,6 @@ let cfg = config.my.languages; in
 
         # LM Studio CLI
         export PATH="$PATH:$HOME/.lmstudio/bin"
-
-        # nvm bash completion (if installed via homebrew)
-        [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
 
         # Go — lazy-init goenv on first use
         export GOENV_DISABLE_GOPATH=1
