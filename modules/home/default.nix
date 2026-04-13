@@ -21,6 +21,7 @@
     ./apps.nix
     ./raycast.nix
     ./flutter.nix
+    ../programs/node
   ];
 
   my.core.enable       = true;
@@ -42,6 +43,7 @@
   my.apps.enable       = true;
   my.maccy.enable      = false;
   my.raycast.enable    = true;
+  my.node.enable       = true;
 
   home = {
     stateVersion = "25.05";
