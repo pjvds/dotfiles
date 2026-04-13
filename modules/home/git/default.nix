@@ -4,6 +4,8 @@ let cfg = config.my.git; in
   options.my.git.enable = lib.mkEnableOption "git configuration";
 
   config = lib.mkIf cfg.enable {
+    home.packages = with pkgs; [ gh ];
+
     programs.git = {
       enable = true;
 
