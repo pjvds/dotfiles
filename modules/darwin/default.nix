@@ -10,6 +10,7 @@
     ../programs/karabiner
     ../programs/kitty
     ../programs/obsidian
+    ./snyk
   ];
 
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
@@ -32,6 +33,7 @@
   my.karabiner.enable  = true;
   my.kitty.enable      = true;
   my.obsidian.enable   = true;
+  my.snyk.enable       = true;
 
   # Time Zone
   time.timeZone = "Europe/Amsterdam";
