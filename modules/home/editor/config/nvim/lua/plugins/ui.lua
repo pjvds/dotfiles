@@ -25,7 +25,6 @@ return {
 				["];"] = "select_next_context",
 			},
 		},
-
 	},
 	{
 		"nvim-tree/nvim-tree.lua",
