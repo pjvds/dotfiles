@@ -24,15 +24,9 @@ if [ -f "$TICK_FILE" ]; then
 fi
 
 if [ "$ticks" -gt 0 ]; then
-  # Currently active — count down
-  ticks=$((ticks - 1))
-  echo "$ticks" > "$TICK_FILE"
-
-  if [ "$ticks" -eq 0 ]; then
-    # Time's up — hide nudge and reset clock colour
-    sketchybar --set nudge drawing=off
-    sketchybar --set clock label.color="$NORMAL_COLOR"
-  fi
+  # Currently active — persistent until click (don't count down)
+  # Nudge stays visible until user clicks --ack
+  :
 else
   # Inactive — roll the dice (~15% chance: random 0-99, trigger if < 15)
   roll=$((RANDOM % 100))

@@ -2,7 +2,11 @@
     "profiles": [
         {
             "complex_modifications": {
-                "parameters": { "basic.to_if_held_down_threshold_milliseconds": 200 },
+                "parameters": {
+                    "basic.simultaneous_threshold_milliseconds": 90,
+                    "basic.to_if_alone_timeout_milliseconds": 400,
+                    "basic.to_if_held_down_threshold_milliseconds": 110
+                },
                 "rules": [
                     {
                         "description": "Map CAPS_LOCK to ESCAPE",
@@ -19,9 +23,9 @@
                         "manipulators": [
                             {
                                 "from": { "key_code": "a" },
+                                "parameters": { "to_if_held_down_threshold_milliseconds": 200 },
                                 "to_if_alone": [{ "key_code": "a" }],
                                 "to_if_held_down": [{ "key_code": "left_control" }],
-                                "parameters": { "to_if_held_down_threshold_milliseconds": 200 },
                                 "type": "basic"
                             }
                         ]
@@ -31,9 +35,9 @@
                         "manipulators": [
                             {
                                 "from": { "key_code": "s" },
+                                "parameters": { "to_if_held_down_threshold_milliseconds": 200 },
                                 "to_if_alone": [{ "key_code": "s" }],
                                 "to_if_held_down": [{ "key_code": "left_alt" }],
-                                "parameters": { "to_if_held_down_threshold_milliseconds": 200 },
                                 "type": "basic"
                             }
                         ]
@@ -43,9 +47,9 @@
                         "manipulators": [
                             {
                                 "from": { "key_code": "d" },
+                                "parameters": { "to_if_held_down_threshold_milliseconds": 200 },
                                 "to_if_alone": [{ "key_code": "d" }],
                                 "to_if_held_down": [{ "key_code": "left_gui" }],
-                                "parameters": { "to_if_held_down_threshold_milliseconds": 200 },
                                 "type": "basic"
                             }
                         ]
@@ -55,9 +59,9 @@
                         "manipulators": [
                             {
                                 "from": { "key_code": "f" },
+                                "parameters": { "to_if_held_down_threshold_milliseconds": 200 },
                                 "to_if_alone": [{ "key_code": "f" }],
                                 "to_if_held_down": [{ "key_code": "left_shift" }],
-                                "parameters": { "to_if_held_down_threshold_milliseconds": 200 },
                                 "type": "basic"
                             }
                         ]
@@ -67,9 +71,9 @@
                         "manipulators": [
                             {
                                 "from": { "key_code": "j" },
+                                "parameters": { "to_if_held_down_threshold_milliseconds": 200 },
                                 "to_if_alone": [{ "key_code": "j" }],
                                 "to_if_held_down": [{ "key_code": "right_shift" }],
-                                "parameters": { "to_if_held_down_threshold_milliseconds": 200 },
                                 "type": "basic"
                             }
                         ]
@@ -79,9 +83,9 @@
                         "manipulators": [
                             {
                                 "from": { "key_code": "k" },
+                                "parameters": { "to_if_held_down_threshold_milliseconds": 200 },
                                 "to_if_alone": [{ "key_code": "k" }],
                                 "to_if_held_down": [{ "key_code": "right_gui" }],
-                                "parameters": { "to_if_held_down_threshold_milliseconds": 200 },
                                 "type": "basic"
                             }
                         ]
@@ -91,9 +95,9 @@
                         "manipulators": [
                             {
                                 "from": { "key_code": "l" },
+                                "parameters": { "to_if_held_down_threshold_milliseconds": 200 },
                                 "to_if_alone": [{ "key_code": "l" }],
                                 "to_if_held_down": [{ "key_code": "right_alt" }],
-                                "parameters": { "to_if_held_down_threshold_milliseconds": 200 },
                                 "type": "basic"
                             }
                         ]
@@ -103,6 +107,7 @@
                         "manipulators": [
                             {
                                 "from": { "key_code": "semicolon" },
+                                "parameters": { "to_if_held_down_threshold_milliseconds": 200 },
                                 "to_if_alone": [{ "key_code": "semicolon" }],
                                 "to_if_held_down": [{ "key_code": "right_control" }],
                                 "parameters": { "to_if_held_down_threshold_milliseconds": 200 },
