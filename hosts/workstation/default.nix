@@ -1,4 +1,4 @@
-{ ... }: {
+{ lib, ... }: {
   imports = [ ../../modules/darwin ];
 
   networking.hostName = "NL-F2T6KVCQ3G";
@@ -16,4 +16,5 @@
   };
 
   my.obsidian.enable = true;
+  my.karabiner.enable = lib.mkForce false;
 }
