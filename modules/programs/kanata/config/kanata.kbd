@@ -1,0 +1,31 @@
+(defcfg
+  ;; Enable cmd action for running shell commands (Cmd+Shift+/ to dismiss nudge)
+  enable-cmd yes
+)
+
+(defsrc
+  esc  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
+  caps a    s    d    f    g    h    j    k    l    ;    '    ret
+  lsft z    x    c    v    b    n    m    ,    .    /    rsft
+  lctl lalt lmet           spc            rmet ralt rctl
+)
+
+(deflayer default
+  esc  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
+  esc  @a   @s   @d   @f   g    h    @j   @k   @l   @;   '    ret
+  lsft z    x    c    v    b    n    m    ,    .    @cmd rsft
+  lctl lalt lmet           spc            rmet ralt rctl
+)
+
+;; Homerow modifiers (200ms threshold)
+(defkey @a (tap-hold 200 a lctl))
+(defkey @s (tap-hold 200 s lalt))
+(defkey @d (tap-hold 200 d lmet))
+(defkey @f (tap-hold 200 f lsft))
+(defkey @j (tap-hold 200 j lsft))
+(defkey @k (tap-hold 200 k lmet))
+(defkey @l (tap-hold 200 l lalt))
+(defkey @; (tap-hold 200 ; lctl))
+(defkey @cmd (tap-hold 200 / (cmd /bin/zsh /Users/pvandesande/dotfiles/modules/programs/sketchybar/config/plugins/nudge.sh --ack)))
