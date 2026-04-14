@@ -39,6 +39,11 @@
   # Enable Touch ID for sudo (new syntax)
   security.pam.services.sudo_local.touchIdAuth = true;
 
+  # Allow passwordless sudo for kanata (keyboard remapper)
+  security.sudo.extraConfig = ''
+    ${config.system.primaryUser} ALL=(ALL) NOPASSWD: ${pkgs.kanata-with-cmd}/bin/kanata
+  '';
+
   # Disable nix-darwin's management of the Nix installation
   nix.enable = false;
 

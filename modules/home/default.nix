@@ -22,6 +22,7 @@
     ./raycast.nix
     ./flutter.nix
     ../programs/node
+    ../programs/kanata
   ];
 
   my.core.enable       = true;
@@ -44,6 +45,7 @@
   my.maccy.enable      = false;
   my.raycast.enable    = true;
   my.node.enable       = true;
+  my.kanata.enable     = false;
 
   home = {
     stateVersion = "25.05";
