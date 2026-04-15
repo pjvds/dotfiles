@@ -108,10 +108,7 @@ in
           setopt HIST_VERIFY
           setopt HIST_BEEP
 
-          # Keybindings
-          bindkey "^k" history-beginning-search-backward
-          bindkey "^j" history-beginning-search-forward
-          bindkey -s '^f' 'fg^M'
+          # Note: Keybindings for ^j/^k moved to end of initContent (after zsh-vi-mode loads)
 
           # Copy full path of file/dir to clipboard
           function cpath {
@@ -184,6 +181,12 @@ in
           # Fix for zsh-cwd: NO_STATE may already be readonly in some environments
           unset NO_STATE 2>/dev/null
         '')
+
+        (lib.mkOrder 200 ''
+          # Keybindings - bind to fzf-up
+          bindkey "^k" fzf-up
+          bindkey "^j" fzf-up
+        '')
       ];
 
       plugins = [
@@ -224,6 +227,7 @@ in
             rev = "master";
             sha256 = "0f9hwq9mqxgvykyjy80cyxfnqwblny0b3vkwiryhccsvgcbjmlwv";
           };
+          file = "zsh-cd-print.plugin.zsh";
         }
       ];
 
