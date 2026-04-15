@@ -13,6 +13,9 @@ in {
       home.file.".copilot".source =
         config.lib.file.mkOutOfStoreSymlink "${homeDir}/dotfiles/modules/programs/copilot/config";
 
+      # Ensure copilot-skills directory exists for copilot-specific skills
+      home.file."dotfiles/copilot-skills/.gitkeep".text = "";
+
       programs.zsh.shellAliases = {
         c  = "copilot --add-dir /tmp --add-dir \$(pwd)";
         cp = "c -p "; # Execute a prompt in *non-interactive* mode, and print the result to stdout.
