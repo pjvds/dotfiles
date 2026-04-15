@@ -24,8 +24,8 @@ let cfg = config.my.kanata; in
           "--cfg"
           "${config.home.homeDirectory}/.config/kanata/kanata.kbd"
         ];
-        RunAtLoad = true;
-        KeepAlive = true;
+        RunAtLoad = false;
+        KeepAlive = false;
         StandardOutPath = "${config.home.homeDirectory}/.local/share/kanata/out.log";
         StandardErrorPath = "${config.home.homeDirectory}/.local/share/kanata/err.log";
       };

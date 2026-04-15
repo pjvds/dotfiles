@@ -1,142 +1,160 @@
 # dotfiles
 
-This repository contains 10 years of dotfile history with various configurations. Currently I'm running Arch Linux with the tiling window manager bspwm. Most applications are configured with a dark theme called monokai in combination with the purple tints of the dracula theme.
+Declarative macOS configuration using **nix-darwin** and **Home Manager** with Flakes. This repository contains my personal dotfiles optimized for developer productivity with a focus on keyboard-first workflows.
 
-# Topical
+## Quick Start
 
-These dotfiles follow the Low Coupling, High Cohesion principle. An example of this is that the hotkey daemon (sxhkd) doesn't know all the bindings of all applications. In other words, the hotkeys daemon configuration is not directly coupled to all applications that want a binding. Instead a application can express it's hotkey configuration in its own file (_topic_/hotkeys) that will be sourced by the hotkey daemon.
+```bash
+# Apply configuration to current host
+sudo nix run nix-darwin/master#darwin-rebuild -- switch --flake .#workstation
 
-# Modules
-There's a few special files in the hierarchy.
+# Dry-run (see what would change)
+sudo nix run nix-darwin/master#darwin-rebuild -- build --flake .#workstation
 
-* **bin/**: Anything in bin/ will get added to your $PATH and be made available everywhere.
-* **_module_/login**: Executed then the windows manager is loaded.
-* **_module_/preinit.zsh**: Sourced before any init scripts are loaded.
-* **_module_/init.zsh**: Sourced before any ZSH plugin or zinit is loaded.
-* **_module_/postinit.zsh**: Sourced after all init scripts loaded.
-* **_module_/aliases.zsh**: Sourced after all init scripts loaded.
-* **_module_/hotkeys**: Sourced by the hotkey daemon sxhkd.
-* **_module_/install.zsh**: Any file named install.sh is executed when you run script/install. This script should be idempotent.
+# Update inputs to latest versions
+nix flake update
+
+# Rollback to previous generation
+sudo nix run nix-darwin/master#darwin-rebuild -- switch --rollback
+```
+
+## Architecture
+
+This repository uses a **five-layer architecture** for clear separation of concerns:
+
+```
+flake.nix (orchestration)
+├── hosts/workstation/     → macOS with unstable nixpkgs (latest packages)
+└── hosts/homelab/         → macOS 13 with stable nixpkgs (compatible packages)
+    ├── default.nix        → darwin system configuration
+    ├── home.nix           → Home Manager user configuration
+    └── homebrew.nix       → Homebrew packages & casks
+        │
+        └── modules/
+            ├── darwin/    → System-level settings (dock, keyboard, etc.)
+            ├── home/      → Shell, git, SSH, development tools
+            └── programs/  → Self-contained GUI apps with config directories
+```
+
+### Module Pattern
+
+Each program is **self-contained** with a standard structure:
+
+```
+modules/programs/neovim/
+├── default.nix           # Nix configuration (toggle, packages)
+└── config/               # Live-editable configs (symlinked, no rebuild)
+    ├── init.lua
+    ├── lua/
+    └── plugins.lua
+```
+
+- `default.nix` defines the toggle (`my.neovim.enable = true;`) and imports
+- `config/` directory is symlinked live (changes take effect immediately without rebuild)
+- This separates declarative configuration from live editing
 
 # Features
 
-## Blazing fast shell start time
+## Home Row Mods (CACS)
 
-``` zsh
-$ time zsh -i -c exit
-0.06s user 0.13s system 101% cpu 0.186 total
+Transform your keyboard into a comfort machine by holding letter keys to trigger modifiers. This eliminates pinky stretching to modifier keys—your fingers stay on the home row.
+
+### Dual Implementation
+
+Home row mods are implemented across two keyboards and systems:
+
+1. **External Keyboard (ZMK Firmware)**
+   - Device: Corne-ish Zen split keyboard
+   - Config: `zmk/config/corne-ish_zen.keymap`
+   - Implementation: ZMK keyboard firmware with home row mod behaviors
+
+2. **MacBook Built-in Keyboard (Karabiner)**
+   - Device: Built-in MacBook keyboard
+   - Config: `modules/programs/karabiner/config/homerow.json`
+   - Implementation: Karabiner Elements dual-role keys
+
+### Karabiner Configuration (MacBook Keyboard)
+
+The MacBook keyboard uses Karabiner Elements for CACS (Command-Alt-Ctrl-Shift) home row mods:
+
+**Left-hand mods (home row):**
+```
+A → Cmd (Command)
+S → Alt (Option)
+D → Ctrl (Control)
+F → Shift
 ```
 
-## Blazing fast editor start time
-
-3.38ms startup time for my favorite editor.
-
-``` zsh
-$ vim --startuptime /dev/stdout +qall
---- Startup times for process: Primary/TUI ---
-
-times in msec
- clock   self+sourced   self:  sourced script
- clock   elapsed:              other lines
-
-000.000  000.000: --- NVIM STARTING ---
-000.153  000.152: event init
-000.440  000.287: early init
-000.473  000.034: locale set
-000.536  000.063: init first window
-001.556  001.020: inits 1
-001.576  000.019: window checked
-001.582  000.006: parsing arguments
-002.473  000.046  000.046: require('vim.shared')
-002.578  000.055  000.055: require('vim.inspect')
-002.636  000.044  000.044: require('vim._options')
-002.638  000.161  000.063: require('vim._editor')
-002.640  000.305  000.097: require('vim._init_packages')
-002.643  000.756: init lua interpreter
-003.386  000.744: --- NVIM STARTED ---
+**Right-hand mods (home row):**
+```
+J → Shift
+K → Ctrl (Control)
+; → Cmd (Command)
 ```
 
-## Package list
+**Dual-role key behavior:**
+- **Hold** key = acts as modifier
+- **Tap** key = types the letter normally
+  - Tap `A` = types `a`
+  - Hold `A` + press `C` = `Cmd+C` (copy)
+  - Hold `D` + press `Z` = `Ctrl+Z` (undo)
+  - Hold `S` + press `Tab` = `Alt+Tab` (switch apps)
 
-After each login the current package list is saved to `arch/pkglist.txt` as a backup.
+### ZMK Configuration (External Corne-ish Zen)
 
-## Ly
+The external Corne-ish Zen split keyboard uses ZMK firmware with layers for modifier access. See `zmk/config/corne-ish_zen.keymap` for detailed keymap configuration across QWERTY, LOWER, RAISE, and CONFIG layers.
 
-A display manager (or login manager) that is displayed at the end of the boot process. It allows me to switch between different window managers like i3 and bspwm.
+## Major Applications & Tools
 
-![display manager Ly](https://github.com/pjvds/dotfiles/raw/master/features/Ly-display-manager.png)
+### Terminal & Shell
 
-## Qutebrowser 
+| Application | Config Location | Purpose |
+|------------|-----------------|---------|
+| **zsh** | `modules/home/zsh/` | Modern shell with async prompt |
+| **starship** | zsh config | Fast, minimal prompt |
+| **kitty** | `modules/programs/kitty/config/` | GPU-accelerated terminal |
+| **alacritty** | `modules/home/alacritty/` | Cross-platform terminal |
+| **tmux** | `modules/home/tmux/config/` | Terminal multiplexer |
+| **atuin** | `modules/home/atuin.nix` | Elegant shell history |
 
-Press <kbd>Command</kbd> + <kbd>Q</kbd> to launch the qutebrowser profile picker. This allows you to pick a profile for the browser, comparable to Firefox Containers but at process level instead of tabs.
+### Editors & Development
 
-Profiles are identified by different border colors. Here is an example of 3 browser instances each running a different profile identified by a per profile border color.
+| Application | Config Location | Purpose |
+|------------|-----------------|---------|
+| **Neovim** | `modules/home/editor/` | Extensible text editor |
+| **GitHub Copilot CLI** | `modules/programs/copilot/config/` | AI coding assistant |
+| **Python/Node/.NET/Flutter** | `modules/home/*.nix` | Language toolchains |
 
-![per profile border color](https://github.com/pjvds/dotfiles/raw/master/features/qutebrowser-profile-colors.png)
+### Window Management & UI
 
-## bspwm
+| Application | Config Location | Purpose |
+|------------|-----------------|---------|
+| **AeroSpace** | `modules/programs/aerospace/config/` | Tiling window manager |
+| **JankyBorders** | `modules/programs/borders/config/` | Window borders decorator |
+| **SketchyBar** | `modules/programs/sketchybar/config/` | Customizable status bar |
+| **Raycast** | `modules/home/raycast.nix` | App launcher & productivity |
+| **Maccy** | `modules/home/maccy.nix` | Clipboard manager |
 
-Tilling window manager that rocks!
+### Keyboard & Input
 
-## sxhkd
+| Application | Config Location | Purpose |
+|------------|-----------------|---------|
+| **Karabiner Elements** | `modules/programs/karabiner/config/` | Key remapping (home row mods) |
 
-A simple X hotkey daemon that maps input events to command executions.
+### Productivity & Utilities
 
-## polybar
+| Application | Config Location | Purpose |
+|------------|-----------------|---------|
+| **Obsidian** | `modules/programs/obsidian/config/` | Note-taking & knowledge base |
+| **ncspot** | `modules/home/ncspot/` | Spotify CLI client |
+| **HTTPie** | `modules/home/httpie/` | HTTP CLI client |
+| **git** | `modules/home/git/` | Version control |
+| **ssh** | `modules/home/ssh/` | Secure shell |
 
-A utility that is used to generate the status bar at the bottom of the screen.
+### Cloud & DevOps
 
-![polybar](https://github.com/pjvds/dotfiles/raw/master/features/polybar.png)
-
-## rofi
-
-A utility to launch apps from the i3 desktop. [command]+[d] is bound to start it.
-
-## qutebrowser
-
-A keyboard-focused browser with a minimal GUI that allows you to surf the web without a mouse.
-
-## alacritty
-
-Fasted terminal emulator in the world.
-
-## zsh
-
-A modern shell most closely resembles Korn shell. Despite being over 20 years old it is considered _new_. Famous for command completion, path expansion and replacement. It is a Bash drop in replacement.
-
-## oh-my-zsh
-
-Turns the already great zsh shell into a 10x environment.
-
-## z
-
-Utility to jump to directories. It records all your directory changes and lets you jump to them. For example, `z code` will jump to `/home/pjvds/code`.
-
-## vim
-
-How to quit this editor?
-
-## starship
-
-A popular zsh prompt with async support. 
-
-## ncspot
-
-A commandline ncurses client for spotify. Think ncmpc but for the popular streaming service spotify.
-&previous;
-
-* Press <kbd>&laquo;</kbd> to skip to previous track
-* Press <kbd>shift</kbd> + <kbd>&laquo;</kbd> to seek -10 seconds
-* Press <kbd>&raquo;</kbd> to skip to next track
-* Press <kbd>shift</kbd> + <kbd>&raquo;</kbd> to seek +10 seconds
-
-## the silver searches
-
-Searching tool with a focus on speed.
-
-## reflex
-
-Utility to watch file changes.
+- **Kubernetes**: `modules/home/cloud-k8s/` 
+- **Netskope VPN**: `modules/home/netskope.nix`
 
 # Git
 
@@ -180,38 +198,36 @@ index ec4a683..d5e6837 100644
  It provides tools to read, create, search, and manage notes, tasks, and more.
 ```
 
-# AUR package maintainance
+# Legacy: AUR Package Maintenance (Arch Linux Era)
 
-I'm maintaining a [few dozen AUR packages](https://aur.archlinux.org/packages/?K=pjvds&SeB=m) for Arch Linux. A daily CRON job runs on 
-[github action](https://github.com/pjvds/dotfiles/actions/workflows/nvchecker.yml) to discover out dated packages.
+This section is kept for historical context. These tools were used when this repository was for Arch Linux configuration.
 
+I was maintaining a [few dozen AUR packages](https://aur.archlinux.org/packages/?K=pjvds&SeB=m) for Arch Linux with a daily CI job checking for outdated packages:
 
-I recently get questions on what tools I use to automate my workflow, so here is the list:
+* `aurpublish` - Install githooks for package repository
+* `updpkgsums` - In-place update of checksums
+* `nvchecker` - Check for new versions ([config](nvchecker/nvchecker.toml))
+* `nvcmp` - Compare version state files from nvchecker
+* `nvtake <pkg_name>` - Accept the new version
 
-* `aurpublish` to install githooks for package repository.
-* `updpkgsums` to perform an in place update of the checksums.
-* `nvchecker` to check for new versions ([config](https://github.com/pjvds/dotfiles/blob/master/nvchecker/nvchecker.toml)).
-* `nvcmp` to compare version state files from nvchecker.
-* `nvtake <pkg_name>` to accept the new version.
-
-There is also a github action running that checks for new version everyday so I don't miss updates.
+Configuration lives in `nvchecker/nvchecker.toml` and is kept for archive purposes.
 
 # Keyboard
 
-My daily driver is a 40% ortholiniar split keyboard that allows me to move keys towards my fingers, instead of moving my fingers to the keys. With this keyboard my fingers never travel more than a single key in any direction.
+My daily driver is a 40% ortholinear split keyboard (Planck) that allows me to move keys towards my fingers, instead of moving my fingers to the keys. With this keyboard my fingers never travel more than a single key in any direction.
 
-## Specs
+Combined with home row mods, this setup eliminates all hand movement for typing and hotkeys.
 
-* Typeau .40 Planck Edition ([site](https://typeau.com/posts/typeau-40-planck-edition-update))
-* OLKB Planck PCB Rev 6.1 ([site](https://olkb.com/products/planck-pcb))
-* Matt3o /dev/tty keycaps with MT3 profile ([site](https://matt3o.com/about-mt3-profile-and-devtty-set/))
-* Gateron Silent Clear (Linear | 4.0mm travel | 35g Actuation) ([site](https://candykeys.com/product/gateron-silent-clear))
-* Krytox 205g0 lube for the switches and stabalizers
-* TX switch films 0.125mm ([site](https://www.us.txkeyboards.com/products/switch-films?variant=32401591959612))
-* ZealPC Stabilizers v2 ([site](https://zealpc.net/products/zealstabilizers))
+## Hardware Specs
 
-## Keebsheet
+* **Typeau .40 Planck Edition** ([site](https://typeau.com/posts/typeau-40-planck-edition-update))
+* **OLKB Planck PCB Rev 6.1** ([site](https://olkb.com/products/planck-pcb))
+* **Matt3o /dev/tty keycaps** with MT3 profile ([site](https://matt3o.com/about-mt3-profile-and-devtty-set/))
+* **Gateron Silent Clear** switches (Linear | 4.0mm travel | 35g Actuation) ([site](https://candykeys.com/product/gateron-silent-clear))
+* **Krytox 205g0** lube for switches and stabilizers
+* **TX switch films** 0.125mm ([site](https://www.us.txkeyboards.com/products/switch-films?variant=32401591959612))
+* **ZealPC Stabilizers v2** ([site](https://zealpc.net/products/zealstabilizers))
 
-Press <kbd>Command</kbd> + <kbd>Z</kbd> to toggle keebsheet.
+## Home Row Mods
 
-![keyboard layout](https://github.com/pjvds/dotfiles/raw/master/qmk/keyboard-layout.png)
+See the [Features → Home Row Mods section](#home-row-mods-cacs) above for detailed explanation and key mappings.

@@ -2,7 +2,7 @@
   danger-enable-cmd yes
   process-unmapped-keys no
   macos-dev-names-include (
-    "Apple Internal Keyboard / Trackpad"
+    "0xD4359520DA829EC8"
   )
 )
 
