@@ -25,6 +25,9 @@ MACHINE_HOSTNAME=$(hostname -s)
 echo "🔄 Applying macOS system configuration changes..."
 echo "🔑 Requesting sudo for system activation (Touch ID, Dock settings, etc.)..."
 
+echo "📦 Updating git submodules..."
+git -C "${DOTFILES_DIR}" submodule update --init --recursive
+
 sudo darwin-rebuild switch --flake "${DOTFILES_DIR}#${MACHINE_HOSTNAME}"
 
 echo "✅ System configuration applied successfully!"
