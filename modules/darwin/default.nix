@@ -11,6 +11,7 @@
     ../programs/kitty
     ../programs/obsidian
     ./snyk
+    ./lazyworktree
   ];
 
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [

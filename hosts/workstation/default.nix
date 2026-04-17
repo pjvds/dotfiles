@@ -17,4 +17,5 @@
 
   my.obsidian.enable = true;
   my.karabiner.enable = lib.mkForce false;
+  my.lazyworktree.enable = true;
 }
