@@ -1,3 +1,7 @@
+[submodule "copilot/skills/caveman"]
+	path = modules/programs/copilot/config/skills/caveman
+	url = https://github.com/JuliusBrussee/caveman.git
+
 [submodule "opencode/skills/obsidian-skills"]
 	path = modules/home/opencode/config/skills/obsidian-skills
 	url = https://github.com/kepano/obsidian-skills.git
