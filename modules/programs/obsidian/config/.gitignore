@@ -1,5 +1,11 @@
-# Ignore everything
+# Ignore everything in this directory.
+#
+# Obsidian writes live runtime state here (cache, cookies, session data, etc.)
+# that should never be committed.
+#
+# obsidian.json is intentionally NOT tracked. It is generated at activation
+# time by the nix module (modules/programs/obsidian/default.nix) via
+# home.activation.obsidianVaultConfig, which writes the vault path as
+# $HOME/Documents/personal — correct for whichever user runs darwin-rebuild.
+# Committing it would hardcode a single user's home directory path.
 *
-
-# Except these files
-!obsidian.json
