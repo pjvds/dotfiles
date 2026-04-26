@@ -7,7 +7,9 @@ after-startup-command = [
     # JankyBorders has a built-in detection of already running process,
     # so it won't be run twice on AeroSpace restart
     'exec-and-forget borders',
-    'exec-and-forget sketchybar',
+    # sketchybar is managed by launchd and starts before AeroSpace; reload it
+    # so that it can query aerospace workspaces now that aerospace is running
+    'exec-and-forget sketchybar --reload',
 ]
 
 # Notify Sketchybar about workspace change
