@@ -1,5 +1,7 @@
 require("nvchad.options")
 
+vim.lsp.set_log_level("WARN")
+
 local o = vim.o
 
 -- don't use the system clipboard
