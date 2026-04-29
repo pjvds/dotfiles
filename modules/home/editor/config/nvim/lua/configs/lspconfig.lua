@@ -1,9 +1,8 @@
 -- load defaults i.e lua_lsp
 require("nvchad.configs.lspconfig").defaults()
 
--- EXAMPLE
+-- servers with default config
 local servers = {
-	"astro-language-server",
 	"ts_ls",
 	"html",
 	"cssls",
@@ -12,15 +11,10 @@ local servers = {
 	"graphql",
 	"csharp_ls",
 	"rust_analyzer",
-	--"angularls",
-	"yamlls",
-	"terraform-ls",
+	"terraformls",
 	"pyright",
-	"slint_lsp", -- Slint UI language server
+	"slint_lsp",
 }
-
--- lsps with default config
-vim.lsp.enable(servers)
 
 vim.lsp.config("yamlls", {
 	settings = {
@@ -40,26 +34,25 @@ local vue_language_server_path = vim.fn.expand("$MASON/packages")
 	.. "/vue-language-server"
 	.. "/node_modules/@vue/language-server"
 
-local vue_plugin = {
-	name = "@vue/typescript-plugin",
-	location = vue_language_server_path,
-	languages = { "vue" },
-	configNamespace = "typescript",
-}
-local vtsls_config = {
+vim.lsp.config("vtsls", {
 	settings = {
 		vtsls = {
 			tsserver = {
 				globalPlugins = {
-					vue_plugin,
+					{
+						name = "@vue/typescript-plugin",
+						location = vue_language_server_path,
+						languages = { "vue" },
+						configNamespace = "typescript",
+					},
 				},
 			},
 		},
 	},
 	filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
-}
+})
 
-local vue_ls_config = {
+vim.lsp.config("vue_ls", {
 	on_init = function(client)
 		client.handlers["tsserver/request"] = function(_, result, context)
 			local clients = vim.lsp.get_clients({ bufnr = context.bufnr, name = "vtsls" })
@@ -87,14 +80,9 @@ local vue_ls_config = {
 			end)
 		end
 	end,
-}
+})
 
-vim.lsp.config("vtsls", vtsls_config)
-vim.lsp.config("vue_ls", vue_ls_config)
-
--- configuring single server, example: typescript
--- lspconfig.ts_ls.setup {
---   on_attach = nvlsp.on_attach,
---   on_init = nvlsp.on_init,
---   capabilities = nvlsp.capabilities,
--- }
+vim.lsp.enable(servers)
+vim.lsp.enable("yamlls")
+vim.lsp.enable("vtsls")
+vim.lsp.enable("vue_ls")
