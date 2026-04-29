@@ -1,6 +1,6 @@
 require("nvchad.options")
 
-vim.lsp.set_log_level("WARN")
+vim.lsp.log.set_level("WARN")
 
 local o = vim.o
 
