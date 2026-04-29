@@ -21,7 +21,7 @@ in
     ];
 
     home.file.".config/k9s/skin.yml".source =
-      config.lib.file.mkOutOfStoreSymlink "${dotfiles}/modules/home/cloud-k8s/config/k9s-skin.yml";
+      config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.local/state/theme/k9s-skin.yml";
 
     programs.zsh = {
       shellAliases = {

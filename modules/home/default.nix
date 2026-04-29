@@ -21,6 +21,7 @@
     ./apps.nix
     ./raycast.nix
     ./flutter.nix
+    ./theme
     ../programs/node
     ../programs/kanata
   ];
@@ -46,6 +47,7 @@
   my.raycast.enable    = true;
   my.node.enable       = true;
   my.kanata.enable     = false;
+  my.theme.enable      = true;
 
   home = {
     stateVersion = "25.05";

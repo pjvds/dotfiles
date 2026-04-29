@@ -4,7 +4,13 @@
 # https://github.com/FelixKratz/dotfiles
 
 PLUGIN_DIR="$CONFIG_DIR/plugins"
-source "$PLUGIN_DIR/style.sh"
+
+# Theme: source from mutable state dir (managed by `theme` CLI), fallback to bundled style
+if [ -f "$HOME/.local/state/theme/sketchybar-style.sh" ]; then
+  source "$HOME/.local/state/theme/sketchybar-style.sh"
+else
+  source "$PLUGIN_DIR/style.sh"
+fi
 
 ##### Bar Appearance #####
 # Configuring the general appearance of the bar.
