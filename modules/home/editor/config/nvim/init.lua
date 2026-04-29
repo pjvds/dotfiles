@@ -33,6 +33,10 @@ dofile(vim.g.base46_cache .. "statusline")
 require("options")
 require("nvchad.autocmds")
 
+vim.api.nvim_create_user_command("LspInfo", function()
+	vim.cmd("checkhealth vim.lsp")
+end, { desc = "Show LSP status via checkhealth" })
+
 vim.schedule(function()
 	require("mappings")
 end)
