@@ -5,8 +5,16 @@
 local M = {}
 
 M.base46 = {
-	-- my favorite colorschemes
-	theme = "nightowl",
+	-- Theme managed by `theme` CLI — reads from ~/.local/state/theme/nvim-theme
+	theme = (function()
+		local f = io.open(os.getenv("HOME") .. "/.local/state/theme/nvim-theme", "r")
+		if f then
+			local t = f:read("*l")
+			f:close()
+			if t and t ~= "" then return t end
+		end
+		return "nightowl"
+	end)(),
 
 	-- hl_override = {
 	-- 	Comment = { italic = true },
