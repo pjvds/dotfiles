@@ -69,6 +69,43 @@ let
       # k9s: swap skin in state dir (k9s config symlinks here)
       cp "$THEME_DIR/k9s/$mode.yml" "$STATE_DIR/k9s-skin.yml"
 
+      # JetBrains Rider: enable "Sync with OS" and set matching color scheme
+      local rider_dir
+      rider_dir=$(ls -d "$HOME/Library/Application Support/JetBrains/Rider"[0-9]* 2>/dev/null | sort -V | tail -1)
+      if [ -n "$rider_dir" ]; then
+        local rider_opts="$rider_dir/options"
+        mkdir -p "$rider_opts"
+
+        # Enable OS theme sync via laf.xml
+        cat > "$rider_opts/laf.xml" << 'RIDEREOF'
+<application>
+  <component name="LafManager" autodetect="true">
+    <laf class-name="com.intellij.ide.ui.laf.darcula.DarculaLaf" themeId="ExperimentalDark" />
+    <laf-for-light class-name="com.intellij.ide.ui.laf.IntelliJLaf" themeId="ExperimentalLight" />
+  </component>
+</application>
+RIDEREOF
+
+        # Set matching editor color scheme
+        if [ "$mode" = "dark" ]; then
+          cat > "$rider_opts/colors.scheme.xml" << 'DARKEOF'
+<application>
+  <component name="EditorColorsManagerImpl">
+    <global_color_scheme name="Rider Islands Dark" />
+  </component>
+</application>
+DARKEOF
+        else
+          cat > "$rider_opts/colors.scheme.xml" << 'LIGHTEOF'
+<application>
+  <component name="EditorColorsManagerImpl">
+    <global_color_scheme name="Rider Islands Light" />
+  </component>
+</application>
+LIGHTEOF
+        fi
+      fi
+
       # macOS appearance
       if [ "$mode" = "dark" ]; then
         osascript -e 'tell application "System Events" to tell appearance preferences to set dark mode to true' 2>/dev/null || true
