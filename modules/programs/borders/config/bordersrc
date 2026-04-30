@@ -57,6 +57,10 @@ get_rgb() {
     tkpurple) echo "#BC9BF7" ;;
     tkyellow) echo "#E1AF68" ;;
 
+    # light theme
+    light_gray) echo "#d1d5db" ;;
+    lightowl_blue) echo "#4876d6" ;;
+
 	# default color
 	*) echo "#ffffff" ;;
 	esac
@@ -68,8 +72,8 @@ get_hex() {
 }
 
 # set color
-act_color="cgreen"
-ina_color="dcurrent"
+act_color="lightowl_blue"
+ina_color="light_gray"
 # bg_color="catp_crust"
 
 OPTIONS=(
