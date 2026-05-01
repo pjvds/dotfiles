@@ -10,6 +10,7 @@
     ../programs/karabiner
     ../programs/kitty
     ../programs/obsidian
+    ../programs/warp
     ./snyk
     ./lazyworktree
   ];
