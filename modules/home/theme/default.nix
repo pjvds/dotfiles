@@ -72,6 +72,8 @@ let
           case $1 in
             cbg) echo "#16181a" ;;
             ccyan) echo "#5ef1ff" ;;
+            cgreen) echo "#5eff6c" ;;
+            dcurrent) echo "#44475A" ;;
             lightowl_blue) echo "#4876d6" ;;
             light_gray) echo "#d1d5db" ;;
             *) echo "#ffffff" ;;

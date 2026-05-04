@@ -1,8 +1,9 @@
 #!/bin/bash
 # Dark theme colors for borders
 
-# Active (focused) window border - cyan
-export BORDERS_ACTIVE_COLOR="ccyan"
+# Active (focused) window border - green (cyberdream green)
+export BORDERS_ACTIVE_COLOR="cgreen"
 
-# Inactive window border - dark gray
-export BORDERS_INACTIVE_COLOR="cbg"
+# Inactive window border - dark gray (dracula)
+export BORDERS_INACTIVE_COLOR="dcurrent"
+
