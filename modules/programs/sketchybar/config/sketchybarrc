@@ -157,5 +157,19 @@ sketchybar --add item nudge_spacer center \
                  click_script="$PLUGIN_DIR/nudge.sh --ack" \
                  script="$PLUGIN_DIR/nudge.sh"
 
+##### Initialize per-monitor workspace state - find first workspace with windows on each monitor #####
+STATE_DIR="$HOME/.local/state/aerospace"
+mkdir -p "$STATE_DIR"
+
+for monitor in $(aerospace list-monitors --json | jq -r '.[]."monitor-id"'); do
+  # Get all workspaces with windows on this monitor (in order of visibility)
+  WORKSPACES_WITH_WINDOWS=$(aerospace list-windows --monitor "$monitor" --format '%{workspace}' 2>/dev/null | sort -u | head -1)
+  
+  if [ -n "$WORKSPACES_WITH_WINDOWS" ]; then
+    # Set the first workspace with windows as active for this monitor
+    echo "$WORKSPACES_WITH_WINDOWS" > "$STATE_DIR/monitor_${monitor}_last_focused"
+  fi
+done
+
 ##### Force all scripts to run the first time (never do this in a script) #####
 sketchybar --update
