@@ -48,10 +48,17 @@ let
           "<cmd>lua require('nvchad.themes').reload('$nvim_theme')<CR>" 2>/dev/null || true
       done
 
-      # Sketchybar: copy style to state dir, reload
+      # Sketchybar: copy style to state dir and reload
       cp "$THEME_DIR/sketchybar/$mode.sh" "$STATE_DIR/sketchybar-style.sh"
       if command -v sketchybar &>/dev/null && pgrep -x sketchybar &>/dev/null; then
+        # Reload config (will source updated theme variables)
         sketchybar --reload 2>/dev/null || true
+        # Wait a moment for reload to settle
+        sleep 0.5
+        # Update popup border and nudge label colors
+        source "$STATE_DIR/sketchybar-style.sh"
+        sketchybar --set audio_output popup.background.border_color="$ACCENT_COLOR" 2>/dev/null || true
+        sketchybar --set nudge label.color="$ACCENT_COLOR" 2>/dev/null || true
       fi
 
       # OpenCode: update theme name in tui.json, copy light theme file if needed
