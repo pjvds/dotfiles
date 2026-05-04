@@ -71,9 +71,15 @@ get_hex() {
   echo "0xff${rgb:1}"
 }
 
-# set color
-act_color="lightowl_blue"
-ina_color="light_gray"
+# Source theme variables if available, otherwise use defaults
+BORDERS_THEME_FILE="${HOME}/.local/state/theme/borders-style.sh"
+if [ -f "$BORDERS_THEME_FILE" ]; then
+  source "$BORDERS_THEME_FILE"
+fi
+
+# set color - use sourced variables or defaults
+act_color="${BORDERS_ACTIVE_COLOR:-lightowl_blue}"
+ina_color="${BORDERS_INACTIVE_COLOR:-light_gray}"
 # bg_color="catp_crust"
 
 OPTIONS=(

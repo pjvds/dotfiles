@@ -1,0 +1,103 @@
+{
+  "locations": {
+    "/Users/pvandesande/dotfiles": {
+      "tool_approvals": [
+        {
+          "kind": "write"
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "sed"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "xargs"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "pgrep"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "bash"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "awk"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "ioreg"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "system_profiler"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "mkdir"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "git add"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "brew"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "ln",
+            "open"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "theme"
+          ]
+        }
+      ]
+    },
+    "/Users/pvandesande/code/deloitte/ede-backend": {
+      "tool_approvals": [
+        {
+          "kind": "write"
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "dotnet test"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "dotnet build"
+          ]
+        }
+      ]
+    }
+  }
+}

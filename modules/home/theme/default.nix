@@ -61,6 +61,16 @@ let
         sketchybar --set nudge label.color="$ACCENT_COLOR" 2>/dev/null || true
       fi
 
+      # Borders: copy style to state dir and restart daemon
+      cp "$THEME_DIR/borders/$mode.sh" "$STATE_DIR/borders-style.sh"
+      if command -v borders &>/dev/null; then
+        # Kill the borders process to force it to re-read the config
+        pkill -f "borders" 2>/dev/null || true
+        # Wait a moment for process to exit
+        sleep 0.2
+        # The launchd agent will restart it automatically, sourcing the new theme
+      fi
+
       # OpenCode: update theme name in tui.json, copy light theme file if needed
       local opencode_config="${dotfiles}/modules/home/opencode/config"
       if [ -f "$opencode_config/tui.json" ]; then
