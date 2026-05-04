@@ -82,10 +82,10 @@ let
           echo "0xff${rgb:1}"
         }
         
-        # Call borders directly to hot-reload with new colors
+        # Call borders with all arguments to update the running instance
         active_hex=$(get_hex "$BORDERS_ACTIVE_COLOR")
         inactive_hex=$(get_hex "$BORDERS_INACTIVE_COLOR")
-        borders active_color="$active_hex" inactive_color="$inactive_hex" 2>/dev/null || true
+        borders hidpi=on width=6.0 style=round active_color="$active_hex" inactive_color="$inactive_hex" 2>/dev/null || true
       fi
 
       # OpenCode: update theme name in tui.json, copy light theme file if needed
