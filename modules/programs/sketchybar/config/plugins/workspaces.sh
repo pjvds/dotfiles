@@ -1,44 +1,66 @@
 #!/bin/bash
 
-# Determine which monitor this workspace belongs to
-# by checking if it has windows and getting the first window's monitor-id
-WORKSPACE_MONITOR=$(aerospace list-windows --workspace "$1" --format '%{monitor-id}' 2>/dev/null | head -1)
+WORKSPACE_ID="$1"
+STATE_DIR="$HOME/.local/state/aerospace"
+mkdir -p "$STATE_DIR"
 
-# If workspace has no windows, check which monitor it's assigned to by checking all monitors
-if [ -z "$WORKSPACE_MONITOR" ]; then
-  for monitor in $(aerospace list-monitors --json | jq -r '.[]."monitor-id"'); do
-    if aerospace list-workspaces --monitor "$monitor" | grep -Fxq -- "$1"; then
-      WORKSPACE_MONITOR="$monitor"
-      break
-    fi
-  done
-fi
+# Find which monitor this workspace belongs to
+WORKSPACE_MONITOR=""
+for monitor in $(aerospace list-monitors --json | jq -r '.[]."monitor-id"'); do
+  if aerospace list-workspaces --monitor "$monitor" | grep -Fxq -- "$WORKSPACE_ID"; then
+    WORKSPACE_MONITOR="$monitor"
+    break
+  fi
+done
 
-# Update the display assignment to match the workspace's current monitor
+# Set the display to the correct monitor
 if [ -n "$WORKSPACE_MONITOR" ]; then
   sketchybar --set "$NAME" display="$WORKSPACE_MONITOR"
 fi
 
-# Get the list of active workspaces on the monitor this workspace belongs to
-ACTIVE_WORKSPACES=$(aerospace list-workspaces --monitor "$WORKSPACE_MONITOR" --empty no)
+# Check if this workspace has any windows
+HAS_WINDOWS=$(aerospace list-windows --workspace "$WORKSPACE_ID" 2>/dev/null | wc -l)
 
-# AEROSPACE_FOCUSED_WORKSPACE is only set when triggered by the aerospace_workspace_change
-# event. When triggered by --update (e.g. on startup/reload), fall back to querying directly.
-FOCUSED_WORKSPACE="${AEROSPACE_FOCUSED_WORKSPACE:-$(aerospace list-workspaces --focused)}"
-
-# If this workspace is focused -> always show + highlight it
-if [ "$1" = "$FOCUSED_WORKSPACE" ]; then
+if [ "$HAS_WINDOWS" -gt 0 ]; then
+  # Workspace has windows -> show it
   sketchybar --set "$NAME" drawing=on
-  sketchybar --set "$NAME" background.drawing=on
-  exit 0
+  
+  # Get the globally focused workspace
+  GLOBALLY_FOCUSED=$(aerospace list-workspaces --focused 2>/dev/null)
+  
+  # Get the last-focused workspace on this monitor
+  LAST_FOCUSED_FILE="$STATE_DIR/monitor_${WORKSPACE_MONITOR}_last_focused"
+  LAST_FOCUSED=$(cat "$LAST_FOCUSED_FILE" 2>/dev/null)
+  
+  # Highlight if:
+  # 1. This workspace is globally focused, OR
+  # 2. This workspace is the last-focused on its monitor AND globally focused is on a different monitor
+  GLOBALLY_MONITOR=$(for m in $(aerospace list-monitors --json | jq -r '.[]."monitor-id"'); do
+    if aerospace list-workspaces --monitor "$m" | grep -Fxq -- "$GLOBALLY_FOCUSED"; then
+      echo "$m"
+      break
+    fi
+  done)
+  
+  if [ "$WORKSPACE_ID" = "$GLOBALLY_FOCUSED" ]; then
+    # This is the globally focused workspace -> always highlight
+    sketchybar --set "$NAME" background.drawing=on
+  elif [ "$WORKSPACE_ID" = "$LAST_FOCUSED" ] && [ "$WORKSPACE_MONITOR" != "$GLOBALLY_MONITOR" ]; then
+    # This is the last-focused on its monitor AND focus is on a different monitor -> highlight
+    sketchybar --set "$NAME" background.drawing=on
+  else
+    # Don't highlight
+    sketchybar --set "$NAME" background.drawing=off
+  fi
+  
+  # Update state file ONLY when this specific workspace is being focused
+  if [ "$WORKSPACE_ID" = "$AEROSPACE_FOCUSED_WORKSPACE" ]; then
+    echo "$WORKSPACE_ID" > "$LAST_FOCUSED_FILE"
+  fi
+else
+  # Workspace has no windows -> hide it
+  sketchybar --set "$NAME" drawing=off
 fi
 
-# If this workspace is not focused but still active -> show it (no background highlight)
-if printf "%s\n" "$ACTIVE_WORKSPACES" | grep -Fxq -- "$1"; then
-  sketchybar --set "$NAME" drawing=on
-  sketchybar --set "$NAME" background.drawing=off
-  exit 0
-fi
 
-# If this workspace has no windows and is not focused -> hide it completely
-sketchybar --set "$NAME" drawing=off
+
