@@ -61,13 +61,31 @@ let
         sketchybar --set nudge label.color="$ACCENT_COLOR" 2>/dev/null || true
       fi
 
-      # Borders: copy style to state dir and reload
+      # Borders: copy style to state dir and hot-reload with new colors
       cp "$THEME_DIR/borders/$mode.sh" "$STATE_DIR/borders-style.sh"
       if command -v borders &>/dev/null && pgrep -x borders &>/dev/null; then
         # Source the new theme to get updated colors
         source "$STATE_DIR/borders-style.sh"
-        # Re-run bordersrc to update running instance with new colors
-        bash "$HOME/.config/borders/bordersrc" 2>/dev/null || true
+        
+        # Helper to convert color names to hex (matches bordersrc)
+        get_rgb() {
+          case $1 in
+            cbg) echo "#16181a" ;;
+            ccyan) echo "#5ef1ff" ;;
+            lightowl_blue) echo "#4876d6" ;;
+            light_gray) echo "#d1d5db" ;;
+            *) echo "#ffffff" ;;
+          esac
+        }
+        get_hex() {
+          local rgb=$(get_rgb $1)
+          echo "0xff${rgb:1}"
+        }
+        
+        # Call borders directly to hot-reload with new colors
+        active_hex=$(get_hex "$BORDERS_ACTIVE_COLOR")
+        inactive_hex=$(get_hex "$BORDERS_INACTIVE_COLOR")
+        borders active_color="$active_hex" inactive_color="$inactive_hex" 2>/dev/null || true
       fi
 
       # OpenCode: update theme name in tui.json, copy light theme file if needed
