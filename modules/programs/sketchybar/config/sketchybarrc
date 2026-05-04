@@ -77,7 +77,7 @@ for monitor in $(aerospace list-monitors --json | jq -r '.[]."monitor-id"'); do
                 label.padding_right=5 \
                 background.padding_left=0 \
                 background.padding_right=0 \
-                background.color=0x44ffffff \
+                background.color=$HIGHLIGHT_COLOR \
                 background.corner_radius=3 \
                 background.height=15 \
                 background.drawing=off \
