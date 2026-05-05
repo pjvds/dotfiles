@@ -94,6 +94,10 @@ in
           # tunl: copy public addresses by default
           export TUNL_COPY_ADDRESS=1
 
+          # fzf-up keybindings (before plugin loads)
+          export FZF_UP_KEY="^j"
+          export FZF_DOWN_KEY="^k"
+
           # History setopt
           setopt EXTENDED_HISTORY
           setopt INC_APPEND_HISTORY
@@ -183,9 +187,11 @@ in
         '')
 
         (lib.mkOrder 200 ''
-          # Keybindings - bind to fzf-up
-          bindkey "^k" fzf-up
-          bindkey "^j" fzf-up
+          # Bind fzf-up/fzf-down to vi keymaps (plugin only binds default keymap)
+          bindkey -M viins "^j" fzf-up
+          bindkey -M viins "^k" fzf-down
+          bindkey -M vicmd "^j" fzf-up
+          bindkey -M vicmd "^k" fzf-down
         '')
       ];
 
@@ -228,6 +234,16 @@ in
             sha256 = "0f9hwq9mqxgvykyjy80cyxfnqwblny0b3vkwiryhccsvgcbjmlwv";
           };
           file = "zsh-cd-print.plugin.zsh";
+        }
+        {
+          name = "zsh-fzf-up";
+          src = pkgs.fetchFromGitHub {
+            owner = "pjvds";
+            repo = "zsh-fzf-up";
+            rev = "master";
+            sha256 = "05k9slkl8xpllqdqfhzfq5bc16la0anm4waiqr46ys8pgxra357m";
+          };
+          file = "fzf-up.plugin.zsh";
         }
       ];
 
