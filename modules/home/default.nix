@@ -21,6 +21,7 @@
     ./apps.nix
     ./raycast.nix
     ./flutter.nix
+    ./spec-kit.nix
     ./theme
     ./fonts
     ../programs/node
@@ -46,6 +47,7 @@
   my.apps.enable       = true;
   my.maccy.enable      = false;
   my.raycast.enable    = true;
+  my.specKit.enable    = true;
   my.node.enable       = true;
   my.kanata.enable     = false;
   my.theme.enable      = true;
