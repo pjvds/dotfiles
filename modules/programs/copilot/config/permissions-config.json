@@ -77,6 +77,42 @@
           "commandIdentifiers": [
             "theme"
           ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "nix"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "nix-instantiate"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "jq"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "zsh"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "git clone"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "nix-prefetch-git"
+          ]
         }
       ]
     },
@@ -95,6 +131,21 @@
           "kind": "commands",
           "commandIdentifiers": [
             "dotnet build"
+          ]
+        }
+      ]
+    },
+    "/Users/pvandesande/code/deloitte/etp-infra": {
+      "tool_approvals": [
+        {
+          "kind": "mcp",
+          "serverName": "ado-dttnl-tax-ita",
+          "toolName": "wit_get_work_item"
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "sqlite3"
           ]
         }
       ]

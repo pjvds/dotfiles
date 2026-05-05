@@ -251,6 +251,14 @@ in
         autoload -U compinit && compinit
         zstyle ':completion:*' menu no
       '';
+
+      initExtra = ''
+        # Override zsh-vi-mode's Ctrl+K binding to use fzf-down instead
+        # zsh-vi-mode binds Ctrl+K to zvm_forward_kill_line, we need to override it after plugins load
+        bindkey "^k" fzf-down
+        bindkey -M viins "^k" fzf-down
+        bindkey -M vicmd "^k" fzf-down
+      '';
     };
 
     # p10k config — stays at repo root in modules/home/zsh/config/
