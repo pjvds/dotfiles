@@ -22,6 +22,7 @@
     ./raycast.nix
     ./flutter.nix
     ./theme
+    ./fonts
     ../programs/node
     ../programs/kanata
   ];
@@ -48,6 +49,7 @@
   my.node.enable       = true;
   my.kanata.enable     = false;
   my.theme.enable      = true;
+  my.fonts.enable      = true;
 
   home = {
     stateVersion = "25.05";
