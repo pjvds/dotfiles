@@ -1,3 +1,2 @@
-# Copilot skills are managed separately - don't commit individual skill repos
-/*
-!.gitignore
+# Copilot skills are symlinked from modules/skills/
+# This allows git to ignore other potential skill directories

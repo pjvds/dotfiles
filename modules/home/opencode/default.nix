@@ -7,6 +7,10 @@ let cfg = config.my.opencode; in
     home.file.".config/opencode".source =
       config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/modules/home/opencode/config";
 
+    # Symlink agent skills from modules/skills/
+    home.file.".config/opencode/skills".source =
+      config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/modules/skills";
+
     home.packages = [
       # Obsidian CLI wrapper — bunx -y ensures no interactive prompt in non-interactive shells
       (pkgs.writeShellScriptBin "obsidian" ''bunx -y obsidian-cli "$@"'')
@@ -18,10 +22,10 @@ let cfg = config.my.opencode; in
       pkgs.proton-pass-cli
     ];
 
-    # Keep obsidian-skills submodule up to date on every home-manager switch
-    home.activation.updateOpencodeSkills = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+    # Keep skills submodule up to date on every home-manager switch
+    home.activation.updateSkills = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
       cd ${config.home.homeDirectory}/dotfiles
-      ${pkgs.git}/bin/git submodule update --init --recursive --remote modules/home/opencode/config/skills/obsidian-skills
+      ${pkgs.git}/bin/git submodule update --init --recursive --remote modules/skills
     '';
   };
 }
