@@ -7,10 +7,6 @@ let cfg = config.my.opencode; in
     home.file.".config/opencode".source =
       config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/modules/home/opencode/config";
 
-    # Symlink agent skills from modules/skills/
-    home.file.".config/opencode/skills".source =
-      config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/modules/skills";
-
     home.packages = [
       # Obsidian CLI wrapper — bunx -y ensures no interactive prompt in non-interactive shells
       (pkgs.writeShellScriptBin "obsidian" ''bunx -y obsidian-cli "$@"'')
