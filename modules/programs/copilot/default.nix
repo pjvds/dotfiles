@@ -13,10 +13,6 @@ in {
       home.file.".copilot".source =
         config.lib.file.mkOutOfStoreSymlink "${homeDir}/dotfiles/modules/programs/copilot/config";
 
-      # Symlink agent skills from modules/skills/
-      home.file.".copilot/skills".source =
-        config.lib.file.mkOutOfStoreSymlink "${homeDir}/dotfiles/modules/skills";
-
       programs.zsh.shellAliases = {
         c  = "copilot --add-dir /tmp --add-dir \$(pwd)";
         cp = "c -p "; # Execute a prompt in *non-interactive* mode, and print the result to stdout.
