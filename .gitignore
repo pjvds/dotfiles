@@ -1,15 +1,4 @@
 *.log
-atom.symlink/.apm
-atom.symlink/.node-gyp
-atom.symlink/.storage
-atom.symlink/blob-store
-atom.symlink/compile-cache/
-atom.symlink/packages
-atom.symlink/storage
-atom.symlink/themes
-atom.symlink/blob-store
-atom.symlink/recovery
-vim/SpaceVim.d/.netrwhist
 
 # python
 __pycache__/
@@ -27,3 +16,8 @@ zmk/__pycache__
 # qml build dir
 qmk/build
 result
+
+# copilot runtime state
+modules/programs/copilot/config/session-store.db
+modules/programs/copilot/config/session-store.db-shm
+modules/programs/copilot/config/session-store.db-wal
