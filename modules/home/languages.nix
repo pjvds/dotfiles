@@ -28,11 +28,6 @@ let cfg = config.my.languages; in
           export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
         fi
 
-        # Bun
-        export BUN_INSTALL="$HOME/.bun"
-        export PATH="$BUN_INSTALL/bin:$PATH"
-        [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
-
         # LM Studio CLI
         export PATH="$PATH:$HOME/.lmstudio/bin"
 
