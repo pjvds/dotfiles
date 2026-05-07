@@ -1,3 +1,0 @@
-# launch: qutebrowser-profile
-super + q
-  qutebrowser-profile --only-existing

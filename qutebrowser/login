@@ -1,2 +1,0 @@
-#!/bin/sh
-$DOTFILES/bspwm/script/mark-qutebrowser-profiles &
