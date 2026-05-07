@@ -21,7 +21,7 @@ let cfg = config.my.opencode; in
     # Keep skills submodule up to date on every home-manager switch
     home.activation.updateSkills = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
       cd ${config.home.homeDirectory}/dotfiles
-      ${pkgs.git}/bin/git submodule update --init --recursive --remote modules/skills
+      ${pkgs.git}/bin/git submodule update --init --recursive --remote modules/ai/skills
     '';
   };
 }
