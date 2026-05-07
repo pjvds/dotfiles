@@ -82,7 +82,7 @@ in
 
           # Locale
           export LANG="en_US.UTF-8"
-          export LC_ALL="POSIX"
+          export LC_ALL="en_US.UTF-8"
 
           # Colors
           export CLICOLOR=1
