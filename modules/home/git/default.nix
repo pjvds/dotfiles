@@ -1,7 +1,19 @@
 { config, pkgs, lib, ... }:
 let cfg = config.my.git; in
 {
-  options.my.git.enable = lib.mkEnableOption "git configuration";
+  options.my.git = {
+    enable    = lib.mkEnableOption "git configuration";
+    userName  = lib.mkOption {
+      type    = lib.types.str;
+      default = "Pieter Joost van de Sande";
+      description = "Git user.name";
+    };
+    userEmail = lib.mkOption {
+      type    = lib.types.str;
+      default = "pj@born2code.net";
+      description = "Git user.email (default identity; per-directory overrides still apply)";
+    };
+  };
 
   config = lib.mkIf cfg.enable {
     home.packages = with pkgs; [ gh ];
@@ -11,8 +23,8 @@ let cfg = config.my.git; in
 
       settings = {
         user = {
-          name = "Pieter Joost van de Sande";
-          email = "pj@born2code.net";
+          name  = cfg.userName;
+          email = cfg.userEmail;
         };
 
         core = {
