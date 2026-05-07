@@ -64,26 +64,10 @@ let
       # Borders: copy style to state dir and hot-reload with new colors
       cp "$THEME_DIR/borders/$mode.sh" "$STATE_DIR/borders-style.sh"
       if command -v borders &>/dev/null && pgrep -x borders &>/dev/null; then
-        # Source the new theme to get updated colors
+        # Source the new theme and shared color helpers
+        source "${dotfiles}/modules/programs/borders/config/colors.sh"
         source "$STATE_DIR/borders-style.sh"
-        
-        # Helper to convert color names to hex (matches bordersrc)
-        get_rgb() {
-          case $1 in
-            cbg) echo "#16181a" ;;
-            ccyan) echo "#5ef1ff" ;;
-            cgreen) echo "#5eff6c" ;;
-            dcurrent) echo "#44475A" ;;
-            lightowl_blue) echo "#4876d6" ;;
-            light_gray) echo "#d1d5db" ;;
-            *) echo "#ffffff" ;;
-          esac
-        }
-        get_hex() {
-          local rgb=$(get_rgb $1)
-          echo "0xff${rgb:1}"
-        }
-        
+
         # Call borders with all arguments to update the running instance
         active_hex=$(get_hex "$BORDERS_ACTIVE_COLOR")
         inactive_hex=$(get_hex "$BORDERS_INACTIVE_COLOR")
