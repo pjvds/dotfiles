@@ -14,7 +14,7 @@ let cfg = config.my.flutter; in
     };
 
     home.activation.disableFlutterAnalytics = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-      ${pkgs.flutter}/bin/flutter --disable-analytics
+      $DRY_RUN_CMD ${pkgs.flutter}/bin/flutter --disable-analytics
     '';
 
     programs.zsh.initContent = ''
