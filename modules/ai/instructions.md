@@ -110,6 +110,7 @@ Follow the [Conventional Commits](https://www.conventionalcommits.org/) spec. Me
 **Rules:**
 * Description is imperative, lowercase, no trailing period: `fix null pointer on missing profile` not `Fixed null pointer.`
 * Add a scope in parentheses when it adds clarity: `feat(auth): add OAuth2 login`
+* Scope must be a **functional domain** (`web`, `api`, `auth`, `infra`, `ci`, `db`), never a tool name (`sst`, `npm`, `pulumi`, `terraform`) — scope describes *what* changed, not *how*
 * Breaking changes: append `!` after type/scope and/or add `BREAKING CHANGE:` footer
 * Body explains *why*, not *what* — the diff already shows what changed
 * Keep description under 72 characters
@@ -127,7 +128,8 @@ Follow the [Conventional Commits](https://www.conventionalcommits.org/) spec. Me
 ❌ update config
 ❌ WIP
 ❌ Fixed the bug that was causing issues
-❌ feat(008): add auth worker          ← internal ID, meaningless to readers
+❌ fix(sst): upgrade cloudflare provider    ← tool name as scope, not functional domain
+✅ fix(infra): upgrade cloudflare provider to meet SST requirements
 ❌ fix(ci): commit feat-008 changes    ← references internal tracking, not functional
 ```
 
