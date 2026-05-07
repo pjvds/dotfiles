@@ -192,6 +192,7 @@ in
       if [ ! -f "$STATE_DIR/current" ]; then
         cp "$THEME_DIR/kitty/dark.conf" "$STATE_DIR/kitty-theme.conf"
         cp "$THEME_DIR/sketchybar/dark.sh" "$STATE_DIR/sketchybar-style.sh"
+        cp "$THEME_DIR/borders/dark.sh" "$STATE_DIR/borders-style.sh"
         cp "$THEME_DIR/k9s/dark.yml" "$STATE_DIR/k9s-skin.yml"
         echo "nightowl" > "$STATE_DIR/nvim-theme"
         echo "dark" > "$STATE_DIR/current"
