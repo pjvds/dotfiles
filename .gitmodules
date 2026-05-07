@@ -1,9 +1,9 @@
-[submodule "modules/skills/speckit-agent-skills"]
-	path = modules/skills/speckit-agent-skills
+[submodule "modules/ai/skills/speckit-agent-skills"]
+	path = modules/ai/skills/speckit-agent-skills
 	url = https://github.com/dceoy/speckit-agent-skills.git
-[submodule "modules/skills/caveman"]
-	path = modules/skills/caveman
+[submodule "modules/ai/skills/caveman"]
+	path = modules/ai/skills/caveman
 	url = https://github.com/JuliusBrussee/caveman.git
-[submodule "modules/skills/obsidian-skills"]
-	path = modules/skills/obsidian-skills
+[submodule "modules/ai/skills/obsidian-skills"]
+	path = modules/ai/skills/obsidian-skills
 	url = https://github.com/kepano/obsidian-skills.git
