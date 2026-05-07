@@ -9,6 +9,10 @@ let cfg = config.my.kanata; in
   config = mkIf cfg.enable {
     home.packages = with pkgs; [ kanata-with-cmd ];
 
+    home.activation.createKanataLogDir = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+      mkdir -p "${config.home.homeDirectory}/.local/share/kanata"
+    '';
+
     home.file.".config/kanata/kanata.kbd".source = config.lib.file.mkOutOfStoreSymlink
       "${config.home.homeDirectory}/dotfiles/modules/programs/kanata/config/kanata.kbd";
 
