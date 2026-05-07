@@ -62,33 +62,90 @@ Running deployment command...
 ✅ CORRECT: "The code is ready. To deploy these changes, run: `npx sst deploy`"
 ```
 
-### 🚫 Git Operations - NEVER RUN COMMANDS WITH SIDE EFFECTS
-* **NEVER** run git commands that have side effects in the repository
-* **Side-effect commands include:** `git add`, `git rm`, `git commit`, `git push`, `git reset`, `git pull`, `git rebase`, `git merge`, `git checkout`, `git switch`, `git stash`, `git cherry-pick`, `git revert`, `git tag`, `git branch -d`, etc.
-* **Read-only commands are OK:** `git status`, `git log`, `git diff`, `git show`, `git branch` (list only), `git remote -v`, etc.
-* **ALWAYS** provide side-effect git commands for the user to review and execute themselves
-* If the user says "commit this" or "add and commit" - you may proceed
-* If uncertain - ASK first, provide the command, and wait for confirmation
+### 🚫 Git Operations - NO DESTRUCTIVE COMMANDS
 
-**Why:** Git operations with side effects are permanent and can destroy work. Users must have full control.
+#### ✅ Safe to run automatically:
+* `git add` — stage changes
+* `git commit` — create a local commit
+* `git status`, `git log`, `git diff`, `git show`, `git branch` (list), `git remote -v` — read-only
+
+#### ❌ NEVER run these — provide the command and let the user decide:
+* `git push` — affects remote, hard to undo
+* `git reset` — can discard committed or staged work
+* `git rebase` — rewrites history
+* `git rm` — removes tracked files
+* `git merge` — can cause hard-to-resolve conflicts
+* `git checkout` / `git switch` — changes working tree state
+* `git stash` — moves uncommitted changes
+* `git cherry-pick` / `git revert` — rewrites or alters history
+* `git tag` / `git branch -d` — modifies or deletes refs
+
+#### ❌ NEVER add trailers to commit messages:
+* Do **not** include `Co-authored-by`, `Signed-off-by`, or any similar attribution lines in commit messages
+* Commit messages should contain only the commit description — no AI attribution
+
+#### ✍️ Write Conventional Commits — functional and changelog-ready:
+Follow the [Conventional Commits](https://www.conventionalcommits.org/) spec. Messages are the primary source for release notes and changelogs.
+
+**Format:**
+```
+<type>[optional scope]: <description>
+
+[optional body]
+
+[optional footer(s)]
+```
+
+**Types:**
+* `feat` — new feature (triggers minor version bump)
+* `fix` — bug fix (triggers patch version bump)
+* `docs` — documentation only
+* `refactor` — code change that neither fixes a bug nor adds a feature
+* `perf` — performance improvement
+* `test` — adding or fixing tests
+* `chore` — build process, tooling, dependency updates
+* `ci` — CI/CD configuration changes
+* `revert` — reverts a previous commit
+
+**Rules:**
+* Description is imperative, lowercase, no trailing period: `fix null pointer on missing profile` not `Fixed null pointer.`
+* Add a scope in parentheses when it adds clarity: `feat(auth): add OAuth2 login`
+* Breaking changes: append `!` after type/scope and/or add `BREAKING CHANGE:` footer
+* Body explains *why*, not *what* — the diff already shows what changed
+* Keep description under 72 characters
 
 **Examples:**
 ```
-❌ BAD:  Running `git add .` automatically after making changes
-✅ GOOD: "I've made the changes. Here's the command to stage them: `git add .`"
+✅ feat(auth): add OAuth2 login support
+✅ fix(api): handle null response from payment provider
+✅ chore: update nixpkgs to 24.11
+✅ refactor(db): extract query builder into separate module
+✅ feat!: remove support for legacy API v1   ← breaking change
 
-❌ BAD:  Running `git rm file.txt` to remove a file
-✅ GOOD: "To remove this file from git, run: `git rm file.txt`"
+❌ fix stuff
+❌ update config
+❌ WIP
+❌ Fixed the bug that was causing issues
+```
 
-❌ BAD:  Running `git commit -m "fix bug"` automatically
-✅ GOOD: "Here's the command to commit: `git commit -m "fix bug"`. Would you like me to run it?"
+**Why:** Destructive git operations can permanently destroy work or pollute remote history. Users must have full control over those. Commits and staging are safe local operations.
+
+**Examples:**
+```
+✅ GOOD: Running `git add .` to stage changes after making them
+✅ GOOD: Running `git commit -m "fix(auth): handle null pointer when user has no profile image"` to commit staged changes
+
+❌ BAD:  Running `git push` automatically after committing
+✅ GOOD: "Changes committed. To push, run: `git push`"
 
 ❌ BAD:  Running `git reset --hard` to "help" undo something
-✅ GOOD: "I see the issue. Here's a command to reset: `git reset --hard HEAD`. 
+✅ GOOD: "Here's a command to reset: `git reset --hard HEAD`. 
          WARNING: This will discard all uncommitted changes. Should I run it?"
 
-✅ GOOD: Running `git status` to check current state (read-only, no side effects)
-✅ GOOD: Running `git diff` to show changes (read-only, no side effects)
+❌ BAD:  Adding `Co-authored-by: Copilot <...>` to a commit message
+✅ GOOD: `git commit -m "feat(network): add retry logic for flaky requests"` (conventional, no trailers)
+
+✅ GOOD: Running `git status` / `git diff` to check current state
 ```
 
 ---
@@ -269,7 +326,7 @@ Agent: "Let me check the test output first:
 
 ### Always Ask First:
 - **Deployment commands** (npx sst deploy, docker push, terraform apply, etc.)
-- Git operations (add, rm, commit, push, reset, rebase, etc.)
+- Git destructive operations (push, reset, rebase, rm, merge, checkout, stash, etc.)
 - Creating new documentation files
 - Deleting files
 - Large refactoring (>20 lines changed)
@@ -304,7 +361,7 @@ These guidelines may be somewhat relaxed when:
 
 **But even then:** 
 - **Deployment commands should STILL require explicit permission** (npx sst deploy, docker push, etc.)
-- Git operations (especially reset, rebase, push) should STILL require explicit permission
+- Destructive git operations (push, reset, rebase, etc.) should STILL require explicit permission
 - Deleting files should STILL require confirmation
 - When in doubt, ask
 
