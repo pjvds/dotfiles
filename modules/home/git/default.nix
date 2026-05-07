@@ -49,9 +49,6 @@ let cfg = config.my.git; in
         status = {
           submoduleSummary = true;
         };
-        maintenance = {
-          repo = "~/code/deloitte/xray/backend";
-        };
       };
 
       # Global ignores — full list from git/config/gitignore
