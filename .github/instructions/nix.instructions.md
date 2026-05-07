@@ -71,7 +71,7 @@ flake.nix                                # Thin orchestration layer
 │   ├── home.nix    → imports from modules/home/ and modules/programs/
 │   └── homebrew.nix
 │
-└── hosts/homelab/                       # Stable packages (macOS 13), minimal
+└── hosts/homelab/                       # Unstable packages, minimal (same channel as workstation)
     ├── default.nix → modules/darwin/default.nix
     ├── darwin.nix  → host-specific overrides (mkForce)
     ├── home.nix    → imports from modules/home/ and modules/programs/
@@ -110,14 +110,13 @@ modules/darwin/dock/
 | **App Configs** | `modules/{domain}/{name}/config/` | Live-editable program configs (no rebuild needed) | No |
 | **Dotfiles** | `symlink/` | Non-nix files (.editorconfig, .gitignore, etc.) | No |
 
-### Two Hosts, Different Strategies
+### Two Hosts, One Channel
 
-**workstation** → Use unstable nixpkgs (latest packages, full toolchain)
-**homelab** → Use stable nixpkgs (24.11) for macOS 13 compatibility
+Both **workstation** and **homelab** use the same `nixpkgs-unstable` channel.
 - `hosts/homelab/darwin.nix` contains host-specific overrides (PAM, dock differences)
 - Applied via `mkForce` to override shared base configs
 
-**Why two channels?** homelab hardware can't use all unstable packages. `pkgs-stable` is passed via `extraSpecialArgs` only to homelab.
+**Why separate host configs?** Hardware differences, user preferences, and environment-specific settings (e.g. work namespaces only on workstation) justify per-host files even with a shared nixpkgs input.
 
 ---
 
@@ -340,19 +339,9 @@ system.defaults.dock.autohide = lib.mkForce true;  # Override workstation defaul
 
 **Why separate file?** Keeps host differences explicit and version-controlled. Only homelab needs this; workstation uses shared base config.
 
-### Stable vs Unstable Packages
+### nixpkgs Channel
 
-**workstation:** Uses unstable nixpkgs for latest features
-- Latest tools, features, package updates
-- May have minor bugs (rare)
-
-**homelab:** Uses stable (24.11) + `pkgs-stable` for macOS 13 compat
-- Some unstable packages don't build on macOS 13
-- Pass `pkgs-stable` via `extraSpecialArgs` if needed:
-  ```nix
-  # flake.nix for homelab host
-  specialArgs = { inherit pkgs pkgs-stable; };
-  ```
+Both hosts use `nixpkgs-unstable` — there is no stable channel in this flake. If a package fails to build on a specific host, the fix is a host-specific override in `darwin.nix` using `mkForce`, not a second nixpkgs input.
 
 ---
 
@@ -386,13 +375,9 @@ nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
 
 ### macOS Compatibility
 
-**Problem:** Package doesn't build on homelab (macOS 13)
+**Problem:** Package doesn't build on a specific host
 
-**Solution:** Use `pkgs-stable` instead of unstable packages for that host
-```nix
-# programs/neovim-stable.nix (homelab only)
-programs.neovim.package = pkgs-stable.neovim;
-```
+**Solution:** Use a host-specific override in `hosts/{host}/darwin.nix` with `mkForce`, or conditionally exclude the package from that host's home.nix.
 
 **Problem:** PAM services conflict between hosts
 
@@ -459,11 +444,11 @@ When users ask "is there a better way?" or "how do high-star repos do this?":
 Reduces boilerplate in `flake.nix` by creating a helper function. Use when you have many similar host configurations.
 
 ### Multi-Channel Overlay (malob)
-Instead of threading `pkgs-stable` via `extraSpecialArgs`, create an overlay:
+If a second nixpkgs channel is added in future, an overlay avoids threading it via `extraSpecialArgs`:
 ```nix
 pkgs.stable.neovim    # Access stable anywhere
 ```
-Less passing around, cleaner module code.
+Less passing around, cleaner module code. (Currently not needed — this flake uses a single `nixpkgs-unstable` channel.)
 
 ### Auto-Import Modules (wimpysworld)
 Replace manual `imports = [ ... ]` lists with `builtins.readDir`:
