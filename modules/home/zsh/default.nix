@@ -186,7 +186,10 @@ in
         '')
 
         (lib.mkOrder 200 ''
-          # Bind fzf-up/fzf-down to vi keymaps (plugin only binds default keymap)
+          # Bind fzf-up/fzf-down to vi keymaps after zsh-vi-mode loads
+          # (zsh-vi-mode binds Ctrl+K to zvm_forward_kill_line by default)
+          bindkey "^j" fzf-up
+          bindkey "^k" fzf-down
           bindkey -M viins "^j" fzf-up
           bindkey -M viins "^k" fzf-down
           bindkey -M vicmd "^j" fzf-up
@@ -251,13 +254,7 @@ in
         zstyle ':completion:*' menu no
       '';
 
-      initExtra = ''
-        # Override zsh-vi-mode's Ctrl+K binding to use fzf-down instead
-        # zsh-vi-mode binds Ctrl+K to zvm_forward_kill_line, we need to override it after plugins load
-        bindkey "^k" fzf-down
-        bindkey -M viins "^k" fzf-down
-        bindkey -M vicmd "^k" fzf-down
-      '';
+      initExtra = "";
     };
 
     # p10k config — stays at repo root in modules/home/zsh/config/
