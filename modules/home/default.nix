@@ -7,12 +7,10 @@
     ./git
     ./opencode
     ./editor
-    ./maccy.nix
     ./python.nix
     # Per-app modules (each owns its install + config)
     ./tmux
     ./atuin.nix
-    ./alacritty
     ./ssh
     ./httpie
     ./netskope.nix
@@ -39,13 +37,11 @@
   my.opencode.enable   = true;
   my.tmux.enable       = true;
   my.atuin.enable      = true;
-  my.alacritty.enable  = false;
   my.ssh.enable        = true;
   my.httpie.enable     = true;
   my.netskope.enable   = true;
   my.ncspot.enable     = true;
   my.apps.enable       = true;
-  my.maccy.enable      = false;
   my.raycast.enable    = true;
   my.specKit.enable    = true;
   my.node.enable       = true;
@@ -71,4 +67,3 @@
   manual.html.enable = false;
   manual.json.enable = false;
 }
-
