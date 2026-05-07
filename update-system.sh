@@ -26,7 +26,7 @@ echo "🔄 Applying macOS system configuration changes..."
 echo "🔑 Requesting sudo for system activation (Touch ID, Dock settings, etc.)..."
 
 echo "📦 Updating git submodules..."
-git -C "${DOTFILES_DIR}" submodule update --init --recursive
+git -C "${DOTFILES_DIR}" submodule update --init --recursive || echo "⚠️  Submodule update failed (network issue?), continuing..."
 
 sudo darwin-rebuild switch --flake "${DOTFILES_DIR}#${MACHINE_HOSTNAME}"
 
