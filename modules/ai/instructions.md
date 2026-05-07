@@ -113,6 +113,7 @@ Follow the [Conventional Commits](https://www.conventionalcommits.org/) spec. Me
 * Breaking changes: append `!` after type/scope and/or add `BREAKING CHANGE:` footer
 * Body explains *why*, not *what* — the diff already shows what changed
 * Keep description under 72 characters
+* **Never reference internal tracking IDs** (spec IDs, task IDs, feature branch names like `feat-008`, `T017`, `issue-42`) in the description — someone reading the log must understand the change without any external context
 
 **Examples:**
 ```
@@ -126,6 +127,8 @@ Follow the [Conventional Commits](https://www.conventionalcommits.org/) spec. Me
 ❌ update config
 ❌ WIP
 ❌ Fixed the bug that was causing issues
+❌ feat(008): add auth worker          ← internal ID, meaningless to readers
+❌ fix(ci): commit feat-008 changes    ← references internal tracking, not functional
 ```
 
 **Why:** Destructive git operations can permanently destroy work or pollute remote history. Users must have full control over those. Commits and staging are safe local operations.
@@ -147,6 +150,19 @@ Follow the [Conventional Commits](https://www.conventionalcommits.org/) spec. Me
 
 ✅ GOOD: Running `git status` / `git diff` to check current state
 ```
+
+---
+
+## Before Every Push — Simulate CI Locally
+
+Always validate locally before pushing. Run the project's full quality gate in order and fix any failures before committing:
+
+1. **Install dependencies strictly** — use the CI-equivalent install command (e.g., `npm ci`, `pip install -r requirements.txt`) not a loose install. This catches package/lock file drift.
+2. **Lint** — run the project linter (e.g., `npm run lint`, `ruff check .`)
+3. **Type check** — run the type checker (e.g., `npm run typecheck`, `mypy .`)
+4. **Tests** — run the full test suite (e.g., `npm test`, `pytest`)
+
+Never push if any of these fail locally. A CI failure that could have been caught locally wastes a full pipeline run and review cycle.
 
 ---
 
