@@ -29,17 +29,23 @@ mkdir -p modules/programs/myapp/config
 # Create your config files in that directory
 
 # 3. Import in host config
-# Edit: hosts/workstation/home.nix (or appropriate host file)
-# Add: my.myapp.enable = true;
+# Edit: modules/home/default.nix
+# Add: ./myapp.nix to imports
+# Add: my.myapp.enable = true; to enable list
 
-# 4. Apply
-sudo nix run nix-darwin/master#darwin-rebuild -- switch --flake .#workstation
+# 4. Stage new file in git
+git add modules/home/myapp.nix
+
+# 5. Apply using the update script (auto-detects hostname)
+./update-system.sh
 ```
 
 ### Validate changes without applying
 ```bash
 nix flake check                    # Check flake syntax
-sudo nix run nix-darwin/master#darwin-rebuild -- build --flake .#workstation  # Dry run
+./update-system.sh --build-only    # Build without applying (if supported)
+# Or manually with full path:
+darwin-rebuild build --flake .#$(hostname -s)
 ```
 
 ### Rollback to previous config
