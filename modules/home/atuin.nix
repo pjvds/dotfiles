@@ -6,11 +6,13 @@ let cfg = config.my.atuin; in
   config = lib.mkIf cfg.enable {
     home.packages = [ pkgs.atuin ];
 
-    # Clean up any existing atuin config directory (from old mkOutOfStoreSymlink
-    # setup, dangling GC'd store paths, or failed initialization).
-    # Without this, atuin fails with "File exists (os error 17)".
+    # Remove stale symlink left over from the old mkOutOfStoreSymlink setup.
+    # Only removes the path if it is a symlink — never touches a real directory
+    # (which would contain the sync key and auth token).
     home.activation.cleanAtuinSymlink = lib.hm.dag.entryBefore [ "checkLinkTargets" ] ''
-      rm -rf "${config.home.homeDirectory}/.config/atuin"
+      if [ -L "${config.home.homeDirectory}/.config/atuin" ]; then
+        rm "${config.home.homeDirectory}/.config/atuin"
+      fi
     '';
 
     programs.atuin = {
