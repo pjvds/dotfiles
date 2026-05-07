@@ -219,7 +219,7 @@ in
           src = pkgs.fetchFromGitHub {
             owner = "pjvds";
             repo = "zsh-cwd";
-            rev = "master";
+            rev = "116ef3fa37e9169ba463b6dc1e20e1e09bfcf714";
             sha256 = "0fgy6yqrmglzr3a20bysiml59wq64bd44lcqkj17fb1y5sag5hd3";
           };
           file = "zsh-cwd.plugin.zsh";
@@ -229,7 +229,7 @@ in
           src = pkgs.fetchFromGitHub {
             owner = "pjvds";
             repo = "zsh-cd-print";
-            rev = "master";
+            rev = "326cfd1989111902916df6e32ef0d5e4574ed0fc";
             sha256 = "0f9hwq9mqxgvykyjy80cyxfnqwblny0b3vkwiryhccsvgcbjmlwv";
           };
           file = "zsh-cd-print.plugin.zsh";
@@ -239,7 +239,7 @@ in
           src = pkgs.fetchFromGitHub {
             owner = "pjvds";
             repo = "zsh-fzf-up";
-            rev = "master";
+            rev = "b261c19073b7463bba9d6cfdc0e93661734e701d";
             sha256 = "05k9slkl8xpllqdqfhzfq5bc16la0anm4waiqr46ys8pgxra357m";
           };
           file = "fzf-up.plugin.zsh";
