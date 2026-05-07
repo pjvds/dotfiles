@@ -1,6 +1,6 @@
 #!/bin/zsh
 export DOTFILES="$HOME/dotfiles"
-for f in $DOTFILES/**/healthcheck.zsh; do 
+while IFS= read -r f; do
   echo "executing: $f"
   "$f"
-done
+done < <(find "$DOTFILES" -mindepth 2 -name "healthcheck.zsh")
