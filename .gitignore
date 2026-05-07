@@ -23,3 +23,7 @@ modules/programs/copilot/config/session-store.db-shm
 modules/programs/copilot/config/session-store.db-wal
 modules/programs/copilot/config/permissions-config.json
 modules/programs/copilot/config/settings.json
+modules/programs/copilot/config/mcp-oauth-config/
+
+# karabiner auto-generated backups
+modules/programs/karabiner/config/automatic_backups/
