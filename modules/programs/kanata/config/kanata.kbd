@@ -24,7 +24,7 @@
   k (tap-hold 200 200 k lmet)
   l (tap-hold 200 200 l lalt)
   ; (tap-hold 200 200 ; lctl)
-  cmd (tap-hold 200 200 / (cmd /bin/zsh /Users/pvandesande/dotfiles/modules/programs/sketchybar/config/plugins/nudge.sh --ack))
+  cmd (tap-hold 200 200 / (cmd /bin/sh -c "$HOME/dotfiles/modules/programs/sketchybar/config/plugins/nudge.sh --ack"))
 )
 
 (deflayer default
