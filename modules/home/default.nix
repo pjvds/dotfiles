@@ -39,7 +39,7 @@
   my.opencode.enable   = true;
   my.tmux.enable       = true;
   my.atuin.enable      = true;
-  my.alacritty.enable  = true;
+  my.alacritty.enable  = false;
   my.ssh.enable        = true;
   my.httpie.enable     = true;
   my.netskope.enable   = true;
