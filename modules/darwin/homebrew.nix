@@ -47,8 +47,7 @@
 
     masApps = {
       "Amphetamine" = 937984704;
-    } // (if config.networking.hostName == "Pieters-MacBook-Pro" then {
       "WhatsApp" = 310633997;
-    } else {});
+    }
   };
 }
