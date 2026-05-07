@@ -16,7 +16,7 @@ fi
 
 echo "🚀 Starting Nix & nix-darwin bootstrap process..."
 echo ""
-echo "ℹ️  This script is for initial setup only. Once bootstrapped, use './update.sh' for applying config changes."
+echo "ℹ️  This script is for initial setup only. Once bootstrapped, use './update-system.sh' for applying config changes."
 echo ""
 
 # 1. Install Nix package manager if not present
@@ -60,9 +60,9 @@ if ! command -v darwin-rebuild &> /dev/null; then
     echo ""
     echo "Next steps:"
     echo "  1. Restart your terminal to load the new environment"
-    echo "  2. Use './update.sh' to apply future configuration changes"
+    echo "  2. Use './update-system.sh' to apply future configuration changes"
 else
     echo "✅ nix-darwin is already installed."
     echo ""
-    echo "💡 Use './update.sh' to apply configuration changes instead."
+    echo "💡 Use './update-system.sh' to apply configuration changes instead."
 fi
