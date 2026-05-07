@@ -42,7 +42,9 @@ let cfg = config.my.languages; in
         export GOPROXY="https://proxy.golang.org"
         function go() {
           unset -f go > /dev/null 2>&1
-          eval "$(command goenv init -)"
+          if command -v goenv > /dev/null 2>&1; then
+            eval "$(goenv init -)"
+          fi
           go "$@"
         }
       '';
