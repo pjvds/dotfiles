@@ -18,10 +18,8 @@
 
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
     "proton-pass-cli"
-    "android-studio"
     "discord"
     "idea"
-    "obsidian"
     "raycast"
     "rider"
     "shortcat"
@@ -36,7 +34,6 @@
   my.karabiner.enable  = true;
   my.kitty.enable      = true;
   my.obsidian.enable   = true;
-  my.snyk.enable       = true;
   my.slack.enable      = true;
 
   # Time Zone

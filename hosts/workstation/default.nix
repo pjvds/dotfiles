@@ -19,4 +19,5 @@
   my.karabiner.enable = lib.mkForce false;
   my.lazyworktree.enable = true;
   my.warp.enable = true;
+  my.snyk.enable = true;
 }
