@@ -6,11 +6,11 @@ IdentityFile ~/.ssh/id_rsa
 
 Host *
   SendEnv LANG LC_*
-  ForwardAgent yes
 
 Host 94.228.142.145
 	HostName 94.228.142.145
 	User craftify
+	ForwardAgent yes
 	PubkeyAcceptedAlgorithms +ssh-rsa
 	HostkeyAlgorithms +ssh-rsa
 	IdentityFile ~/.ssh/id_rsa
@@ -18,6 +18,7 @@ Host 94.228.142.145
 Host nob-acc @acc nob-acc20.prolocation.net
 	HostName nob-acc20.prolocation.net
 	User craftify
+	ForwardAgent yes
 	PubkeyAcceptedAlgorithms +ssh-rsa
 	HostkeyAlgorithms +ssh-rsa
 	IdentityFile ~/.ssh/id_rsa
@@ -25,6 +26,7 @@ Host nob-acc @acc nob-acc20.prolocation.net
 Host nob-prod @prod
 	HostName nob-web20.prolocation.net
 	User craftify
+	ForwardAgent yes
 	PubkeyAcceptedAlgorithms +ssh-rsa
 	HostkeyAlgorithms +ssh-rsa
 	IdentityFile ~/.ssh/id_rsa
