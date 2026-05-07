@@ -98,10 +98,9 @@ in
           export FZF_UP_KEY="^j"
           export FZF_DOWN_KEY="^k"
 
-          # History setopt
+          # History setopt — SHARE_HISTORY and INC_APPEND_HISTORY are handled
+          # by programs.zsh.history.share = true above; list only the extras here.
           setopt EXTENDED_HISTORY
-          setopt INC_APPEND_HISTORY
-          setopt SHARE_HISTORY
           setopt HIST_EXPIRE_DUPS_FIRST
           setopt HIST_IGNORE_DUPS
           setopt HIST_IGNORE_ALL_DUPS
@@ -125,8 +124,8 @@ in
             fi
             echo "copied $p"
           }
-          bindkey -s '^y' "cpath"
-          bindkey -s 'yp' 'cpath'
+          bindkey -s '^y' "cpath\n"
+          bindkey -s 'yp' 'cpath\n'
 
           # Copy current directory path to clipboard
           function cdir {
