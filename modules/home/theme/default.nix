@@ -88,16 +88,20 @@ let
         borders hidpi=on width=6.0 style=round active_color="$active_hex" inactive_color="$inactive_hex" 2>/dev/null || true
       fi
 
-      # OpenCode: update theme name in tui.json, copy light theme file if needed
+      # OpenCode: update theme name in tui.json (file is gitignored; created here if absent)
       local opencode_config="${dotfiles}/modules/home/opencode/config"
-      if [ -f "$opencode_config/tui.json" ]; then
-        if [ "$mode" = "dark" ]; then
-          ${pkgs.gnused}/bin/sed -i 's/"theme": ".*"/"theme": "nightowl"/' "$opencode_config/tui.json"
-        else
-          ${pkgs.gnused}/bin/sed -i 's/"theme": ".*"/"theme": "lightowl"/' "$opencode_config/tui.json"
-          mkdir -p "$opencode_config/themes"
-          cp "$THEME_DIR/opencode/lightowl.json" "$opencode_config/themes/lightowl.json"
-        fi
+      local tui_json="$opencode_config/tui.json"
+      if [ "$mode" = "dark" ]; then
+        local tui_theme="nightowl"
+      else
+        local tui_theme="lightowl"
+        mkdir -p "$opencode_config/themes"
+        cp "$THEME_DIR/opencode/lightowl.json" "$opencode_config/themes/lightowl.json"
+      fi
+      if [ -f "$tui_json" ]; then
+        ${pkgs.gnused}/bin/sed -i 's/"theme": ".*"/"theme": "'"$tui_theme"'"/' "$tui_json"
+      else
+        printf '{\n  "$schema": "https://opencode.ai/tui.json",\n  "theme": "%s"\n}\n' "$tui_theme" > "$tui_json"
       fi
 
       # k9s: swap skin in state dir (k9s config symlinks here)
@@ -196,6 +200,12 @@ in
         cp "$THEME_DIR/k9s/dark.yml" "$STATE_DIR/k9s-skin.yml"
         echo "nightowl" > "$STATE_DIR/nvim-theme"
         echo "dark" > "$STATE_DIR/current"
+      fi
+
+      # Create opencode tui.json if missing (gitignored; theme script keeps it current)
+      local tui_json="${home}/dotfiles/modules/home/opencode/config/tui.json"
+      if [ ! -f "$tui_json" ]; then
+        printf '{\n  "$schema": "https://opencode.ai/tui.json",\n  "theme": "nightowl"\n}\n' > "$tui_json"
       fi
     '';
   };
