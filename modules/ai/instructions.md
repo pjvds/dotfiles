@@ -188,6 +188,21 @@ Never push if any of these fail locally. A CI failure that could have been caugh
 ✅ GOOD: "I've made changes. Would you like me to add an entry to CHANGELOG.md?"
 ```
 
+### Non-Code Files
+* **Never commit** screenshots, logs, temp files, binary blobs, or other non-project assets to a source repository — even temporarily as a "workaround"
+* Using the Git Contents API or any other method to commit an artifact to a branch in order to host it is strictly forbidden — it pollutes history, requires cleanup, and may trigger unwanted CI runs
+* If you cannot host or upload a file programmatically (e.g. GitHub requires browser-based drag-and-drop for private repo images), **tell the user immediately** and explain what they need to do manually
+
+**Examples:**
+```
+❌ BAD:  Committing a screenshot PNG to the PR branch to get a URL for a PR comment
+✅ GOOD: "I can't upload images via the API for private repos. To add the screenshot, drag-and-drop
+         the image directly into the GitHub PR comment box in your browser."
+
+❌ BAD:  Using the GitHub Contents API to PUT a temporary artifact file onto a feature branch
+✅ GOOD: Tell the user the limitation and provide an alternative manual step
+```
+
 ---
 
 ## Code Changes
@@ -336,7 +351,29 @@ Agent: "Let me check the test output first:
 
 ---
 
-## Debugging and Problem-Solving (Continued)
+## Verify Before Publishing
+
+When writing **anything a human will read** (PR comments, issue updates, ADO work item comments, team messages) that references the state of another system — **always verify the actual current state first**.
+
+Session context, checkpoint notes, and prior conversation summaries can be stale. They record what was done at a point in time, not what is true right now. "Deployed to ring-0" does not mean "merged to main/master". "Changes committed" does not mean "PR approved". "Phase N complete" does not mean "released".
+
+### What must be verified before stating it as fact:
+* **Merge status** — is a branch/PR actually merged? (`git log origin/main --oneline`, `gh pr view`, ADO PR status)
+* **Deployment status** — is a build actually running in an environment? (check the pipeline run, not the notes)
+* **Approval status** — has a review/approval happened? (check the PR, not session memory)
+* **Cross-repo state** — changes in repo A don't automatically happen in repo B; verify each repo independently
+
+**Examples:**
+```
+❌ BAD:  Writing in a PR comment "AGW changes (etp-infra PR already merged)" based on session notes
+✅ GOOD: Run `git log origin/master --oneline` in etp-infra to confirm, then state the actual status
+
+❌ BAD:  Saying "all done, both repos updated" without checking both repos
+✅ GOOD: "Phase 1 (ede-backend) is merged. Phase 2 (etp-infra branch fix/csp) is not yet merged to
+         master — that PR must be merged before the AGW change takes effect."
+```
+
+**Why this matters:** PR comments and ADO work items are read by other engineers and stakeholders. Incorrect status claims cause confusion, wrong merge decisions, and wasted time tracking down "completed" work that was never finished.
 
 ### When to Ask vs When to Act
 
@@ -437,11 +474,13 @@ Before taking any significant action, ask yourself:
 - [ ] Am I about to run a deployment command? (If yes, STOP and provide the command instead)
 - [ ] Am I about to run a git command? (If yes, STOP and ask)
 - [ ] Am I creating/modifying documentation nobody asked for?
+- [ ] Am I about to commit a non-code file (screenshot, log, binary) to the repo?
 - [ ] Am I about to delete anything?
 - [ ] Could this change break existing code?
 - [ ] Am I changing more than what was asked?
 - [ ] Should I show the user options instead of choosing for them?
 - [ ] Would a reasonable developer be surprised by this action?
+- [ ] Am I about to state a status (merged, deployed, released, done) in a public artifact without having just verified it?
 
 **If you answered YES to any of these: STOP and ask the user first.**
 
