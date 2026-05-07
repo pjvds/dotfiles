@@ -8,6 +8,9 @@ let cfg = config.my.opencode; in
       config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/modules/home/opencode/config";
 
     home.packages = [
+      # bun runtime — required for the bunx wrappers below
+      pkgs.bun
+
       # Obsidian CLI wrapper — bunx -y ensures no interactive prompt in non-interactive shells
       (pkgs.writeShellScriptBin "obsidian" ''bunx -y obsidian-cli "$@"'')
 
