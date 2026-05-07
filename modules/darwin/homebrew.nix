@@ -29,11 +29,8 @@
       "zen"
       "zwift"
       
-      # Fonts
+      # Fonts — only those not available via nixpkgs nerd-fonts
       "font-blex-mono-nerd-font"
-      "font-fira-code-nerd-font"
-      "font-hack-nerd-font"
-      "font-inconsolata"
       "font-iosevka-nerd-font"
       "font-jetbrains-mono-nerd-font"
       "font-monaspace"
