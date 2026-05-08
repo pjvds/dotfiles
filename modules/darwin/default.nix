@@ -12,6 +12,7 @@
     ../programs/obsidian
     ../programs/warp
     ../programs/slack
+    ../programs/gitify
     ./snyk
     ./lazyworktree
   ];
@@ -35,6 +36,7 @@
   my.kitty.enable      = true;
   my.obsidian.enable   = true;
   my.slack.enable      = true;
+  my.gitify.enable     = true;
 
   # Time Zone
   time.timeZone = "Europe/Amsterdam";
