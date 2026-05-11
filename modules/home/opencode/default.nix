@@ -17,6 +17,9 @@ let cfg = config.my.opencode; in
       # defuddle-cli wrapper — pkgs.defuddle-cli is currently broken in nixpkgs (out-of-sync lockfile)
       (pkgs.writeShellScriptBin "defuddle" ''bunx -y defuddle-cli "$@"'')
 
+      # Playwright MCP server skill
+      (pkgs.writeShellScriptBin "playwright-mcp" ''npx @playwright/mcp@latest "$@"'')
+
       # Proton Pass CLI — secret injection via pass-cli run
       pkgs.proton-pass-cli
     ];
