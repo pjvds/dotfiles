@@ -1,5 +1,16 @@
 {
   "mcpServers": {
+    "betterstack": {
+      "type": "http",
+      "url": "https://mcp.betterstack.com"
+    },
+    "AgentMail": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "agentmail-mcp"
+      ]
+    },
     "ado-dttnl-tax-ita": {
       "type": "stdio",
       "command": "bunx",
@@ -39,7 +50,9 @@
     "playwright": {
       "type": "stdio",
       "command": "npx",
-      "args": ["@playwright/mcp@latest"]
+      "args": [
+        "@playwright/mcp@latest"
+      ]
     }
   }
 }
