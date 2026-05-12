@@ -47,7 +47,7 @@
         "npx",
         "@playwright/mcp@latest"
       ],
-      "enabled": true
+      "enabled": false
     }
   },
   "agent": {
