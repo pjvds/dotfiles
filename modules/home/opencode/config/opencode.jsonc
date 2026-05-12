@@ -1,8 +1,5 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "plugin": [
-    "understand-anything@git+https://github.com/Lum1104/Understand-Anything.git"
-  ],
   "mcp": {
     "ado-dttnl-tax-ita": {
       "type": "local",
