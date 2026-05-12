@@ -189,7 +189,7 @@ in
       fi
 
       # Create opencode tui.json if missing (gitignored; theme script keeps it current)
-      local tui_json="${home}/dotfiles/modules/home/opencode/config/tui.json"
+      tui_json="${home}/dotfiles/modules/home/opencode/config/tui.json"
       if [ ! -f "$tui_json" ]; then
         printf '{\n  "$schema": "https://opencode.ai/tui.json",\n  "theme": "nightowl"\n}\n' > "$tui_json"
       fi
