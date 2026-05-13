@@ -48,6 +48,11 @@
         "@playwright/mcp@latest"
       ],
       "enabled": false
+    },
+    "datadog": {
+      "type": "remote",
+      "url": "https://mcp.datadoghq.eu/api/unstable/mcp-server/mcp",
+      "enabled": false
     }
   },
   "agent": {
