@@ -13,12 +13,19 @@ let cfg = config.my.fonts; in
       dejavu_fonts
 
       # Nerd fonts (provide all weights, variants, and icon glyphs)
+      (nerd-fonts.blex-mono)
       (nerd-fonts.fira-code)
       (nerd-fonts.hack)
+      (nerd-fonts.iosevka)
+      (nerd-fonts.jetbrains-mono)
+      (nerd-fonts.monaspace)
       (nerd-fonts.sauce-code-pro)
       (nerd-fonts.dejavu-sans-mono)
       (nerd-fonts.ubuntu-mono)
       (nerd-fonts.droid-sans-mono)
+
+      # Monaspace (non-nerd variant, for regular use)
+      monaspace
 
       # Icon and symbol fonts
       font-awesome

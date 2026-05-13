@@ -31,11 +31,6 @@
       "zwift"
       
       # Fonts — only those not available via nixpkgs nerd-fonts
-      "font-blex-mono-nerd-font"
-      "font-iosevka-nerd-font"
-      "font-jetbrains-mono-nerd-font"
-      "font-monaspace"
-      "font-monaspice-nerd-font"
       "font-sf-pro"
       "font-sketchybar-app-font"
     ];
