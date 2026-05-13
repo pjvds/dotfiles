@@ -16,6 +16,7 @@
 
     # GUI Applications (Casks) - shared across all hosts
     casks = [
+      "adobe-acrobat-reader"
       "arc"
       "cursorcerer"
       "deckset"
