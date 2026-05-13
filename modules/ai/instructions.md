@@ -27,6 +27,8 @@ User says "continue" → still no. Just finished changes → still no. Seems log
 
 ### 🚫 Git — NO DESTRUCTIVE COMMANDS
 
+By default you should not run destructive git commands, only if the user acknoledge it or explicitly states it in advance.
+
 #### ✅ Auto-run OK:
 `git add`, `git commit`, `git status`, `git log`, `git diff`, `git show`, `git branch`, `git remote -v`
 
