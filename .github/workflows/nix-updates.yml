@@ -1,4 +1,4 @@
-name: nix-update-check
+name: nix-flake-update
 
 on:
   schedule:
@@ -6,10 +6,11 @@ on:
   workflow_dispatch:
 
 jobs:
-  check:
-    runs-on: ubuntu-latest
+  update:
+    runs-on: macos-latest
     permissions:
-      issues: write  # needed to create/edit/close issues
+      contents: write
+      pull-requests: write
 
     steps:
       - uses: actions/checkout@v4
@@ -17,78 +18,137 @@ jobs:
       - name: Install Nix
         uses: cachix/install-nix-action@v27
         with:
-          nix_path: nixpkgs=channel:nixpkgs-unstable
           extra_nix_config: |
             experimental-features = nix-command flakes
+            access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
 
-      - name: Derive locked nixpkgs URL from flake.lock
-        id: locked
+      - name: Read nixpkgs revision before update
+        id: before
         run: |
-          REV=$(python3 -c "
-          import json
+          python3 - <<'EOF'
+          import json, os
           with open('flake.lock') as f:
               d = json.load(f)
-          print(d['nodes']['nixpkgs']['locked']['rev'])
-          ")
-          echo "url=https://github.com/NixOS/nixpkgs/archive/${REV}.tar.gz" >> "$GITHUB_OUTPUT"
+          n = d['nodes']['nixpkgs']['locked']
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as out:
+              out.write(f"rev={n['rev']}\n")
+              out.write(f"hash={n['narHash']}\n")
+          EOF
 
-      - name: Check for package updates
-        id: check
-        env:
-          LOCKED_NIXPKGS_URL: ${{ steps.locked.outputs.url }}
-          FRESH_NIXPKGS_URL: "channel:nixpkgs-unstable"
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Update flake inputs
+        run: nix flake update
+
+      - name: Check for changes
+        id: changed
         run: |
-          python3 .github/scripts/nix-update-check.py > report.md
-        continue-on-error: true  # exit 1 means "no updates" — not a failure
-
-      - name: Create or update issue with updates
-        if: steps.check.outcome == 'success'
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          ISSUE_TITLE="Nix package updates available"
-          BODY=$(cat report.md)
-
-          # Look for an existing open issue with this title
-          ISSUE_NUMBER=$(gh issue list \
-            --label "nix-updates" \
-            --state open \
-            --json number,title \
-            --jq ".[] | select(.title == \"${ISSUE_TITLE}\") | .number" \
-            | head -1)
-
-          if [ -n "$ISSUE_NUMBER" ]; then
-            # Update the existing issue body
-            gh issue edit "$ISSUE_NUMBER" --body "$BODY"
-            echo "Updated existing issue #${ISSUE_NUMBER}"
+          if git diff --quiet flake.lock; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
           else
-            # Create a new issue (also creates the label if missing)
-            gh label create "nix-updates" --color "0075ca" --description "Nix package update reports" 2>/dev/null || true
-            gh issue create \
-              --title "$ISSUE_TITLE" \
-              --label "nix-updates" \
-              --body "$BODY"
-            echo "Created new issue"
+            echo "changed=true" >> "$GITHUB_OUTPUT"
           fi
 
-      - name: Close issue if all packages are up to date
-        if: steps.check.outcome != 'success'
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Read nixpkgs revision after update
+        if: steps.changed.outputs.changed == 'true'
+        id: after
         run: |
-          ISSUE_TITLE="Nix package updates available"
+          python3 - <<'EOF'
+          import json, os
+          with open('flake.lock') as f:
+              d = json.load(f)
+          n = d['nodes']['nixpkgs']['locked']
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as out:
+              out.write(f"rev={n['rev']}\n")
+              out.write(f"hash={n['narHash']}\n")
+          EOF
 
-          ISSUE_NUMBER=$(gh issue list \
-            --label "nix-updates" \
-            --state open \
-            --json number,title \
-            --jq ".[] | select(.title == \"${ISSUE_TITLE}\") | .number" \
-            | head -1)
+      - name: Get home package names from flake
+        if: steps.changed.outputs.changed == 'true'
+        id: packages
+        run: |
+          NAMES=$(nix eval \
+            '.#darwinConfigurations."NL-F2T6KVCQ3G".config.home-manager.users.pvandesande.home.packages' \
+            --apply 'ps: builtins.toJSON (map (p: p.pname or p.name or "") ps)' \
+            --raw)
+          echo "json=$NAMES" >> "$GITHUB_OUTPUT"
 
-          if [ -n "$ISSUE_NUMBER" ]; then
-            gh issue close "$ISSUE_NUMBER" --comment "All Nix packages are now up to date. Closing."
-            echo "Closed issue #${ISSUE_NUMBER}"
-          else
-            echo "All packages are up to date. No issue to close."
+      - name: Build old home environment
+        if: steps.changed.outputs.changed == 'true'
+        id: old_env
+        run: |
+          python3 - <<'EOF' > /tmp/old-env.nix
+          import json, os
+          names = [n for n in json.loads(os.environ['PKGS_JSON']) if n]
+          attrs = " ".join(f'(pkgs.{n} or null)' for n in names)
+          print(f"""
+          let
+            pkgs = import (builtins.fetchTarball {{
+              url = "https://github.com/NixOS/nixpkgs/archive/{os.environ['NIX_REV']}.tar.gz";
+              sha256 = "{os.environ['NIX_HASH']}";
+            }}) {{ system = "aarch64-darwin"; }};
+            paths = builtins.filter (p: p != null) [ {attrs} ];
+          in pkgs.buildEnv {{ name = "old-home"; inherit paths; ignoreCollisions = true; }}
+          """)
+          EOF
+          STORE_PATH=$(nix build --impure --no-link --print-out-paths -f /tmp/old-env.nix)
+          echo "path=$STORE_PATH" >> "$GITHUB_OUTPUT"
+        env:
+          NIX_REV: ${{ steps.before.outputs.rev }}
+          NIX_HASH: ${{ steps.before.outputs.hash }}
+          PKGS_JSON: ${{ steps.packages.outputs.json }}
+
+      - name: Build new home environment
+        if: steps.changed.outputs.changed == 'true'
+        id: new_env
+        run: |
+          python3 - <<'EOF' > /tmp/new-env.nix
+          import json, os
+          names = [n for n in json.loads(os.environ['PKGS_JSON']) if n]
+          attrs = " ".join(f'(pkgs.{n} or null)' for n in names)
+          print(f"""
+          let
+            pkgs = import (builtins.fetchTarball {{
+              url = "https://github.com/NixOS/nixpkgs/archive/{os.environ['NIX_REV']}.tar.gz";
+              sha256 = "{os.environ['NIX_HASH']}";
+            }}) {{ system = "aarch64-darwin"; }};
+            paths = builtins.filter (p: p != null) [ {attrs} ];
+          in pkgs.buildEnv {{ name = "new-home"; inherit paths; ignoreCollisions = true; }}
+          """)
+          EOF
+          STORE_PATH=$(nix build --impure --no-link --print-out-paths -f /tmp/new-env.nix)
+          echo "path=$STORE_PATH" >> "$GITHUB_OUTPUT"
+        env:
+          NIX_REV: ${{ steps.after.outputs.rev }}
+          NIX_HASH: ${{ steps.after.outputs.hash }}
+          PKGS_JSON: ${{ steps.packages.outputs.json }}
+
+      - name: Diff package versions
+        if: steps.changed.outputs.changed == 'true'
+        id: diff
+        run: |
+          RAW=$(nix store diff-closures \
+            "${{ steps.old_env.outputs.path }}" \
+            "${{ steps.new_env.outputs.path }}" \
+            2>/dev/null || true)
+          DIFF=$(echo "$RAW" | grep ' → ' | grep -v ', ' | sed 's/^/- /' || true)
+          if [ -z "$DIFF" ]; then
+            DIFF="_All packages are up to date._"
           fi
+          { echo 'content<<EOF'; echo "$DIFF"; echo 'EOF'; } >> "$GITHUB_OUTPUT"
+
+      - name: Create or update pull request
+        if: steps.changed.outputs.changed == 'true'
+        uses: peter-evans/create-pull-request@v7
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: nix-flake-update
+          commit-message: "nix: update flake inputs"
+          title: "nix: update flake inputs"
+          body: |
+            Automated flake input update.
+
+            ### Package changes
+            ${{ steps.diff.outputs.content }}
+
+            ---
+            *Generated by [nix-flake-update](/.github/workflows/nix-updates.yml)*
+          labels: nix-updates
