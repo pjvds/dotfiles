@@ -50,16 +50,16 @@ jobs:
               except Exception:
                   return "unknown"
 
-          def parse_brew_name(brew):
-              return brew["name"] if isinstance(brew, dict) else brew
+          def pkg_name(pkg):
+              return pkg["name"] if isinstance(pkg, dict) else pkg
 
           all_changes = {}
 
           for host in HOSTS:
               with open(f"/tmp/{host}-casks.json") as f:
-                  casks = json.load(f)
+                  casks = [pkg_name(c) for c in json.load(f)]
               with open(f"/tmp/{host}-brews.json") as f:
-                  brews = [parse_brew_name(b) for b in json.load(f)]
+                  brews = [pkg_name(b) for b in json.load(f)]
 
               new_lock = {
                   "brews": {b: fetch_version(b, "formula") for b in sorted(brews)},
