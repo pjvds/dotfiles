@@ -28,7 +28,6 @@
       "qmk-toolbox"
       "sonos"
       "zen"
-      "zwift"
       
       # Fonts — only those not available via nixpkgs nerd-fonts
       "font-sf-pro"

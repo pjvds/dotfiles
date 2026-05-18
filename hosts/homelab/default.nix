@@ -16,5 +16,5 @@
   };
 
   # Homelab-specific casks
-  homebrew.casks = [ "android-studio" ];
+  homebrew.casks = [ "android-studio" "zwift" ];
 }
