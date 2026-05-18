@@ -136,11 +136,10 @@ jobs:
         if: steps.changed.outputs.changed == 'true'
         id: diff
         run: |
-          RAW=$(nix store diff-closures \
+          DIFF=$(nix run nixpkgs#nvd -- diff \
             "${{ steps.old_env.outputs.path }}" \
             "${{ steps.new_env.outputs.path }}" \
             2>/dev/null || true)
-          DIFF=$(echo "$RAW" | grep ' → ' | grep -v ', ' | sed 's/^/- /' || true)
           if [ -z "$DIFF" ]; then
             DIFF="_All packages are up to date._"
           fi
