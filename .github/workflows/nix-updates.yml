@@ -15,6 +15,17 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Remove pre-created nixbld users
+        run: |
+          for i in $(seq 1 32); do
+            if id "_nixbld${i}" &>/dev/null; then
+              sudo dscl . -delete "/Users/_nixbld${i}" || true
+            fi
+          done
+          if dscl . -read /Groups/nixbld &>/dev/null; then
+            sudo dscl . -delete /Groups/nixbld || true
+          fi
+
       - name: Install Nix
         uses: cachix/install-nix-action@v27
         with:
