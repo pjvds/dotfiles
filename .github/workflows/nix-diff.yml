@@ -1,0 +1,32 @@
+name: nix-diff
+
+on:
+  pull_request:
+    branches:
+      - master
+    paths:
+      - 'flake.lock'
+
+jobs:
+  diff:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: cachix/install-nix-action@v27
+        with:
+          extra_nix_config: |
+            experimental-features = nix-command flakes
+            access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
+
+      - uses: natsukium/nix-diff-action@main
+        with:
+          attributes: |
+            - displayName: workstation (NL-F2T6KVCQ3G)
+              attribute: darwinConfigurations."NL-F2T6KVCQ3G".system
+            - displayName: homelab (Pieters-MacBook-Pro)
+              attribute: darwinConfigurations."Pieters-MacBook-Pro".system
