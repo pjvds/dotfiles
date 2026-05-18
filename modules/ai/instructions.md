@@ -72,13 +72,12 @@ No `Co-authored-by`, `Signed-off-by`, or AI attribution. Description only.
 
 ## Before Every Push — Simulate CI
 
-Run in order, fix all failures before commit:
-1. `npm ci` (or equivalent) — strict install
-2. Lint — `npm run lint` / `ruff check .`
-3. Typecheck — `npm run typecheck` / `mypy .`
-4. Tests — `npm test` / `pytest`
+Before committing, validate that existing checks still pass:
+1. Install dependencies if needed
+2. Lint and typecheck
+3. Run tests
 
-CI failure caught locally = no wasted pipeline run.
+Use whatever tools the repo provides. Fix all failures before pushing — a CI failure caught locally wastes no pipeline time.
 
 ---
 
@@ -109,11 +108,13 @@ CI failure caught locally = no wasted pipeline run.
 
 ## Debug — Investigate Before Assuming
 
-Bug reported → **never jump to conclusion**. Always ask first:
-1. What exactly observed? (error, logs, screenshot)
+Bug reported → **never jump to conclusion**. First gather from context, logs, and code:
+1. What exactly is observed? (error, logs, screenshot)
 2. Expected vs actual?
 3. Consistent or intermittent? Conditions?
 4. What do logs show?
+
+Only ask the user if you can't answer these from available context.
 
 ```
  "API slow" → immediately adds caching
@@ -145,11 +146,11 @@ Must verify:
 
 #### Always ask first:
 Deploy commands · git destructive ops · new docs · delete files
-Refactor >20 lines · config file changes · new dependencies
+`git push` (may trigger CI/deploy) · refactor >20 lines · config file changes · new dependencies
 Changes touching >3 files · changes across subsystems · "while we're at it" improvements
 
 #### Safe to act:
-Bug        features <10 lines · inline comments · running tests · reading filesfixes 
+Bug fixes · features <10 lines · inline comments · running tests · reading files
 
 #### Gray area — use judgment:
 Test files · multi-file features · changing function signatures
@@ -183,7 +184,7 @@ If tool missing → say so immediately + give manual command or URL with values 
 - [ ] Deploy command? → STOP, give command
 - [ ] Destructive git? → STOP, ask
 - [ ] `git push` without explicit permission this session? → STOP, ask
-- [ ] Undocumented docs/files?
+- [ ] Creating docs/files the user didn't ask for? → STOP, ask
 - [ ] Non-code file going to repo?
 - [ ] Deleting anything?
 - [ ] Breaking existing code?
