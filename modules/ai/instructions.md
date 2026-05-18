@@ -27,13 +27,16 @@ User says "continue" → still no. Just finished changes → still no. Seems log
 
 ### 🚫 Git — NO DESTRUCTIVE COMMANDS
 
-By default you should not run destructive git commands, only if the user acknoledge it or explicitly states it in advance.
+By default you should not run destructive git commands, only if the user acknowledges it or explicitly states it in advance.
 
 #### ✅ Auto-run OK:
 `git add`, `git commit`, `git status`, `git log`, `git diff`, `git show`, `git branch`, `git remote -v`
 
+#### ⚠️ Run only with explicit permission (once granted, covers the whole session):
+`git push`
+
 #### ❌ Never run — give command, let user decide:
-`git push` `git reset` `git rebase` `git rm` `git merge`
+`git reset` `git rebase` `git rm` `git merge`
 `git checkout` `git switch` `git stash` `git cherry-pick` `git revert`
 `git tag` `git branch -d`
 
@@ -179,6 +182,7 @@ If tool missing → say so immediately + give manual command or URL with values 
 - [ ] User explicitly requested this?
 - [ ] Deploy command? → STOP, give command
 - [ ] Destructive git? → STOP, ask
+- [ ] `git push` without explicit permission this session? → STOP, ask
 - [ ] Undocumented docs/files?
 - [ ] Non-code file going to repo?
 - [ ] Deleting anything?
