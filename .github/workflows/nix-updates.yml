@@ -95,7 +95,7 @@ jobs:
             pkgs = import (builtins.fetchTarball {{
               url = "https://github.com/NixOS/nixpkgs/archive/{os.environ['NIX_REV']}.tar.gz";
               sha256 = "{os.environ['NIX_HASH']}";
-            }}) {{ system = "aarch64-darwin"; }};
+            }}) {{ system = "aarch64-darwin"; config = {{ allowUnfree = true; }}; }};
             paths = builtins.filter (p: p != null) [ {attrs} ];
           in pkgs.buildEnv {{ name = "old-home"; inherit paths; ignoreCollisions = true; }}
           """)
@@ -120,7 +120,7 @@ jobs:
             pkgs = import (builtins.fetchTarball {{
               url = "https://github.com/NixOS/nixpkgs/archive/{os.environ['NIX_REV']}.tar.gz";
               sha256 = "{os.environ['NIX_HASH']}";
-            }}) {{ system = "aarch64-darwin"; }};
+            }}) {{ system = "aarch64-darwin"; config = {{ allowUnfree = true; }}; }};
             paths = builtins.filter (p: p != null) [ {attrs} ];
           in pkgs.buildEnv {{ name = "new-home"; inherit paths; ignoreCollisions = true; }}
           """)

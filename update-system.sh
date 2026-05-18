@@ -1,6 +1,13 @@
 #!/bin/bash
 set -e # Exit immediately if a command exits with a non-zero status
 
+PREVIEW_ONLY=false
+for arg in "$@"; do
+  case "$arg" in
+    --preview) PREVIEW_ONLY=true ;;
+  esac
+done
+
 # Determine dotfiles directory (defaults to $HOME/dotfiles)
 DOTFILES_DIR="$HOME/dotfiles"
 if [ ! -d "$DOTFILES_DIR" ] && [ -d "$HOME/.config/dotfiles" ]; then
@@ -22,11 +29,26 @@ fi
 # Get the current machine's hostname dynamically for the flake configuration
 MACHINE_HOSTNAME=$(hostname -s)
 
-echo "🔄 Applying macOS system configuration changes..."
-echo "🔑 Requesting sudo for system activation (Touch ID, Dock settings, etc.)..."
+if [ "$PREVIEW_ONLY" = true ]; then
+  echo "🔍 Preview mode — building without applying..."
+else
+  echo "🔄 Applying macOS system configuration changes..."
+  echo "🔑 Requesting sudo for system activation (Touch ID, Dock settings, etc.)..."
+fi
 
 echo "📦 Updating git submodules..."
 git -C "${DOTFILES_DIR}" submodule update --init --recursive || echo "⚠️  Submodule update failed (network issue?), continuing..."
+
+if [ "$PREVIEW_ONLY" = true ]; then
+  echo "🔍 Building new configuration (preview only)..."
+  darwin-rebuild build --flake "${DOTFILES_DIR}#${MACHINE_HOSTNAME}"
+  echo ""
+  echo "📋 Package changes:"
+  nvd diff /run/current-system ./result
+  echo ""
+  echo "ℹ️  Run without --preview to apply."
+  exit 0
+fi
 
 sudo darwin-rebuild switch --flake "${DOTFILES_DIR}#${MACHINE_HOSTNAME}"
 

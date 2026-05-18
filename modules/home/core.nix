@@ -24,6 +24,7 @@ let cfg = config.my.core; in
       pv
       delta # better git diffs
       helix
+      nvd # nix version diff — preview package changes before applying
     ];
 
     programs.direnv = {
