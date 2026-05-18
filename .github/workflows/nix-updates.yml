@@ -51,12 +51,26 @@ jobs:
         if: steps.changed.outputs.changed == 'true'
         id: diff
         run: |
-          DIFF=$(nix run nixpkgs#dix -- \
+          RAW=$(nix run nixpkgs#dix -- \
             "${{ steps.before.outputs.drv }}" \
             "${{ steps.after.outputs.drv }}" \
             2>/dev/null || true)
+          DIFF=$(echo "$RAW" \
+            | grep -v '^<<<' \
+            | grep -v '^>>>' \
+            | sed 's/\.drv//g' \
+            | sed 's/, <others>//g' \
+            | sed 's/\[U\.\]/⬆️ /g' \
+            | sed 's/\[A\.\]/➕ /g' \
+            | sed 's/\[R\.\]/➖ /g' \
+            | sed 's/\[D\.\]/🔄 /g' \
+            | sed 's/ -> / → /g' \
+            | sed 's/^CHANGED$/### ⬆️ Changed/' \
+            | sed 's/^ADDED$/### ➕ Added/' \
+            | sed 's/^REMOVED$/### ➖ Removed/' \
+            || true)
           if [ -z "$DIFF" ]; then
-            DIFF="_No derivation changes detected._"
+            DIFF="_No package changes detected._"
           fi
           { echo 'content<<EOF'; echo "$DIFF"; echo 'EOF'; } >> "$GITHUB_OUTPUT"
 
@@ -72,7 +86,7 @@ jobs:
             Automated flake input update.
 
             <details>
-            <summary>Derivation diff (workstation)</summary>
+            <summary>📦 Package changes</summary>
 
             ```
             ${{ steps.diff.outputs.content }}
