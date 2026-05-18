@@ -1,15 +1,24 @@
 {
   "mcpServers": {
+    "pdf-reader": {
+      "command": "npx",
+      "args": [
+        "@sylphx/pdf-reader-mcp"
+      ],
+      "disabled": true
+    },
     "betterstack": {
       "type": "http",
-      "url": "https://mcp.betterstack.com"
+      "url": "https://mcp.betterstack.com",
+      "disabled": true
     },
     "AgentMail": {
       "command": "npx",
       "args": [
         "-y",
         "agentmail-mcp"
-      ]
+      ],
+      "disabled": true
     },
     "ado-dttnl-tax-ita": {
       "type": "stdio",
