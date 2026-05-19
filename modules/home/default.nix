@@ -24,6 +24,7 @@
     ./fonts
     ../programs/node
     ../programs/kanata
+    ./z
   ];
 
   my.core.enable       = true;
@@ -46,6 +47,7 @@
   my.specKit.enable    = true;
   my.node.enable       = true;
   my.kanata.enable     = false;
+  my.z.enable          = true;
   my.theme.enable      = true;
   my.fonts.enable      = true;
 

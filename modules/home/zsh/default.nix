@@ -41,12 +41,7 @@ in
         tailf   = "tail -f";
         grep    = "grep --color=auto";
 
-        # z directory jumper
-        zl      = "z -l";
-        ze      = "nvim ~/.z";
-
-        # Docker
-        d       = "docker";
+        # Docker        d       = "docker";
         dfl     = "docker logs -f";
         dc      = "docker compose";
         dcl     = "dc logs -f";
