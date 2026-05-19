@@ -25,6 +25,7 @@
     ../programs/node
     ../programs/kanata
     ./z
+    ./docker
   ];
 
   my.core.enable       = true;
@@ -48,6 +49,7 @@
   my.node.enable       = true;
   my.kanata.enable     = false;
   my.z.enable          = true;
+  my.docker.enable     = true;
   my.theme.enable      = true;
   my.fonts.enable      = true;
 

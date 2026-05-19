@@ -41,16 +41,6 @@ in
         tailf   = "tail -f";
         grep    = "grep --color=auto";
 
-        # Docker        d       = "docker";
-        dfl     = "docker logs -f";
-        dc      = "docker compose";
-        dcl     = "dc logs -f";
-        dcu     = "dc up -d";
-        dcfl    = "dc logs -f";
-        dcps    = "dc ps";
-        ctop    = "docker run --rm -ti --name=ctop -v /var/run/docker.sock:/var/run/docker.sock quay.io/vektorlab/ctop:latest";
-        rclone  = "docker run --volume ~/.config/rclone:/config/rclone --rm rclone/rclone:latest";
-
         # Deloitte convenience
         dl      = ''firefox "ext+container:name=Deloite%20-%20Admin&url=https://aka.ms/devicelogin"'';
       };
@@ -157,14 +147,6 @@ in
             fi
           }
           alias l=ll
-
-          # Docker: print IP of a container
-          function dip {
-            docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' "$1"
-          }
-
-          # Docker: run lazydocker
-          alias lzd='docker run --rm -it -v /var/run/docker.sock:/var/run/docker.sock -v /yourpath/config:/.config/jesseduffield/lazydocker lazyteam/lazydocker'
 
           # Get the KID (key identifier) of a certificate's public key
           function kid {
