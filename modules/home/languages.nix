@@ -17,9 +17,6 @@ let cfg = config.my.languages; in
         vitest = "pnpx vitest";
       };
       initContent = ''
-        # Disable browser launch from npm/yarn/pnpx
-        export BROWSER=none
-
         # Cargo
         export PATH="$PATH:$HOME/.cargo/bin"
 
