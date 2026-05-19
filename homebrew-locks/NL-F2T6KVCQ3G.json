@@ -1,21 +1,28 @@
 {
   "brews": {
+    "snyk-cli": "1.1304.3",
     "switchaudio-osx": "1.2.2"
   },
   "casks": {
     "adobe-acrobat-reader": "26.001.21529",
     "arc": "1.147.0,80797",
+    "chmouel/lazyworktree/lazyworktree": "unknown",
+    "copilot-cli": "1.0.49",
     "cursorcerer": "3.5",
     "deckset": "2.0.50,2806",
     "font-sf-pro": "latest",
     "font-sketchybar-app-font": "2.0.60",
+    "kitty": "0.46.2",
     "lm-studio": "0.4.13,1",
     "microsoft-azure-storage-explorer": "1.43.0",
+    "obsidian": "1.12.7",
     "philips-hue-sync": "1.13.1.83,367fa136-d05e-4de6-8f9b-318fed481842,83",
     "proton-pass": "1.36.1",
     "protonvpn": "6.5.1",
     "qmk-toolbox": "0.3.3",
+    "slack": "4.50.121",
     "sonos": "90.0-67171,ZethjbGivZ",
+    "warp": "0.2026.05.18.05.32.stable_02",
     "zen": "1.19.13b"
   }
 }
