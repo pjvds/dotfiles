@@ -256,7 +256,7 @@ programs.starship.settings = {
 - **Nix files:** `kebab-case.nix`
 - **Module options:** `my.{program}.enable`
 - **Hosts:** `kebab-case` (workstation, homelab)
-- **Commits:** `<scope>: <lowercase description>` (e.g. `nvim: fix lsp configuration`, `nix: update lock file`, `theme: add dark/light theme switcher`). Always check `git log --oneline -20` before suggesting a commit message to match the existing pattern.
+- **Commits:** `<scope>: <lowercase description>` (e.g. `nvim: fix lsp configuration`, `nix: update lock file`, `theme: add dark/light theme switcher`). Always check `git log --oneline -20` before suggesting a commit message to match the existing pattern. The scope must reflect the module being created or modified — not the module a change originates from. For example, when extracting docker aliases out of the zsh module into a new docker module, the scope is `docker:`, not `zsh:`.
 - **Directories:** `kebab-case` matching intent (programs, system, apps)
 
 ---
