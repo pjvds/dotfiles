@@ -19,8 +19,13 @@ if ! command -v darwin-rebuild &> /dev/null; then
     exit 1
 fi
 
-# Get the current machine's hostname dynamically for the flake configuration
+# Map hostname to host directory name
 MACHINE_HOSTNAME=$(hostname -s)
+case "$MACHINE_HOSTNAME" in
+    NL-F2T6KVCQ3G)       HOST_DIR="workstation" ;;
+    Pieters-MacBook-Pro)  HOST_DIR="homelab" ;;
+    *)                    HOST_DIR="$MACHINE_HOSTNAME" ;;
+esac
 
 echo "🔄 Applying macOS system configuration changes..."
 echo "🔑 Requesting sudo for system activation (Touch ID, Dock settings, etc.)..."
@@ -29,5 +34,16 @@ echo "📦 Updating git submodules..."
 git -C "${DOTFILES_DIR}" submodule update --init --recursive || echo "⚠️  Submodule update failed (network issue?), continuing..."
 
 sudo darwin-rebuild switch --flake "${DOTFILES_DIR}#${MACHINE_HOSTNAME}"
+
+echo "🍺 Updating Homebrew lock file..."
+brew info --json=v2 --installed | python3 -c "
+import json, sys
+data = json.load(sys.stdin)
+lock = {
+    'brews': {f['name']: f['versions']['stable'] for f in data['formulae']},
+    'casks': {c['token']: c['version'] for c in data['casks']},
+}
+print(json.dumps(lock, indent=2, sort_keys=True))
+" > "${DOTFILES_DIR}/hosts/${HOST_DIR}/homebrew.lock.json"
 
 echo "✅ System configuration applied successfully!"
