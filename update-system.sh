@@ -22,7 +22,7 @@ fi
 # Map hostname to host directory name
 MACHINE_HOSTNAME=$(hostname -s)
 case "$MACHINE_HOSTNAME" in
-    NL-F2T6KVCQ3G)       HOST_DIR="workstation" ;;
+    NL-F2T6KVCQ3G)        HOST_DIR="workstation" ;;
     Pieters-MacBook-Pro)  HOST_DIR="homelab" ;;
     *)                    HOST_DIR="$MACHINE_HOSTNAME" ;;
 esac
@@ -46,10 +46,13 @@ lock = {
 print(json.dumps(lock, indent=2, sort_keys=True))
 " > "${DOTFILES_DIR}/hosts/${HOST_DIR}/homebrew.lock.json"
 
+# update homebrew lock file when changed
 if ! git -C "${DOTFILES_DIR}" diff --quiet "hosts/${HOST_DIR}/homebrew.lock.json"; then
     git -C "${DOTFILES_DIR}" add "hosts/${HOST_DIR}/homebrew.lock.json"
     git -C "${DOTFILES_DIR}" commit -m "homebrew: update lock file for ${HOST_DIR}"
     echo "📝 Committed Homebrew lock file changes."
+else
+    echo "⏭️ Skipped committed Homebrew lock file because it did not change."
 fi
 
 echo "✅ System configuration applied successfully!"
