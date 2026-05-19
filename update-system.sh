@@ -46,4 +46,10 @@ lock = {
 print(json.dumps(lock, indent=2, sort_keys=True))
 " > "${DOTFILES_DIR}/hosts/${HOST_DIR}/homebrew.lock.json"
 
+if ! git -C "${DOTFILES_DIR}" diff --quiet "hosts/${HOST_DIR}/homebrew.lock.json"; then
+    git -C "${DOTFILES_DIR}" add "hosts/${HOST_DIR}/homebrew.lock.json"
+    git -C "${DOTFILES_DIR}" commit -m "homebrew: update lock file for ${HOST_DIR}"
+    echo "📝 Committed Homebrew lock file changes."
+fi
+
 echo "✅ System configuration applied successfully!"
