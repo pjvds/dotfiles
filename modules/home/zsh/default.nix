@@ -41,8 +41,6 @@ in
         tailf   = "tail -f";
         grep    = "grep --color=auto";
 
-        # Deloitte convenience
-        dl      = ''firefox "ext+container:name=Deloite%20-%20Admin&url=https://aka.ms/devicelogin"'';
       };
 
       initContent = lib.mkMerge [
