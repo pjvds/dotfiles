@@ -24,6 +24,7 @@
     ./fonts
     ../programs/node
     ../programs/kanata
+    ../programs/shortcat
     ./z
     ./docker
   ];
@@ -48,6 +49,7 @@
   my.specKit.enable    = true;
   my.node.enable       = true;
   my.kanata.enable     = false;
+  my.shortcat.enable   = true;
   my.z.enable          = true;
   my.docker.enable     = true;
   my.theme.enable      = true;

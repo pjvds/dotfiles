@@ -13,7 +13,6 @@ let cfg = config.my.apps; in
       protonmail-desktop
 
       jetbrains.rider
-      shortcat
       shottr
       vscode
     ];
