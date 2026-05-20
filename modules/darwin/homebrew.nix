@@ -18,7 +18,6 @@
     casks = [
       "adobe-acrobat-reader"
       "arc"
-      "cursorcerer"
       "deckset"
       "lm-studio"
       "microsoft-azure-storage-explorer"
