@@ -9,7 +9,7 @@ in {
   config = lib.mkIf cfg.enable {
     homebrew.casks = lib.mkAfter [ "copilot-cli" ];
 
-    home-manager.users.${user} = { config, ... }: {
+    home-manager.users.${user} = { config, lib, ... }: {
       home.file.".copilot".source =
         config.lib.file.mkOutOfStoreSymlink "${homeDir}/dotfiles/modules/programs/copilot/config";
 
