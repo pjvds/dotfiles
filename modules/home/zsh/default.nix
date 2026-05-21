@@ -222,6 +222,11 @@ in
           };
           file = "fzf-up.plugin.zsh";
         }
+        {
+          name = "extract";
+          src = pkgs.oh-my-zsh;
+          file = "share/oh-my-zsh/plugins/extract/extract.plugin.zsh";
+        }
       ];
 
       completionInit = ''
