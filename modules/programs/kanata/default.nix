@@ -21,7 +21,6 @@ let cfg = config.my.kanata; in
       enable = true;
       config = {
         Label = "com.local.kanata";
-        Program = "/usr/bin/sudo";
         ProgramArguments = [
           "/usr/bin/sudo"
           "${pkgs.kanata-with-cmd}/bin/kanata"
