@@ -13,6 +13,11 @@ in {
       home.file.".copilot".source =
         config.lib.file.mkOutOfStoreSymlink "${homeDir}/dotfiles/modules/programs/copilot/config";
 
+      home.activation.copilotSkillsSymlink = lib.hm.dag.entryAfter ["writeBoundary"] ''
+        ln -sfn "${homeDir}/dotfiles/modules/ai/skills" \
+          "${homeDir}/dotfiles/modules/programs/copilot/config/skills"
+      '';
+
       programs.zsh.shellAliases = {
         c  = "copilot --add-dir /tmp --add-dir \$(pwd)";
         cp = "c -p "; # Execute a prompt in *non-interactive* mode, and print the result to stdout.
