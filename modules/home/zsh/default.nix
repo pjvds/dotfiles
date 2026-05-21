@@ -31,8 +31,8 @@ in
         # Directory jumps
         jd      = "cd ~/Downloads";
         jdf     = "cd $DOTFILES";
-        jc      = "cd ~/Code";
-        jcd     = "cd ~/Code/deloitte";
+        jc      = "cd ~/code";
+        jcd     = "cd ~/code/deloitte";
 
         # Shell quality of life
         qq      = "exit";
