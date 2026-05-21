@@ -141,6 +141,11 @@ jobs:
                       if name not in new_versions[section]:
                           changes.append(f"➖ {name}")
 
+              # Write updated lock file (only declared packages)
+              with open(lock_path, "w") as f:
+                  json.dump(new_versions, f, indent=2, sort_keys=True)
+                  f.write("\n")
+
               if changes:
                   lines.append(f"**{host_dir}**")
                   lines.extend(changes)

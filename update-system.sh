@@ -36,12 +36,23 @@ git -C "${DOTFILES_DIR}" submodule update --init --recursive || echo "⚠️  Su
 sudo darwin-rebuild switch --flake "${DOTFILES_DIR}#${MACHINE_HOSTNAME}"
 
 echo "🍺 Updating Homebrew lock file..."
+CASKS=$(nix eval --json "${DOTFILES_DIR}#darwinConfigurations.${MACHINE_HOSTNAME}.config.homebrew.casks")
+BREWS=$(nix eval --json "${DOTFILES_DIR}#darwinConfigurations.${MACHINE_HOSTNAME}.config.homebrew.brews")
+
+export CASKS BREWS
 brew info --json=v2 --installed | python3 -c "
-import json, sys
+import json, sys, os
+
+def pkg_name(pkg):
+    return pkg['name'] if isinstance(pkg, dict) else pkg
+
+declared_casks = {pkg_name(c) for c in json.loads(os.environ['CASKS'])}
+declared_brews = {pkg_name(b) for b in json.loads(os.environ['BREWS'])}
+
 data = json.load(sys.stdin)
 lock = {
-    'brews': {f['name']: f['versions']['stable'] for f in data['formulae']},
-    'casks': {c['token']: c['version'] for c in data['casks']},
+    'brews': {f['name']: f['versions']['stable'] for f in data['formulae'] if f['name'] in declared_brews},
+    'casks': {c['token']: c['version'] for c in data['casks'] if c['token'] in declared_casks},
 }
 print(json.dumps(lock, indent=2, sort_keys=True))
 " > "${DOTFILES_DIR}/hosts/${HOST_DIR}/homebrew.lock.json"
