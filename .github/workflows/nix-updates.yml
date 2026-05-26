@@ -51,24 +51,17 @@ jobs:
         if: steps.changed.outputs.changed == 'true'
         id: diff
         run: |
-          RAW=$(nix run nixpkgs#dix -- \
-            "${{ steps.before.outputs.drv }}" \
-            "${{ steps.after.outputs.drv }}" \
-            2>/dev/null || true)
-          DIFF=$(echo "$RAW" \
-            | grep -v '^<<<' \
-            | grep -v '^>>>' \
-            | sed 's/\.drv//g' \
-            | sed 's/, <others>//g' \
-            | sed 's/\[U\.\]/⬆️ /g' \
-            | sed 's/\[A\.\]/➕ /g' \
-            | sed 's/\[R\.\]/➖ /g' \
-            | sed 's/\[D\.\]/🔄 /g' \
-            | sed 's/ -> / → /g' \
-            | sed 's/^CHANGED$/### ⬆️ Changed/' \
-            | sed 's/^ADDED$/### ➕ Added/' \
-            | sed 's/^REMOVED$/### ➖ Removed/' \
+          # Resolve drv paths to their immediate output references (1 level deep)
+          # This limits the diff to top-level packages only, not the full transitive closure
+          BEFORE_REFS=$(nix-store --query --references "${{ steps.before.outputs.drv }}" 2>/dev/null | tr '\n' ' ')
+          AFTER_REFS=$(nix-store --query --references "${{ steps.after.outputs.drv }}" 2>/dev/null | tr '\n' ' ')
+
+          DIFF=$(nix store diff-closures $BEFORE_REFS $AFTER_REFS 2>/dev/null \
+            | grep -v '^$' \
+            | sed 's/ε/→ (removed)/g' \
+            | sed 's/, ε/→ (removed)/g' \
             || true)
+
           if [ -z "$DIFF" ]; then
             DIFF="_No package changes detected._"
           fi
