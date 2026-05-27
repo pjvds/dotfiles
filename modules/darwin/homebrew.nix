@@ -39,7 +39,6 @@
 
     masApps = {
       "Amphetamine" = 937984704;
-      "WhatsApp" = 310633997;
     };
   };
 }
