@@ -83,6 +83,16 @@
     };
   };
 
+  # Back up /etc files that nix-darwin wants to manage but finds modified
+  system.activationScripts.backupEtcFiles.text = ''
+    for f in /etc/zshrc /etc/zshenv /etc/bashrc /etc/zprofile; do
+      if [ -f "$f" ] && ! grep -q "nix-darwin" "$f" 2>/dev/null; then
+        echo "Backing up $f -> $f.before-nix-darwin"
+        mv "$f" "$f.before-nix-darwin"
+      fi
+    done
+  '';
+
   # Accept Xcode license automatically (runs as root during activation)
   system.activationScripts.xcodeAcceptLicense.text = ''
     if /usr/bin/xcodebuild -license check 2>/dev/null | /usr/bin/grep -q "not yet accepted"; then
