@@ -42,10 +42,8 @@ git add modules/home/myapp.nix
 
 ### Validate changes without applying
 ```bash
-nix flake check                    # Check flake syntax
-./update-system.sh --build-only    # Build without applying (if supported)
-# Or manually with full path:
-darwin-rebuild build --flake .#$(hostname -s)
+nix flake check                                              # Check flake syntax
+darwin-rebuild build --flake .#$(hostname -s)               # Build without applying
 ```
 
 ### Rollback to previous config
@@ -194,7 +192,8 @@ my.tmux.enable = true;
 
 7. **Apply the configuration:**
    ```bash
-   sudo nix run nix-darwin/master#darwin-rebuild -- switch --flake .#workstation
+   # Always use the update script — it auto-detects hostname
+   ./update-system.sh
    ```
 
 ### Configuration Management: Choose Your Method
@@ -266,14 +265,12 @@ programs.starship.settings = {
 ### Build & Apply
 
 ```bash
-# Apply to workstation (switch to new generation)
-sudo nix run nix-darwin/master#darwin-rebuild -- switch --flake .#workstation
+# Apply to current host (auto-detects hostname — always prefer this)
+./update-system.sh
 
-# Apply to homelab
-sudo nix run nix-darwin/master#darwin-rebuild -- switch --flake .#homelab
-
-# Dry run: show what would change without applying
-sudo nix run nix-darwin/master#darwin-rebuild -- build --flake .#workstation
+# Dry run: build without applying (use explicit darwin-rebuild for this)
+darwin-rebuild build --flake .#workstation
+darwin-rebuild build --flake .#homelab
 
 # Rollback to previous generation
 sudo nix run nix-darwin/master#darwin-rebuild -- switch --rollback
