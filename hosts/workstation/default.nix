@@ -4,11 +4,6 @@
   networking.hostName = "NL-F2T6KVCQ3G";
   system.primaryUser = "pvandesande";
 
-  # Allow passwordless sudo for kanata (keyboard remapper, enabled on this host)
-  security.sudo.extraConfig = ''
-    ${config.system.primaryUser} ALL=(ALL) NOPASSWD: ${pkgs.kanata-with-cmd}/bin/kanata
-  '';
-
   users.users.pvandesande = {
     name = "pvandesande";
     home = "/Users/pvandesande";
