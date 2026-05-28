@@ -11,7 +11,7 @@
     "deckset": "2.0.50,2806",
     "font-sf-pro": "latest",
     "font-sketchybar-app-font": "2.0.62",
-    "kitty": "0.47.0",
+    "kitty": "0.47.1",
     "lm-studio": "0.4.14,4",
     "microsoft-azure-storage-explorer": "1.43.0",
     "obsidian": "1.12.7",
@@ -20,8 +20,8 @@
     "protonvpn": "6.5.1",
     "qmk-toolbox": "0.3.3",
     "slack": "4.50.128",
-    "sonos": "90.0-67171,ZethjbGivZ",
+    "sonos": "90.0-77070,rT0797IawE",
     "warp": "0.2026.05.20.09.21.stable_03",
-    "zen": "1.20b"
+    "zen": "1.20.1b"
   }
 }
