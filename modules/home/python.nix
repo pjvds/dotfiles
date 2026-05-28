@@ -7,6 +7,7 @@ let cfg = config.my.python; in
     home.packages = with pkgs; [
       python3
       pipx
+      pipenv
       micromamba
     ];
 
