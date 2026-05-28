@@ -85,6 +85,8 @@ let cfg = config.my.git; in
         ".apdisk"
         # Nix
         "result"
+        # codedb — snapshot is a local index cache, not source; no value in tracking it
+        "codedb.snapshot"
       ];
 
       # Per-directory identity overrides

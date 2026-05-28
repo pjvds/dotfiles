@@ -27,3 +27,6 @@ modules/programs/copilot/config/mcp-oauth-config/
 
 # karabiner auto-generated backups
 modules/programs/karabiner/config/automatic_backups/
+
+# codedb local index
+codedb.snapshot
