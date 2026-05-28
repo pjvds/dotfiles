@@ -6,6 +6,7 @@ let cfg = config.my.python; in
   config = lib.mkIf cfg.enable {
     home.packages = with pkgs; [
       python3
+      pipx
       micromamba
     ];
 
@@ -21,6 +22,12 @@ let cfg = config.my.python; in
         pip    = "pip3";
       };
       initContent = ''
+        # Pip user bin (pip install --user)
+        export PATH="$PATH:$HOME/Library/Python/$(python3 -c 'import sys; print(f"{sys.version_info.major}.{sys.version_info.minor}")')/bin"
+
+        # Pipx
+        export PATH="$PATH:$HOME/.local/bin"
+
         # Enable Micromamba shell hook without modifying PROMPT
         # Powerlevel10k has built-in support for the anaconda segment which handles mamba
         if command -v micromamba &>/dev/null; then
