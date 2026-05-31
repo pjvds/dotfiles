@@ -5,7 +5,7 @@
     prefix = "/opt/homebrew";
     onActivation = {
       autoUpdate = true;
-      cleanup = "zap"; # Removes unlisted formulas and casks
+      cleanup = "none"; # brew bundle --cleanup now requires --force; manage cleanup manually
       upgrade = true;
     };
 

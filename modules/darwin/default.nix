@@ -15,7 +15,6 @@
     ../programs/gitify
     ../programs/cursorcerer
     ./snyk
-    ./lazyworktree
   ];
 
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
