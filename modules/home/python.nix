@@ -1,9 +1,11 @@
 { pkgs, config, lib, ... }:
 let cfg = config.my.python; in
 {
-  options.my.python.enable = lib.mkEnableOption "Python and micromamba";
+  options.my.python.enable = lib.mkEnableOption "Python, pyenv, and micromamba";
 
   config = lib.mkIf cfg.enable {
+    programs.pyenv.enable = true;
+
     home.packages = with pkgs; [
       python3
       pipx
@@ -19,8 +21,7 @@ let cfg = config.my.python; in
     # Declarative Micromamba initialization
     programs.zsh = {
       shellAliases = {
-        python = "python3";
-        pip    = "pip3";
+        pip = "pip3";
       };
       initContent = ''
         # Pip user bin (pip install --user)
