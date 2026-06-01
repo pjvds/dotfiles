@@ -22,6 +22,12 @@ let cfg = config.my.python; in
 
         # Pipx
         export PATH="$PATH:$HOME/.local/bin"
+
+        # Defer pyenv initialization to background
+        _init_pyenv() {
+          eval "$(pyenv init -)"
+        }
+        defer _init_pyenv
       '';
     };
   };
