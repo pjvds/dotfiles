@@ -26,8 +26,11 @@ let cfg = config.my.node; in
       };
 
       initContent = lib.mkOrder 105 ''
-        # fnm (Fast Node Manager) — auto-switch Node versions
-        eval "$(fnm env --use-on-cd)"
+        # fnm (Fast Node Manager) — deferred to background
+        _init_fnm() {
+          eval "$(fnm env --use-on-cd)"
+        }
+        defer _init_fnm
       '';
     };
   };
