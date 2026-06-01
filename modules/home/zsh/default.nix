@@ -174,6 +174,11 @@ in
 
       plugins = [
         {
+          name = "zsh-defer";
+          src = pkgs.zsh-defer;
+          file = "share/zsh-defer/zsh-defer.plugin.zsh";
+        }
+        {
           name = "zsh-vi-mode";
           src = pkgs.zsh-vi-mode;
           file = "share/zsh-vi-mode/zsh-vi-mode.plugin.zsh";
