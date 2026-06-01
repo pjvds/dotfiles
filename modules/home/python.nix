@@ -18,7 +18,7 @@ let cfg = config.my.python; in
       };
       initContent = ''
         # Pip user bin (pip install --user)
-        export PATH="$PATH:$HOME/Library/Python/$(python3 -c 'import sys; print(f"{sys.version_info.major}.{sys.version_info.minor}")')/bin"
+        export PATH="$PATH:$HOME/Library/Python/3.13/bin"
 
         # Pipx
         export PATH="$PATH:$HOME/.local/bin"
