@@ -14,7 +14,6 @@ let cfg = config.my.core; in
       jq
       ncdu
       ripgrep
-      silver-searcher
       tig
       tldr
       tree
@@ -33,7 +32,6 @@ let cfg = config.my.core; in
 
     programs.zsh = {
       shellAliases = {
-        ag  = ''ag --pager "less +F -R"'';
         bat = ''bat -p --style="changes"'';
         cat = "bat -p";
       };
