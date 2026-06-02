@@ -14,6 +14,7 @@
     ../programs/slack
     ../programs/gitify
     ../programs/cursorcerer
+    ../programs/lm-studio
     ./snyk
   ];
 
@@ -38,6 +39,7 @@
   my.slack.enable      = true;
   my.gitify.enable     = true;
   my.cursorcerer.enable = true;
+  my.lmStudio.enable   = true;
 
   # Time Zone
   time.timeZone = "Europe/Amsterdam";
