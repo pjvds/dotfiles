@@ -235,12 +235,13 @@ in
       ];
 
       completionInit = ''
+        setopt extendedglob
         typeset -aU fpath
         autoload -Uz compinit
-        if [[ -n ~/.zcompdump(#qN.mh+24) ]]; then
-          compinit
-        else
+        if [[ -f ~/.zcompdump && -z ~/.zcompdump(#qN.mh+24) ]]; then
           compinit -C
+        else
+          compinit
         fi
         zstyle ':completion:*' menu no
       '';
