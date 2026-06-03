@@ -11,6 +11,7 @@
     # Per-app modules (each owns its install + config)
     ./tmux
     ./atuin.nix
+    ./asciinema.nix
     ./ssh
     ./httpie
     ./netskope.nix
@@ -41,6 +42,7 @@
   my.opencode.enable   = true;
   my.tmux.enable       = true;
   my.atuin.enable      = true;
+  my.asciinema.enable  = true;
   my.ssh.enable        = true;
   my.httpie.enable     = true;
   my.netskope.enable   = true;
