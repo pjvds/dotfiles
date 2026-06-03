@@ -61,17 +61,11 @@ let
         sketchybar --set nudge label.color="$ACCENT_COLOR" 2>/dev/null || true
       fi
 
-      # Borders: copy style to state dir and hot-reload with new colors
+      # Borders: write new theme state, then restart the launchd service so
+      # bordersrc picks up the updated colors with a single clean process.
       cp "$THEME_DIR/borders/$mode.sh" "$STATE_DIR/borders-style.sh"
-      if command -v borders &>/dev/null && pgrep -x borders &>/dev/null; then
-        # Source the new theme and shared color helpers
-        source "${dotfiles}/modules/programs/borders/config/colors.sh"
-        source "$STATE_DIR/borders-style.sh"
-
-        # Call borders with all arguments to update the running instance
-        active_hex=$(get_hex "$BORDERS_ACTIVE_COLOR")
-        inactive_hex=$(get_hex "$BORDERS_INACTIVE_COLOR")
-        borders hidpi=on width=6.0 style=round active_color="$active_hex" inactive_color="$inactive_hex" 2>/dev/null || true
+      if command -v borders &>/dev/null; then
+        launchctl kickstart -k "gui/$(id -u)/org.nixos.jankyborders" 2>/dev/null || true
       fi
 
       # OpenCode: update theme name in tui.json (file is gitignored; created here if absent)

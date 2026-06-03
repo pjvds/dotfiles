@@ -29,4 +29,7 @@ OPTIONS=(
   inactive_color=$(get_hex $ina_color)
 )
 
+# Kill any stale borders instance before starting a new server
+pkill -x borders 2>/dev/null || true
+
 borders "${OPTIONS[@]}"
