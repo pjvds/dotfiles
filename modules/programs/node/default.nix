@@ -25,12 +25,12 @@ let cfg = config.my.node; in
         sst = "bunx sst";
       };
 
-      initContent = lib.mkOrder 105 ''
-        # fnm (Fast Node Manager) — deferred to background
+      initContent = ''
+        # fnm (Fast Node Manager) — deferred to speed up shell startup
         _init_fnm() {
           eval "$(fnm env --use-on-cd)"
         }
-        defer _init_fnm
+        zsh-defer _init_fnm
       '';
     };
   };
