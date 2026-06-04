@@ -23,11 +23,11 @@ let cfg = config.my.python; in
         # Pipx
         export PATH="$PATH:$HOME/.local/bin"
 
-        # Defer pyenv initialization to background
+        # Defer pyenv initialization to speed up shell startup
         _init_pyenv() {
           eval "$(pyenv init -)"
         }
-        defer _init_pyenv
+        zsh-defer _init_pyenv
       '';
     };
   };
