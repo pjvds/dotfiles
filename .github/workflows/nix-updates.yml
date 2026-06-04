@@ -77,7 +77,9 @@ jobs:
               DIFF="_No package changes detected._"
             fi
           fi
-          { echo 'content<<EOF'; echo "$DIFF"; echo 'EOF'; } >> "$GITHUB_OUTPUT"
+          echo 'content<<EOF' >> "$GITHUB_OUTPUT"
+          echo "$DIFF" >> "$GITHUB_OUTPUT"
+          echo 'EOF' >> "$GITHUB_OUTPUT"
 
       - name: Extract Homebrew package lists from nix
         if: steps.changed.outputs.changed == 'true' && steps.after.outputs.ok == 'true'
