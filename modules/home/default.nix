@@ -27,6 +27,7 @@
     ../programs/kanata
     ../programs/shortcat
     ../programs/codedb
+    ../programs/chrome
     ./z
     ./docker
   ];
@@ -54,6 +55,7 @@
   my.kanata.enable     = false;
   my.shortcat.enable   = true;
   my.codedb.enable     = true;
+  my.chrome.enable     = true;
   my.z.enable          = true;
   my.docker.enable     = true;
   my.theme.enable      = true;

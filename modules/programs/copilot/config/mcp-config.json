@@ -1,23 +1,41 @@
 {
   "mcpServers": {
     "pdf-reader": {
+      "tools": [
+        "*"
+      ],
       "command": "npx",
       "args": [
         "@sylphx/pdf-reader-mcp"
-      ]
+      ],
+      "source": "user",
+      "sourcePath": "/Users/pvandesande/.copilot/mcp-config.json"
     },
     "betterstack": {
+      "tools": [
+        "*"
+      ],
       "type": "http",
-      "url": "https://mcp.betterstack.com"
+      "url": "https://mcp.betterstack.com",
+      "source": "user",
+      "sourcePath": "/Users/pvandesande/.copilot/mcp-config.json"
     },
     "AgentMail": {
+      "tools": [
+        "*"
+      ],
       "command": "npx",
       "args": [
         "-y",
         "agentmail-mcp"
-      ]
+      ],
+      "source": "user",
+      "sourcePath": "/Users/pvandesande/.copilot/mcp-config.json"
     },
     "ado-dttnl-tax-ita": {
+      "tools": [
+        "*"
+      ],
       "type": "stdio",
       "command": "bunx",
       "args": [
@@ -30,9 +48,14 @@
         "work-items",
         "repositories",
         "pipelines"
-      ]
+      ],
+      "source": "user",
+      "sourcePath": "/Users/pvandesande/.copilot/mcp-config.json"
     },
     "ado-ra-tes": {
+      "tools": [
+        "*"
+      ],
       "type": "stdio",
       "command": "npx",
       "args": [
@@ -45,9 +68,14 @@
         "work-items",
         "repositories",
         "pipelines"
-      ]
+      ],
+      "source": "user",
+      "sourcePath": "/Users/pvandesande/.copilot/mcp-config.json"
     },
     "azure": {
+      "tools": [
+        "*"
+      ],
       "type": "stdio",
       "command": "npx",
       "args": [
@@ -55,29 +83,49 @@
         "@azure/mcp@latest",
         "server",
         "start"
-      ]
+      ],
+      "source": "user",
+      "sourcePath": "/Users/pvandesande/.copilot/mcp-config.json"
     },
     "context7": {
+      "tools": [
+        "*"
+      ],
       "type": "http",
-      "url": "https://mcp.context7.com/mcp"
+      "url": "https://mcp.context7.com/mcp",
+      "source": "user",
+      "sourcePath": "/Users/pvandesande/.copilot/mcp-config.json"
     },
     "playwright": {
       "type": "stdio",
       "command": "npx",
+      "tools": [
+        "*"
+      ],
       "args": [
         "@playwright/mcp@latest"
       ]
     },
     "datadog": {
+      "tools": [
+        "*"
+      ],
       "type": "http",
-      "url": "https://mcp.datadoghq.eu/api/unstable/mcp-server/mcp"
+      "url": "https://mcp.datadoghq.eu/api/unstable/mcp-server/mcp",
+      "source": "user",
+      "sourcePath": "/Users/pvandesande/.copilot/mcp-config.json"
     },
     "codedb": {
+      "tools": [
+        "*"
+      ],
       "type": "stdio",
       "command": "codedb",
       "args": [
         "mcp"
-      ]
+      ],
+      "source": "user",
+      "sourcePath": "/Users/pvandesande/.copilot/mcp-config.json"
     }
   }
 }
