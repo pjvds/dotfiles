@@ -3,10 +3,10 @@
     "switchaudio-osx": "1.2.2"
   },
   "casks": {
-    "adobe-acrobat-reader": "26.001.21529",
+    "adobe-acrobat-reader": "26.001.21662",
     "android-studio": "2026.1.1.8,quail1",
-    "arc": "1.150.0,81693",
-    "copilot-cli": "1.0.60",
+    "arc": "1.150.1,81866",
+    "copilot-cli": "1.0.61",
     "cursorcerer": "3.5",
     "deckset": "2.0.51,2807",
     "font-sf-pro": "latest",
@@ -22,7 +22,7 @@
     "qmk-toolbox": "0.3.3",
     "slack": "4.50.128",
     "sonos": "90.0-77070,rT0797IawE",
-    "zen": "1.20.2b",
+    "zen": "1.21b",
     "zwift": "1.1.16,159403"
   }
 }
