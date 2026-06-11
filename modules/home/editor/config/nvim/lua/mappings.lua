@@ -35,7 +35,7 @@ map("n", "<leader>p", function()
 		-- Override to include .env files by adding --unrestricted for .env pattern
 		find_command = {
 			"sh", "-c",
-			"rg --files --hidden --glob '!.git/' --glob '!node_modules/'; rg --files --hidden --no-ignore -g '.env*'"
+			"rg --files --hidden --glob '!.git/**' --glob '!node_modules/'; rg --files --hidden --no-ignore -g '.env*'"
 		},
 	})
 end, { desc = "file finder" })
