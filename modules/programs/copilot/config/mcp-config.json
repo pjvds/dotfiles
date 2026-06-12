@@ -9,7 +9,7 @@
         "@sylphx/pdf-reader-mcp"
       ],
       "source": "user",
-      "sourcePath": "/Users/pvandesande/.copilot/mcp-config.json"
+      "sourcePath": "$HOME/.copilot/mcp-config.json"
     },
     "betterstack": {
       "tools": [
@@ -18,7 +18,7 @@
       "type": "http",
       "url": "https://mcp.betterstack.com",
       "source": "user",
-      "sourcePath": "/Users/pvandesande/.copilot/mcp-config.json"
+      "sourcePath": "$HOME/.copilot/mcp-config.json"
     },
     "AgentMail": {
       "tools": [
@@ -30,7 +30,7 @@
         "agentmail-mcp"
       ],
       "source": "user",
-      "sourcePath": "/Users/pvandesande/.copilot/mcp-config.json"
+      "sourcePath": "$HOME/.copilot/mcp-config.json"
     },
     "ado-dttnl-tax-ita": {
       "tools": [
@@ -50,7 +50,7 @@
         "pipelines"
       ],
       "source": "user",
-      "sourcePath": "/Users/pvandesande/.copilot/mcp-config.json"
+      "sourcePath": "$HOME/.copilot/mcp-config.json"
     },
     "ado-ra-tes": {
       "tools": [
@@ -70,7 +70,7 @@
         "pipelines"
       ],
       "source": "user",
-      "sourcePath": "/Users/pvandesande/.copilot/mcp-config.json"
+      "sourcePath": "$HOME/.copilot/mcp-config.json"
     },
     "azure": {
       "tools": [
@@ -85,7 +85,7 @@
         "start"
       ],
       "source": "user",
-      "sourcePath": "/Users/pvandesande/.copilot/mcp-config.json"
+      "sourcePath": "$HOME/.copilot/mcp-config.json"
     },
     "context7": {
       "tools": [
@@ -94,7 +94,7 @@
       "type": "http",
       "url": "https://mcp.context7.com/mcp",
       "source": "user",
-      "sourcePath": "/Users/pvandesande/.copilot/mcp-config.json"
+      "sourcePath": "$HOME/.copilot/mcp-config.json"
     },
     "playwright": {
       "type": "stdio",
@@ -113,7 +113,7 @@
       "type": "http",
       "url": "https://mcp.datadoghq.eu/api/unstable/mcp-server/mcp",
       "source": "user",
-      "sourcePath": "/Users/pvandesande/.copilot/mcp-config.json"
+      "sourcePath": "$HOME/.copilot/mcp-config.json"
     },
     "codedb": {
       "tools": [
@@ -125,7 +125,7 @@
         "mcp"
       ],
       "source": "user",
-      "sourcePath": "/Users/pvandesande/.copilot/mcp-config.json"
+      "sourcePath": "$HOME/.copilot/mcp-config.json"
     }
   }
 }
