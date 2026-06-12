@@ -18,6 +18,9 @@
   outputs = inputs@{ self, nixpkgs, nix-darwin, home-manager }: 
     let
       system = "aarch64-darwin";
+      pkgsConfig = {
+        allowUnfree = true;
+      };
     in
     {
       # macOS system configuration (requires sudo)
@@ -25,6 +28,7 @@
         "NL-F2T6KVCQ3G" = nix-darwin.lib.darwinSystem {
           inherit system;
           modules = [
+            { nixpkgs.config = pkgsConfig; }
             home-manager.darwinModules.home-manager
             ./hosts/workstation
           ];
@@ -33,6 +37,7 @@
         "Pieters-MacBook-Pro" = nix-darwin.lib.darwinSystem {
           inherit system;
           modules = [
+            { nixpkgs.config = pkgsConfig; }
             home-manager.darwinModules.home-manager
             ./hosts/homelab
           ];
