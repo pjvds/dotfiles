@@ -23,6 +23,8 @@ let cfg = config.my.atuin; in
         style        = "full";
         enter_accept = true;
         sync.records = true;
+        daemon.enabled = true;
+        daemon.auto_start = true;
       };
     };
   };
