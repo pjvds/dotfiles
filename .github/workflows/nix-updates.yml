@@ -67,86 +67,12 @@ jobs:
           fi
           { echo 'content<<EOF'; echo "$DIFF"; echo 'EOF'; } >> "$GITHUB_OUTPUT"
 
-      - name: Extract Homebrew package lists from nix
-        if: steps.changed.outputs.changed == 'true'
-        run: |
-          for HOST in "NL-F2T6KVCQ3G" "Pieters-MacBook-Pro"; do
-            nix eval --json ".#darwinConfigurations.\"${HOST}\".config.homebrew.casks" > /tmp/${HOST}-casks.json
-            nix eval --json ".#darwinConfigurations.\"${HOST}\".config.homebrew.brews" > /tmp/${HOST}-brews.json
-          done
-
-      - name: Capture Homebrew versions
-        if: steps.changed.outputs.changed == 'true'
+      - name: Set homebrew info
         id: homebrew
         run: |
-          python3 << 'EOF'
-          import json, urllib.request, os, glob
-
-          def fetch_version(name, pkg_type):
-              try:
-                  url = f"https://formulae.brew.sh/api/{'cask' if pkg_type == 'cask' else 'formula'}/{name}.json"
-                  req = urllib.request.Request(url, headers={"User-Agent": "homebrew-lock-checker/1.0"})
-                  with urllib.request.urlopen(req, timeout=10) as r:
-                      data = json.loads(r.read())
-                  return data["version"] if pkg_type == "cask" else data["versions"]["stable"]
-              except Exception:
-                  return "unknown"
-
-          def pkg_name(pkg):
-              return pkg["name"] if isinstance(pkg, dict) else pkg
-
-          HOST_MAP = {
-              "NL-F2T6KVCQ3G": "workstation",
-              "Pieters-MacBook-Pro": "homelab",
-          }
-
-          lines = []
-          for hostname, host_dir in HOST_MAP.items():
-              lock_path = f"hosts/{host_dir}/homebrew.lock.json"
-              casks_json = f"/tmp/{hostname}-casks.json"
-              brews_json = f"/tmp/{hostname}-brews.json"
-
-              if not (os.path.exists(lock_path) and os.path.exists(casks_json)):
-                  continue
-
-              with open(casks_json) as f:
-                  casks = [pkg_name(c) for c in json.load(f)]
-              with open(brews_json) as f:
-                  brews = [pkg_name(b) for b in json.load(f)]
-
-              new_versions = {
-                  "brews": {b: fetch_version(b, "formula") for b in sorted(brews)},
-                  "casks": {c: fetch_version(c, "cask") for c in sorted(casks)},
-              }
-
-              with open(lock_path) as f:
-                  old_versions = json.load(f)
-
-              changes = []
-              for section in ["casks", "brews"]:
-                  for name, new_ver in new_versions[section].items():
-                      old_ver = old_versions.get(section, {}).get(name)
-                      if old_ver is None:
-                          changes.append(f"➕ {name} {new_ver}")
-                      elif old_ver != new_ver and new_ver != "unknown":
-                          changes.append(f"⬆️ {name}: {old_ver} → {new_ver}")
-                  for name in old_versions.get(section, {}):
-                      if name not in new_versions[section]:
-                          changes.append(f"➖ {name}")
-
-              # Write updated lock file (only declared packages)
-              with open(lock_path, "w") as f:
-                  json.dump(new_versions, f, indent=2, sort_keys=True)
-                  f.write("\n")
-
-              if changes:
-                  lines.append(f"**{host_dir}**")
-                  lines.extend(changes)
-
-          body = "\n".join(lines) if lines else "_No Homebrew version changes detected._"
-          with open(os.environ["GITHUB_OUTPUT"], "a") as f:
-              f.write(f"content<<EOF\n{body}\nEOF\n")
-          EOF
+          echo 'content<<EOF' >> "$GITHUB_OUTPUT"
+          echo "_Homebrew lock files are managed locally by \`update-system.sh\` and will be synced when the nix configuration is deployed._" >> "$GITHUB_OUTPUT"
+          echo 'EOF' >> "$GITHUB_OUTPUT"
 
       - name: Create or update pull request
         if: steps.changed.outputs.changed == 'true'
