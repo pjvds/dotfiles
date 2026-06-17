@@ -18,7 +18,8 @@ in
       k3d
       argo-workflows
       kubelogin
-      pulumi
+      # pulumi installed via Homebrew (brew install pulumi/tap/pulumi)
+      # — nixpkgs does not include the .NET language plugin required for this project
     ];
 
     home.file.".config/k9s/skin.yml".source =
