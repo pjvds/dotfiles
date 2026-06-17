@@ -35,6 +35,7 @@
 
     brews = [
       "switchaudio-osx"
+      { name = "pulumi/tap/pulumi"; }  # nixpkgs lacks the .NET language plugin
     ];
 
     masApps = {
