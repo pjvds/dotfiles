@@ -18,7 +18,7 @@ in
       k3d
       argo-workflows
       kubelogin
-      pulumi
+      pulumiPackages.pulumi-dotnet
     ];
 
     home.file.".config/k9s/skin.yml".source =
