@@ -27,5 +27,17 @@ let cfg = config.my.atuin; in
         daemon.auto_start = true;
       };
     };
+
+    launchd.agents.atuin-daemon = {
+      enable = true;
+      config = {
+        Label = "com.github.atuinsh.atuin.daemon";
+        ProgramArguments = [ "${pkgs.atuin}/bin/atuin" "daemon" "start" ];
+        RunAtLoad = true;
+        KeepAlive = true;
+        StandardOutPath = "${config.home.homeDirectory}/.local/share/atuin/daemon.log";
+        StandardErrorPath = "${config.home.homeDirectory}/.local/share/atuin/daemon-error.log";
+      };
+    };
   };
 }
