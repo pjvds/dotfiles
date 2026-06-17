@@ -19,7 +19,7 @@ in {
       '';
 
       programs.zsh.shellAliases = {
-        c  = "copilot --add-dir /tmp --add-dir \$(pwd)";
+        c  = "copilot --add-dir /tmp --add-dir \"\$(pwd)\"";
         cp = "c -p "; # Execute a prompt in *non-interactive* mode, and print the result to stdout.
         ci = "c -i "; # Execute a prompt in *interactive* mode, and print the result to stdout.
       };
