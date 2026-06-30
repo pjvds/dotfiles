@@ -58,6 +58,7 @@
   my.chrome.enable     = true;
   my.z.enable          = true;
   my.docker.enable     = true;
+  my.flutter.enable    = true;
   my.theme.enable      = true;
   my.fonts.enable      = true;
 
