@@ -19,7 +19,6 @@
       "adobe-acrobat-reader"
       "arc"
       "deckset"
-      "lm-studio"
       "microsoft-azure-storage-explorer"
       "philips-hue-sync"
       "protonvpn"

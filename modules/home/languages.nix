@@ -25,9 +25,6 @@ let cfg = config.my.languages; in
           export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
         fi
 
-        # LM Studio CLI
-        export PATH="$PATH:$HOME/.lmstudio/bin"
-
         # Go — lazy-init goenv on first use
         export GOENV_DISABLE_GOPATH=1
         export GOENV_ROOT="$HOME/.goenv"
