@@ -1,5 +1,6 @@
 {
   "brews": {
+    "cocoapods": "1.16.2",
     "snyk-cli": "1.1305.2",
     "switchaudio-osx": "1.2.2"
   },
@@ -9,6 +10,7 @@
     "copilot-cli": "1.0.65",
     "cursorcerer": "3.5",
     "deckset": "2.0.51,2807",
+    "flutter": "3.44.4",
     "font-sf-pro": "latest",
     "font-sketchybar-app-font": "2.0.62",
     "kitty": "0.47.4",
