@@ -7,30 +7,7 @@
       "command": "npx",
       "args": [
         "@sylphx/pdf-reader-mcp"
-      ],
-      "source": "user",
-      "sourcePath": "$HOME/.copilot/mcp-config.json"
-    },
-    "betterstack": {
-      "tools": [
-        "*"
-      ],
-      "type": "http",
-      "url": "https://mcp.betterstack.com",
-      "source": "user",
-      "sourcePath": "$HOME/.copilot/mcp-config.json"
-    },
-    "AgentMail": {
-      "tools": [
-        "*"
-      ],
-      "command": "npx",
-      "args": [
-        "-y",
-        "agentmail-mcp"
-      ],
-      "source": "user",
-      "sourcePath": "$HOME/.copilot/mcp-config.json"
+      ]
     },
     "ado-dttnl-tax-ita": {
       "tools": [
@@ -48,29 +25,7 @@
         "work-items",
         "repositories",
         "pipelines"
-      ],
-      "source": "user",
-      "sourcePath": "$HOME/.copilot/mcp-config.json"
-    },
-    "ado-ra-tes": {
-      "tools": [
-        "*"
-      ],
-      "type": "stdio",
-      "command": "npx",
-      "args": [
-        "-y",
-        "@azure-devops/mcp",
-        "ra-tes",
-        "-d",
-        "core",
-        "work",
-        "work-items",
-        "repositories",
-        "pipelines"
-      ],
-      "source": "user",
-      "sourcePath": "$HOME/.copilot/mcp-config.json"
+      ]
     },
     "azure": {
       "tools": [
@@ -83,25 +38,21 @@
         "@azure/mcp@latest",
         "server",
         "start"
-      ],
-      "source": "user",
-      "sourcePath": "$HOME/.copilot/mcp-config.json"
+      ]
     },
     "context7": {
       "tools": [
         "*"
       ],
       "type": "http",
-      "url": "https://mcp.context7.com/mcp",
-      "source": "user",
-      "sourcePath": "$HOME/.copilot/mcp-config.json"
+      "url": "https://mcp.context7.com/mcp"
     },
     "playwright": {
-      "type": "stdio",
-      "command": "npx",
       "tools": [
         "*"
       ],
+      "type": "stdio",
+      "command": "npx",
       "args": [
         "@playwright/mcp@latest"
       ]
@@ -111,9 +62,7 @@
         "*"
       ],
       "type": "http",
-      "url": "https://mcp.datadoghq.eu/api/unstable/mcp-server/mcp",
-      "source": "user",
-      "sourcePath": "$HOME/.copilot/mcp-config.json"
+      "url": "https://mcp.datadoghq.eu/api/unstable/mcp-server/mcp"
     },
     "codedb": {
       "tools": [
@@ -123,9 +72,7 @@
       "command": "codedb",
       "args": [
         "mcp"
-      ],
-      "source": "user",
-      "sourcePath": "$HOME/.copilot/mcp-config.json"
+      ]
     }
   }
 }
