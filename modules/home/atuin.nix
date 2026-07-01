@@ -32,6 +32,9 @@ let cfg = config.my.atuin; in
       enable = true;
       config = {
         Label = "com.github.atuinsh.atuin.daemon";
+        # The atuin daemon sometimes leaves its unix socket behind when killed/restarted.
+        # This causes the new daemon instance to crash with "Address already in use (os error 48)".
+        # We explicitly remove the socket before starting to ensure clean restarts during system updates.
         ProgramArguments = [
           "/bin/sh"
           "-c"
