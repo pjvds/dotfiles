@@ -9,6 +9,14 @@
         "@sylphx/pdf-reader-mcp"
       ]
     },
+    "aspire": {
+      "type": "local",
+      "command": "aspire",
+      "args": [
+        "agent",
+        "mcp"
+      ]
+    },
     "ado-dttnl-tax-ita": {
       "tools": [
         "*"
