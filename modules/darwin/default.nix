@@ -15,6 +15,7 @@
     ../programs/gitify
     ../programs/cursorcerer
     ../programs/mobile
+    ../programs/dotnet
     ./snyk
   ];
 
@@ -40,6 +41,7 @@
   my.gitify.enable     = true;
   my.cursorcerer.enable = true;
   my.mobile.enable      = true;
+  my.dotnet.enable      = true;
 
   # Time Zone
   time.timeZone = "Europe/Amsterdam";

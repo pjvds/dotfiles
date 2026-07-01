@@ -16,7 +16,6 @@
     ./httpie
     ./netskope.nix
     ./ncspot
-    ./dotnet.nix
     ./apps.nix
     ./raycast.nix
     # mobile is managed via modules/programs/mobile (darwin-level, needs homebrew access)
@@ -39,7 +38,6 @@
   my.cloudK8s.enable   = true;
   my.editor.enable     = true;
   my.python.enable     = true;
-  my.dotnet.enable     = true;
   my.opencode.enable   = true;
   my.tmux.enable       = true;
   my.atuin.enable      = true;
