@@ -37,7 +37,7 @@ in
         # Shell quality of life
         qq      = "exit";
         ":q"    = "exit";
-        rm      = "rm -r";
+        rm      = "rm -rf";
         tailf   = "tail -f";
         grep    = "grep --color=auto";
 
@@ -145,8 +145,6 @@ in
             fi
           }
           alias l=ll
-
-          alias rm='rm -rf'
 
           # Get the KID (key identifier) of a certificate's public key
           function kid {
