@@ -255,7 +255,7 @@ programs.starship.settings = {
 - **Nix files:** `kebab-case.nix`
 - **Module options:** `my.{program}.enable`
 - **Hosts:** `kebab-case` (workstation, homelab)
-- **Commits:** `<scope>: <lowercase description>` (e.g. `nvim: fix lsp configuration`, `nix: update lock file`, `theme: add dark/light theme switcher`). The scope must reflect the module being created or modified — not the module a change originates from. For example, when extracting docker aliases out of the zsh module into a new docker module, the scope is `docker:`, not `zsh:`.
+- **Commits:** `<scope>: <lowercase description>` (e.g. `nvim: fix lsp configuration`, `nix: update lock file`, `theme: add dark/light theme switcher`). The scope must reflect the application or feature being added or changed — never the underlying package store or delivery mechanism. For example, when adding an app via a homebrew cask, the scope is the app name (`copilot`, `obsidian`), not `homebrew`. When extracting docker aliases out of the zsh module into a new docker module, the scope is `docker:`, not `zsh:`.
 
   #### ❌ NEVER commit without running `git log --oneline -20` first
   This is a hard stop. Run it, read the pattern, then write the message. No exceptions — not even for "obvious" commits. Using conventional commits format (`chore(scope):`, `feat(scope):`) is wrong in this repo.
