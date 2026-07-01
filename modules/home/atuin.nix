@@ -32,7 +32,11 @@ let cfg = config.my.atuin; in
       enable = true;
       config = {
         Label = "com.github.atuinsh.atuin.daemon";
-        ProgramArguments = [ "${pkgs.atuin}/bin/atuin" "daemon" "start" ];
+        ProgramArguments = [
+          "/bin/sh"
+          "-c"
+          "rm -f ${config.home.homeDirectory}/.local/share/atuin/atuin.sock && exec ${pkgs.atuin}/bin/atuin daemon start"
+        ];
         RunAtLoad = true;
         KeepAlive = true;
         StandardOutPath = "${config.home.homeDirectory}/.local/share/atuin/daemon.log";
