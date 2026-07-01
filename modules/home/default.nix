@@ -19,7 +19,7 @@
     ./dotnet.nix
     ./apps.nix
     ./raycast.nix
-    ./flutter.nix
+    # mobile is managed via modules/programs/mobile (darwin-level, needs homebrew access)
     ./spec-kit.nix
     ./theme
     ./fonts
@@ -58,7 +58,7 @@
   my.chrome.enable     = true;
   my.z.enable          = true;
   my.docker.enable     = true;
-  my.flutter.enable    = true;
+  # my.mobile is enabled in modules/darwin/default.nix (darwin-level module)
   my.theme.enable      = true;
   my.fonts.enable      = true;
 

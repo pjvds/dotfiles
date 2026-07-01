@@ -17,6 +17,8 @@
     # GUI Applications (Casks) - shared across all hosts
     casks = [
       "adobe-acrobat-reader"
+      # github-copilot CLI is managed via the copilot program module (cask: copilot-cli)
+      # flutter is managed via the mobile module
       "arc"
       "deckset"
       "microsoft-azure-storage-explorer"
@@ -34,12 +36,13 @@
 
     brews = [
       "switchaudio-osx"
+      # cocoapods is managed via the mobile module
       { name = "pulumi/tap/pulumi"; }  # nixpkgs lacks the .NET language plugin
     ];
 
     masApps = {
       "Amphetamine" = 937984704;
-      "Xcode" = 497799835;
+      # Xcode is managed via the mobile module
     };
   };
 }

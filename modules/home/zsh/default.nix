@@ -146,6 +146,8 @@ in
           }
           alias l=ll
 
+          alias rm='rm -rf'
+
           # Get the KID (key identifier) of a certificate's public key
           function kid {
             local CRT_FILE="$1"

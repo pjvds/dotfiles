@@ -14,6 +14,7 @@
     ../programs/slack
     ../programs/gitify
     ../programs/cursorcerer
+    ../programs/mobile
     ./snyk
   ];
 
@@ -38,6 +39,7 @@
   my.slack.enable      = true;
   my.gitify.enable     = true;
   my.cursorcerer.enable = true;
+  my.mobile.enable      = true;
 
   # Time Zone
   time.timeZone = "Europe/Amsterdam";
