@@ -7,7 +7,7 @@
   "casks": {
     "adobe-acrobat-reader": "26.001.21662",
     "arc": "1.153.1,82775",
-    "copilot-cli": "1.0.67",
+    "copilot-cli": "1.0.68",
     "cursorcerer": "3.5",
     "deckset": "2.0.51,2807",
     "flutter": "3.44.4",
@@ -16,6 +16,7 @@
     "kitty": "0.47.4",
     "microsoft-azure-storage-explorer": "1.44.0",
     "obsidian": "1.12.7",
+    "orbstack": "2.2.1,20628",
     "philips-hue-sync": "1.13.1.83,367fa136-d05e-4de6-8f9b-318fed481842,83",
     "proton-pass": "1.37.0",
     "protonvpn": "6.5.1",
