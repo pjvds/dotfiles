@@ -28,7 +28,6 @@
     ../programs/codedb
     ../programs/chrome
     ./z
-    ./docker
   ];
 
   my.core.enable       = true;
@@ -55,7 +54,6 @@
   my.codedb.enable     = true;
   my.chrome.enable     = true;
   my.z.enable          = true;
-  my.docker.enable     = true;
   # my.mobile is enabled in modules/darwin/default.nix (darwin-level module)
   my.theme.enable      = true;
   my.fonts.enable      = true;
