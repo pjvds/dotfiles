@@ -10,9 +10,9 @@ in
 
   config = lib.mkIf cfg.enable {
     # Set CA bundle env vars only when the combined bundle actually exists.
-    # home.sessionVariables is static (build-time), so we use initExtra instead
+    # home.sessionVariables is static (build-time), so we use initContent instead
     # to guard the exports at runtime — preventing broken SSL when Netskope is absent.
-    programs.zsh.initExtra = ''
+    programs.zsh.initContent = ''
       if [[ -f "${combinedBundle}" ]]; then
         export CURL_CA_BUNDLE="${combinedBundle}"
         export REQUESTS_CA_BUNDLE="${combinedBundle}"  # Python requests, azure-cli
