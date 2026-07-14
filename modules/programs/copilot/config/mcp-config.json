@@ -56,13 +56,6 @@
         "@playwright/mcp@latest"
       ]
     },
-    "datadog": {
-      "tools": [
-        "*"
-      ],
-      "type": "http",
-      "url": "https://mcp.datadoghq.eu/api/unstable/mcp-server/mcp"
-    },
     "codedb": {
       "tools": [
         "*"
