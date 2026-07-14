@@ -11,6 +11,7 @@ let cfg = config.my.core; in
       fd
       fzf
       htop
+      btop
       jq
       ncdu
       ripgrep
