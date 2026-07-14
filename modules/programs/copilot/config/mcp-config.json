@@ -1,14 +1,5 @@
 {
   "mcpServers": {
-    "pdf-reader": {
-      "tools": [
-        "*"
-      ],
-      "command": "npx",
-      "args": [
-        "@sylphx/pdf-reader-mcp"
-      ]
-    },
     "aspire": {
       "type": "local",
       "command": "aspire",
