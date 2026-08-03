@@ -18,7 +18,6 @@ in {
         dcfl   = "dc logs -f";
         dcps   = "dc ps";
         ctop   = "docker run --rm -ti --name=ctop -v /var/run/docker.sock:/var/run/docker.sock quay.io/vektorlab/ctop:latest";
-        rclone = "docker run --rm -ti --volume ~/.config/rclone:/config/rclone rclone/rclone:latest";
       };
 
       programs.zsh.initContent = ''

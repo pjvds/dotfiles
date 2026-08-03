@@ -17,6 +17,7 @@
     ../programs/mobile
     ../programs/dotnet
     ../programs/docker
+    ../programs/rclone
     ./snyk
   ];
 
@@ -44,6 +45,7 @@
   my.mobile.enable      = true;
   my.dotnet.enable      = true;
   my.docker.enable      = true;
+  my.rclone.enable      = true;
 
   # Time Zone
   time.timeZone = "Europe/Amsterdam";
