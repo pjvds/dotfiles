@@ -18,4 +18,5 @@
   my.karabiner.enable = lib.mkForce false;
   my.warp.enable = true;
   my.snyk.enable = true;
+  my.rclone.enable = false;
 }

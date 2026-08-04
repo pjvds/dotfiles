@@ -17,4 +17,6 @@
 
   # Homelab-specific casks
   homebrew.casks = [ "android-studio" "zwift" ];
+
+  my.rclone.enable = true;
 }
