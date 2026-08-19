@@ -12,7 +12,7 @@
     "deckset": "2.0.51,2807",
     "flutter": "3.47.0",
     "font-sf-pro": "latest",
-    "font-sketchybar-app-font": "2.0.77",
+    "font-sketchybar-app-font": "2.0.79",
     "kitty": "0.48.2",
     "microsoft-azure-storage-explorer": "1.45.0",
     "obsidian": "1.13.7",
@@ -20,10 +20,10 @@
     "philips-hue-sync": "1.13.1.83,367fa136-d05e-4de6-8f9b-318fed481842,83",
     "proton-pass": "1.39.1",
     "protonvpn": "6.5.1",
-    "qmk-toolbox": "0.3.3",
-    "slack": "4.51.185",
+    "qmk-toolbox": "0.3.4",
+    "slack": "4.51.191",
     "sonos": "90.0-77070,rT0797IawE",
-    "warp": "0.2026.08.12.21.54.stable_00",
+    "warp": "0.2026.08.18.02.52.stable_00",
     "zen": "1.21.14b"
   }
 }
