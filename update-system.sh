@@ -30,6 +30,9 @@ esac
 echo "🔄 Applying macOS system configuration changes..."
 echo "🔑 Requesting sudo for system activation (Touch ID, Dock settings, etc.)..."
 
+echo "🧹 Cleaning up old Nix generations to free disk space..."
+sudo nix-collect-garbage --delete-older-than 7d
+
 echo "📦 Updating git submodules..."
 git -C "${DOTFILES_DIR}" submodule update --init --recursive || echo "⚠️  Submodule update failed (network issue?), continuing..."
 
