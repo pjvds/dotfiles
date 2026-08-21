@@ -94,7 +94,19 @@ in
           setopt HIST_VERIFY
           setopt HIST_BEEP
 
-          # Note: Keybindings for ^j/^k moved to end of initContent (after zsh-vi-mode loads)
+          # zsh-vi-mode overwrites key bindings when it initializes, and this happens
+          # *after* the rest of initContent runs (home-manager sources initContent
+          # before the plugins list, regardless of mkOrder). A plain `bindkey` call
+          # here has no effect, since zsh-vi-mode (sourced later, from the plugins
+          # list) resets it. zvm_after_init is zsh-vi-mode's documented hook that
+          # runs right after its own init, so bindings set here persist.
+          # https://github.com/jeffreytse/zsh-vi-mode#execute-extra-commands
+          function zvm_after_init() {
+            bindkey -M viins "^j" fzf-up
+            bindkey -M viins "^k" fzf-down
+            bindkey -M vicmd "^j" fzf-up
+            bindkey -M vicmd "^k" fzf-down
+          }
 
           # Copy full path of file/dir to clipboard
           function cpath {
@@ -160,16 +172,6 @@ in
           unset NO_STATE 2>/dev/null
         '')
 
-        (lib.mkOrder 200 ''
-          # Bind fzf-up/fzf-down to vi keymaps after zsh-vi-mode loads
-          # (zsh-vi-mode binds Ctrl+K to zvm_forward_kill_line by default)
-          bindkey "^j" fzf-up
-          bindkey "^k" fzf-down
-          bindkey -M viins "^j" fzf-up
-          bindkey -M viins "^k" fzf-down
-          bindkey -M vicmd "^j" fzf-up
-          bindkey -M vicmd "^k" fzf-down
-        '')
       ];
 
       plugins = [
