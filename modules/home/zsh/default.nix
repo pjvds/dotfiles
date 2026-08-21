@@ -106,6 +106,9 @@ in
             bindkey -M viins "^k" fzf-down
             bindkey -M vicmd "^j" fzf-up
             bindkey -M vicmd "^k" fzf-down
+
+            # Give atuin (not fzf) ownership of Ctrl-R history search.
+            bindkey -M viins "^r" atuin-search-viins
           }
 
           # Copy full path of file/dir to clipboard
