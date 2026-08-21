@@ -18,7 +18,7 @@
     ../programs/dotnet
     ../programs/docker
     ../programs/rclone
-    ./snyk
+    ../programs/snyk
   ];
 
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
