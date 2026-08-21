@@ -77,10 +77,6 @@ in
           # tunl: copy public addresses by default
           export TUNL_COPY_ADDRESS=1
 
-          # fzf-up keybindings (before plugin loads)
-          export FZF_UP_KEY="^j"
-          export FZF_DOWN_KEY="^k"
-
           # History setopt — SHARE_HISTORY and INC_APPEND_HISTORY are handled
           # by programs.zsh.history.share = true above; list only the extras here.
           setopt EXTENDED_HISTORY
