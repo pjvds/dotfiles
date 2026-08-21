@@ -33,6 +33,18 @@ echo "🔑 Requesting sudo for system activation (Touch ID, Dock settings, etc.)
 echo "📦 Updating git submodules..."
 git -C "${DOTFILES_DIR}" submodule update --init --recursive || echo "⚠️  Submodule update failed (network issue?), continuing..."
 
+echo "❄️ Updating flake inputs..."
+nix flake update --flake "${DOTFILES_DIR}"
+
+# update flake.lock when changed
+if ! git -C "${DOTFILES_DIR}" diff --quiet "flake.lock"; then
+    git -C "${DOTFILES_DIR}" add "flake.lock"
+    git -C "${DOTFILES_DIR}" commit -m "nix: update flake.lock"
+    echo "📝 Committed flake.lock changes."
+else
+    echo "⏭️ Skipped committing flake.lock because it did not change."
+fi
+
 sudo darwin-rebuild switch --flake "${DOTFILES_DIR}#${MACHINE_HOSTNAME}"
 
 echo "🍺 Updating Homebrew lock file..."
