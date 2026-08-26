@@ -98,10 +98,11 @@ in
           # runs right after its own init, so bindings set here persist.
           # https://github.com/jeffreytse/zsh-vi-mode#execute-extra-commands
           function zvm_after_init() {
-            bindkey -M viins "^j" fzf-up
-            bindkey -M viins "^k" fzf-down
-            bindkey -M vicmd "^j" fzf-up
-            bindkey -M vicmd "^k" fzf-down
+            # k = up, j = down, matching vim motion conventions.
+            bindkey -M viins "^k" fzf-up
+            bindkey -M viins "^j" fzf-down
+            bindkey -M vicmd "^k" fzf-up
+            bindkey -M vicmd "^j" fzf-down
 
             # Give atuin (not fzf) ownership of Ctrl-R history search.
             bindkey -M viins "^r" atuin-search-viins
