@@ -17,7 +17,12 @@ let cfg = config.my.atuin; in
 
     programs.atuin = {
       enable = true;
-      enableZshIntegration = true;
+      # home-manager's own zsh integration runs `eval "$(atuin init zsh)"`
+      # synchronously in initContent, which forks the atuin binary (and its
+      # own nested `atuin uuid` call) on every shell startup (~94ms measured
+      # via zsh -x timing). Defer the equivalent init ourselves below,
+      # matching the pattern already used for fnm/pyenv.
+      enableZshIntegration = false;
       forceOverwriteSettings = true;
       settings = {
         style        = "full";
@@ -27,6 +32,16 @@ let cfg = config.my.atuin; in
         daemon.auto_start = true;
       };
     };
+
+    programs.zsh.initContent = ''
+      # Defer atuin initialization to speed up shell startup (see enableZshIntegration above)
+      _init_atuin() {
+        if [[ $options[zle] = on ]]; then
+          eval "$(${pkgs.atuin}/bin/atuin init zsh)"
+        fi
+      }
+      zsh-defer _init_atuin
+    '';
 
     launchd.agents.atuin-daemon = {
       enable = true;
