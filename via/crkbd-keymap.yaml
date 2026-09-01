@@ -1,0 +1,188 @@
+layout:
+  qmk_keyboard: crkbd/rev1
+  layout_name: LAYOUT_split_3x6_3
+layers:
+  base:
+  - Tab
+  - Q
+  - W
+  - E
+  - R
+  - T
+  - Y
+  - U
+  - I
+  - O
+  - P
+  - Bksp
+  - ''''
+  - t: A
+    h: Ctrl
+  - t: S
+    h: Alt
+  - t: D
+    h: Gui
+  - t: F
+    h: Shift
+  - G
+  - H
+  - t: J
+    h: Shift
+  - t: K
+    h: Gui
+  - t: L
+    h: Alt
+  - t: ;
+    h: Ctrl
+  - ''''
+  - Shift
+  - Z
+  - X
+  - C
+  - V
+  - B
+  - N
+  - M
+  - ','
+  - .
+  - /
+  - Esc
+  - F23
+  - t: Esc
+    h: Lower
+  - Space
+  - Enter
+  - t: Tab
+    h: Raise
+  - ''''
+  lower:
+  - '~'
+  - '!'
+  - '@'
+  - '#'
+  - $
+  - '%'
+  - ^
+  - '&'
+  - '*'
+  - (
+  - )
+  - Bksp
+  - Del
+  - _
+  - '-'
+  - +
+  - '='
+  - ''
+  - ←
+  - ↓
+  - ↑
+  - →
+  - F13
+  - '|'
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - Gui
+  - ''
+  - Space
+  - Enter
+  - t: Esc
+    h: Adjust
+  - Please proceed
+  raise:
+  - '`'
+  - '1'
+  - '2'
+  - '3'
+  - '4'
+  - '5'
+  - '6'
+  - '7'
+  - '8'
+  - '9'
+  - '0'
+  - Del
+  - ''
+  - _
+  - '-'
+  - +
+  - '='
+  - ''
+  - ''
+  - '{'
+  - '['
+  - ']'
+  - '}'
+  - \
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - '~'
+  - Gui
+  - t: Bksp
+    h: Adjust
+  - Space
+  - Enter
+  - ''
+  - Alt
+  adjust:
+  - ''
+  - Option A
+  - Option B
+  - Option C
+  - End
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - Home
+  - ''
+  - RGB Tog
+  - pj@born2code.net
+  - pj@craftify.nl
+  - pvandesande@deloitte.nl
+  - Please proceed
+  - ''
+  - ⏮
+  - Vol-
+  - Vol+
+  - ⏭
+  - ''
+  - ''
+  - RGB Mode
+  - RGB Hue-
+  - RGB Sat-
+  - RGB Val-
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - Gui
+  - ''
+  - Space
+  - Enter
+  - ''
+  - Alt
