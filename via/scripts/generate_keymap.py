@@ -6,7 +6,7 @@ whatever is actually flashed/configured on the physical keyboard).
 
 This decodes VIA's raw per-key matrix arrays into the same reading order
 used by QMK's `LAYOUT_split_3x6_3` macro for the crkbd, using the matrix
-row/col metadata vendored in via/qmk-crkbd-info.json (sourced from
+row/col metadata vendored in via/crkbd-physical-layout.json (sourced from
 https://github.com/qmk/qmk_firmware/blob/master/keyboards/crkbd/info.json,
 GPL-2.0), and writes out via/crkbd-keymap.yaml for `keymap draw`.
 
@@ -20,7 +20,7 @@ import yaml
 
 HERE = Path(__file__).resolve().parent.parent
 
-QMK_INFO_PATH = HERE / "qmk-crkbd-info.json"
+QMK_INFO_PATH = HERE / "crkbd-physical-layout.json"
 VIA_LAYOUT_PATH = HERE / "crkbd.layout.json"
 OUTPUT_PATH = HERE / "crkbd-keymap.yaml"
 

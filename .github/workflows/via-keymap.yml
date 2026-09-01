@@ -4,7 +4,7 @@ on:
       - 'master'
     paths:
       - 'via/crkbd.layout.json'
-      - 'via/qmk-crkbd-info.json'
+      - 'via/crkbd-physical-layout.json'
       - 'via/scripts/**'
       - '.github/workflows/via-keymap.yml'
   workflow_dispatch:
