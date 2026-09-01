@@ -1,0 +1,51 @@
+on:
+  push:
+    branches:
+      - 'master'
+    paths:
+      - 'via/crkbd.layout.json'
+      - 'via/qmk-crkbd-info.json'
+      - 'via/scripts/**'
+      - '.github/workflows/via-keymap.yml'
+  workflow_dispatch:
+
+name: Generate VIA keymap image
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    name: Generate
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install tools
+        run: |
+          pip install pyyaml keymap-drawer
+          sudo apt-get update
+          sudo apt-get install -y librsvg2-bin
+
+      - name: Generate keymap YAML from VIA export
+        run: python3 via/scripts/generate_keymap.py
+
+      - name: Draw SVG
+        run: keymap draw via/crkbd-keymap.yaml -o via/crkbd-keymap.svg
+
+      - name: Convert to PNG
+        run: rsvg-convert -o via/crkbd-keymap.png via/crkbd-keymap.svg
+
+      - name: Commit updated image
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: |
+            via: regenerate keymap image
+
+            [skip ci]
+          file_pattern: "via/crkbd-keymap.yaml via/crkbd-keymap.svg via/crkbd-keymap.png"
