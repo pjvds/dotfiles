@@ -214,19 +214,20 @@ Configuration lives in `nvchecker/nvchecker.toml` and is kept for archive purpos
 
 # Keyboard
 
-My daily driver is a 40% ortholinear split keyboard (Planck) that allows me to move keys towards my fingers, instead of moving my fingers to the keys. With this keyboard my fingers never travel more than a single key in any direction.
+My daily driver is a Corne (CRKBD) split keyboard running QMK with the "born2code" layout. Its column-staggered, low key-count layout lets my fingers move towards the keys instead of my fingers moving to reach them.
 
-Combined with home row mods, this setup eliminates all hand movement for typing and hotkeys.
+Combined with home row mods, this setup eliminates almost all hand movement for typing and hotkeys.
+
+![Corne keymap](via/crkbd-keymap.svg)
+
+The base layer is shown above, with the Lower/Raise/Adjust layer legends folded into each key's corners. See `via/scripts/generate_keymap.py` for the generator, which turns the VIA export (`via/crkbd.layout.json`) into this image via [`keymap-drawer`](https://github.com/caksoylar/keymap-drawer).
 
 ## Hardware Specs
 
-* **Typeau .40 Planck Edition** ([site](https://typeau.com/posts/typeau-40-planck-edition-update))
-* **OLKB Planck PCB Rev 6.1** ([site](https://olkb.com/products/planck-pcb))
-* **Matt3o /dev/tty keycaps** with MT3 profile ([site](https://matt3o.com/about-mt3-profile-and-devtty-set/))
-* **Gateron Silent Clear** switches (Linear | 4.0mm travel | 35g Actuation) ([site](https://candykeys.com/product/gateron-silent-clear))
-* **Krytox 205g0** lube for switches and stabilizers
-* **TX switch films** 0.125mm ([site](https://www.us.txkeyboards.com/products/switch-films?variant=32401591959612))
-* **ZealPC Stabilizers v2** ([site](https://zealpc.net/products/zealstabilizers))
+* **Corne R2G PCB** — split ergonomic keyboard
+* **Corne Max case** ([site](https://mechboards.co.uk/products/corne-max)) with dampening foam and a frosted acrylic bottom that complements the RGB underglow
+* **Gateron Clear** switches (Linear | Ultra-light | 35g Actuation)
+* **MiTo MT3 Cyber keycaps** (MX style | Doubleshot Legends | Hi-Profile)
 
 ## Home Row Mods
 
