@@ -27,18 +27,7 @@ jobs:
           python-version: '3.12'
 
       - name: Install tools
-        run: |
-          pip install pyyaml keymap-drawer
-          sudo apt-get update
-          sudo apt-get install -y unzip
-
-      - name: Install fonts (PT Mono + Nerd Font symbols)
-        run: |
-          mkdir -p ~/.local/share/fonts
-          curl -sLo /tmp/nf-symbols.zip https://github.com/ryanoasis/nerd-fonts/releases/latest/download/NerdFontsSymbolsOnly.zip
-          unzip -o -q /tmp/nf-symbols.zip -d ~/.local/share/fonts
-          curl -sLo ~/.local/share/fonts/PTMono-Regular.ttf https://raw.githubusercontent.com/google/fonts/main/ofl/ptmono/PTM55FT.ttf
-          fc-cache -f
+        run: pip install pyyaml keymap-drawer
 
       - name: Generate keymap YAML from VIA export
         run: python3 via/scripts/generate_keymap.py

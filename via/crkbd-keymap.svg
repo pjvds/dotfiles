@@ -134,6 +134,7 @@ text.trans { fill: #7e8184; }
 path.combo { stroke: #7f7f7f; }
 
 
+        @font-face { font-family: "Symbols Nerd Font"; src: url(data:font/woff2;charset=utf-8;base64,d09GMgABAAAAAAP8AAwAAAAAB9wAAAOsAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAABmAAgRwIBBEICodchXYBNgIkAywLGAAEIAWCTAcgGw8GIK4DbJcM1Rab6DBD22yzkU294N8t7oY8cpbDOsHzvX/kuY//e10qhDqpktBJZSblQmWgMlUq9qv/ueZFC/2zWABHa1VaAQ7ne/NIkQacjZoAOJb3EY1Bz78MoAaacBX4gN4XtAaMBG6dXNB2TCiDPIQ4KQ0syCB3MD3qYnzrudef8t8fYNhp4J+zA54GUtvIz9UBDnD4SPqg65Ozy30jx9RH6Xf8KRoPcsWKtCrqJDhgBd++U4Xg6SJXN+a6XAKVvJd5C2gPjLsQaBGwgyODlPf1+rtEsAgKG9Jpi4CBjQs2pq6T6i+IJtoTkDpO7oMAWyXZE6uBLnBFU4pECkoTiQgyEky2wH8BQuty94DgRLYCYkdgUzMCIXeDDf0woMl9P1rw5H4gLQTkfggthOR++D9DxJRIIZAOggDEAJSBUkgCcgf47sUKg0NQKKROKKtUVk9wmNEuMP70LX8N2pvVzVEmuPOPgmNPsTa+2vzxtPgF+602qXmSW335rS6J7um25SXrmMvbXhldqKc1Nu0CNH+cFXHgwleQ1M+8FI77iCq+MKW8GAUJRylPpFg6Or9zX3y9kI7FiKsSlW47/6UZBf5me9hYhSdpI8iB5d07l+05kO9LyfYnwtTpB2y8YV1sDuxLTEFE7m3SnbvTAyZTu/cobXO9a6fel9lkz65k8qknre4Oe77t/uuSt783R47OrfkdzvOrW56rOvirxXrUN9Y0GvyIbuOVG8Vl1dAHb/IPIxp1u6ffzQ9vfni+W40zSMFp/3bDPajvHmwAU/gnbEcvlBthaUeaJK3Jaxu/vnycSZowcm3vlJEv5RtOo7K4vtjUdFwrXouYjeX7sZr0GWvXXkVwxutnHS7tffVssZUlbhpLgWV79lS0BuZk0507sEVxvRucrxPdTc5Rx4FFJPqZDSzP8sT35MPX17qes844G/dJo4keXKGHLO9scHPUMXo1hTcDEECgcTJ+DMqYf1cAwJfoDwiBX4v7SMdwY/JldCBAASDw2yujFwSEYX47BiBWv+miu0HC0XDPsQPgENEIA5rBxQcQII7e2QVQgCDABEoA4FkFR0wITIIkgtDJJIIiYx1B08/2WkMjWCaYvd5R5CeiVVTSVpGWlFIDelhLVGmQAQYapo9Ki7SFFYC5oswKahsPjbNqy4soyqkC88RVxIBpitTvtYhLqssJq2yJBIP1M9RYBlpGsFSl1QIGvJalnwFDs9EB6qsl/0CW/sgAB4AOFNngAQAA) format("woff2"); }
         svg.keymap { background-color: #282a36; font-family: "PT Mono", SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace, "Symbols Nerd Font"; }
         rect.key { fill: #383a59; stroke: #6272a4; }
         text.key.tap { fill: #f8f8f2; }
@@ -237,21 +238,21 @@ path.combo { stroke: #7f7f7f; }
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
 <text x="0" y="0" class="key tap">A</text>
 <text x="22" y="-22" class="key tr">_</text>
-<text x="-22" y="22" class="key bl">⌃</text>
+<text x="-22" y="22" class="key bl">󰘴</text>
 <text x="22" y="22" class="key br">@1</text>
 </g>
 <g transform="translate(140, 91)" class="key keypos-14">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
 <text x="0" y="0" class="key tap">S</text>
 <text x="22" y="-22" class="key tr">-</text>
-<text x="-22" y="22" class="key bl">⌥</text>
+<text x="-22" y="22" class="key bl">󰘵</text>
 <text x="22" y="22" class="key br">@2</text>
 </g>
 <g transform="translate(196, 84)" class="key keypos-15">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
 <text x="0" y="0" class="key tap">D</text>
 <text x="22" y="-22" class="key tr">+</text>
-<text x="-22" y="22" class="key bl">⌘</text>
+<text x="-22" y="22" class="key bl">󰘳</text>
 <text x="22" y="22" class="key br">@3</text>
 </g>
 <g transform="translate(252, 91)" class="key keypos-16">
@@ -259,7 +260,7 @@ path.combo { stroke: #7f7f7f; }
 <text x="0" y="0" class="key tap">F</text>
 <text x="-22" y="-22" class="key tl">=</text>
 <text x="22" y="-22" class="key tr">=</text>
-<text x="-22" y="22" class="key bl">⇧</text>
+<text x="-22" y="22" class="key bl">󰘶</text>
 <text x="22" y="22" class="key br">PP</text>
 </g>
 <g transform="translate(308, 98)" class="key keypos-17">
@@ -269,31 +270,31 @@ path.combo { stroke: #7f7f7f; }
 <g transform="translate(532, 98)" class="key keypos-18">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
 <text x="0" y="0" class="key tap">H</text>
-<text x="-22" y="-22" class="key tl">←</text>
+<text x="-22" y="-22" class="key tl">󰜱</text>
 <text x="22" y="22" class="key br">⏮</text>
 </g>
 <g transform="translate(588, 91)" class="key keypos-19">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
 <text x="0" y="0" class="key tap">J</text>
-<text x="-22" y="-22" class="key tl">↓</text>
+<text x="-22" y="-22" class="key tl">󰜮</text>
 <text x="22" y="-22" class="key tr">{</text>
-<text x="-22" y="22" class="key bl">⇧</text>
+<text x="-22" y="22" class="key bl">󰘶</text>
 <text x="22" y="22" class="key br"></text>
 </g>
 <g transform="translate(644, 84)" class="key keypos-20">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
 <text x="0" y="0" class="key tap">K</text>
-<text x="-22" y="-22" class="key tl">↑</text>
+<text x="-22" y="-22" class="key tl">󰜷</text>
 <text x="22" y="-22" class="key tr">[</text>
-<text x="-22" y="22" class="key bl">⌘</text>
+<text x="-22" y="22" class="key bl">󰘳</text>
 <text x="22" y="22" class="key br"></text>
 </g>
 <g transform="translate(700, 91)" class="key keypos-21">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
 <text x="0" y="0" class="key tap">L</text>
-<text x="-22" y="-22" class="key tl">→</text>
+<text x="-22" y="-22" class="key tl">󰜴</text>
 <text x="22" y="-22" class="key tr">]</text>
-<text x="-22" y="22" class="key bl">⌥</text>
+<text x="-22" y="22" class="key bl">󰘵</text>
 <text x="22" y="22" class="key br">⏭</text>
 </g>
 <g transform="translate(756, 105)" class="key keypos-22">
@@ -301,7 +302,7 @@ path.combo { stroke: #7f7f7f; }
 <text x="0" y="0" class="key tap">;</text>
 <text x="-22" y="-22" class="key tl">F13</text>
 <text x="22" y="-22" class="key tr">}</text>
-<text x="-22" y="22" class="key bl">⌃</text>
+<text x="-22" y="22" class="key bl">󰘴</text>
 </g>
 <g transform="translate(812, 105)" class="key keypos-23">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
@@ -311,7 +312,7 @@ path.combo { stroke: #7f7f7f; }
 </g>
 <g transform="translate(28, 161)" class="key keypos-24">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">⇧</text>
+<text x="0" y="0" class="key tap">󰘶</text>
 <text x="22" y="22" class="key br">RMod</text>
 </g>
 <g transform="translate(84, 161)" class="key keypos-25">
@@ -365,9 +366,9 @@ path.combo { stroke: #7f7f7f; }
 <g transform="translate(224, 205)" class="key keypos-36">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
 <text x="0" y="0" class="key tap">F23</text>
-<text x="-22" y="-22" class="key tl">⌘</text>
-<text x="22" y="-22" class="key tr">⌘</text>
-<text x="22" y="22" class="key br">⌘</text>
+<text x="-22" y="-22" class="key tl">󰘳</text>
+<text x="22" y="-22" class="key tr">󰘳</text>
+<text x="22" y="22" class="key br">󰘳</text>
 </g>
 <g transform="translate(286, 213) rotate(15.0)" class="key keypos-37">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
@@ -393,8 +394,8 @@ path.combo { stroke: #7f7f7f; }
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
 <text x="0" y="0" class="key tap">&#x27;</text>
 <text x="-22" y="-22" class="key tl">PP</text>
-<text x="22" y="-22" class="key tr">⌥</text>
-<text x="22" y="22" class="key br">⌥</text>
+<text x="22" y="-22" class="key tr">󰘵</text>
+<text x="22" y="22" class="key br">󰘵</text>
 </g>
 </g>
 </g>

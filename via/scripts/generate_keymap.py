@@ -12,6 +12,7 @@ GPL-2.0), and writes out via/crkbd-keymap.yaml for `keymap draw`.
 
 Usage: python3 via/scripts/generate_keymap.py
 """
+import base64
 import json
 import re
 from pathlib import Path
@@ -23,16 +24,30 @@ HERE = Path(__file__).resolve().parent.parent
 QMK_INFO_PATH = HERE / "crkbd-physical-layout.json"
 VIA_LAYOUT_PATH = HERE / "crkbd.layout.json"
 OUTPUT_PATH = HERE / "crkbd-keymap.yaml"
+# Subset of Nerd Fonts' official "Symbols Only" release (github.com/ryanoasis/
+# nerd-fonts, permissive license) containing just the icon glyphs we use below,
+# embedded as a data URI so they render everywhere, regardless of whether the
+# viewer happens to have a Nerd Font installed.
+NERD_FONT_ICONS_PATH = HERE / "scripts" / "assets" / "nerd-font-icons.woff2"
+
+# Material Design Icons' Apple-keyboard modifier glyphs (via Nerd Fonts), used
+# instead of the plain Unicode ⌘⌥⇧⌃ so they match the visual weight of the
+# other Nerd Font icons (volume/media) at the same corner font-size.
+CMD, OPT, SHIFT, CTRL = chr(0xF0633), chr(0xF0635), chr(0xF0636), chr(0xF0634)
+
+# Material Design Icons' bold arrow glyphs (via Nerd Fonts), used instead of
+# the plain Unicode ←↓↑→ so the HJKL arrow legends match the other icons.
+ARROW_LEFT, ARROW_DOWN, ARROW_UP, ARROW_RIGHT = chr(0xF0731), chr(0xF072E), chr(0xF0737), chr(0xF0734)
 
 LAYER_NAMES = {1: "Lower", 2: "Raise", 3: "Adjust"}
 OUTPUT_LAYER_KEYS = ["base", "lower", "raise", "adjust"]
 
 SIMPLE = {
     "KC_TAB": "Tab", "KC_BSPC": "Bksp", "KC_ESC": "Esc", "KC_SPC": "Space",
-    "KC_ENT": "Enter", "KC_QUOT": "'", "KC_LSFT": "⇧", "KC_LGUI": "⌘",
-    "KC_RALT": "⌥", "KC_LCTL": "⌃", "KC_NO": "", "KC_TRNS": "",
+    "KC_ENT": "Enter", "KC_QUOT": "'", "KC_LSFT": SHIFT, "KC_LGUI": CMD,
+    "KC_RALT": OPT, "KC_LCTL": CTRL, "KC_NO": "", "KC_TRNS": "",
     "KC_COMM": ",", "KC_DOT": ".", "KC_SLSH": "/", "KC_MINS": "-", "KC_EQL": "=",
-    "KC_LEFT": "←", "KC_DOWN": "↓", "KC_UP": "↑", "KC_RGHT": "→",
+    "KC_LEFT": ARROW_LEFT, "KC_DOWN": ARROW_DOWN, "KC_UP": ARROW_UP, "KC_RGHT": ARROW_RIGHT,
     "KC_HOME": "Home", "KC_DEL": "Del", "KC_LBRC": "[", "KC_RBRC": "]",
     "KC_BSLS": "\\", "KC_GRV": "`", "KC_PEQL": "=", "KC_END": "End",
     "KC_SCLN": ";",
@@ -64,25 +79,28 @@ ICON_OVERRIDES = {
 # Dark theme (Dracula-inspired) plus corner-legend colors/sizes/padding, matching
 # the terminal (kitty, PT Mono font) and the alvaro-prieto/corne reference image's
 # Lower(pink,tl)/Raise(green,tr)/Adjust(cyan,br)/hold-mod(yellow,bl) coloring.
-DRAW_CONFIG = {
-    "dark_mode": True,
-    "n_columns": 1,
-    "small_pad": 4.5,
-    "svg_extra_style": """
-        svg.keymap { background-color: #282a36; font-family: "PT Mono", SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace, "Symbols Nerd Font"; }
-        rect.key { fill: #383a59; stroke: #6272a4; }
-        text.key.tap { fill: #f8f8f2; }
-        text.key.hold { fill: #f1fa8c; }
-        text.key.shifted { fill: #50fa7b; }
-        .layer-lower text.key.tap { fill: #f1fa8c; }
-        .layer-adjust text.key.tap { fill: #8be9fd; }
-        text.label { display: none; }
-        text.key.tl { fill: #ff79c6; font-size: 10px; }
-        text.key.bl { fill: #f1fa8c; font-size: 10px; }
-        text.key.tr { fill: #50fa7b; font-size: 10px; }
-        text.key.br { fill: #8be9fd; font-size: 10px; }
+def build_draw_config():
+    font_data = base64.b64encode(NERD_FONT_ICONS_PATH.read_bytes()).decode("ascii")
+    return {
+        "dark_mode": True,
+        "n_columns": 1,
+        "small_pad": 4.5,
+        "svg_extra_style": f"""
+        @font-face {{ font-family: "Symbols Nerd Font"; src: url(data:font/woff2;charset=utf-8;base64,{font_data}) format("woff2"); }}
+        svg.keymap {{ background-color: #282a36; font-family: "PT Mono", SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace, "Symbols Nerd Font"; }}
+        rect.key {{ fill: #383a59; stroke: #6272a4; }}
+        text.key.tap {{ fill: #f8f8f2; }}
+        text.key.hold {{ fill: #f1fa8c; }}
+        text.key.shifted {{ fill: #50fa7b; }}
+        .layer-lower text.key.tap {{ fill: #f1fa8c; }}
+        .layer-adjust text.key.tap {{ fill: #8be9fd; }}
+        text.label {{ display: none; }}
+        text.key.tl {{ fill: #ff79c6; font-size: 10px; }}
+        text.key.bl {{ fill: #f1fa8c; font-size: 10px; }}
+        text.key.tr {{ fill: #50fa7b; font-size: 10px; }}
+        text.key.br {{ fill: #8be9fd; font-size: 10px; }}
     """,
-}
+    }
 
 # Long VIA macro strings shortened for display on a small keycap.
 SHORT_MACROS = {
@@ -121,10 +139,10 @@ def decode_key(macros, code):
     if m:
         mod, key = m.groups()
         mod = mod.replace("MOD_", "").replace("|", "+").replace(" ", "")
-        mod = (mod.replace("LCTL", "⌃").replace("RCTL", "⌃")
-                  .replace("LALT", "⌥").replace("RALT", "⌥")
-                  .replace("LGUI", "⌘").replace("RGUI", "⌘")
-                  .replace("LSFT", "⇧").replace("RSFT", "⇧"))
+        mod = (mod.replace("LCTL", CTRL).replace("RCTL", CTRL)
+                  .replace("LALT", OPT).replace("RALT", OPT)
+                  .replace("LGUI", CMD).replace("RGUI", CMD)
+                  .replace("LSFT", SHIFT).replace("RSFT", SHIFT))
         mod = "+".join(dict.fromkeys(mod.split("+")))  # dedupe e.g. Ctrl+Ctrl
         tap = SIMPLE.get(key, key.replace("KC_", ""))
         return {"t": tap, "bl": mod}
@@ -186,7 +204,7 @@ def main():
     data = {
         "layout": {"qmk_keyboard": "crkbd/rev1", "layout_name": "LAYOUT_split_3x6_3"},
         "layers": layers,
-        "draw_config": DRAW_CONFIG,
+        "draw_config": build_draw_config(),
     }
     with open(OUTPUT_PATH, "w") as f:
         yaml.dump(data, f, sort_keys=False, allow_unicode=True, width=200)
