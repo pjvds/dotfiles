@@ -66,7 +66,7 @@ ICON_OVERRIDES = {
 # Lower(pink,tl)/Raise(green,tr)/Adjust(cyan,br)/hold-mod(yellow,bl) coloring.
 DRAW_CONFIG = {
     "dark_mode": True,
-    "n_columns": 2,
+    "n_columns": 1,
     "small_pad": 4.5,
     "svg_extra_style": """
         svg.keymap { background-color: #282a36; font-family: "PT Mono", SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace, "Symbols Nerd Font"; }
@@ -76,7 +76,7 @@ DRAW_CONFIG = {
         text.key.shifted { fill: #50fa7b; }
         .layer-lower text.key.tap { fill: #f1fa8c; }
         .layer-adjust text.key.tap { fill: #8be9fd; }
-        text.label { fill: #f8f8f2; }
+        text.label { display: none; }
         text.key.tl { fill: #ff79c6; font-size: 10px; }
         text.key.bl { fill: #f1fa8c; font-size: 10px; }
         text.key.tr { fill: #50fa7b; font-size: 10px; }
@@ -181,6 +181,7 @@ def main():
     layers["base"] = merge_layer_into_base(layers["base"], reading[3], via["macros"], "br")
     del layers["raise"]
     del layers["lower"]
+    del layers["adjust"]
 
     data = {
         "layout": {"qmk_keyboard": "crkbd/rev1", "layout_name": "LAYOUT_split_3x6_3"},
