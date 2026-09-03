@@ -33,17 +33,7 @@ jobs:
         run: python3 via/scripts/generate_keymap.py
 
       - name: Draw SVG
-        run: |
-          keymap draw via/crkbd-keymap.yaml -o via/crkbd-keymap.svg
-          # Some SVG viewers (e.g. GitHub's blob viewer) don't paint the CSS
-          # background-color set on svg.keymap, so add an explicit background rect.
-          python3 -c "
-          import re
-          path = 'via/crkbd-keymap.svg'
-          svg = open(path).read()
-          svg = re.sub(r'(</style>)', r'\1<rect width=\"100%\" height=\"100%\" fill=\"#282a36\"/>', svg, count=1)
-          open(path, 'w').write(svg)
-          "
+        run: keymap draw via/crkbd-keymap.yaml -o via/crkbd-keymap.svg
 
       - name: Commit updated image
         uses: stefanzweifel/git-auto-commit-action@v5

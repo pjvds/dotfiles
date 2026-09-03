@@ -135,7 +135,7 @@ path.combo { stroke: #7f7f7f; }
 
 
         @font-face { font-family: "Symbols Nerd Font"; src: url(data:font/woff2;charset=utf-8;base64,d09GMgABAAAAAAP8AAwAAAAAB9wAAAOsAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAABmAAgRwIBBEICodchXYBNgIkAywLGAAEIAWCTAcgGw8GIK4DbJcM1Rab6DBD22yzkU294N8t7oY8cpbDOsHzvX/kuY//e10qhDqpktBJZSblQmWgMlUq9qv/ueZFC/2zWABHa1VaAQ7ne/NIkQacjZoAOJb3EY1Bz78MoAaacBX4gN4XtAaMBG6dXNB2TCiDPIQ4KQ0syCB3MD3qYnzrudef8t8fYNhp4J+zA54GUtvIz9UBDnD4SPqg65Ozy30jx9RH6Xf8KRoPcsWKtCrqJDhgBd++U4Xg6SJXN+a6XAKVvJd5C2gPjLsQaBGwgyODlPf1+rtEsAgKG9Jpi4CBjQs2pq6T6i+IJtoTkDpO7oMAWyXZE6uBLnBFU4pECkoTiQgyEky2wH8BQuty94DgRLYCYkdgUzMCIXeDDf0woMl9P1rw5H4gLQTkfggthOR++D9DxJRIIZAOggDEAJSBUkgCcgf47sUKg0NQKKROKKtUVk9wmNEuMP70LX8N2pvVzVEmuPOPgmNPsTa+2vzxtPgF+602qXmSW335rS6J7um25SXrmMvbXhldqKc1Nu0CNH+cFXHgwleQ1M+8FI77iCq+MKW8GAUJRylPpFg6Or9zX3y9kI7FiKsSlW47/6UZBf5me9hYhSdpI8iB5d07l+05kO9LyfYnwtTpB2y8YV1sDuxLTEFE7m3SnbvTAyZTu/cobXO9a6fel9lkz65k8qknre4Oe77t/uuSt783R47OrfkdzvOrW56rOvirxXrUN9Y0GvyIbuOVG8Vl1dAHb/IPIxp1u6ffzQ9vfni+W40zSMFp/3bDPajvHmwAU/gnbEcvlBthaUeaJK3Jaxu/vnycSZowcm3vlJEv5RtOo7K4vtjUdFwrXouYjeX7sZr0GWvXXkVwxutnHS7tffVssZUlbhpLgWV79lS0BuZk0507sEVxvRucrxPdTc5Rx4FFJPqZDSzP8sT35MPX17qes844G/dJo4keXKGHLO9scHPUMXo1hTcDEECgcTJ+DMqYf1cAwJfoDwiBX4v7SMdwY/JldCBAASDw2yujFwSEYX47BiBWv+miu0HC0XDPsQPgENEIA5rBxQcQII7e2QVQgCDABEoA4FkFR0wITIIkgtDJJIIiYx1B08/2WkMjWCaYvd5R5CeiVVTSVpGWlFIDelhLVGmQAQYapo9Ki7SFFYC5oswKahsPjbNqy4soyqkC88RVxIBpitTvtYhLqssJq2yJBIP1M9RYBlpGsFSl1QIGvJalnwFDs9EB6qsl/0CW/sgAB4AOFNngAQAA) format("woff2"); }
-        svg.keymap { background-color: #282a36; font-family: "PT Mono", SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace, "Symbols Nerd Font"; }
+        svg.keymap { font-family: "PT Mono", SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace, "Symbols Nerd Font"; }
         rect.key { fill: #383a59; stroke: #6272a4; }
         text.key.tap { fill: #f8f8f2; }
         text.key.hold { fill: #f1fa8c; }
@@ -147,7 +147,7 @@ path.combo { stroke: #7f7f7f; }
         text.key.bl { fill: #f1fa8c; font-size: 10px; }
         text.key.tr { fill: #50fa7b; font-size: 10px; }
         text.key.br { fill: #8be9fd; font-size: 10px; }
-    </style><rect width="100%" height="100%" fill="#282a36"/>
+    </style>
 <g transform="translate(30, 0)" class="layer-base">
 <text x="0" y="28" class="label" id="base">base:</text>
 <g transform="translate(0, 56)">

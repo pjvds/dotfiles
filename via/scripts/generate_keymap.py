@@ -87,7 +87,7 @@ def build_draw_config():
         "small_pad": 4.5,
         "svg_extra_style": f"""
         @font-face {{ font-family: "Symbols Nerd Font"; src: url(data:font/woff2;charset=utf-8;base64,{font_data}) format("woff2"); }}
-        svg.keymap {{ background-color: #282a36; font-family: "PT Mono", SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace, "Symbols Nerd Font"; }}
+        svg.keymap {{ font-family: "PT Mono", SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace, "Symbols Nerd Font"; }}
         rect.key {{ fill: #383a59; stroke: #6272a4; }}
         text.key.tap {{ fill: #f8f8f2; }}
         text.key.hold {{ fill: #f1fa8c; }}
