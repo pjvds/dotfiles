@@ -78,9 +78,9 @@
       "S(KC_4)",
       "S(KC_5)",
       "KC_DEL",
-      "S(KC_MINS)",
-      "KC_MINS",
-      "S(KC_EQL)",
+      "KC_TRNS",
+      "KC_TRNS",
+      "KC_TRNS",
       "KC_EQL",
       "KC_NO",
       "KC_NO",
@@ -94,7 +94,7 @@
       "KC_NO",
       "KC_LGUI",
       "KC_TRNS",
-      "KC_SPC",
+      "KC_TRNS",
       "KC_BSPC",
       "S(KC_0)",
       "S(KC_9)",
@@ -118,7 +118,7 @@
       "KC_NO",
       "MACRO(3)",
       "LT(3,KC_ESC)",
-      "KC_ENT"
+      "KC_TRNS"
     ],
     [
       "KC_GRV",
@@ -144,7 +144,7 @@
       "KC_NO",
       "KC_LGUI",
       "LT(3,KC_BSPC)",
-      "KC_SPC",
+      "KC_TRNS",
       "KC_DEL",
       "KC_0",
       "KC_9",
@@ -168,7 +168,7 @@
       "KC_NO",
       "KC_RALT",
       "KC_TRNS",
-      "KC_ENT"
+      "KC_TRNS"
     ],
     [
       "KC_NO",
@@ -194,7 +194,7 @@
       "KC_NO",
       "KC_LGUI",
       "KC_TRNS",
-      "KC_SPC",
+      "KC_TRNS",
       "KC_NO",
       "KC_HOME",
       "KC_NO",
@@ -218,7 +218,7 @@
       "KC_NO",
       "KC_RALT",
       "KC_TRNS",
-      "KC_ENT"
+      "KC_TRNS"
     ]
   ],
   "encoders": []

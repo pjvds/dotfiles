@@ -3,42 +3,101 @@ layout:
   layout_name: LAYOUT_split_3x6_3
 layers:
   base:
-  - Tab
-  - Q
-  - W
-  - E
-  - R
-  - T
-  - Y
-  - U
-  - I
-  - O
-  - P
-  - Bksp
-  - ''''
+  - t: Tab
+    tl: '~'
+    tr: '`'
+  - t: Q
+    tl: '!'
+    tr: '1'
+    br: OA
+  - t: W
+    tl: '@'
+    tr: '2'
+    br: OB
+  - t: E
+    tl: '#'
+    tr: '3'
+    br: OC
+  - t: R
+    tl: $
+    tr: '4'
+    br: En
+  - t: T
+    tl: '%'
+    tr: '5'
+  - t: Y
+    tl: ^
+    tr: '6'
+  - t: U
+    tl: '&'
+    tr: '7'
+  - t: I
+    tl: '*'
+    tr: '8'
+  - t: O
+    tl: (
+    tr: '9'
+  - t: P
+    tl: )
+    tr: '0'
+    br: Hm
+  - t: Bksp
+    tl: Bksp
+    tr: Del
+  - t: ''''
+    tl: Del
+    br: Rgb
   - t: A
-    h: Ctrl
+    bl: ⌃
+    tr: _
+    br: '@1'
   - t: S
-    h: Alt
+    bl: ⌥
+    tr: '-'
+    br: '@2'
   - t: D
-    h: Gui
+    bl: ⌘
+    tr: +
+    br: '@3'
   - t: F
-    h: Shift
+    bl: ⇧
+    tl: '='
+    tr: '='
+    br: PP
   - G
-  - H
+  - t: H
+    tl: ←
+    br: ⏮
   - t: J
-    h: Shift
+    bl: ⇧
+    tl: ↓
+    tr: '{'
+    br: 
   - t: K
-    h: Gui
+    bl: ⌘
+    tl: ↑
+    tr: '['
+    br: 
   - t: L
-    h: Alt
+    bl: ⌥
+    tl: →
+    tr: ']'
+    br: ⏭
   - t: ;
-    h: Ctrl
-  - ''''
-  - Shift
-  - Z
-  - X
-  - C
+    bl: ⌃
+    tl: F13
+    tr: '}'
+  - t: ''''
+    tl: '|'
+    tr: \
+  - t: ⇧
+    br: RMod
+  - t: Z
+    br: RH-
+  - t: X
+    br: RS-
+  - t: C
+    br: RV-
   - V
   - B
   - N
@@ -46,103 +105,24 @@ layers:
   - ','
   - .
   - /
-  - Esc
-  - F23
   - t: Esc
-    h: Lower
+    tr: '~'
+  - t: F23
+    tl: ⌘
+    tr: ⌘
+    br: ⌘
+  - t: Esc
+    bl: Lower
+    tr: Bksp
   - Space
   - Enter
   - t: Tab
-    h: Raise
-  - ''''
-  lower:
-  - '~'
-  - '!'
-  - '@'
-  - '#'
-  - $
-  - '%'
-  - ^
-  - '&'
-  - '*'
-  - (
-  - )
-  - Bksp
-  - Del
-  - _
-  - '-'
-  - +
-  - '='
-  - ''
-  - ←
-  - ↓
-  - ↑
-  - →
-  - F13
-  - '|'
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - Gui
-  - ''
-  - Space
-  - Enter
-  - t: Esc
-    h: Adjust
-  - Please proceed
-  raise:
-  - '`'
-  - '1'
-  - '2'
-  - '3'
-  - '4'
-  - '5'
-  - '6'
-  - '7'
-  - '8'
-  - '9'
-  - '0'
-  - Del
-  - ''
-  - _
-  - '-'
-  - +
-  - '='
-  - ''
-  - ''
-  - '{'
-  - '['
-  - ']'
-  - '}'
-  - \
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - '~'
-  - Gui
-  - t: Bksp
-    h: Adjust
-  - Space
-  - Enter
-  - ''
-  - Alt
+    bl: Raise
+    tl: Esc
+  - t: ''''
+    tl: PP
+    tr: ⌥
+    br: ⌥
   adjust:
   - ''
   - Option A
@@ -180,9 +160,17 @@ layers:
   - ''
   - ''
   - ''
-  - Gui
+  - ⌘
   - ''
-  - Space
-  - Enter
   - ''
-  - Alt
+  - ''
+  - ''
+  - ⌥
+draw_config:
+  dark_mode: true
+  n_columns: 2
+  small_pad: 4.5
+  svg_extra_style: "\n        svg.keymap { background-color: #282a36; font-family: \"PT Mono\", SFMono-Regular, Consolas, \"Liberation Mono\", Menlo, monospace, \"Symbols Nerd Font\"; }\n        rect.key\
+    \ { fill: #383a59; stroke: #6272a4; }\n        text.key.tap { fill: #f8f8f2; }\n        text.key.hold { fill: #f1fa8c; }\n        text.key.shifted { fill: #50fa7b; }\n        .layer-lower text.key.tap\
+    \ { fill: #f1fa8c; }\n        .layer-adjust text.key.tap { fill: #8be9fd; }\n        text.label { fill: #f8f8f2; }\n        text.key.tl { fill: #ff79c6; font-size: 10px; }\n        text.key.bl { fill:\
+    \ #f1fa8c; font-size: 10px; }\n        text.key.tr { fill: #50fa7b; font-size: 10px; }\n        text.key.br { fill: #8be9fd; font-size: 10px; }\n    "

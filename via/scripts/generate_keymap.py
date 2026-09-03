@@ -29,8 +29,8 @@ OUTPUT_LAYER_KEYS = ["base", "lower", "raise", "adjust"]
 
 SIMPLE = {
     "KC_TAB": "Tab", "KC_BSPC": "Bksp", "KC_ESC": "Esc", "KC_SPC": "Space",
-    "KC_ENT": "Enter", "KC_QUOT": "'", "KC_LSFT": "Shift", "KC_LGUI": "Gui",
-    "KC_RALT": "Alt", "KC_LCTL": "Ctrl", "KC_NO": "", "KC_TRNS": "",
+    "KC_ENT": "Enter", "KC_QUOT": "'", "KC_LSFT": "⇧", "KC_LGUI": "⌘",
+    "KC_RALT": "⌥", "KC_LCTL": "⌃", "KC_NO": "", "KC_TRNS": "",
     "KC_COMM": ",", "KC_DOT": ".", "KC_SLSH": "/", "KC_MINS": "-", "KC_EQL": "=",
     "KC_LEFT": "←", "KC_DOWN": "↓", "KC_UP": "↑", "KC_RGHT": "→",
     "KC_HOME": "Home", "KC_DEL": "Del", "KC_LBRC": "[", "KC_RBRC": "]",
@@ -48,6 +48,40 @@ SHIFTED_SYMS = {
     "KC_GRV": "~", "KC_1": "!", "KC_2": "@", "KC_3": "#", "KC_4": "$", "KC_5": "%",
     "KC_6": "^", "KC_7": "&", "KC_8": "*", "KC_9": "(", "KC_0": ")",
     "KC_MINS": "_", "KC_EQL": "+", "KC_LBRC": "{", "KC_RBRC": "}", "KC_BSLS": "|",
+}
+
+# Compact icon/glyph stand-ins used only when folding Lower/Adjust into Base's
+# corner legends, so a key with tap+hold+raise+lower+adjust info all still
+# fits on a tiny keycap (inspired by github.com/alvaro-prieto/corne's cheat sheet).
+ICON_OVERRIDES = {
+    "KC_HOME": "Hm", "KC_END": "En",
+    "KC_MPRV": "⏮", "KC_MNXT": "⏭", "KC_VOLD": "\uf027", "KC_VOLU": "\uf028",
+    "RGB_TOG": "Rgb", "RGB_MOD": "RMod", "RGB_HUD": "RH-", "RGB_SAD": "RS-", "RGB_VAD": "RV-",
+    "MACRO(0)": "@1", "MACRO(1)": "@2", "MACRO(2)": "@3", "MACRO(3)": "PP",
+    "MACRO(4)": "Cmd", "MACRO(5)": "OA", "MACRO(6)": "OB", "MACRO(7)": "OC",
+}
+
+# Dark theme (Dracula-inspired) plus corner-legend colors/sizes/padding, matching
+# the terminal (kitty, PT Mono font) and the alvaro-prieto/corne reference image's
+# Lower(pink,tl)/Raise(green,tr)/Adjust(cyan,br)/hold-mod(yellow,bl) coloring.
+DRAW_CONFIG = {
+    "dark_mode": True,
+    "n_columns": 2,
+    "small_pad": 4.5,
+    "svg_extra_style": """
+        svg.keymap { background-color: #282a36; font-family: "PT Mono", SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace, "Symbols Nerd Font"; }
+        rect.key { fill: #383a59; stroke: #6272a4; }
+        text.key.tap { fill: #f8f8f2; }
+        text.key.hold { fill: #f1fa8c; }
+        text.key.shifted { fill: #50fa7b; }
+        .layer-lower text.key.tap { fill: #f1fa8c; }
+        .layer-adjust text.key.tap { fill: #8be9fd; }
+        text.label { fill: #f8f8f2; }
+        text.key.tl { fill: #ff79c6; font-size: 10px; }
+        text.key.bl { fill: #f1fa8c; font-size: 10px; }
+        text.key.tr { fill: #50fa7b; font-size: 10px; }
+        text.key.br { fill: #8be9fd; font-size: 10px; }
+    """,
 }
 
 # Long VIA macro strings shortened for display on a small keycap.
@@ -87,18 +121,18 @@ def decode_key(macros, code):
     if m:
         mod, key = m.groups()
         mod = mod.replace("MOD_", "").replace("|", "+").replace(" ", "")
-        mod = (mod.replace("LCTL", "Ctrl").replace("RCTL", "Ctrl")
-                  .replace("LALT", "Alt").replace("RALT", "Alt")
-                  .replace("LGUI", "Gui").replace("RGUI", "Gui")
-                  .replace("LSFT", "Shift").replace("RSFT", "Shift"))
+        mod = (mod.replace("LCTL", "⌃").replace("RCTL", "⌃")
+                  .replace("LALT", "⌥").replace("RALT", "⌥")
+                  .replace("LGUI", "⌘").replace("RGUI", "⌘")
+                  .replace("LSFT", "⇧").replace("RSFT", "⇧"))
         mod = "+".join(dict.fromkeys(mod.split("+")))  # dedupe e.g. Ctrl+Ctrl
         tap = SIMPLE.get(key, key.replace("KC_", ""))
-        return {"t": tap, "h": mod}
+        return {"t": tap, "bl": mod}
     m = re.match(r"^LT\((\d+),(KC_\w+)\)$", code)
     if m:
         layer_n, key = m.groups()
         tap = SIMPLE.get(key, key.replace("KC_", ""))
-        return {"t": tap, "h": LAYER_NAMES.get(int(layer_n), f"L{layer_n}")}
+        return {"t": tap, "bl": LAYER_NAMES.get(int(layer_n), f"L{layer_n}")}
     m = re.match(r"^MACRO\((\d+)\)$", code)
     if m:
         return macro_label(macros, int(m.group(1)))
@@ -107,6 +141,30 @@ def decode_key(macros, code):
         key = m.group(1)
         return SHIFTED_SYMS.get(key, SIMPLE.get(key, key.replace("KC_", "")))
     return SIMPLE.get(code, code.replace("KC_", "") if code.startswith("KC_") else code)
+
+
+def corner_label(raw_code, macros):
+    """Compact corner legend for a raw VIA keycode: prefer a short icon/glyph
+    stand-in, falling back to the normal (already-short) decoded tap text."""
+    if raw_code in ICON_OVERRIDES:
+        return ICON_OVERRIDES[raw_code]
+    decoded = decode_key(macros, raw_code)
+    return decoded.get("t", "") if isinstance(decoded, dict) else decoded
+
+
+def merge_layer_into_base(base, raw_codes, macros, corner):
+    """Fold another layer into Base as a corner legend (bl/br/tl/tr), using
+    compact icon labels so tap+hold+raise+lower+adjust all fit on one key."""
+    merged = []
+    for b, raw in zip(base, raw_codes):
+        label = corner_label(raw, macros)
+        if not label:
+            merged.append(b)
+            continue
+        b = dict(b) if isinstance(b, dict) else {"t": b} if b else {}
+        b[corner] = label
+        merged.append(b)
+    return merged
 
 
 def main():
@@ -118,9 +176,16 @@ def main():
     for li, name in enumerate(OUTPUT_LAYER_KEYS):
         layers[name] = [decode_key(via["macros"], c) for c in reading[li]]
 
+    layers["base"] = merge_layer_into_base(layers["base"], reading[1], via["macros"], "tl")
+    layers["base"] = merge_layer_into_base(layers["base"], reading[2], via["macros"], "tr")
+    layers["base"] = merge_layer_into_base(layers["base"], reading[3], via["macros"], "br")
+    del layers["raise"]
+    del layers["lower"]
+
     data = {
         "layout": {"qmk_keyboard": "crkbd/rev1", "layout_name": "LAYOUT_split_3x6_3"},
         "layers": layers,
+        "draw_config": DRAW_CONFIG,
     }
     with open(OUTPUT_PATH, "w") as f:
         yaml.dump(data, f, sort_keys=False, allow_unicode=True, width=200)

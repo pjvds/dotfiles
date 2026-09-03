@@ -30,16 +30,31 @@ jobs:
         run: |
           pip install pyyaml keymap-drawer
           sudo apt-get update
-          sudo apt-get install -y librsvg2-bin
+          sudo apt-get install -y unzip
+
+      - name: Install fonts (PT Mono + Nerd Font symbols)
+        run: |
+          mkdir -p ~/.local/share/fonts
+          curl -sLo /tmp/nf-symbols.zip https://github.com/ryanoasis/nerd-fonts/releases/latest/download/NerdFontsSymbolsOnly.zip
+          unzip -o -q /tmp/nf-symbols.zip -d ~/.local/share/fonts
+          curl -sLo ~/.local/share/fonts/PTMono-Regular.ttf https://raw.githubusercontent.com/google/fonts/main/ofl/ptmono/PTM55FT.ttf
+          fc-cache -f
 
       - name: Generate keymap YAML from VIA export
         run: python3 via/scripts/generate_keymap.py
 
       - name: Draw SVG
-        run: keymap draw via/crkbd-keymap.yaml -o via/crkbd-keymap.svg
-
-      - name: Convert to PNG
-        run: rsvg-convert -o via/crkbd-keymap.png via/crkbd-keymap.svg
+        run: |
+          keymap draw via/crkbd-keymap.yaml -o via/crkbd-keymap.svg
+          # Some SVG viewers (e.g. GitHub's blob viewer) don't paint the CSS
+          # background-color set on svg.keymap, so add an explicit background rect.
+          python3 -c "
+          import re
+          path = 'via/crkbd-keymap.svg'
+          svg = open(path).read()
+          svg = re.sub(r'(</style>)', r'\1<rect width=\"100%\" height=\"100%\" fill=\"#282a36\"/>', svg, count=1)
+          open(path, 'w').write(svg)
+          "
 
       - name: Commit updated image
         uses: stefanzweifel/git-auto-commit-action@v5
@@ -48,4 +63,4 @@ jobs:
             via: regenerate keymap image
 
             [skip ci]
-          file_pattern: "via/crkbd-keymap.yaml via/crkbd-keymap.svg via/crkbd-keymap.png"
+          file_pattern: "via/crkbd-keymap.yaml via/crkbd-keymap.svg"
