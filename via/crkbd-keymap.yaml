@@ -42,7 +42,6 @@ layers:
     tr: '0'
     br: Hm
   - t: Bksp
-    tl: Bksp
     tr: Del
   - t: ''''
     tl: Del
