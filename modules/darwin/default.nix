@@ -19,6 +19,7 @@
     ../programs/docker
     ../programs/rclone
     ../programs/snyk
+    ../programs/supernote
   ];
 
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [

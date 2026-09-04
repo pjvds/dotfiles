@@ -19,4 +19,5 @@
   my.warp.enable = true;
   my.snyk.enable = true;
   my.rclone.enable = false;
+  my.supernote.enable = true;
 }
