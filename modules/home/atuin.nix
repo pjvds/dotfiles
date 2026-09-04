@@ -30,6 +30,8 @@ let cfg = config.my.atuin; in
         sync.records = true;
         daemon.enabled = true;
         daemon.auto_start = true;
+        # do not store failed commands
+        store_failed = false;
       };
     };
 
