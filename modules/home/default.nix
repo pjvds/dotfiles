@@ -26,6 +26,7 @@
     ../programs/kanata
     ../programs/shortcat
     ../programs/codedb
+    ../programs/writetext
     ../programs/chrome
     ./z
   ];
@@ -52,6 +53,7 @@
   my.kanata.enable     = false;
   my.shortcat.enable   = true;
   my.codedb.enable     = true;
+  my.writetext.enable  = true;
   my.chrome.enable     = true;
   my.z.enable          = true;
   # my.mobile is enabled in modules/darwin/default.nix (darwin-level module)
