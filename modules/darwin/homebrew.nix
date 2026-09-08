@@ -21,6 +21,7 @@
       # flutter is managed via the mobile module
       "arc"
       "deckset"
+      "github-copilot-app"
       "microsoft-azure-storage-explorer"
       "philips-hue-sync"
       "protonvpn"

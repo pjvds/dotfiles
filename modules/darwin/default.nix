@@ -17,6 +17,7 @@
     ../programs/mobile
     ../programs/dotnet
     ../programs/docker
+    ../programs/ollama
     ../programs/rclone
     ../programs/snyk
     ../programs/supernote
@@ -46,6 +47,7 @@
   my.mobile.enable      = true;
   my.dotnet.enable      = true;
   my.docker.enable      = true;
+  my.ollama.enable      = true;
 
   # Time Zone
   time.timeZone = "Europe/Amsterdam";
