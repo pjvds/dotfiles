@@ -15,6 +15,7 @@
     ./ssh
     ./httpie
     ./netskope.nix
+    ./az-edge-login.nix
     ./ncspot
     ./apps.nix
     ./raycast.nix
@@ -45,6 +46,7 @@
   my.ssh.enable        = true;
   my.httpie.enable     = true;
   my.netskope.enable   = true;
+  my.azEdgeLogin.enable = true;
   my.ncspot.enable     = true;
   my.apps.enable       = true;
   my.raycast.enable    = true;
