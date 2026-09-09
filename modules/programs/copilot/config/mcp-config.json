@@ -39,13 +39,6 @@
         "start"
       ]
     },
-    "context7": {
-      "tools": [
-        "*"
-      ],
-      "type": "http",
-      "url": "https://mcp.context7.com/mcp"
-    },
     "playwright": {
       "tools": [
         "*"
@@ -54,16 +47,6 @@
       "command": "npx",
       "args": [
         "@playwright/mcp@latest"
-      ]
-    },
-    "codedb": {
-      "tools": [
-        "*"
-      ],
-      "type": "stdio",
-      "command": "codedb",
-      "args": [
-        "mcp"
       ]
     }
   }
