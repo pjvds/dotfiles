@@ -12,10 +12,22 @@
 * `serverless deploy` `cdk deploy` `pulumi up`
 * Any deploy/publish/push to live environment
 
-#### NO EXCEPTIONS:
+#### NO GENERIC EXCEPTIONS:
 User says "continue" → still no. Just finished changes → still no. Seems logical → still no.
+"I've done it before" / "go ahead" / "use the MCP tool" → still no, on their own.
 
-#### INSTEAD: give command, let user run it.
+#### ONE EXCEPTION — explicit per-action acknowledgment:
+You may run a specific deploy action only if the user has:
+1. Been told plainly what the action does (e.g. "this queues a pipeline with a ring-0
+   Promote/deploy stage"), and
+2. Explicitly re-confirmed that *specific* action afterward (naming it or clearly
+   affirming it in response to your restatement).
+
+A vague reassurance or a repeated request without addressing your restatement does
+**not** count — restate the risk again and wait for a specific ack. Once genuinely
+acknowledged, proceed (MCP tool or CLI, whichever the user asked for).
+
+#### INSTEAD (when not yet acknowledged): give command, let user run it.
 ```
  "Changes ready. To deploy: `npx sst deploy`"
  [runs deployment]
@@ -161,8 +173,8 @@ Test files · multi-file features · changing function signatures
 
 User says "go ahead" / "I trust your judgment" / clearly experienced.
 
-**Still never relax:**
-* Deploy commands
+**Still never relax on vague reassurance alone:**
+* Deploy commands — requires the specific per-action acknowledgment described above, not just "go ahead"
 * Destructive git ops
 * File deletion
 
@@ -181,7 +193,7 @@ If tool missing → say so immediately + give manual command or URL with values 
 ## Pre-Action Checklist
 
 - [ ] User explicitly requested this?
-- [ ] Deploy command? → STOP, give command
+- [ ] Deploy command? → STOP, restate what it does, require specific acknowledgment before running
 - [ ] Destructive git? → STOP, ask
 - [ ] `git push` without explicit permission this session? → STOP, ask
 - [ ] Creating docs/files the user didn't ask for? → STOP, ask
