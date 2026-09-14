@@ -27,13 +27,12 @@ in
           [ -d "$profile_dir" ] || continue
           user_js="$profile_dir/user.js"
           touch "$user_js"
-          if grep -q "$PREF_MARKER" "$user_js" 2>/dev/null; then
-            sed -i '' "/$PREF_MARKER/c\\
-$PREF_LINE
-" "$user_js"
-          else
-            echo "$PREF_LINE" >> "$user_js"
-          fi
+          # Rewrite via a temp file (rather than `sed -i`) to stay portable
+          # across BSD/GNU sed and avoid in-place-edit quoting quirks.
+          tmp_file="$(mktemp)"
+          grep -v "$PREF_MARKER" "$user_js" > "$tmp_file" 2>/dev/null || true
+          echo "$PREF_LINE" >> "$tmp_file"
+          mv "$tmp_file" "$user_js"
         done
       fi
     '';
