@@ -16,6 +16,7 @@
     ./httpie
     ./netskope.nix
     ./az-edge-login.nix
+    ./zen-prefs.nix
     ./ncspot
     ./apps.nix
     ./raycast.nix
@@ -47,6 +48,7 @@
   my.httpie.enable     = true;
   my.netskope.enable   = true;
   my.azEdgeLogin.enable = true;
+  my.zenPrefs.enable   = true;
   my.ncspot.enable     = true;
   my.apps.enable       = true;
   my.raycast.enable    = true;
