@@ -108,6 +108,14 @@ in
             bindkey -M viins "^r" atuin-search-viins
           }
 
+          # zsh-vi-mode reads $EDITOR at *plugin load time* to set its internal
+          # ZVM_VI_EDITOR (used by "Esc v v" to edit the command line), but our
+          # own `export EDITOR="nvim"` (in modules/home/editor) runs later in
+          # initContent, after the plugins are sourced. Set ZVM_VI_EDITOR here,
+          # early, so zsh-vi-mode picks up nvim instead of whatever $EDITOR the
+          # outer environment happened to have (e.g. macOS's default of pico).
+          export ZVM_VI_EDITOR="nvim"
+
           # Copy full path of file/dir to clipboard
           function cpath {
             local p=''${PWD}

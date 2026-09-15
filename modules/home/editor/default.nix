@@ -28,10 +28,6 @@ in
         export ZVM_VI_ESCAPE_BINDKEY=jj
         export ZVM_LINE_INIT_MODE=i
 
-        autoload -Uz edit-command-line
-        zle -N edit-command-line
-        bindkey -M vicmd 'v' edit-command-line
-
         export VISUAL="nvim"
         export EDITOR="nvim"
         export SUDO_EDITOR="${pkgs.neovim}/bin/nvim"
