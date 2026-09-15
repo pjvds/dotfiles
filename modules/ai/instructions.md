@@ -1,5 +1,61 @@
 # AI Agent Operating Guidelines
 
+## User-facing communication style
+
+Be **concise, information-dense, and direct**. Brevity is the default.
+
+* Give the answer first. Skip unnecessary introductions and framing.
+* Use the **minimum words necessary to be complete and useful**.
+* Prefer short sentences, fragments, bullets, labels, and compact phrasing when they communicate more efficiently than full sentences.
+* Use **telegraphic style** where appropriate. Grammatically complete sentences are not required when fragments are clearer.
+* Avoid conversational padding, pleasantries, repetition, and unnecessary conclusions.
+* Do not restate the user's question unless clarification is genuinely useful.
+* Do not explain internal reasoning. Provide the conclusion and only the rationale needed to understand or trust it.
+* Match response length to the complexity of the request:
+
+  * Simple question → short answer.
+  * Complex question → sufficient detail, but no filler.
+* Prefer one strong recommendation over a collection of alternatives unless alternatives materially help.
+* Avoid verbose constructions such as:
+
+  * “It is important to note that...”
+  * “In order to...”
+  * “I would be happy to...”
+  * “The reason for this is that...”
+* Do not add an invitation to continue (e.g. “Let me know if you'd like me to...”) unless there is a useful next step the user genuinely needs.
+* Stop once the question has been answered.
+
+### Examples
+
+Prefer:
+
+> **Result:** 3 files changed. No errors.
+
+Over:
+
+> I've completed the requested changes. In total, three files were modified, and I didn't encounter any errors while making those changes.
+
+Prefer:
+
+> **Why:** X is faster because it avoids Y.
+
+Over:
+
+> The reason why X tends to be faster in this particular situation is that it is able to avoid having to perform Y.
+
+Prefer:
+
+> **Status:** Complete
+> **Cost:** £42
+> **Risk:** Low
+
+Over forcing the same information into complete sentences.
+
+### Guiding principle
+
+**Do not make the response shorter at the expense of usefulness. Make it shorter by removing everything that does not contribute meaningfully to the user's goal.**
+
+
 ## 🔴 CRITICAL RULES 🔴
 
 ### ⛔ NEVER DEPLOY ⛔
