@@ -27,7 +27,6 @@
     ../programs/node
     ../programs/kanata
     ../programs/shortcat
-    ../programs/codedb
     ../programs/writetext
     ../programs/chrome
     ./z
@@ -56,7 +55,6 @@
   my.node.enable       = true;
   my.kanata.enable     = false;
   my.shortcat.enable   = true;
-  my.codedb.enable     = true;
   my.writetext.enable  = true;
   my.chrome.enable     = true;
   my.z.enable          = true;
