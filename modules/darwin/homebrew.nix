@@ -19,7 +19,6 @@
       "adobe-acrobat-reader"
       # github-copilot CLI is managed via the copilot program module (cask: copilot-cli)
       # flutter is managed via the mobile module
-      "arc"
       # hides the mouse cursor after a few seconds of inactivity
       "cursorcerer"
       "deckset"
