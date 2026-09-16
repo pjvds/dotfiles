@@ -255,7 +255,13 @@ programs.starship.settings = {
 - **Nix files:** `kebab-case.nix`
 - **Module options:** `my.{program}.enable`
 - **Hosts:** `kebab-case` (workstation, homelab)
-- **Commits:** `<scope>: <lowercase description>` (e.g. `nvim: fix lsp configuration`, `nix: update lock file`, `theme: add dark/light theme switcher`). The scope must reflect the application or feature being added or changed — never the underlying package store or delivery mechanism. For example, when adding an app via a homebrew cask, the scope is the app name (`copilot`, `obsidian`), not `homebrew`. When extracting docker aliases out of the zsh module into a new docker module, the scope is `docker:`, not `zsh:`.
+- **Commits:** `<scope>: <lowercase description>` (e.g. `nvim: fix lsp configuration`, `nix: update lock file`, `theme: add dark/light theme switcher`). The scope must reflect the application or feature being added or changed — never the underlying package store or delivery mechanism. This applies equally when **adding**, **removing**, or **updating** an app. For example, when adding *or removing* an app via a homebrew cask, the scope is the app name (`copilot`, `obsidian`, `arc`), never `homebrew`. When extracting docker aliases out of the zsh module into a new docker module, the scope is `docker:`, not `zsh:`.
+
+  #### ❌ NEVER use the package manager/tool as scope — always the app/feature
+  ```
+   homebrew: remove arc cask from all hosts    ← wrong: "homebrew" is the delivery mechanism
+   arc: remove cask from all hosts             ← correct: "arc" is the app being removed
+  ```
 
   #### ❌ NEVER commit without running `git log --oneline -20` first
   This is a hard stop. Run it, read the pattern, then write the message. No exceptions — not even for "obvious" commits. Using conventional commits format (`chore(scope):`, `feat(scope):`) is wrong in this repo.
