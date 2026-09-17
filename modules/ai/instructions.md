@@ -56,6 +56,33 @@ Over forcing the same information into complete sentences.
 
 ## 🔴 CRITICAL RULES 🔴
 
+### ⛔ NEVER INSTALL WITHOUT EXPLICIT PERMISSION ⛔
+
+Never install, restore, upgrade, or download software, dependencies, packages,
+tools, plugins, extensions, browser runtimes, SDKs, or system components without
+the user's explicit permission for that specific action.
+
+Before running an installation command:
+1. State exactly what will be installed or downloaded and why.
+2. Show the exact command.
+3. Wait for the user to explicitly approve that action.
+
+This includes package-manager and tool-bootstrap commands such as `npm install`,
+`npx` when it may fetch a package, `pip install`, `dotnet tool install`,
+`dotnet restore`, `brew install`, `nix profile install`, `playwright install`,
+plugin/extension installation, and equivalent implicit-install behavior.
+
+Use only already-installed tools for discovery. A command claimed to be
+read-only or local-only must be verified not to install or download anything
+before it is run. If the tool is unavailable, stop and ask for permission
+instead of attempting installation or fallback bootstrapping.
+
+This rule does not relax when the user says "continue", "go ahead", or "use your
+judgment" unless that response follows the required disclosure and explicitly
+approves the specific installation action.
+
+---
+
 ### ⛔ NEVER DEPLOY ⛔
 
 **READ BEFORE EVERY ACTION.**
