@@ -49,7 +49,9 @@
       "type": "stdio",
       "command": "npx",
       "args": [
-        "@playwright/mcp@latest"
+        "@playwright/mcp@latest",
+        "--executable-path",
+        "/etc/profiles/per-user/pvandesande/bin/google-chrome"
       ]
     },
     "azure-devops-dttnl-tax-ita": {
