@@ -47,8 +47,13 @@ let cfg = config.my.atuin; in
           # Down arrow opens the interactive global search (atuin only binds
           # up arrow by default); up arrow keeps its default binding and
           # honors filter_mode_shell_up_key_binding = "session" above.
-          bindkey '^[[B' atuin-search
-          bindkey '^[OB' atuin-search
+          # Bound in both viins and vicmd keymaps (this config uses zsh vi
+          # mode), since a plain `bindkey` only affects whichever keymap
+          # happens to be active at eval time.
+          bindkey -M viins '^[[B' atuin-search-viins
+          bindkey -M viins '^[OB' atuin-search-viins
+          bindkey -M vicmd '^[[B' atuin-search-vicmd
+          bindkey -M vicmd '^[OB' atuin-search-vicmd
         fi
       }
       zsh-defer _init_atuin
