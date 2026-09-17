@@ -5,7 +5,6 @@
     ./cloud-k8s
     ./zsh
     ./git
-    ./opencode
     ./editor
     ./python.nix
     # Per-app modules (each owns its install + config)
@@ -39,7 +38,6 @@
   my.cloudK8s.enable   = true;
   my.editor.enable     = true;
   my.python.enable     = true;
-  my.opencode.enable   = true;
   my.tmux.enable       = true;
   my.atuin.enable      = true;
   my.asciinema.enable  = true;
@@ -64,9 +62,6 @@
 
   home = {
     stateVersion = "25.05";
-    packages = with pkgs; [
-      opencode
-    ];
   };
 
   # Let Home Manager install and manage itself
