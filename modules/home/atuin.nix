@@ -32,6 +32,10 @@ let cfg = config.my.atuin; in
         daemon.auto_start = true;
         # do not store failed commands
         store_failed = false;
+        # Up arrow only searches the current shell session's history;
+        # Ctrl-r / down arrow still search globally across all sessions.
+        filter_mode = "global";
+        filter_mode_shell_up_key_binding = "session";
       };
     };
 
@@ -40,6 +44,11 @@ let cfg = config.my.atuin; in
       _init_atuin() {
         if [[ $options[zle] = on ]]; then
           eval "$(${pkgs.atuin}/bin/atuin init zsh)"
+          # Down arrow opens the interactive global search (atuin only binds
+          # up arrow by default); up arrow keeps its default binding and
+          # honors filter_mode_shell_up_key_binding = "session" above.
+          bindkey '^[[B' atuin-search
+          bindkey '^[OB' atuin-search
         fi
       }
       zsh-defer _init_atuin
