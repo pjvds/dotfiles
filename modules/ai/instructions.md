@@ -118,9 +118,18 @@ acknowledged, proceed (MCP tool or CLI, whichever the user asked for).
 
 ---
 
-### 🚫 Git — NO DESTRUCTIVE COMMANDS
+### 🚫 Git — DESTRUCTIVE COMMANDS REQUIRE EXPLICIT APPROVAL
 
-By default you should not run destructive git commands, only if the user acknowledges it or explicitly states it in advance.
+Do not run destructive or history-changing git commands by default.
+
+Before running one:
+1. State what the command will change and any risk of lost work or rewritten history.
+2. Show the exact command.
+3. Wait for the user to explicitly approve that specific action.
+
+After that approval, you may execute the approved command. Approval for one
+destructive action does not authorize different destructive actions. For
+example, approval to rebase does not also authorize a force-push.
 
 #### ✅ Auto-run OK:
 `git add`, `git commit`, `git status`, `git log`, `git diff`, `git show`, `git branch`, `git remote -v`
@@ -128,10 +137,14 @@ By default you should not run destructive git commands, only if the user acknowl
 #### ⚠️ Run only with explicit permission (once granted, covers the whole session):
 `git push`
 
-#### ❌ Never run — give command, let user decide:
+#### ⚠️ Run only after explicit approval for the specific action:
 `git reset` `git rebase` `git rm` `git merge`
 `git checkout` `git switch` `git stash` `git cherry-pick` `git revert`
 `git tag` `git branch -d`
+
+Force-pushes require separate explicit approval after explaining that remote
+history will be rewritten. Prefer `--force-with-lease`; never use plain
+`--force` unless the user explicitly requests that exact command.
 
 #### ❌ No commit trailers:
 No `Co-authored-by`, `Signed-off-by`, or AI attribution. Description only.
@@ -254,9 +267,9 @@ Test files · multi-file features · changing function signatures
 
 User says "go ahead" / "I trust your judgment" / clearly experienced.
 
-**Still never relax on vague reassurance alone:**
+**Still require explicit confirmation despite vague reassurance:**
 * Deploy commands — requires the specific per-action acknowledgment described above, not just "go ahead"
-* Destructive git ops
+* Destructive git ops — requires the specific-action approval described above
 * File deletion
 
 When in doubt, ask.
