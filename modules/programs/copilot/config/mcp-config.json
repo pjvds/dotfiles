@@ -15,19 +15,8 @@
       "tools": [
         "*"
       ],
-      "type": "stdio",
-      "command": "bunx",
-      "args": [
-        "-y",
-        "@azure-devops/mcp",
-        "dttnl-tax-ita",
-        "-d",
-        "core",
-        "work",
-        "work-items",
-        "repositories",
-        "pipelines"
-      ]
+      "type": "http",
+      "url": "https://mcp.dev.azure.com/dttnl-tax-ita"
     },
     "azure": {
       "tools": [
