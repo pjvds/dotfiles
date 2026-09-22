@@ -1,19 +1,19 @@
 {
   "brews": {
     "cocoapods": "1.17.0",
-    "snyk-cli": "1.1307.2",
+    "snyk-cli": "1.1307.3",
     "switchaudio-osx": "1.2.2"
   },
   "casks": {
     "adobe-acrobat-reader": "26.001.21662",
-    "copilot-cli": "1.0.85",
-    "cursorcerer": "3.5",
+    "copilot-cli": "1.0.87",
+    "cursorcerer": "4.0",
     "deckset": "2.0.51,2807",
-    "flutter": "3.47.4",
+    "flutter": "3.47.5",
     "font-sf-pro": "latest",
-    "font-sketchybar-app-font": "2.0.86",
-    "github-copilot-app": "1.1.22",
-    "kitty": "0.48.2",
+    "font-sketchybar-app-font": "3.0.0",
+    "github-copilot-app": "1.1.23",
+    "kitty": "0.49.0",
     "microsoft-azure-storage-explorer": "1.46.0",
     "obsidian": "1.13.7",
     "orbstack": "2.2.3,20963",
@@ -21,9 +21,9 @@
     "proton-pass": "1.40.2",
     "protonvpn": "6.5.1",
     "qmk-toolbox": "0.3.4",
-    "slack": "4.52.155",
+    "slack": "4.52.162",
     "sonos": "90.0-79210,HBVQeC4A1l",
-    "warp": "0.2026.09.09.08.26.stable_02",
+    "warp": "0.2026.09.16.08.27.stable_02",
     "zen": "1.22.2b"
   }
 }
