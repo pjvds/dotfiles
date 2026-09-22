@@ -134,8 +134,21 @@ example, approval to rebase does not also authorize a force-push.
 #### ✅ Auto-run OK:
 `git add`, `git commit`, `git status`, `git log`, `git diff`, `git show`, `git branch`, `git remote -v`
 
-#### ⚠️ Run only with explicit permission (once granted, covers the whole session):
-`git push`
+#### ✅ Prefer pushing AI-owned feature branches from isolated worktrees:
+Run `git push` without asking when all of these are true:
+* The agent is working in an isolated worktree.
+* The checked-out branch is a feature, bug-fix, chore, or other non-protected branch
+  created for the current task.
+* The push is a normal fast-forward push to the same-named remote branch.
+* Required local validation has passed.
+
+Prefer pushing after each complete, validated commit so the remote branch, pull
+request, and CI stay current. Use `git push -u origin <branch>` when publishing
+the branch for the first time.
+
+Ask before pushing when the branch is shared, protected, not owned by the current
+task, targets a differently named remote branch, or the push is known to trigger
+a deployment rather than ordinary CI.
 
 #### ⚠️ Run only after explicit approval for the specific action:
 `git reset` `git rebase` `git rm` `git merge`
@@ -252,7 +265,7 @@ Must verify:
 
 #### Always ask first:
 Deploy commands · git destructive ops · new docs · delete files
-`git push` (may trigger CI/deploy) · refactor >20 lines · config file changes · new dependencies
+`git push` outside an AI-owned feature branch in an isolated worktree · refactor >20 lines · config file changes · new dependencies
 Changes touching >3 files · changes across subsystems · "while we're at it" improvements
 
 #### Safe to act:
@@ -289,7 +302,7 @@ If tool missing → say so immediately + give manual command or URL with values 
 - [ ] User explicitly requested this?
 - [ ] Deploy command? → STOP, restate what it does, require specific acknowledgment before running
 - [ ] Destructive git? → STOP, ask
-- [ ] `git push` without explicit permission this session? → STOP, ask
+- [ ] `git push` from an AI-owned feature branch in an isolated worktree? → validate, then push; otherwise ask
 - [ ] Creating docs/files the user didn't ask for? → STOP, ask
 - [ ] Non-code file going to repo?
 - [ ] Deleting anything?
