@@ -49,6 +49,20 @@
       ],
       "type": "http",
       "url": "https://mcp.dev.azure.com/dttnl-tax-ita"
+    },
+    "datadog": {
+      "tools": [
+        "*"
+      ],
+      "type": "http",
+      "url": "https://mcp.datadoghq.eu/v1/mcp"
+    },
+    "moneybird": {
+      "tools": [
+        "*"
+      ],
+      "type": "http",
+      "url": "https://moneybird.com/mcp/v1/read_only"
     }
   }
 }
