@@ -290,6 +290,11 @@ automatically-unhide-macos-hidden-apps = true
     run = ['layout floating']
 
 [[on-window-detected]]
+    if.app-id = 'com.apple.findmy'
+    check-further-callbacks = true
+    run = ['layout floating']
+
+[[on-window-detected]]
     if.app-id = 'com.apple.Home'
     check-further-callbacks = true
     run = ['layout floating']
