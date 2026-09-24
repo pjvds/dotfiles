@@ -1,10 +1,10 @@
-config.json
-command-history-state.json
-logs/
-session-state/
-pkg/
-ide/
-session-store.db
-session-store.db-shm
-session-store.db-wal
-skills
+# Ignore all runtime state, logs, caches, and databases written to ~/.copilot
+# which is symlinked directly to this directory by nix-darwin.
+*
+
+# Allowlist only the tracked configuration files
+!.gitignore
+!copilot-instructions.md
+!mcp-config.json
+
+
