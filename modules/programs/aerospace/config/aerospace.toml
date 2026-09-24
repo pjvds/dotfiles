@@ -198,7 +198,7 @@ automatically-unhide-macos-hidden-apps = true
     # Toggle the fullscreen mode for the focused window
     #
     # Switching to a different tiling window within the same workspace while the current focused window is in fullscreen mode results in the fullscreen window exiting fullscreen mode.
-    alt-t = 'fullscreen'
+    alt-t = ['fullscreen', 'exec-and-forget sketchybar --trigger aerospace_fullscreen_change']
     alt-w = 'close'
     alt-q = 'close'
 

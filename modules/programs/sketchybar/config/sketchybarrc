@@ -54,6 +54,7 @@ default=(
 sketchybar --default "${default[@]}"
 
 sketchybar --add event aerospace_workspace_change
+sketchybar --add event aerospace_fullscreen_change
 
 FOCUSED_WORKSPACE=$(aerospace list-workspaces --focused)
 
@@ -97,7 +98,19 @@ sketchybar --add item front_app left \
                  icon.drawing=on \
                  icon.font="sketchybar-app-font:Regular:16.0" \
                  script="$PLUGIN_DIR/front_app.sh" \
-           --subscribe front_app front_app_switched
+           --subscribe front_app front_app_switched \
+           --add item fullscreen left \
+           --set fullscreen \
+                 display=active \
+                 drawing=off \
+                 icon="󰊓" \
+                 icon.font="$ICON_FONT" \
+                 icon.color=$ACCENT_COLOR \
+                 icon.padding_left=2 \
+                 icon.padding_right=2 \
+                 label.drawing=off \
+                 script="$PLUGIN_DIR/fullscreen.sh" \
+           --subscribe fullscreen aerospace_fullscreen_change aerospace_workspace_change front_app_switched
 
 ##### Adding Right Items #####
 # In the same way as the left items we can add items to the right side.
