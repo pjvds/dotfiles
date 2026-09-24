@@ -139,9 +139,9 @@ automatically-unhide-macos-hidden-apps = true
     #'''
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#layout
-    alt-leftSquareBracket = 'layout tiles horizontal vertical'
-    alt-rightSquareBracket = 'layout accordion horizontal vertical'
-    alt-slash = 'layout tiles accordion'
+    alt-leftSquareBracket = ['layout tiles horizontal vertical', 'exec-and-forget sketchybar --trigger aerospace_layout_change']
+    alt-rightSquareBracket = ['layout accordion horizontal vertical', 'exec-and-forget sketchybar --trigger aerospace_layout_change']
+    alt-slash = ['layout tiles accordion', 'exec-and-forget sketchybar --trigger aerospace_layout_change']
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#focus
     alt-h = 'focus --boundaries workspace --boundaries-action wrap-around-the-workspace left'
