@@ -26,7 +26,6 @@
       "microsoft-azure-storage-explorer"
       "philips-hue-sync"
       "protonvpn"
-      "proton-pass"
       "qmk-toolbox"
       "sonos"
       "zen"

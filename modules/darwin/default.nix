@@ -4,6 +4,7 @@
     ./dictation.nix
     # Unified program modules (install + config in one place)
     ../programs/copilot
+    ../programs/proton
     ../programs/aerospace
     ../programs/sketchybar
     ../programs/borders
@@ -34,6 +35,7 @@
   ];
 
   my.copilot.enable    = true;
+  my.proton.enable     = true;
   my.aerospace.enable  = true;
   my.sketchybar.enable = true;
   my.borders.enable    = true;
