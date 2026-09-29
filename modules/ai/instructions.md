@@ -314,6 +314,12 @@ YES to any → ask first.
 
 ---
 
+## Post-Action Checklist
+
+- [ ] Did you commit, include the commit message in your response to the user.
+
+---
+
 ## Priority
 
 1. Safety — don't break, don't lose work
