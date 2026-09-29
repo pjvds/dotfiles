@@ -41,8 +41,7 @@ nix flake update --flake "${DOTFILES_DIR}"
 
 # update flake.lock when changed
 if ! git -C "${DOTFILES_DIR}" diff --quiet "flake.lock"; then
-    git -C "${DOTFILES_DIR}" add "flake.lock"
-    git -C "${DOTFILES_DIR}" commit -m "nix: update flake.lock"
+    git -C "${DOTFILES_DIR}" commit --only -m "nix: update flake.lock" -- "flake.lock"
     echo "📝 Committed flake.lock changes."
 else
     echo "⏭️ Skipped committing flake.lock because it did not change."
@@ -74,8 +73,7 @@ print(json.dumps(lock, indent=2, sort_keys=True))
 
 # update homebrew lock file when changed
 if ! git -C "${DOTFILES_DIR}" diff --quiet "hosts/${HOST_DIR}/homebrew.lock.json"; then
-    git -C "${DOTFILES_DIR}" add "hosts/${HOST_DIR}/homebrew.lock.json"
-    git -C "${DOTFILES_DIR}" commit -m "homebrew: update lock file for ${HOST_DIR}"
+    git -C "${DOTFILES_DIR}" commit --only -m "homebrew: update lock file for ${HOST_DIR}" -- "hosts/${HOST_DIR}/homebrew.lock.json"
     echo "📝 Committed Homebrew lock file changes."
 else
     echo "⏭️ Skipped committed Homebrew lock file because it did not change."
