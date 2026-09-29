@@ -55,7 +55,7 @@ modules/programs/neovim/
 
 # Features
 
-## Home Row Mods (CACS)
+## Home Row Mods (CAGS)
 
 Transform your keyboard into a comfort machine by holding letter keys to trigger modifiers. This eliminates pinky stretching to modifier keys—your fingers stay on the home row.
 
@@ -66,38 +66,39 @@ Home row mods are implemented across two keyboards and systems:
 1. **External Keyboard (ZMK Firmware)**
    - Device: Corne-ish Zen split keyboard
    - Config: `zmk/config/corne-ish_zen.keymap`
-   - Implementation: ZMK keyboard firmware with home row mod behaviors
+   - Implementation: ZMK keyboard firmware with layer-based modifier access
 
 2. **MacBook Built-in Keyboard (Karabiner)**
    - Device: Built-in MacBook keyboard
-   - Config: `modules/programs/karabiner/config/homerow.json`
+   - Config: `modules/programs/karabiner/config/karabiner.json`
    - Implementation: Karabiner Elements dual-role keys
 
 ### Karabiner Configuration (MacBook Keyboard)
 
-The MacBook keyboard uses Karabiner Elements for CACS (Command-Alt-Ctrl-Shift) home row mods:
+The MacBook keyboard uses Karabiner Elements for CAGS (Control-Alt-GUI/Cmd-Shift) home row mods:
 
 **Left-hand mods (home row):**
 ```
-A → Cmd (Command)
+A → Ctrl (Control)
 S → Alt (Option)
-D → Ctrl (Control)
+D → Cmd (Command / GUI)
 F → Shift
 ```
 
 **Right-hand mods (home row):**
 ```
 J → Shift
-K → Ctrl (Control)
-; → Cmd (Command)
+K → Cmd (Command / GUI)
+L → Alt (Option)
+; → Ctrl (Control)
 ```
 
 **Dual-role key behavior:**
 - **Hold** key = acts as modifier
 - **Tap** key = types the letter normally
   - Tap `A` = types `a`
-  - Hold `A` + press `C` = `Cmd+C` (copy)
-  - Hold `D` + press `Z` = `Ctrl+Z` (undo)
+  - Hold `D` + press `C` = `Cmd+C` (copy)
+  - Hold `A` + press `Z` = `Ctrl+Z` (SIGTSTP / terminal control)
   - Hold `S` + press `Tab` = `Alt+Tab` (switch apps)
 
 ### ZMK Configuration (External Corne-ish Zen)
