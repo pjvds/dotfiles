@@ -24,6 +24,7 @@
     ./theme
     ./fonts
     ../programs/node
+    ../programs/hunk
     ../programs/kanata
     ../programs/shortcat
     ../programs/writetext
@@ -51,6 +52,7 @@
   my.raycast.enable    = true;
   my.specKit.enable    = true;
   my.node.enable       = true;
+  my.hunk.enable       = true;
   my.kanata.enable     = false;
   my.shortcat.enable   = true;
   my.writetext.enable  = true;
