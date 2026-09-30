@@ -140,8 +140,6 @@ sketchybar --add item clock right \
            --set clock update_freq=10 icon=  script="$PLUGIN_DIR/clock.sh" \
            --add item disk_space right \
            --set disk_space update_freq=60 script="$PLUGIN_DIR/disk_space.sh" \
-           --add item network right \
-           --set network update_freq=2 script="$PLUGIN_DIR/network.sh" \
            --add item audio_output right \
            --set audio_output \
                  update_freq=10 \
@@ -158,7 +156,9 @@ sketchybar --add item clock right \
            --subscribe audio_output volume_change system_woke \
            --add item battery right \
            --set battery update_freq=120 script="$PLUGIN_DIR/battery.sh" \
-           --subscribe battery system_woke power_source_change
+           --subscribe battery system_woke power_source_change \
+           --add item network right \
+           --set network update_freq=2 script="$PLUGIN_DIR/network.sh"
 
 # Enable hot reloading
 sketchybar --hotload on
