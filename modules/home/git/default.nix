@@ -30,6 +30,7 @@ let cfg = config.my.git; in
         core = {
           editor = "nvim";
           autocrlf = "input";
+          pager = "hunk pager";
         };
         color = {
           ui = "auto";
