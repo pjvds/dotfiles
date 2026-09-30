@@ -11,19 +11,20 @@
     "deckset": "2.1.0,2823",
     "flutter": "3.47.5",
     "font-sf-pro": "latest",
-    "font-sketchybar-app-font": "3.0.4",
+    "font-sketchybar-app-font": "3.0.5",
     "github-copilot-app": "1.1.23",
     "kitty": "0.49.1",
     "microsoft-azure-storage-explorer": "1.46.0",
     "obsidian": "1.13.7",
     "orbstack": "2.2.3,20963",
     "philips-hue-sync": "1.13.1.83,367fa136-d05e-4de6-8f9b-318fed481842,83",
+    "postman": "12.30.4",
     "proton-pass": "1.41.1",
     "protonvpn": "6.5.1",
     "qmk-toolbox": "0.3.4",
     "slack": "4.52.171",
     "sonos": "90.0-79210,HBVQeC4A1l",
-    "warp": "0.2026.09.16.08.27.stable_02",
+    "warp": "0.2026.09.23.14.34.stable_01",
     "zen": "1.22.3b"
   }
 }
