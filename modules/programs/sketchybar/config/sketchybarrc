@@ -144,6 +144,7 @@ sketchybar --add item clock right \
            --set network update_freq=2 script="$PLUGIN_DIR/network.sh" \
            --add item audio_output right \
            --set audio_output \
+                 update_freq=10 \
                  script="$PLUGIN_DIR/audio_output.sh" \
                  click_script="$PLUGIN_DIR/audio_output_click.sh" \
                  popup.drawing=off \
@@ -154,7 +155,7 @@ sketchybar --add item clock right \
                  popup.background.border_width=2 \
                  popup.background.border_color=$ACCENT_COLOR \
                  popup.blur_radius=20 \
-           --subscribe audio_output volume_change com.bluetooth.status.updates \
+           --subscribe audio_output volume_change system_woke \
            --add item battery right \
            --set battery update_freq=120 script="$PLUGIN_DIR/battery.sh" \
            --subscribe battery system_woke power_source_change

@@ -60,7 +60,7 @@ fi
 # Display icon with volume percentage and headphone battery if available
 sketchybar --set "$NAME" icon="$ICON" label="${VOLUME}%${HEADPHONE_BATTERY}"
 
-# Update the menu when audio device changes
-if [ "$SENDER" = "forced" ] || [ "$SENDER" = "volume_change" ] || [ "$SENDER" = "com.bluetooth.status.updates" ]; then
+# Refresh the menu on events; the click script refreshes it before opening.
+if [ "$SENDER" = "forced" ] || [ "$SENDER" = "volume_change" ]; then
   "$CONFIG_DIR/plugins/audio_output_menu.sh"
 fi
