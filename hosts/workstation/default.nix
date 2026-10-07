@@ -1,5 +1,8 @@
 { lib, pkgs, config, ... }: {
-  imports = [ ../../modules/darwin ];
+  imports = [
+    ../../modules/darwin
+    ../../modules/programs/camunda-modeler
+  ];
 
   networking.hostName = "NL-F2T6KVCQ3G";
   system.primaryUser = "pvandesande";
@@ -16,6 +19,7 @@
   };
 
   my.karabiner.enable = lib.mkForce false;
+  my.camundaModeler.enable = true;
   my.warp.enable = true;
   my.snyk.enable = true;
   my.rclone.enable = false;
