@@ -94,12 +94,22 @@
     };
   };
 
-  # Back up /etc files that nix-darwin wants to manage but finds modified
-  system.activationScripts.backupEtcFiles.text = ''
+  # Back up unmanaged /etc files before nix-darwin validates or replaces them.
+  system.activationScripts.preActivation.text = ''
     for f in /etc/zshrc /etc/zshenv /etc/bashrc /etc/zprofile; do
       if [ -f "$f" ] && ! grep -q "nix-darwin" "$f" 2>/dev/null; then
-        echo "Backing up $f -> $f.before-nix-darwin"
-        mv "$f" "$f.before-nix-darwin"
+        backup="$f.before-nix-darwin"
+        if [ -e "$backup" ]; then
+          timestamp=$(date '+%Y%m%d%H%M%S')
+          backup="$f.before-nix-darwin.$timestamp"
+          suffix=1
+          while [ -e "$backup" ]; do
+            backup="$f.before-nix-darwin.$timestamp.$suffix"
+            suffix=$((suffix + 1))
+          done
+        fi
+        echo "Backing up $f -> $backup"
+        mv "$f" "$backup"
       fi
     done
   '';
