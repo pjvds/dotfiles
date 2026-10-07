@@ -155,6 +155,20 @@ in
           # Create dir and cd into it
           function mkcd { mkdir -p "$1" && cd "$1"; }
 
+          # An existing file path means "go to its containing directory".
+          # The zsh :h modifier extracts the parent; builtin avoids recursion.
+          function cd {
+            if (( $# == 1 )) && [[ "$1" != -* && -f "$1" ]]; then
+              builtin cd -- "''${1:h}"
+            elif (( $# == 2 )) && [[ "$1" == -- && -f "$2" ]]; then
+              # Explicit -- permits file names beginning with a dash.
+              builtin cd -- "''${2:h}"
+            else
+              # Preserve normal cd behavior, options, and errors for other inputs.
+              builtin cd "$@"
+            fi
+          }
+
           # Enhanced ls (sort by date in Downloads)
           unalias ll 2>/dev/null
           function ll {
