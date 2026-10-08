@@ -23,6 +23,7 @@ let cfg = config.my.core; in
       yq
       pv
       delta # better git diffs
+      ddgr
       helix
     ];
 
