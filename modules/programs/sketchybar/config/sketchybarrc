@@ -158,7 +158,9 @@ sketchybar --add item clock right \
            --set battery update_freq=120 script="$PLUGIN_DIR/battery.sh" \
            --subscribe battery system_woke power_source_change \
            --add item network right \
-           --set network update_freq=2 script="$PLUGIN_DIR/network.sh"
+           --set network update_freq=2 script="$PLUGIN_DIR/network.sh" \
+           --add item cpu right \
+           --set cpu update_freq=1 icon="󰻠" script="$PLUGIN_DIR/cpu.sh"
 
 # Enable hot reloading
 sketchybar --hotload on
