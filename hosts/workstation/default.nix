@@ -2,6 +2,7 @@
   imports = [
     ../../modules/darwin
     ../../modules/programs/camunda-modeler
+    ../../modules/programs/drawio
   ];
 
   networking.hostName = "NL-F2T6KVCQ3G";
@@ -20,6 +21,7 @@
 
   my.karabiner.enable = lib.mkForce false;
   my.camundaModeler.enable = true;
+  my.drawio.enable = true;
   my.warp.enable = true;
   my.snyk.enable = true;
   my.rclone.enable = false;
