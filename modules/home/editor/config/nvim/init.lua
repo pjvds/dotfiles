@@ -37,6 +37,18 @@ vim.api.nvim_create_user_command("LspInfo", function()
 	vim.cmd("checkhealth vim.lsp")
 end, { desc = "Show LSP status via checkhealth" })
 
+vim.api.nvim_create_user_command("Cpath", function()
+	local path = vim.api.nvim_buf_get_name(0)
+	if path == "" then
+		vim.notify("Current buffer has no file path", vim.log.levels.WARN)
+		return
+	end
+	vim.fn.setreg("+", path)
+	vim.notify("Copied path: " .. path)
+end, { desc = "Copy current file's full path to the system clipboard" })
+
+vim.cmd([[cnoreabbrev <expr> cpath getcmdtype() == ':' && getcmdline() == 'cpath' ? 'Cpath' : 'cpath']])
+
 vim.schedule(function()
 	require("mappings")
 end)
