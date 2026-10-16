@@ -269,8 +269,6 @@ in
         fi
         zstyle ':completion:*' menu no
       '';
-
-      initExtra = "";
     };
 
     # p10k config — stays at repo root in modules/home/zsh/config/
