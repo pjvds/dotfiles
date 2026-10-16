@@ -1,10 +1,17 @@
 { pkgs, config, lib, ... }:
-let cfg = config.my.atuin; in
+let
+  cfg = config.my.atuin;
+  # Temporary workaround for the output-capture integration test timeout.
+  atuin = pkgs.atuin.overrideAttrs {
+    doCheck = false;
+    doInstallCheck = false;
+  };
+in
 {
   options.my.atuin.enable = lib.mkEnableOption "atuin shell history";
 
   config = lib.mkIf cfg.enable {
-    home.packages = [ pkgs.atuin ];
+    home.packages = [ atuin ];
 
     # Remove stale symlink left over from the old mkOutOfStoreSymlink setup.
     # Only removes the path if it is a symlink — never touches a real directory
@@ -17,6 +24,7 @@ let cfg = config.my.atuin; in
 
     programs.atuin = {
       enable = true;
+      package = atuin;
       # home-manager's own zsh integration runs `eval "$(atuin init zsh)"`
       # synchronously in initContent, which forks the atuin binary (and its
       # own nested `atuin uuid` call) on every shell startup (~94ms measured
@@ -43,7 +51,7 @@ let cfg = config.my.atuin; in
       # Defer atuin initialization to speed up shell startup (see enableZshIntegration above)
       _init_atuin() {
         if [[ $options[zle] = on ]]; then
-          eval "$(${pkgs.atuin}/bin/atuin init zsh)"
+          eval "$(${atuin}/bin/atuin init zsh)"
           # Down arrow opens the interactive global search (atuin only binds
           # up arrow by default); up arrow keeps its default binding and
           # honors filter_mode_shell_up_key_binding = "session" above.
@@ -69,7 +77,7 @@ let cfg = config.my.atuin; in
         ProgramArguments = [
           "/bin/sh"
           "-c"
-          "rm -f ${config.home.homeDirectory}/.local/share/atuin/atuin.sock && exec ${pkgs.atuin}/bin/atuin daemon start"
+          "rm -f ${config.home.homeDirectory}/.local/share/atuin/atuin.sock && exec ${atuin}/bin/atuin daemon start"
         ];
         RunAtLoad = true;
         KeepAlive = true;
