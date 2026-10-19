@@ -26,7 +26,12 @@ return {
 			},
 		},
 		config = function()
-			require("java").setup({})
+			local tools_path = vim.fn.stdpath("config") .. "-java/tools.json"
+			if vim.fn.filereadable(tools_path) ~= 1 then
+				error("Java tool paths are missing; rebuild your Home Manager configuration: " .. tools_path)
+			end
+			local tools = vim.json.decode(table.concat(vim.fn.readfile(tools_path), "\n"))
+			require("java").setup(tools)
 			vim.lsp.config("jdtls", {
 				on_attach = require("nvchad.configs.lspconfig").on_attach,
 				capabilities = require("nvchad.configs.lspconfig").capabilities,
