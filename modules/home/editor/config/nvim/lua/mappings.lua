@@ -93,6 +93,12 @@ map(
 	{ desc = "Search current word" }
 )
 map(
+	"x",
+	"<leader>sw",
+	':<C-u>lua require("spectre").open_visual()<CR>',
+	{ desc = "Search selected text" }
+)
+map(
 	"n",
 	"<leader>sp",
 	'<cmd>lua require("spectre").open_file_search({select_word=true})<CR>',
@@ -111,4 +117,3 @@ map("n", "<leader>lp", function()
 		vim.lsp.buf.code_action()
 	end
 end, { desc = "Slint: Live Preview (or code actions)" })
-

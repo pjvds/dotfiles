@@ -3,7 +3,6 @@ require("nvchad.configs.lspconfig").defaults()
 
 -- servers with default config
 local servers = {
-	"ts_ls",
 	"html",
 	"cssls",
 	"gopls",
@@ -74,7 +73,15 @@ vim.lsp.config("vue_ls", {
 					command,
 					payload,
 				},
-			}, { bufnr = context.bufnr }, function(_, r)
+			}, { bufnr = context.bufnr }, function(err, r)
+				if err then
+					vim.notify("Vue TypeScript request failed: " .. vim.inspect(err), vim.log.levels.ERROR)
+					return
+				end
+				if type(r) ~= "table" or r.body == nil then
+					vim.notify("Vue TypeScript request returned no response body", vim.log.levels.ERROR)
+					return
+				end
 				local response_data = { { id, r.body } }
 				client:notify("tsserver/response", response_data)
 			end)
