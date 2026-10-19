@@ -14,34 +14,25 @@ return {
 	},
 	{
 		"nvim-java/nvim-java",
-		enabled = false,
+		commit = "db5536b4cb3da153084e50016596fd0e3a319aae",
 		lazy = false,
 		dependencies = {
-			"nvim-java/lua-async-await",
-			"nvim-java/nvim-java-core",
-			"nvim-java/nvim-java-test",
-			"nvim-java/nvim-java-dap",
 			"MunifTanjim/nui.nvim",
 			"neovim/nvim-lspconfig",
 			"mfussenegger/nvim-dap",
 			{
-				"williamboman/mason.nvim",
-				opts = {
-					registries = {
-						"github:nvim-java/mason-registry",
-						"github:mason-org/mason-registry",
-					},
-				},
+				"JavaHello/spring-boot.nvim",
+				commit = "218c0c26c14d99feca778e4d13f5ec3e8b1b60f0",
 			},
 		},
 		config = function()
 			require("java").setup({})
-			require("lspconfig").jdtls.setup({
+			vim.lsp.config("jdtls", {
 				on_attach = require("nvchad.configs.lspconfig").on_attach,
 				capabilities = require("nvchad.configs.lspconfig").capabilities,
 				filetypes = { "java" },
 			})
+			vim.lsp.enable("jdtls")
 		end,
 	},
 }
-
