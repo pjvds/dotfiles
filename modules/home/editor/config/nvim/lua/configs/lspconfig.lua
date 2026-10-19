@@ -9,6 +9,7 @@ local servers = {
 	"jsonls",
 	"graphql",
 	"csharp_ls",
+	"fsautocomplete",
 	"rust_analyzer",
 	"terraformls",
 	"pyright",

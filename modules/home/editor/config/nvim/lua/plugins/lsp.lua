@@ -26,6 +26,10 @@ return {
 			},
 		},
 		config = function()
+			local defaults = require("java.config")
+			if defaults.jdtls.auto_install == nil then
+				error("Installed nvim-java is too old for Nix-managed tools; update nvim-java through Lazy first")
+			end
 			local tools_path = vim.fn.stdpath("config") .. "-java/tools.json"
 			if vim.fn.filereadable(tools_path) ~= 1 then
 				error("Java tool paths are missing; rebuild your Home Manager configuration: " .. tools_path)

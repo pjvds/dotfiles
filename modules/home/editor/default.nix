@@ -25,6 +25,8 @@ in
     home.packages = with pkgs; [
       neovim
       vim
+      fsautocomplete
+      tree-sitter
     ];
 
     home.file = {

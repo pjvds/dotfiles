@@ -1,25 +1,19 @@
 return {
 	{
 		"nvim-treesitter/nvim-treesitter",
-		opts = function(_, opts)
-			-- Ensure slint parser is installed
-			if type(opts.ensure_installed) == "table" then
-				vim.list_extend(opts.ensure_installed, { "fsharp", "c_sharp", "dart" })
+		branch = "main",
+		lazy = false,
+		event = {},
+		cmd = { "TSInstall", "TSUpdate", "TSUninstall", "TSLog" },
+		opts = {
+			ensure_installed = { "lua", "luadoc", "printf", "vim", "vimdoc", "fsharp", "c_sharp", "dart", "slint" },
+		},
+		config = function()
+			local treesitter = require("nvim-treesitter")
+			if type(treesitter.install) ~= "function" then
+				error("Tree-sitter is still on the legacy branch; update nvim-treesitter through Lazy")
 			end
-		end,
-		config = function(_, opts)
-			require("nvim-treesitter.configs").setup(opts)
-
-			-- Patch NvChad's broken TSInstallAll command (calls non-existent
-			-- require("nvim-treesitter").install — correct API is nvim-treesitter.install)
-			vim.api.nvim_create_user_command("TSInstallAll", function()
-				local spec = require("lazy.core.config").plugins["nvim-treesitter"]
-				local plugin_opts = type(spec.opts) == "table" and spec.opts or {}
-				local langs = plugin_opts.ensure_installed or {}
-				if #langs > 0 then
-					require("nvim-treesitter.install").install {}(unpack(langs))
-				end
-			end, {})
+			treesitter.setup({})
 		end,
 	},
 }
