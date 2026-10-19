@@ -1,6 +1,8 @@
 return {
   defaults = { lazy = true },
   install = { colorscheme = { "nvchad" } },
+  -- No plugin needs luarocks; disabling avoids hererocks runtime installs.
+  rocks = { enabled = false },
 
   ui = {
     icons = {
