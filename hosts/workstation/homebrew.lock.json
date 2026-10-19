@@ -10,23 +10,23 @@
     "copilot-cli": "1.0.98",
     "cursorcerer": "4.1",
     "deckset": "2.1.0,2823",
-    "drawio": "32.4.1",
+    "drawio": "32.5.5",
     "flutter": "3.47.7",
     "font-sf-pro": "latest",
-    "font-sketchybar-app-font": "3.0.8",
-    "github-copilot-app": "1.1.29",
+    "font-sketchybar-app-font": "3.0.10",
+    "github-copilot-app": "1.1.30",
     "kitty": "0.49.2",
     "microsoft-azure-storage-explorer": "1.46.0",
     "obsidian": "1.14.4",
     "orbstack": "2.2.4,21120",
     "philips-hue-sync": "1.13.1.83,367fa136-d05e-4de6-8f9b-318fed481842,83",
-    "postman": "12.32.4",
+    "postman": "12.33.0",
     "proton-pass": "1.42.0",
     "protonvpn": "6.5.2",
     "qmk-toolbox": "0.3.4",
     "slack": "4.52.178",
     "sonos": "90.0-82050,vHbjDs9q4X",
     "warp": "0.2026.10.14.08.27.stable_01",
-    "zen": "1.23.2b"
+    "zen": "1.23.3b"
   }
 }
