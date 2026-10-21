@@ -7,6 +7,7 @@ let cfg = config.my.fonts; in
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
       # Core monospace fonts
+      anonymous-pro-fonts
       cascadia-code
       hasklig
       source-code-pro
