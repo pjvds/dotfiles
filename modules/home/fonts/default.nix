@@ -10,6 +10,7 @@ let cfg = config.my.fonts; in
       anonymous-pro-fonts
       cascadia-code
       hasklig
+      martian-mono
       source-code-pro
       dejavu_fonts
 

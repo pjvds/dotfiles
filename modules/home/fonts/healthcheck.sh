@@ -14,3 +14,11 @@ if [[ "$count" -lt 4 ]]; then
 fi
 
 echo "Anonymous Pro: all four font styles installed"
+
+martian_count=$(find -L "$font_dir" -type f \( -iname '*MartianMono*.ttf' -o -iname '*MartianMono*.otf' \) | wc -l | tr -d ' ')
+if [[ "$martian_count" -eq 0 ]]; then
+  echo "Martian Mono: font files missing (rebuild and activate)"
+  exit 1
+fi
+
+echo "Martian Mono: font files installed"
