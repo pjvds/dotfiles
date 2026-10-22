@@ -81,6 +81,16 @@ This rule does not relax when the user says "continue", "go ahead", or "use your
 judgment" unless that response follows the required disclosure and explicitly
 approves the specific installation action.
 
+### Prefer Docker for missing CLI tools
+
+If a required application is missing and it is a CLI tool, prefer running it
+in a Docker container rather than installing it on the host machine.
+Use an already-installed Docker runtime and a trusted image; do not install
+Docker automatically. Pulling an image (including an implicit pull by
+`docker run`) still requires the explicit download approval described above.
+If Docker is unavailable or unsuitable, explain why before proposing a host
+installation. Keep mounts limited to the files needed for the task.
+
 ---
 
 ### ⛔ NEVER DEPLOY ⛔
