@@ -2,6 +2,21 @@
 let
   cfg = config.my.cloudK8s;
   dotfiles = "${config.home.homeDirectory}/dotfiles";
+  # Fabric requires Invoke < 3: https://github.com/fabric/fabric/issues/2376
+  azurePkgs = pkgs.extend (_: prev: {
+    pythonPackagesExtensions = prev.pythonPackagesExtensions ++ [
+      (_: pythonPrev: {
+        invoke = pythonPrev.invoke.overridePythonAttrs {
+          version = "2.2.1";
+          src = prev.fetchPypi {
+            pname = "invoke";
+            version = "2.2.1";
+            hash = "sha256-UVv0m0pIkyt5sCRZA0jaIvOcSULf+ZGtH7i4uuob5wc=";
+          };
+        };
+      })
+    ];
+  });
 in
 {
   options.my.cloudK8s.enable = lib.mkEnableOption "cloud and Kubernetes tools";
@@ -9,7 +24,7 @@ in
   config = lib.mkIf cfg.enable {
     home.packages = with pkgs; [
       awscli2
-      azure-cli
+      azurePkgs.azure-cli
       google-cloud-sdk
       kubectl
       kubectx
