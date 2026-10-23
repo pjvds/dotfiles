@@ -26,7 +26,7 @@ let cfg = config.my.python; in
       };
       initContent = ''
         # Pip user bin (pip install --user)
-        export PATH="$PATH:$HOME/Library/Python/3.13/bin"
+        export PATH="$PATH:$HOME/Library/Python/${pkgs.python3.pythonVersion}/bin"
 
         # Pipx
         export PATH="$PATH:$HOME/.local/bin"
