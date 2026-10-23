@@ -6,6 +6,10 @@ let
   azurePkgs = pkgs.extend (_: prev: {
     pythonPackagesExtensions = prev.pythonPackagesExtensions ++ [
       (_: pythonPrev: {
+        # Redis integration tests stall on this macOS build; retain import checks.
+        mocket = pythonPrev.mocket.overridePythonAttrs {
+          doCheck = false;
+        };
         invoke = pythonPrev.invoke.overridePythonAttrs {
           version = "2.2.1";
           src = prev.fetchPypi {
