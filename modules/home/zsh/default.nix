@@ -40,6 +40,7 @@ in
         rm      = "rm -rf";
         tailf   = "tail -f";
         grep    = "grep --color=auto";
+        whatsmyip = "${pkgs.curl}/bin/curl -fsS -4 https://icanhazip.com/";
 
       };
 
@@ -61,7 +62,6 @@ in
           # Dotfiles root
           export DOTFILES=$HOME/dotfiles
           export DOTFILES_HOME=$DOTFILES
-          export PATH="$PATH:$DOTFILES_HOME/bin"
 
           # Locale
           export LANG="en_US.UTF-8"
