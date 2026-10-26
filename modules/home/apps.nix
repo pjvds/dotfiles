@@ -14,8 +14,26 @@ let cfg = config.my.apps; in
 
       jetbrains.rider
       shottr
-      vscode
     ];
+
+    programs.vscode = {
+      enable = true;
+      profiles.default = {
+        mutableUserSettings = true;
+        enableUpdateCheck = false;
+      };
+    };
+
+    targets.darwin.defaults = {
+      "com.lwouis.alt-tab-macos" = {
+        SUEnableAutomaticChecks = false;
+        SUAutomaticallyUpdate = false;
+      };
+      "ch.sudo.cyberduck" = {
+        SUEnableAutomaticChecks = false;
+        SUAutomaticallyUpdate = false;
+      };
+    };
 
     # MSSQL extension (Azure Data Studio's successor for SQL Server/Azure SQL work).
     home.activation.installVscodeMssqlExtension = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
