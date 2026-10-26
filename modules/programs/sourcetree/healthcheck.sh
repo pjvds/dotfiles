@@ -11,4 +11,11 @@ if [[ ! -x /Applications/Sourcetree.app/Contents/Resources/stree ]]; then
   exit 1
 fi
 
-echo "Sourcetree: application installed"
+for key in SUEnableAutomaticChecks SUAutomaticallyUpdate; do
+  if [[ "$(defaults read com.torusknot.SourceTreeNotMAS "$key")" != "0" ]]; then
+    echo "Sourcetree: $key must be disabled (rebuild, activate, and restart)"
+    exit 1
+  fi
+done
+
+echo "Sourcetree: application installed; automatic updates disabled"
