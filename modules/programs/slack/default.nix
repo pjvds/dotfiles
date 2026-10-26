@@ -6,5 +6,10 @@ in {
 
   config = lib.mkIf cfg.enable {
     homebrew.casks = [ "slack" ];
+
+    # Slack reads enforced settings at the plist root, not under Defaults.
+    home-manager.users.${config.system.primaryUser} = {
+      targets.darwin.defaults."com.tinyspeck.slackmacgap".AutoUpdate = false;
+    };
   };
 }
