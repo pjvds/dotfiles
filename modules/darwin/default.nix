@@ -24,6 +24,7 @@
     ../programs/supernote
     # Darwin-side installs for Home Manager modules
     ../home/atuin/homebrew.nix
+    ../home/cloud-k8s/homebrew.nix
   ];
 
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [

@@ -17,6 +17,7 @@
     # GUI Applications (Casks) - shared across all hosts
     casks = [
       "adobe-acrobat-reader"
+      # azure-cli is managed via the cloud-k8s module
       # github-copilot CLI is managed via the copilot program module (cask: copilot-cli)
       # flutter is managed via the mobile module
       # hides the mouse cursor after a few seconds of inactivity
