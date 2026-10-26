@@ -7,6 +7,11 @@ in
   options.my.zenPrefs.enable = lib.mkEnableOption "Zen browser preference overrides";
 
   config = lib.mkIf cfg.enable {
+    targets.darwin.defaults."app.zen-browser.zen" = {
+      EnterprisePoliciesEnabled = true;
+      DisableAppUpdate = true;
+    };
+
     # Disable the OS Keychain client-cert PKCS#11 module. With it enabled, TLS
     # handshakes against endpoints that request (but don't require) a client
     # cert — e.g. device.login.microsoftonline.com during Entra ID device
