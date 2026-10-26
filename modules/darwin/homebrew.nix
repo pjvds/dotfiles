@@ -36,6 +36,7 @@
     ];
 
     brews = [
+      # atuin is managed via the atuin module
       "switchaudio-osx"
       # cocoapods is managed via the mobile module
       { name = "pulumi/tap/pulumi"; }  # nixpkgs lacks the .NET language plugin
