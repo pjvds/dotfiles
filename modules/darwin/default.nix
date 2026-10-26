@@ -63,6 +63,15 @@
   # Home Manager initializes completion after adding user plugin paths.
   programs.zsh.enableGlobalCompInit = false;
 
+  programs.zsh.shellInit = lib.mkBefore ''
+    if [[ -o interactive && "''${ZSH_PROFILE:-0}" == 1 ]]; then
+      zmodload zsh/zprof
+      autoload -Uz add-zsh-hook
+      _zsh_profile_report() { zprof; }
+      add-zsh-hook zshexit _zsh_profile_report
+    fi
+  '';
+
   # macOS system defaults
   system.defaults = {
     # Dock (Application Bar)
