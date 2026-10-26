@@ -4,6 +4,7 @@
     ./dictation.nix
     # Unified program modules (install + config in one place)
     ../programs/copilot
+    ../programs/claude-code
     ../programs/proton
     ../programs/postman
     ../programs/aerospace
@@ -39,6 +40,7 @@
   ];
 
   my.copilot.enable    = true;
+  my.claudeCode.enable = true;
   my.proton.enable     = true;
   my.postman.enable    = true;
   my.aerospace.enable  = true;
