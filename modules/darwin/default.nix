@@ -60,6 +60,9 @@
   # Disable nix-darwin's management of the Nix installation
   nix.enable = false;
 
+  # Home Manager initializes completion after adding user plugin paths.
+  programs.zsh.enableGlobalCompInit = false;
+
   # macOS system defaults
   system.defaults = {
     # Dock (Application Bar)
