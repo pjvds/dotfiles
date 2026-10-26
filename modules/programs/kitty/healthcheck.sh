@@ -8,6 +8,12 @@ fi
 
 kitty +runpy '
 from kitty.fonts.core_text import list_fonts
+from kitty.config import load_config
+from kitty.constants import config_dir
+from os.path import join
+
+if load_config(join(config_dir, "kitty.conf")).update_check_interval != 0:
+    raise SystemExit("Kitty: automatic update checks are not disabled")
 
 styles = {
     (font["descriptor"]["bold"], font["descriptor"]["italic"])
