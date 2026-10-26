@@ -45,6 +45,28 @@ in {
       home.file."Library/Application Support/obsidian".source =
         config.lib.file.mkOutOfStoreSymlink "${homeDir}/dotfiles/modules/programs/obsidian/config";
 
+      home.activation.obsidianUpdates = lib.hm.dag.entryAfter [ "linkGeneration" ] ''
+        (
+          settings="${config.home.homeDirectory}/Library/Application Support/obsidian/obsidian.json"
+          if [ -n "''${DRY_RUN:-}" ]; then
+            echo "Would disable Obsidian automatic updates in $settings"
+          else
+            candidate="$(mktemp "$settings.XXXXXX")" || exit 1
+            trap 'rm -f "$candidate"' EXIT
+            if [ -f "$settings" ]; then
+              ${pkgs.jq}/bin/jq -e '
+                if type == "object" then .updateDisabled = true
+                else error("Obsidian settings must be an object") end
+              ' "$settings" > "$candidate" || exit 1
+              chmod "$(stat -f '%Lp' "$settings")" "$candidate" || exit 1
+            else
+              printf '%s\n' '{"updateDisabled":true}' > "$candidate"
+            fi
+            mv "$candidate" "$settings"
+          fi
+        ) || exit 1
+      '';
+
       # Merge nix-managed Tasks plugin presets into the vault's data.json without
       # clobbering other user-editable settings (statuses, global filters, etc.).
       home.activation.obsidianTaskPresets =
