@@ -37,7 +37,8 @@ let cfg = config.my.python; in
 
         # Defer pyenv initialization to speed up shell startup
         _init_pyenv() {
-          eval "$(pyenv init - zsh)"
+          # Rehash after adding Python CLI tools, not on every shell startup.
+          eval "$(pyenv init - --no-rehash zsh)"
         }
         zsh-defer _init_pyenv
       '';
