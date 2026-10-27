@@ -58,7 +58,8 @@ in {
                 if type == "object" then .updateDisabled = true
                 else error("Obsidian settings must be an object") end
               ' "$settings" > "$candidate" || exit 1
-              chmod "$(stat -f '%Lp' "$settings")" "$candidate" || exit 1
+              mode="$(/usr/bin/stat -f '%Lp' "$settings")" || exit 1
+              chmod "$mode" "$candidate" || exit 1
             else
               printf '%s\n' '{"updateDisabled":true}' > "$candidate"
             fi
