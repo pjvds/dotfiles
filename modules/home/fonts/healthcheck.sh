@@ -22,3 +22,11 @@ if [[ "$martian_count" -eq 0 ]]; then
 fi
 
 echo "Martian Mono: font files installed"
+
+plex_count=$(find -L "$font_dir" -type f \( -iname 'IBMPlexMono*.ttf' -o -iname 'IBMPlexMono*.otf' \) | wc -l | tr -d ' ')
+if [[ "$plex_count" -eq 0 ]]; then
+  echo "IBM Plex Mono: font files missing (rebuild and activate)"
+  exit 1
+fi
+
+echo "IBM Plex Mono: font files installed"
