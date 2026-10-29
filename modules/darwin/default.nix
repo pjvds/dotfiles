@@ -7,6 +7,7 @@
     ../programs/claude-code
     ../programs/proton
     ../programs/postman
+    ../programs/pgadmin
     ../programs/aerospace
     ../programs/sketchybar
     ../programs/borders
@@ -43,6 +44,7 @@
   my.claudeCode.enable = true;
   my.proton.enable     = true;
   my.postman.enable    = true;
+  my.pgadmin.enable    = true;
   my.aerospace.enable  = true;
   my.sketchybar.enable = true;
   my.borders.enable    = true;
