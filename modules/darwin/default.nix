@@ -56,7 +56,7 @@
   my.cursorcerer.enable = true;
   my.mobile.enable      = true;
   my.dotnet.enable      = true;
-  my.docker.enable      = true;
+  my.docker.enable      = false;
 
   # Time Zone
   time.timeZone = "Europe/Amsterdam";
