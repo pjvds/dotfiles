@@ -115,6 +115,7 @@
 
   # Back up unmanaged /etc files before nix-darwin validates or replaces them.
   system.activationScripts.preActivation.text = ''
+    nixDarwinEtcBackups=()
     for f in /etc/zshrc /etc/zshenv /etc/bashrc /etc/zprofile; do
       if [ -f "$f" ] && ! grep -q "nix-darwin" "$f" 2>/dev/null; then
         backup="$f.before-nix-darwin"
@@ -129,6 +130,26 @@
         fi
         echo "Backing up $f -> $backup"
         mv "$f" "$backup"
+        nixDarwinEtcBackups+=("$backup")
+      fi
+    done
+  '';
+
+  system.activationScripts.postActivation.text = ''
+    for backup in "''${nixDarwinEtcBackups[@]}"; do
+      f="''${backup%%.before-nix-darwin*}"
+      echo "Comparing $backup -> $f"
+      if /usr/bin/diff -u "$backup" "$f"; then
+        rm -- "$backup"
+        echo "No changes to $f; removed identical backup $backup"
+      else
+        diff_status=$?
+        if [ "$diff_status" -eq 1 ]; then
+          echo "Changes to $f; keeping backup $backup"
+        else
+          echo "Failed to compare $f; keeping backup $backup" >&2
+          exit "$diff_status"
+        fi
       fi
     done
   '';
