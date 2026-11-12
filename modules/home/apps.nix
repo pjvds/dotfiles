@@ -2,19 +2,21 @@
 let cfg = config.my.apps; in
 {
   options.my.apps.enable = lib.mkEnableOption "GUI applications";
+  options.my.apps.idea.enable = lib.mkEnableOption "Nix-managed IntelliJ IDEA" // {
+    default = true;
+  };
 
   config = lib.mkIf cfg.enable {
     home.packages = with pkgs; [
       alt-tab-macos
       aws-vault
       cyberduck
-      jetbrains.idea
 
       protonmail-desktop
 
       jetbrains.rider
       shottr
-    ];
+    ] ++ lib.optionals cfg.idea.enable [ pkgs.jetbrains.idea ];
 
     programs.vscode = {
       enable = true;

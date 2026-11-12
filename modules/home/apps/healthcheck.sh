@@ -1,6 +1,14 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+if [[ "$(hostname -s)" == "NL-F2T6KVCQ3G" ]]; then
+  app="/Applications/IntelliJ IDEA.app"
+  if [[ ! -x "$app/Contents/MacOS/idea" ]]; then
+    echo "IntelliJ IDEA: Homebrew application missing (rebuild and activate)"
+    exit 1
+  fi
+fi
+
 for domain in com.lwouis.alt-tab-macos ch.sudo.cyberduck; do
   for key in SUEnableAutomaticChecks SUAutomaticallyUpdate; do
     if [[ "$(defaults read "$domain" "$key")" != "0" ]]; then

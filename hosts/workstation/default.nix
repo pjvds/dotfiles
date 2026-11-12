@@ -17,8 +17,13 @@
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
-    users.pvandesande = import ./home.nix;
+    users.pvandesande = {
+      imports = [ ./home.nix ];
+      my.apps.idea.enable = false;
+    };
   };
+
+  homebrew.casks = [ "intellij-idea" ];
 
   my.karabiner.enable = lib.mkForce false;
   my.mobile.enable = lib.mkForce false;
