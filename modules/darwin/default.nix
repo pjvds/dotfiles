@@ -35,7 +35,6 @@
     "idea"
     "raycast"
     "rider"
-    "shortcat"
     "shottr"
     "vscode"
   ];

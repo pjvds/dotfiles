@@ -26,7 +26,6 @@
     ../programs/node
     ../programs/hunk
     ../programs/kanata
-    ../programs/shortcat
     ../programs/writetext
     ../programs/chrome
     ./z
@@ -54,7 +53,6 @@
   my.node.enable       = true;
   my.hunk.enable       = true;
   my.kanata.enable     = false;
-  my.shortcat.enable   = true;
   my.writetext.enable  = true;
   my.chrome.enable     = true;
   my.z.enable          = true;
