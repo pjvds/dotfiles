@@ -21,6 +21,7 @@
   };
 
   my.karabiner.enable = lib.mkForce false;
+  my.mobile.enable = lib.mkForce false;
   my.camundaModeler.enable = true;
   my.drawio.enable = true;
   my.sourcetree.enable = true;
