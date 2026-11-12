@@ -20,10 +20,11 @@
     users.pvandesande = {
       imports = [ ./home.nix ];
       my.apps.idea.enable = false;
+      my.apps.rider.enable = false;
     };
   };
 
-  homebrew.casks = [ "intellij-idea" ];
+  homebrew.casks = [ "intellij-idea" "rider" ];
 
   my.karabiner.enable = lib.mkForce false;
   my.mobile.enable = lib.mkForce false;

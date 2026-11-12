@@ -5,6 +5,9 @@ let cfg = config.my.apps; in
   options.my.apps.idea.enable = lib.mkEnableOption "Nix-managed IntelliJ IDEA" // {
     default = true;
   };
+  options.my.apps.rider.enable = lib.mkEnableOption "Nix-managed JetBrains Rider" // {
+    default = true;
+  };
 
   config = lib.mkIf cfg.enable {
     home.packages = with pkgs; [
@@ -14,9 +17,9 @@ let cfg = config.my.apps; in
 
       protonmail-desktop
 
-      jetbrains.rider
       shottr
-    ] ++ lib.optionals cfg.idea.enable [ pkgs.jetbrains.idea ];
+    ] ++ lib.optionals cfg.idea.enable [ pkgs.jetbrains.idea ]
+      ++ lib.optionals cfg.rider.enable [ pkgs.jetbrains.rider ];
 
     programs.vscode = {
       enable = true;

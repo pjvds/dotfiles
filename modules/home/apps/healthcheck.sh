@@ -7,6 +7,11 @@ if [[ "$(hostname -s)" == "NL-F2T6KVCQ3G" ]]; then
     echo "IntelliJ IDEA: Homebrew application missing (rebuild and activate)"
     exit 1
   fi
+  app="/Applications/Rider.app"
+  if [[ ! -x "$app/Contents/MacOS/rider" ]]; then
+    echo "JetBrains Rider: Homebrew application missing (rebuild and activate)"
+    exit 1
+  fi
 fi
 
 for domain in com.lwouis.alt-tab-macos ch.sudo.cyberduck; do
