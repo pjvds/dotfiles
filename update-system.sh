@@ -1,5 +1,6 @@
 #!/bin/bash
 set -e # Exit immediately if a command exits with a non-zero status
+set -o pipefail
 
 # Determine dotfiles directory (defaults to $HOME/dotfiles)
 DOTFILES_DIR="$HOME/dotfiles"
@@ -36,14 +37,6 @@ git -C "${DOTFILES_DIR}" submodule update --init --recursive || echo "⚠️  Su
 echo "❄️ Updating flake inputs..."
 nix flake update --flake "${DOTFILES_DIR}"
 
-# update flake.lock when changed
-if ! git -C "${DOTFILES_DIR}" diff --quiet "flake.lock"; then
-    git -C "${DOTFILES_DIR}" commit --only -m "nix: update flake.lock" -- "flake.lock"
-    echo "📝 Committed flake.lock changes."
-else
-    echo "⏭️ Skipped committing flake.lock because it did not change."
-fi
-
 sudo darwin-rebuild switch --flake "${DOTFILES_DIR}#${MACHINE_HOSTNAME}"
 
 echo "🍺 Updating Homebrew lock file..."
@@ -67,6 +60,14 @@ lock = {
 }
 print(json.dumps(lock, indent=2, sort_keys=True))
 " > "${DOTFILES_DIR}/hosts/${HOST_DIR}/homebrew.lock.json"
+
+# Commit lock files only after activation and lock generation succeed.
+if ! git -C "${DOTFILES_DIR}" diff --quiet "flake.lock"; then
+    git -C "${DOTFILES_DIR}" commit --only -m "nix: update flake.lock" -- "flake.lock"
+    echo "📝 Committed flake.lock changes."
+else
+    echo "⏭️ Skipped committing flake.lock because it did not change."
+fi
 
 # update homebrew lock file when changed
 if ! git -C "${DOTFILES_DIR}" diff --quiet "hosts/${HOST_DIR}/homebrew.lock.json"; then
