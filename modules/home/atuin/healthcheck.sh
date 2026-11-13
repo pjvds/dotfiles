@@ -27,7 +27,9 @@ if [[ ! -f "$plist" ]]; then
   exit 1
 fi
 command_line="$(/usr/libexec/PlistBuddy -c 'Print :ProgramArguments:2' "$plist")"
-if [[ "$command_line" != *"exec $atuin daemon start" ]]; then
+# Home Manager may wrap the command in a quoted sh invocation after wait4path.
+if [[ "$command_line" != *"exec $atuin daemon start" &&
+      "$command_line" != *"exec $atuin daemon start'" ]]; then
   echo "Atuin: daemon does not use the Homebrew binary; activate the configuration"
   exit 1
 fi
