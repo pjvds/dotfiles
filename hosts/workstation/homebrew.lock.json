@@ -1,6 +1,6 @@
 {
   "brews": {
-    "atuin": "18.24.6",
+    "atuin": "18.24.8",
     "snyk-cli": "1.1308.4",
     "switchaudio-osx": "1.2.2"
   },
@@ -9,20 +9,20 @@
     "azure-cli": "2.92.0",
     "camunda-modeler": "5.53.0",
     "claude-code": "2.1.311",
-    "copilot-cli": "1.0.109",
+    "copilot-cli": "1.0.110",
     "cursorcerer": "4.1",
     "deckset": "2.1.0,2823",
     "drawio": "32.6.10",
     "font-sf-pro": "latest",
     "font-sketchybar-app-font": "3.0.23",
-    "github-copilot-app": "1.3.0",
+    "github-copilot-app": "1.4.0",
     "intellij-idea": "2026.3,263.7307.200",
     "kitty": "0.50.0",
     "microsoft-azure-storage-explorer": "1.47.1",
-    "obsidian": "1.15.0",
+    "obsidian": "1.15.1",
     "pgadmin4": "9.19",
     "philips-hue-sync": "1.13.1.83,367fa136-d05e-4de6-8f9b-318fed481842,83",
-    "postman": "12.34.0",
+    "postman": "12.36.3",
     "proton-pass": "1.43.0",
     "protonvpn": "6.5.2",
     "qmk-toolbox": "0.3.4",
@@ -30,7 +30,7 @@
     "slack": "4.53.287",
     "sonos": "90.0-82050,vHbjDs9q4X",
     "sourcetree": "4.2.20,324",
-    "warp": "0.2026.11.04.08.17.stable_01",
+    "warp": "0.2026.11.11.08.17.stable_01",
     "zen": "1.24.2b"
   }
 }
