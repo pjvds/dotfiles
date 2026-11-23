@@ -1,5 +1,9 @@
 return {
 	{
+		"NvChad/base46",
+		branch = "v3.0",
+	},
+	{
 		"wellle/context.vim",
 		event = "LspAttach",
 		config = function()
