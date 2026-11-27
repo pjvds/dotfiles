@@ -7,6 +7,7 @@ NVIM_CONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/nvim"
 NVIM_DATA="${XDG_DATA_HOME:-$HOME/.local/share}/nvim"
 LOCKFILE="$NVIM_CONFIG/lazy-lock.json"
 JAVA_TOOLS="${XDG_CONFIG_HOME:-$HOME/.config}/nvim-java/tools.json"
+JAVA_SETTINGS="${XDG_CONFIG_HOME:-$HOME/.config}/nvim-java/lsp.json"
 
 errors=0
 warnings=0
@@ -26,6 +27,28 @@ if [[ -f "$JAVA_TOOLS" ]]; then
   done < <(jq -r 'to_entries[] | [.key, .value.path] | @tsv' "$JAVA_TOOLS")
 else
   fail "$JAVA_TOOLS missing (rebuild?)"
+fi
+
+echo "Java project runtimes:"
+if [[ -f "$JAVA_SETTINGS" ]]; then
+  if jq -e '
+    (.java.configuration.runtimes | map(.name) | sort) == ["JavaSE-17", "JavaSE-21"] and
+    (.java.configuration.runtimes | map(select(.default == true) | .name)) == ["JavaSE-21"] and
+    (.java.import.gradle.java.home == (.java.configuration.runtimes[] | select(.name == "JavaSE-21") | .path))
+  ' "$JAVA_SETTINGS" >/dev/null; then
+    while IFS=$'\t' read -r runtime path; do
+      if [[ -x "$path/bin/java" && -x "$path/bin/javac" ]]; then
+        ok "$runtime"
+      else
+        fail "$runtime JDK missing: $path (rebuild?)"
+      fi
+    done < <(jq -r '.java.configuration.runtimes[] | [.name, .path] | @tsv' "$JAVA_SETTINGS")
+    ok "Gradle importer configured for Java 21"
+  else
+    fail "Java runtime settings must provide Java 17 and default Java 21, with Gradle using Java 21"
+  fi
+else
+  fail "$JAVA_SETTINGS missing (rebuild?)"
 fi
 
 echo "lazy plugins vs lazy-lock.json:"

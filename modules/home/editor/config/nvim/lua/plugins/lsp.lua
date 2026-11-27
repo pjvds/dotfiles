@@ -35,8 +35,19 @@ return {
 				error("Java tool paths are missing; rebuild your Home Manager configuration: " .. tools_path)
 			end
 			local tools = vim.json.decode(table.concat(vim.fn.readfile(tools_path), "\n"))
+			local settings_path = vim.fn.stdpath("config") .. "-java/lsp.json"
+			local settings
+			if vim.fn.filereadable(settings_path) == 1 then
+				settings = vim.json.decode(table.concat(vim.fn.readfile(settings_path), "\n"))
+			else
+				vim.notify(
+					"Java 17/21 project runtimes are not activated; rebuild Home Manager. Keeping existing Java setup.",
+					vim.log.levels.WARN
+				)
+			end
 			require("java").setup(tools)
 			vim.lsp.config("jdtls", {
+				settings = settings,
 				on_attach = require("nvchad.configs.lspconfig").on_attach,
 				capabilities = require("nvchad.configs.lspconfig").capabilities,
 				filetypes = { "java" },

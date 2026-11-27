@@ -30,6 +30,15 @@ in
     ];
 
     home.file = {
+      ".config/nvim-java/lsp.json".text = builtins.toJSON {
+        java = {
+          configuration.runtimes = [
+            { name = "JavaSE-17"; path = pkgs.jdk17.home; }
+            { name = "JavaSE-21"; path = pkgs.jdk21.home; default = true; }
+          ];
+          import.gradle.java.home = pkgs.jdk21.home;
+        };
+      };
       ".config/nvim-java/tools.json".text = builtins.toJSON {
         jdtls = managedTool "${pkgs.jdt-language-server}/share/java/jdtls";
         jdk = managedTool pkgs.jdk25.home;
