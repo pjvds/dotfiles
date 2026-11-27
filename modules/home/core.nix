@@ -19,6 +19,7 @@ let cfg = config.my.core; in
       tldr
       tree
       wget
+      w3m
       httpie
       yq
       pv
