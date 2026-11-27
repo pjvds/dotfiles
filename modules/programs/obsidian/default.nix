@@ -17,7 +17,7 @@ in {
       type = lib.types.attrsOf lib.types.str;
       default = {
         links_to_this = ''
-          filter by function task.description.includes("[[" + query.file.filenameWithoutExtension + "]]") || task.description.includes("[[" + query.file.filenameWithoutExtension + "|")'';
+          (description includes [[{{query.file.filenameWithoutExtension}}]]) OR (description includes [[{{query.file.filenameWithoutExtension}}|)'';
       };
       description = ''
         Presets to declaratively merge into the Tasks plugin's data.json on every
